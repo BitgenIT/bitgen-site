@@ -1,0 +1,361 @@
+// ============================================
+// BITGEN - DATABASE CONTENUTI
+// ============================================
+//
+// 📝 COME AGGIUNGERE UN NUOVO ARTICOLO:
+//
+// Devi compilare SOLO questi 4 campi obbligatori:
+//   - titolo
+//   - rubrica
+//   - videoUrl (o lascia "" se non hai ancora il video)
+//   - contenuto (il testo completo dell'articolo)
+//
+// Tutto il resto viene calcolato AUTOMATICAMENTE:
+//   - id (slug generato dal titolo)
+//   - data (quella di oggi al momento dell'aggiunta)
+//   - durata (calcolata dalla lunghezza del testo)
+//   - estratto (preso dalle prime frasi del contenuto)
+//   - tempo di lettura
+//   - tag (estratti automaticamente se non li specifichi)
+//
+// Puoi comunque SOVRASCRIVERE qualsiasi campo se vuoi personalizzarlo.
+// ============================================
+
+
+// ────────────────────────────────────────
+// UTILITY: CALCOLO AUTOMATICO DEI CAMPI
+// ────────────────────────────────────────
+
+function slugify(text) {
+  return text
+    .toLowerCase()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9\s-]/g, '')
+    .trim()
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-')
+    .substring(0, 60);
+}
+
+function calcolaDurata(contenuto) {
+  const parole = contenuto.trim().split(/\s+/).length;
+  if (parole < 250) return "Breve";
+  if (parole < 700) return "Media";
+  return "Lunga";
+}
+
+function estraeEstratto(contenuto, maxLength = 180) {
+  const blocchi = contenuto.split(/\n\s*\n/);
+  let testo = '';
+  for (const b of blocchi) {
+    const trimmed = b.trim();
+    if (!trimmed) continue;
+    if (trimmed.length < 80 && trimmed === trimmed.toUpperCase()) continue;
+    testo = trimmed;
+    break;
+  }
+  if (!testo) testo = contenuto.trim();
+  if (testo.length <= maxLength) return testo;
+  const truncated = testo.substring(0, maxLength);
+  const lastDot = truncated.lastIndexOf('.');
+  const lastSpace = truncated.lastIndexOf(' ');
+  const cutPoint = lastDot > 50 ? lastDot + 1 : lastSpace;
+  return testo.substring(0, cutPoint).trim() + (cutPoint < testo.length ? '…' : '');
+}
+
+function estraeTag(contenuto, titolo) {
+  const keywordMap = {
+    'cpu': 'cpu', 'processore': 'cpu', 'processori': 'cpu',
+    'ram': 'ram', 'memoria': 'ram',
+    'disco': 'storage', 'ssd': 'ssd', 'hdd': 'hdd', 'nvme': 'ssd',
+    'hardware': 'hardware',
+    'wi-fi': 'wifi', 'wifi': 'wifi', 'router': 'rete',
+    'internet': 'internet', 'rete': 'rete', 'reti': 'rete',
+    'dns': 'dns', 'ip': 'ip', 'vpn': 'vpn',
+    'password': 'sicurezza', 'truffa': 'sicurezza', 'phishing': 'phishing',
+    'spam': 'phishing', 'email': 'email', 'virus': 'sicurezza',
+    'malware': 'sicurezza', 'firewall': 'sicurezza',
+    'sicurezza': 'sicurezza',
+    'https': 'sicurezza', 'http': 'sicurezza', 'crittografia': 'sicurezza',
+    'windows': 'windows', 'macos': 'mac', 'mac': 'mac', 'linux': 'linux',
+    'sistema operativo': 'so', 'browser': 'browser',
+    'installare': 'software', 'disinstallare': 'software',
+    'task manager': 'task manager', 'tutorial': 'tutorial',
+    'videochiamata': 'videocall', 'zoom': 'videocall', 'teams': 'videocall',
+    'usb': 'cavi', 'hdmi': 'cavi', 'cavo': 'cavi',
+  };
+  const testo = (titolo + ' ' + contenuto).toLowerCase();
+  const tagsTrovati = new Set();
+  for (const [keyword, tag] of Object.entries(keywordMap)) {
+    if (testo.includes(keyword)) tagsTrovati.add(tag);
+  }
+  return Array.from(tagsTrovati).slice(0, 4);
+}
+
+function dataOggi() {
+  return new Date().toISOString().split('T')[0];
+}
+
+function normalizzaArticolo(art) {
+  const n = { ...art };
+  if (!n.titolo) return null;
+  if (!n.id) n.id = slugify(n.titolo);
+  if (!n.data) n.data = dataOggi();
+  if (!n.rubrica) n.rubrica = "Ma cos'è?";
+  if (!n.durata && n.contenuto) n.durata = calcolaDurata(n.contenuto);
+  if (!n.videoUrl) n.videoUrl = "";
+  if (!n.thumbnail) n.thumbnail = null;
+  if (!n.estratto && n.contenuto) n.estratto = estraeEstratto(n.contenuto);
+  if (!n.tags || n.tags.length === 0) n.tags = estraeTag(n.contenuto || '', n.titolo);
+  return n;
+}
+
+
+// ────────────────────────────────────────
+// ARTICOLI - Aggiungi qui i tuoi contenuti
+// ────────────────────────────────────────
+
+const articoliGrezzi = [
+  {
+    titolo: "Computer vs Monitor: non sono la stessa cosa!",
+    rubrica: "Ma cos'è?",
+    data: "2026-04-14",
+    videoUrl: "https://youtube.com/watch?v=placeholder",
+    contenuto: `Punta il dito verso il tuo PC. Fatto? Se hai indicato lo schermo, questo video è per te.
+
+Quasi tutti chiamano "computer" quello che in realtà è solo il monitor, cioè lo schermo. Ma il monitor da solo non fa assolutamente nulla. È come un televisore spento senza decoder: vedi il vetro, ma non arriva nessun segnale.
+
+Il computer vero e proprio è quella scatola, spesso sotto la scrivania, che contiene il cervello della macchina: il processore, la memoria, il disco dove salvi i file. Lo schermo è solo la finestra attraverso cui vedi quello che il computer sta facendo.
+
+Pensala così: il monitor è il televisore, il computer è il decoder. Il televisore mostra le immagini, ma chi fa il lavoro vero è il decoder.
+
+La prossima volta che qualcuno ti chiede "che computer hai?" e tu indichi lo schermo, ricordati di BIT. Tagga nei commenti qualcuno che chiama computer il monitor.`
+  },
+
+  {
+    titolo: "Come riconoscere un'email di spam in 10 secondi",
+    rubrica: "Digitale Pratico",
+    data: "2026-04-16",
+    videoUrl: "https://youtube.com/watch?v=placeholder",
+    contenuto: `Hai appena vinto 10.000 euro? Oppure no. Hai appena ricevuto spam. E oggi ti insegno a riconoscerlo in dieci secondi netti.
+
+SEGNALE 1: IL MITTENTE
+La prima cosa da guardare è l'indirizzo email del mittente. Non il nome visualizzato, proprio l'indirizzo. Se dice "Banca Intesa" ma l'email è qualcosa tipo info@bancaintesa-sicurezza-verifica.xyz, è spam. Le aziende serie usano il loro dominio ufficiale.
+
+SEGNALE 2: L'URGENZA ARTIFICIALE
+Il tuo account verrà chiuso entro 24 ore! Azione richiesta immediatamente! Se l'email ti mette fretta, fermati. Le aziende reali non ti danno ultimatum via email per cose importanti. L'urgenza serve a farti cliccare senza pensare.
+
+SEGNALE 3: ERRORI E LINK SOSPETTI
+Leggi con attenzione: spesso ci sono errori grammaticali, traduzioni approssimative, frasi che non hanno senso. E soprattutto: passa il mouse sopra i link SENZA cliccare. In basso a sinistra del browser vedi dove porta davvero quel link. Se l'indirizzo non corrisponde al sito ufficiale, non cliccare.
+
+LA REGOLA D'ORO
+Nel dubbio, non cliccare mai sul link nell'email. Apri il browser, vai direttamente sul sito ufficiale digitando tu l'indirizzo, e controlla da lì. Se c'è davvero un problema, lo vedrai anche dal sito.
+
+Ricapitoliamo: controlla il mittente, diffida dell'urgenza, verifica i link. Tre secondi per ciascuno, dieci secondi in tutto per salvarti da una truffa.`
+  },
+
+  {
+    titolo: "Il Mac non prende virus: vero o falso?",
+    rubrica: "Miti Digitali",
+    data: "2026-04-18",
+    videoUrl: "https://youtube.com/watch?v=placeholder",
+    contenuto: `Se pensi che il tuo Mac sia immune dai virus, siediti. Perché quello che sto per dirti potrebbe rovinarti la giornata.
+
+IL MITO
+Per anni si è detto che i Mac non prendono virus. E per anni è stato quasi vero, ma non per il motivo che pensi. Non era perché macOS fosse invulnerabile, ma perché i Mac erano pochissimi rispetto ai PC Windows. Se sei un hacker, attacchi dove ci sono più vittime potenziali.
+
+LA REALTÀ
+Oggi Apple ha una fetta di mercato enorme, e i malware per macOS sono in crescita costante. Il tuo Mac PUÒ prendere virus, trojan e malware. Il fatto che sia meno frequente non significa che sia impossibile.
+
+Il miglior antivirus non è il sistema operativo che usi. Il miglior antivirus sei tu, e le tue abitudini digitali. Ne parliamo in un prossimo video.
+
+Sei Team Mac o Team Windows? Commenta!`
+  },
+
+  {
+    titolo: "CPU, RAM, Disco: spiegati con una cucina",
+    rubrica: "Ma cos'è?",
+    data: "2026-04-21",
+    videoUrl: "https://youtube.com/watch?v=placeholder",
+    contenuto: `Il tuo PC è lento? Forse ha il piano di lavoro troppo piccolo. E no, non sto parlando della tua scrivania.
+
+LA METAFORA
+Immagina il tuo computer come una cucina. La CPU, il processore, è il cuoco: è lui che fa il lavoro, taglia, cuoce, impiatta. Più è bravo e veloce il cuoco, più piatti escono in fretta.
+
+La RAM è il piano di lavoro. Più è grande, più ingredienti puoi tenere pronti contemporaneamente. Se il piano è piccolo, il cuoco deve continuamente andare avanti e indietro a prendere roba.
+
+Il disco è la dispensa. Contiene tutto: le ricette, gli ingredienti, le pentole. Ma per usarli devi tirarli fuori e metterli sul piano di lavoro.
+
+IL PUNTO
+Ecco perché quando apri troppi programmi il PC rallenta: il piano di lavoro è pieno, e il cuoco non riesce più a muoversi.
+
+Quanta RAM ha il tuo PC? Scrivilo nei commenti, ti dico se è abbastanza per quello che fai.`
+  },
+
+  {
+    titolo: "SSD vs HDD: perché il tuo vecchio PC sembra rinascere",
+    rubrica: "Sotto il Cofano",
+    data: "2026-04-23",
+    videoUrl: "https://youtube.com/watch?v=placeholder",
+    contenuto: `Il miglior upgrade che puoi fare al tuo PC costa meno di 50 euro. E no, non è più RAM. Oggi ti racconto la storia di come conserviamo i dati, e perché una tecnologia ha cambiato tutto.
+
+LA STORIA
+Tutto è cominciato con i nastri magnetici: enormi bobine che giravano per leggere i dati in sequenza. Dovevi scorrere tutto il nastro per trovare quello che cercavi. Come cercare una canzone su una musicassetta senza poter saltare da un brano all'altro.
+
+Poi sono arrivati i dischi rigidi, gli HDD: un piatto metallico che gira a migliaia di giri al minuto, con una testina che si muove avanti e indietro per leggere e scrivere. Più veloce del nastro, ma sempre meccanico: pezzi che si muovono, che si consumano, che fanno rumore.
+
+L'SSD
+E poi arriva l'SSD, il Solid State Drive. Nessuna parte meccanica. Zero. I dati vengono salvati su chip di memoria, come nella chiavetta USB ma molto più veloce e affidabile. Il risultato? L'accesso ai dati è quasi istantaneo.
+
+Per farti capire la differenza: un PC con un disco meccanico si accende in 40-60 secondi. Lo stesso PC con un SSD? 10-15 secondi. Stessa macchina, stessa RAM, stesso processore. Cambia solo il disco.
+
+NVME E IL FUTURO
+E se pensavi che l'SSD fosse il massimo, esistono i dischi NVMe: SSD che si collegano direttamente alla scheda madre senza passare per il cavo SATA. Sono fino a 7 volte più veloci di un SSD tradizionale. Sembrano una scheda di memoria piccola così, ma volano.
+
+CONSIGLIO PRATICO
+Se il tuo PC è lento e ha ancora un disco meccanico, il primo upgrade da fare è mettere un SSD. Costa poco, si installa in mezz'ora, e il cambiamento è immediato. È il miglior rapporto spesa-beneficio che esiste nel mondo dei PC.`
+  },
+
+  {
+    titolo: "Task Manager: il primo strumento quando il PC è lento",
+    rubrica: "Digitale Pratico",
+    data: "2026-04-25",
+    videoUrl: "https://youtube.com/watch?v=placeholder",
+    contenuto: `PC lento? Prima di bestemmiare, prima di riavviare, prima di chiamare il tecnico… prova questo. Ti ci vogliono 10 secondi.
+
+COME APRIRLO
+Ctrl + Shift + Esc. Tre tasti insieme, ed ecco il Task Manager, lo strumento più utile e meno conosciuto di Windows. Alternativa: clic destro sulla barra in basso e seleziona Gestione Attività.
+
+COSA GUARDARE
+La scheda Processi ti mostra tutto quello che sta girando sul tuo PC in questo momento, e quanto sta consumando. Le colonne importanti sono quattro: CPU, Memoria, Disco, Rete.
+
+Se vedi una di queste colonne al 100 percento, hai trovato il colpevole. Clicca sulla colonna per ordinare dal più affamato al meno, e scopri quale programma sta mangiando tutte le risorse.
+
+COSA NON FARE
+Non chiudere tutto quello che vedi. Molti processi sono di Windows stesso e servono per far funzionare il PC. Regola: se non riconosci il nome e non sei sicuro di cosa sia, non chiuderlo. Chiudi solo i programmi che riconosci e che sai di non star usando.
+
+Apri il Task Manager adesso e dimmi nei commenti cosa sta usando più risorse sul tuo PC. Scommetto che qualcuno scoprirà cose interessanti.`
+  },
+
+  {
+    titolo: "Cos'è il Wi-Fi? (No, non è Internet)",
+    rubrica: "Ma cos'è?",
+    data: "2026-04-28",
+    videoUrl: "https://youtube.com/watch?v=placeholder",
+    contenuto: `Non c'è il Wi-Fi! Sei sicuro che sia il Wi-Fi il problema? Perché Wi-Fi e Internet non sono la stessa cosa, e oggi te lo dimostro in un minuto.
+
+LA CONFUSIONE
+Wi-Fi è la connessione senza fili tra il tuo dispositivo e il router, quella scatolina con le antenne che hai in casa. Internet è la rete mondiale a cui ti colleghi attraverso il tuo provider.
+
+Sono due cose separate. Puoi avere Wi-Fi perfetto ma Internet assente: il router è acceso, il telefono si collega, ma la linea del provider è giù. Il Wi-Fi funziona, Internet no.
+
+L'ESEMPIO
+Pensala così: il Wi-Fi è la strada che collega casa tua al cancello. Internet è l'autostrada oltre il cancello. Se la strada è a posto ma l'autostrada è bloccata, non vai da nessuna parte.
+
+Alza la mano se almeno una volta hai confuso le due cose. Nessuna vergogna, è l'errore più diffuso del mondo digitale.`
+  },
+
+  {
+    titolo: "Cosa succede quando digiti un sito web: il viaggio dei dati",
+    rubrica: "Sotto il Cofano",
+    data: "2026-04-30",
+    videoUrl: "https://youtube.com/watch?v=placeholder",
+    contenuto: `Ogni volta che apri un sito, succedono almeno dieci cose invisibili in meno di un secondo. Oggi te le racconto tutte, e alla fine di questo video vedrai Internet con occhi diversi.
+
+PASSO 1: IL DNS
+Scrivi google.com nel browser. Il tuo computer non sa cosa sia google.com, conosce solo i numeri. Quindi chiede a un server DNS: ehi, a quale indirizzo numerico corrisponde google.com? Il DNS è come la rubrica telefonica di Internet: traduce i nomi in indirizzi IP.
+
+PASSO 2: LA CONNESSIONE
+Ora il tuo PC conosce l'indirizzo. Manda una richiesta che viaggia dal tuo router, attraverso la rete del tuo provider, attraverso cavi sottomarini e nodi di smistamento, fino al server di Google. Il messaggio non viaggia intero: viene spezzato in pacchetti, come un puzzle smontato che viene rimontato all'arrivo.
+
+PASSO 3: LA RISPOSTA
+Il server di Google riceve la richiesta, prepara la pagina, e la rimanda indietro. Stesso viaggio al contrario, stessi pacchetti. Il browser li riceve, li rimonta, e ti mostra la pagina. Tutto in meno di un secondo.
+
+IP PUBBLICO VS PRIVATO
+Piccolo bonus: il tuo PC ha un indirizzo IP privato, visibile solo dentro casa tua, tipo 192.168.1.qualcosa. Ma quando esci su Internet, il router usa un IP pubblico, che è quello che i siti vedono. È come avere un numero interno dell'ufficio e un numero esterno dell'azienda.
+
+Vuoi sapere il tuo IP pubblico? Cerca su Google la frase qual è il mio IP e te lo dice subito.`
+  },
+
+  {
+    titolo: "La modalità in incognito ti rende invisibile: falso!",
+    rubrica: "Miti Digitali",
+    data: "2026-05-02",
+    videoUrl: "https://youtube.com/watch?v=placeholder",
+    contenuto: `Pensi che la modalità in incognito sia un mantello dell'invisibilità? Ho brutte notizie per te.
+
+COSA NON FA
+La navigazione in incognito non ti rende anonimo. Il tuo provider Internet vede comunque tutto quello che fai. Il tuo datore di lavoro, se sei sulla rete aziendale, vede tutto. I siti che visiti vedono il tuo indirizzo IP. Google sa comunque che ci sei, se usi i loro servizi.
+
+COSA FA DAVVERO
+L'incognito fa una cosa sola: non salva la cronologia, i cookie e i dati dei moduli sul TUO dispositivo. Tutto qui. È utile se condividi il PC e non vuoi che qualcuno veda cosa hai cercato. Ma fuori dal tuo computer, sei visibile come sempre.
+
+Se vuoi davvero navigare in modo più privato, serve una VPN. Ma questa è un'altra storia, e ne parleremo presto. Sapevi già questa differenza?`
+  },
+
+  {
+    titolo: "HTTP vs HTTPS: quella S ti salva la vita digitale",
+    rubrica: "Ma cos'è?",
+    data: "2026-05-05",
+    videoUrl: "https://youtube.com/watch?v=placeholder",
+    contenuto: `Se non c'è il lucchetto, non scrivere la password. Punto. E adesso ti spiego perché in meno di un minuto.
+
+HTTP = CARTOLINA
+Quando un sito usa HTTP, senza la S, i dati che mandi viaggiano in chiaro. È come spedire una cartolina: chiunque la intercetti può leggerla. La tua password, il tuo nome utente, i tuoi dati: tutto leggibile.
+
+HTTPS = BUSTA SIGILLATA
+HTTPS aggiunge la crittografia: i dati vengono chiusi in una busta sigillata. Anche se qualcuno li intercetta, non riesce a leggerli. Quel lucchetto che vedi nel browser significa esattamente questo: la comunicazione è protetta.
+
+Controlla adesso: il sito che hai aperto ha il lucchetto? Se no, non inserire dati personali.`
+  },
+
+  {
+    titolo: "Firewall: la guardia del corpo del tuo PC",
+    rubrica: "Sotto il Cofano",
+    data: "2026-05-07",
+    videoUrl: "https://youtube.com/watch?v=placeholder",
+    contenuto: `Il tuo PC ha una guardia del corpo, e probabilmente non lo sai. Si chiama firewall, e oggi ti spiego come funziona e perché è fondamentale.
+
+COS'È UN FIREWALL
+Immagina il buttafuori di un locale. Ha una lista: queste persone possono entrare, queste no. Queste possono uscire, queste no. Il firewall fa esattamente questo con i dati che entrano ed escono dal tuo PC o dalla tua rete.
+
+Ogni comunicazione su Internet usa delle porte. Non porte fisiche, ma porte logiche: numeri da 1 a 65535. Ogni servizio usa la sua: il web usa la porta 80 o 443, l'email usa la 25 o la 587, e così via. Il firewall decide quali porte tenere aperte e quali chiuse.
+
+FIREWALL SOFTWARE VS HARDWARE
+Esistono due tipi. Il firewall software è quello integrato in Windows: protegge il singolo PC. Il firewall hardware è integrato nel router o è un dispositivo dedicato: protegge tutta la rete. In una casa hai di solito entrambi. In un'azienda il firewall hardware è molto più sofisticato e ha regole personalizzate per ogni tipo di traffico.
+
+COSA FARE
+Vai nelle impostazioni di Windows, cerca Firewall, e controlla che sia attivo. È la prima linea di difesa del tuo PC, e deve essere sempre accesa.`
+  },
+
+  {
+    titolo: "Più RAM = PC più veloce? Non sempre!",
+    rubrica: "Miti Digitali",
+    data: "2026-05-09",
+    videoUrl: "https://youtube.com/watch?v=placeholder",
+    contenuto: `Metti più RAM! È il consiglio che ti danno tutti. E spesso è completamente sbagliato. Ecco perché.
+
+IL MITO
+Vi ricordate la metafora della cucina? La RAM è il piano di lavoro. Ma se il problema è che il cuoco è lentissimo, cioè hai una CPU vecchia, allargare il piano di lavoro non serve a nulla. Il cuoco resta lento.
+
+Oppure se il problema è che la dispensa ha la porta arrugginita, cioè hai un disco meccanico lentissimo, aggiungere RAM non cambierà niente. Il collo di bottiglia è da un'altra parte.
+
+QUANDO SERVE DAVVERO
+Aggiungere RAM serve solo se la RAM è effettivamente il limite. Come si capisce? Apri il Task Manager, guarda la percentuale di memoria usata. Se è costantemente sopra il 90 percento, allora sì, ti serve più RAM. Se è al 50-60 percento, il problema è altrove.
+
+Prima di spendere soldi, diagnostica il problema. Il Task Manager è il tuo migliore amico.`
+  },
+];
+
+
+// ────────────────────────────────────────
+// NORMALIZZAZIONE: applica i valori automatici
+// ────────────────────────────────────────
+const articoli = articoliGrezzi
+  .map(normalizzaArticolo)
+  .filter(a => a !== null);
+
+
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = articoli;
+}
