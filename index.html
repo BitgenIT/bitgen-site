@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- SEO BASICS (sovrascritto dinamicamente da main.js) -->
+<title>BItGen — Educazione Digitale per Tutti</title>
+<meta name="description" content="Il canale di divulgazione informatica che spiega davvero come funziona la tecnologia. Guide, tutorial e approfondimenti per chi vuole capire, non solo usare.">
+<meta name="keywords" content="informatica, educazione digitale, tutorial tecnologia, BItGen, divulgazione informatica, italia">
+<meta name="author" content="BItGen">
+<meta name="robots" content="index, follow">
+
+<!-- Open Graph -->
+<meta property="og:title" content="BItGen — Educazione Digitale per Tutti">
+<meta property="og:description" content="Il canale di divulgazione informatica che spiega davvero come funziona la tecnologia.">
+<meta property="og:image" content="assets/images/logo.png">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="it_IT">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="icon" type="image/png" href="assets/images/logo.png">
+</head>
+<body data-page="home">
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo-link">
+      <img src="assets/images/logo.png" alt="BItGen logo">
+      <span class="logo-text">B<span class="accent">It</span>Gen</span>
+    </a>
+    
+    <nav class="nav">
+      <a href="index.html" class="nav-link active">Home</a>
+      <a href="enciclopedia.html" class="nav-link">Enciclopedia</a>
+      <a href="contatti.html" class="nav-link">Contatti</a>
+    </nav>
+    
+    <div class="header-search">
+      <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" class="search-input" placeholder="Cerca nei contenuti..." autocomplete="off">
+      <div class="search-results"></div>
+    </div>
+    
+    <button class="mobile-toggle" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        Educazione digitale reale
+      </div>
+      <h1>
+        La tecnologia spiegata<br>
+        <span class="highlight">senza fingere che sia magica</span>
+      </h1>
+      <p class="hero-description">
+        BItGen è il canale che ti fa capire davvero come funzionano computer, reti, sicurezza e tutti i dispositivi che usi ogni giorno. Niente prompt decontestualizzati: solo spiegazioni chiare, con contesto, utilizzabili sul serio.
+      </p>
+      <div class="hero-buttons">
+        <a href="enciclopedia.html" class="btn btn-primary">
+          Esplora i contenuti
+          <span>→</span>
+        </a>
+        <a href="#rubriche" class="btn btn-secondary">Scopri le rubriche</a>
+      </div>
+    </div>
+    
+    <div class="hero-visual">
+      <div class="hero-logo-container">
+        <img src="assets/images/logo.png" alt="BItGen logo grande">
+        <div class="floating-decoration deco-1">01001</div>
+        <div class="floating-decoration deco-2">$ bit_gen</div>
+        <div class="floating-decoration deco-3">&lt;spiega/&gt;</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RUBRICHE -->
+<section class="section" id="rubriche">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-title-group">
+        <div class="section-eyebrow">Cinque modi di raccontare</div>
+        <h2>Le rubriche</h2>
+        <p class="section-description">
+          Ogni contenuto appartiene a una rubrica, ognuna con un taglio e una profondità diversa. Scegli quella che fa per te.
+        </p>
+      </div>
+    </div>
+    
+    <div class="rubriche-grid">
+      <a href="enciclopedia.html?rubrica=ma-cos-e" class="rubrica-card" style="--rubrica-color: #10b981;">
+        <div class="rubrica-icon">💡</div>
+        <h3>Ma cos'è?</h3>
+        <p>Pillole da 60-90 secondi. Un concetto spiegato come lo spiegheresti a tua nonna.</p>
+      </a>
+      
+      <a href="enciclopedia.html?rubrica=sotto-il-cofano" class="rubrica-card" style="--rubrica-color: #3b82f6;">
+        <div class="rubrica-icon">🔧</div>
+        <h3>Sotto il Cofano</h3>
+        <p>Approfondimenti 8-15 minuti. Smontiamo le cose per capire come funzionano davvero.</p>
+      </a>
+      
+      <a href="enciclopedia.html?rubrica=digitale-pratico" class="rubrica-card" style="--rubrica-color: #f59e0b;">
+        <div class="rubrica-icon">🎯</div>
+        <h3>Digitale Pratico</h3>
+        <p>Tutorial 3-5 minuti orientati al problema concreto che vuoi risolvere.</p>
+      </a>
+      
+      <a href="enciclopedia.html?rubrica=miti-digitali" class="rubrica-card" style="--rubrica-color: #a855f7;">
+        <div class="rubrica-icon">⚡</div>
+        <h3>Miti Digitali</h3>
+        <p>Smontiamo credenze comuni. Formato breve, tono provocatorio e divertente.</p>
+      </a>
+      
+      <a href="enciclopedia.html?rubrica=il-dietro-le-quinte" class="rubrica-card" style="--rubrica-color: #ec4899;">
+        <div class="rubrica-icon">🧠</div>
+        <h3>Il Dietro le Quinte</h3>
+        <p>Contenuti avanzati per chi vuole andare in profondità nel mondo dell'informatica.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ULTIMI CONTENUTI -->
+<section class="section section-muted">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-title-group">
+        <div class="section-eyebrow">Appena pubblicati</div>
+        <h2>Ultimi contenuti</h2>
+        <p class="section-description">
+          I video e gli articoli più recenti del canale. Ogni contenuto è accompagnato dal testo completo per chi preferisce leggere.
+        </p>
+      </div>
+      <a href="enciclopedia.html" class="see-all-link">
+        Vedi tutti i contenuti
+        <span>→</span>
+      </a>
+    </div>
+    
+    <div class="articoli-grid featured" id="latest-articles">
+      <!-- Popolato via JavaScript -->
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter-section">
+  <div class="newsletter-inner">
+    <div class="section-eyebrow">Resta aggiornato</div>
+    <h2>Un'email quando esce qualcosa di nuovo</h2>
+    <p>
+      Niente spam, niente marketing. Solo una segnalazione quando pubblico un nuovo video o articolo che potrebbe interessarti. 
+      Puoi disiscriverti quando vuoi con un click.
+    </p>
+    
+    <form class="newsletter-form" autocomplete="off">
+      <input type="email" name="email" placeholder="La tua email" required>
+      <button type="submit">Iscriviti →</button>
+    </form>
+    
+    <p class="newsletter-privacy">
+      Iscrivendoti accetti la nostra politica sulla privacy. Non condivideremo mai la tua email con terzi.
+    </p>
+  </div>
+</section>
+
+<!-- ABOUT / MANIFESTO -->
+<section class="section">
+  <div class="container-narrow" style="text-align: center;">
+    <div class="section-eyebrow" style="justify-content: center;">Il progetto</div>
+    <h2 style="margin-bottom: 1.5rem;">Perché BItGen esiste</h2>
+    <p style="font-size: 1.2rem; color: var(--text-soft); line-height: 1.7; margin-bottom: 2rem;">
+      Internet è pieno di contenuti tecnologici che ti insegnano prompt, trucchi, scorciatoie. 
+      Ma pochi ti spiegano davvero cosa stai facendo e perché funziona in quel modo. 
+      <strong style="color: var(--ink);">BItGen vuole colmare questo vuoto.</strong>
+    </p>
+    <p style="font-size: 1.1rem; color: var(--text-soft); line-height: 1.7;">
+      L'obiettivo è semplice: creare comprensione reale della tecnologia, 
+      accessibile a chi ha 14 anni come a chi ne ha 50. 
+      Perché capire davvero è l'unica difesa contro chi usa la tecnologia per confonderti.
+    </p>
+    <div style="margin-top: 2.5rem;">
+      <a href="enciclopedia.html" class="btn btn-primary">
+        Inizia dall'enciclopedia
+        <span>→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo-link">
+          <img src="assets/images/logo.png" alt="BItGen logo" width="48" height="48">
+          <span class="logo-text">B<span style="color: var(--green-light);">It</span>Gen</span>
+        </a>
+        <p>Educazione digitale per tutti. Perché capire la tecnologia è il primo passo per non subirla.</p>
+      </div>
+      
+      <div class="footer-col">
+        <h5>Sito</h5>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="enciclopedia.html">Enciclopedia</a></li>
+          <li><a href="contatti.html">Contatti</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-col">
+        <h5>Rubriche</h5>
+        <ul>
+          <li><a href="enciclopedia.html?rubrica=ma-cos-e">Ma cos'è?</a></li>
+          <li><a href="enciclopedia.html?rubrica=sotto-il-cofano">Sotto il Cofano</a></li>
+          <li><a href="enciclopedia.html?rubrica=digitale-pratico">Digitale Pratico</a></li>
+          <li><a href="enciclopedia.html?rubrica=miti-digitali">Miti Digitali</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-col">
+        <h5>Seguimi</h5>
+        <ul>
+          <li><a href="#" target="_blank">YouTube</a></li>
+          <li><a href="#" target="_blank">Instagram</a></li>
+          <li><a href="#" target="_blank">TikTok</a></li>
+          <li><a href="#" target="_blank">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <div>© 2026 BItGen. Tutti i diritti riservati.</div>
+      <div class="footer-mono">made with 🟢 for digital literacy</div>
+    </div>
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script src="assets/js/config.js"></script>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

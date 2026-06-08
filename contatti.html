@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contatti — BItGen</title>
+<meta name="description" content="Contatta BItGen per domande, collaborazioni, suggerimenti o segnalazioni.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Contatti — BItGen">
+<meta property="og:image" content="assets/images/logo.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="icon" type="image/png" href="assets/images/logo.png">
+</head>
+<body data-page="contatti">
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo-link">
+      <img src="assets/images/logo.png" alt="BItGen logo">
+      <span class="logo-text">B<span class="accent">It</span>Gen</span>
+    </a>
+    <nav class="nav">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="enciclopedia.html" class="nav-link">Enciclopedia</a>
+      <a href="contatti.html" class="nav-link active">Contatti</a>
+    </nav>
+    <div class="header-search">
+      <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" class="search-input" placeholder="Cerca nei contenuti..." autocomplete="off">
+      <div class="search-results"></div>
+    </div>
+    <button class="mobile-toggle" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<section class="page-header">
+  <div class="container page-header-inner">
+    <div class="section-eyebrow">Parliamone</div>
+    <h1 class="page-title">Contattami</h1>
+    <p class="page-description">
+      Hai una domanda? Un argomento che vorresti vedere trattato? Una segnalazione o proposta di collaborazione? Scrivimi.
+    </p>
+  </div>
+</section>
+
+<section class="contact-section">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="section-eyebrow">Le strade per contattarmi</div>
+        <h2>Come posso aiutarti?</h2>
+        <p>
+          Rispondo a tutti i messaggi entro 2-3 giorni lavorativi. Se hai bisogno di aiuto immediato con un problema tecnico, prova prima a cercare nell'enciclopedia: probabilmente c'è già un contenuto che affronta il tuo caso.
+        </p>
+        
+        <div class="contact-methods">
+          <a href="mailto:info@bitgen.it" class="contact-method">
+            <div class="contact-method-icon">✉️</div>
+            <div>
+              <h4>Email diretta</h4>
+              <p>info@bitgen.it</p>
+            </div>
+          </a>
+          
+          <a href="#" class="contact-method">
+            <div class="contact-method-icon">📺</div>
+            <div>
+              <h4>YouTube</h4>
+              <p>Commenta direttamente sotto i video</p>
+            </div>
+          </a>
+          
+          <a href="#" class="contact-method">
+            <div class="contact-method-icon">📷</div>
+            <div>
+              <h4>Instagram</h4>
+              <p>@bitgen.channel — DM aperti</p>
+            </div>
+          </a>
+          
+          <a href="#" class="contact-method">
+            <div class="contact-method-icon">💼</div>
+            <div>
+              <h4>LinkedIn</h4>
+              <p>Per collaborazioni professionali</p>
+            </div>
+          </a>
+        </div>
+        
+        <div style="margin-top: 2.5rem; padding: 1.25rem; background: var(--green-subtle); border-radius: 12px; border-left: 4px solid var(--green-primary);">
+          <p style="margin: 0; font-size: 0.95rem;">
+            <strong style="color: var(--green-darker);">💡 Suggerisci un argomento</strong><br>
+            <span style="color: var(--text);">
+              I migliori contenuti del canale nascono dalle tue richieste. Scrivimi di cosa vorresti che parlassi: se è utile e interessante, lo trasformo in un video.
+            </span>
+          </p>
+        </div>
+      </div>
+      
+      <form class="contact-form" id="contact-form">
+        <div class="form-group">
+          <label for="name">Nome <span style="color: var(--green-darker);">*</span></label>
+          <input type="text" id="name" name="name" class="form-input" placeholder="Il tuo nome" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="email">Email <span style="color: var(--green-darker);">*</span></label>
+          <input type="email" id="email" name="email" class="form-input" placeholder="nome@esempio.it" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="subject">Di cosa vuoi parlare?</label>
+          <select id="subject" name="subject" class="form-select">
+            <option value="Domanda tecnica">Ho una domanda tecnica</option>
+            <option value="Suggerimento argomento">Voglio suggerire un argomento</option>
+            <option value="Segnalazione errore">Ho trovato un errore in un contenuto</option>
+            <option value="Collaborazione">Proposta di collaborazione</option>
+            <option value="Altro">Altro</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="message">Messaggio <span style="color: var(--green-darker);">*</span></label>
+          <textarea id="message" name="message" class="form-textarea" placeholder="Scrivi qui il tuo messaggio. Più dettagli mi dai, meglio posso aiutarti." required></textarea>
+        </div>
+        
+        <button type="submit" class="form-submit">Invia messaggio →</button>
+        
+        <p class="form-note">
+          Cliccando invia si aprirà il tuo client email. Rispondo entro 2-3 giorni lavorativi.
+        </p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="section section-muted">
+  <div class="container-narrow">
+    <div class="section-header" style="text-align: center; justify-content: center;">
+      <div class="section-title-group" style="text-align: center;">
+        <div class="section-eyebrow" style="justify-content: center;">Domande ricorrenti</div>
+        <h2>Prima di scrivere, controlla qui</h2>
+      </div>
+    </div>
+    
+    <div style="display: flex; flex-direction: column; gap: 1rem;">
+      <details style="padding: 1.5rem; background: var(--white); border: 1.5px solid var(--border); border-radius: 16px;">
+        <summary style="font-weight: 600; cursor: pointer; font-size: 1.1rem;">I contenuti sono gratuiti?</summary>
+        <p style="margin-top: 1rem; color: var(--text-soft);">
+          Sì, tutto quello che trovi su BItGen è completamente gratuito. Il canale vive grazie a chi lo segue, lo condivide e lascia commenti sotto i video.
+        </p>
+      </details>
+      
+      <details style="padding: 1.5rem; background: var(--white); border: 1.5px solid var(--border); border-radius: 16px;">
+        <summary style="font-weight: 600; cursor: pointer; font-size: 1.1rem;">Posso copiare e ricondividere i tuoi contenuti?</summary>
+        <p style="margin-top: 1rem; color: var(--text-soft);">
+          Puoi condividere i link ai video e agli articoli liberamente. Per usare porzioni di testo o adattamenti, scrivimi prima: nella maggior parte dei casi dico sì, basta citare la fonte.
+        </p>
+      </details>
+      
+      <details style="padding: 1.5rem; background: var(--white); border: 1.5px solid var(--border); border-radius: 16px;">
+        <summary style="font-weight: 600; cursor: pointer; font-size: 1.1rem;">Fai consulenze o assistenza personale?</summary>
+        <p style="margin-top: 1rem; color: var(--text-soft);">
+          BItGen è un progetto divulgativo, non offro consulenze tecniche private. Se hai un problema specifico, prova a cercarlo nell'enciclopedia o lasciami un commento: se è una domanda interessante può diventare un contenuto del canale.
+        </p>
+      </details>
+      
+      <details style="padding: 1.5rem; background: var(--white); border: 1.5px solid var(--border); border-radius: 16px;">
+        <summary style="font-weight: 600; cursor: pointer; font-size: 1.1rem;">Come posso suggerire un argomento?</summary>
+        <p style="margin-top: 1rem; color: var(--text-soft);">
+          Il modo migliore è scrivere un commento sotto un video correlato: aiuta anche altri utenti con la stessa domanda. In alternativa, usa il form qui sopra selezionando "Suggerimento argomento".
+        </p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo-link">
+          <img src="assets/images/logo.png" alt="BItGen logo" width="48" height="48">
+          <span class="logo-text">B<span style="color: var(--green-light);">It</span>Gen</span>
+        </a>
+        <p>Educazione digitale per tutti. Perché capire la tecnologia è il primo passo per non subirla.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Sito</h5>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="enciclopedia.html">Enciclopedia</a></li>
+          <li><a href="contatti.html">Contatti</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Rubriche</h5>
+        <ul>
+          <li><a href="enciclopedia.html?rubrica=ma-cos-e">Ma cos'è?</a></li>
+          <li><a href="enciclopedia.html?rubrica=sotto-il-cofano">Sotto il Cofano</a></li>
+          <li><a href="enciclopedia.html?rubrica=digitale-pratico">Digitale Pratico</a></li>
+          <li><a href="enciclopedia.html?rubrica=miti-digitali">Miti Digitali</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Seguimi</h5>
+        <ul>
+          <li><a href="#" target="_blank">YouTube</a></li>
+          <li><a href="#" target="_blank">Instagram</a></li>
+          <li><a href="#" target="_blank">TikTok</a></li>
+          <li><a href="#" target="_blank">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 BItGen. Tutti i diritti riservati.</div>
+      <div class="footer-mono">made with 🟢 for digital literacy</div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

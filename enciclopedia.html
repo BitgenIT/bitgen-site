@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Enciclopedia — BItGen</title>
+<meta name="description" content="Tutti i contenuti di BItGen in un unico posto. Cerca, filtra e approfondisci i concetti dell'informatica spiegati in modo chiaro.">
+<meta name="keywords" content="enciclopedia informatica, tutorial, divulgazione digitale, BItGen">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Enciclopedia — BItGen">
+<meta property="og:description" content="Tutti i contenuti di BItGen in un unico posto.">
+<meta property="og:image" content="assets/images/logo.png">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="icon" type="image/png" href="assets/images/logo.png">
+</head>
+<body data-page="enciclopedia">
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo-link">
+      <img src="assets/images/logo.png" alt="BItGen logo">
+      <span class="logo-text">B<span class="accent">It</span>Gen</span>
+    </a>
+    <nav class="nav">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="enciclopedia.html" class="nav-link active">Enciclopedia</a>
+      <a href="contatti.html" class="nav-link">Contatti</a>
+    </nav>
+    <div class="header-search">
+      <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" class="search-input" placeholder="Cerca nei contenuti..." autocomplete="off">
+      <div class="search-results"></div>
+    </div>
+    <button class="mobile-toggle" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<section class="page-header">
+  <div class="container page-header-inner">
+    <div class="section-eyebrow">La tua knowledge base</div>
+    <h1 class="page-title">Enciclopedia BItGen</h1>
+    <p class="page-description">
+      Tutti i contenuti del canale organizzati per rubrica, con trascrizioni complete e link ai video originali. 
+      Usa la ricerca o i filtri per trovare quello che ti serve.
+    </p>
+    
+    <div class="page-stats">
+      <div class="page-stat">
+        <span class="page-stat-number" id="stat-total">0</span>
+        <span class="page-stat-label">Contenuti</span>
+      </div>
+      <div class="page-stat">
+        <span class="page-stat-number">5</span>
+        <span class="page-stat-label">Rubriche</span>
+      </div>
+      <div class="page-stat">
+        <span class="page-stat-number">100%</span>
+        <span class="page-stat-label">Gratuito</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="filters-bar">
+  <div class="container filters-inner">
+    <div style="width: 100%; max-width: 400px; position: relative;">
+      <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="left: 0.9rem; top: 50%; transform: translateY(-50%); position: absolute; color: var(--text-muted);"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" id="enciclopedia-search" class="search-input" placeholder="Cerca in tutti i contenuti..." autocomplete="off" style="padding-left: 2.5rem;">
+    </div>
+    <div class="filters-group">
+      <button class="filter-btn active" data-filter="all">Tutto</button>
+      <button class="filter-btn" data-filter="Ma cos'è?">💡 Ma cos'è?</button>
+      <button class="filter-btn" data-filter="Sotto il Cofano">🔧 Sotto il Cofano</button>
+      <button class="filter-btn" data-filter="Digitale Pratico">🎯 Digitale Pratico</button>
+      <button class="filter-btn" data-filter="Miti Digitali">⚡ Miti Digitali</button>
+      <button class="filter-btn" data-filter="Il Dietro le Quinte">🧠 Dietro le Quinte</button>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top: 3rem;">
+  <div class="container">
+    <div style="margin-bottom: 2rem;">
+      <span class="filter-count" id="filter-count"><strong>0</strong> risultati</span>
+    </div>
+    <div class="articoli-grid" id="enciclopedia-grid"></div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo-link">
+          <img src="assets/images/logo.png" alt="BItGen logo" width="48" height="48">
+          <span class="logo-text">B<span style="color: var(--green-light);">It</span>Gen</span>
+        </a>
+        <p>Educazione digitale per tutti. Perché capire la tecnologia è il primo passo per non subirla.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Sito</h5>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="enciclopedia.html">Enciclopedia</a></li>
+          <li><a href="contatti.html">Contatti</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Rubriche</h5>
+        <ul>
+          <li><a href="enciclopedia.html?rubrica=ma-cos-e">Ma cos'è?</a></li>
+          <li><a href="enciclopedia.html?rubrica=sotto-il-cofano">Sotto il Cofano</a></li>
+          <li><a href="enciclopedia.html?rubrica=digitale-pratico">Digitale Pratico</a></li>
+          <li><a href="enciclopedia.html?rubrica=miti-digitali">Miti Digitali</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Seguimi</h5>
+        <ul>
+          <li><a href="#" target="_blank">YouTube</a></li>
+          <li><a href="#" target="_blank">Instagram</a></li>
+          <li><a href="#" target="_blank">TikTok</a></li>
+          <li><a href="#" target="_blank">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 BItGen. Tutti i diritti riservati.</div>
+      <div class="footer-mono">made with 🟢 for digital literacy</div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const total = document.getElementById('stat-total');
+    if (total) total.textContent = articoli.length;
+    
+    const urlParams = new URLSearchParams(window.location.search);
+    const rubricaParam = urlParams.get('rubrica');
+    if (rubricaParam) {
+      const rubricaMap = {
+        'ma-cos-e': "Ma cos'è?",
+        'sotto-il-cofano': "Sotto il Cofano",
+        'digitale-pratico': "Digitale Pratico",
+        'miti-digitali': "Miti Digitali",
+        'il-dietro-le-quinte': "Il Dietro le Quinte"
+      };
+      const target = rubricaMap[rubricaParam];
+      if (target) {
+        const btn = document.querySelector(`.filter-btn[data-filter="${target}"]`);
+        if (btn) btn.click();
+      }
+    }
+  });
+</script>
+</body>
+</html>

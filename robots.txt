@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://bitgen.it/sitemap.xml
+
+# Blocca accesso a file di configurazione
+Disallow: /assets/js/config.js
