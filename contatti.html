@@ -14,10 +14,30 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
 <link rel="icon" type="image/png" href="assets/images/logo.png">
-<script src="assets/js/consent-defaults.js"></script>
-<script data-cookieconsent="ignore">    window.dataLayer = window.dataLayer || [];    function gtag() {        dataLayer.push(arguments);    }    gtag("consent", "default", {        ad_personalization: "denied",        ad_storage: "denied",        ad_user_data: "denied",        analytics_storage: "denied",        functionality_storage: "denied",        personalization_storage: "denied",        security_storage: "granted",        wait_for_update: 500,    });    gtag("set", "ads_data_redaction", true);    gtag("set", "url_passthrough", false);</script>
-<script id="CookieDeclaration" src="https://consent.cookiebot.com/a7716974-3bfc-44f6-a71a-31c49e133176/cd.js" type="text/javascript" async></script>
-<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="a7716974-3bfc-44f6-a71a-31c49e133176"  type="text/javascript"></script>
+
+<!-- Google Consent Mode V2 (deve essere PRIMO) -->
+<script data-cookieconsent="ignore">
+window.dataLayer = window.dataLayer || [];
+function gtag() { dataLayer.push(arguments); }
+gtag("consent", "default", {
+  ad_personalization: "denied",
+  ad_storage: "denied",
+  ad_user_data: "denied",
+  analytics_storage: "denied",
+  functionality_storage: "denied",
+  personalization_storage: "denied",
+  security_storage: "granted",
+  wait_for_update: 500,
+});
+gtag("set", "ads_data_redaction", true);
+gtag("set", "url_passthrough", false);
+</script>
+
+<!-- Cookiebot Banner -->
+<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="a7716974-3bfc-44f6-a71a-31c49e133176" type="text/javascript"></script>
+
+<!-- Google Analytics (Consent Mode gestisce il blocco cookie) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-V8GDW1GY7Z" data-cookieconsent="ignore"></script>
 </head>
 <body data-page="contatti">
 

@@ -9,29 +9,16 @@
 
 function initAnalytics() {
   if (!BITGEN_CONFIG.analytics.enabled || !BITGEN_CONFIG.analytics.measurementId) return;
-  if (BITGEN_CONFIG.analytics.measurementId === "G-V8GDW1GY7Z") return;
+  if (BITGEN_CONFIG.analytics.measurementId === "G-XXXXXXXXXX") return;
   
-  const id = BITGEN_CONFIG.analytics.measurementId;
-  
-  // Carica gtag.js (il Consent Mode gestisce il blocco dei cookie)
-  const script = document.createElement('script');
-  script.async = true;
-  script.src = `https://www.googletagmanager.com/gtag/js?id=${id}`;
-  // IMPORTANTE: dice a Cookiebot di NON bloccare questo script
-  // perché il Consent Mode V2 gestisce internamente il consenso
-  script.setAttribute('data-cookieconsent', 'ignore');
-  document.head.appendChild(script);
-  
-  // NON ridefinire dataLayer e gtag: lo fa già consent-defaults.js
-  // Configura solo la proprietà Analytics
-  script.onload = function() {
-    gtag('js', new Date());
-    gtag('config', id, {
-      'anonymize_ip': true,
-      'cookie_flags': 'SameSite=None;Secure',
-      'send_page_view': true
-    });
-  };
+  // gtag.js è già caricato nell'<head> con data-cookieconsent="ignore"
+  // dataLayer e gtag sono già definiti dal Consent Mode V2 inline script
+  // Qui configuriamo solo la proprietà Analytics
+  gtag('js', new Date());
+  gtag('config', BITGEN_CONFIG.analytics.measurementId, {
+    'anonymize_ip': true,
+    'send_page_view': true
+  });
 }
 
 /** Traccia un evento custom (es. lettura articolo, click su newsletter) */
