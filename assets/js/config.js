@@ -33,7 +33,7 @@ const BITGEN_CONFIG = {
   // 5. Il tracciamento si attiva automaticamente su tutte le pagine
   analytics: {
     enabled: false, // ⚠️ Cambia in true dopo aver inserito l'ID
-    measurementId: "G-XXXXXXXXXX", // ⚠️ Sostituisci con il tuo ID reale
+    measurementId: "G-V8GDW1GY7Z", // ⚠️ Sostituisci con il tuo ID reale
   },
   
   // ────────────────────────────────────────
