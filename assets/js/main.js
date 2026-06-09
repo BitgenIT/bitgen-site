@@ -9,24 +9,29 @@
 
 function initAnalytics() {
   if (!BITGEN_CONFIG.analytics.enabled || !BITGEN_CONFIG.analytics.measurementId) return;
-  if (BITGEN_CONFIG.analytics.measurementId === "G-XXXXXXXXXX") return;
+  if (BITGEN_CONFIG.analytics.measurementId === "G-V8GDW1GY7Z") return;
   
   const id = BITGEN_CONFIG.analytics.measurementId;
   
-  // Carica gtag.js
+  // Carica gtag.js (il Consent Mode gestisce il blocco dei cookie)
   const script = document.createElement('script');
   script.async = true;
   script.src = `https://www.googletagmanager.com/gtag/js?id=${id}`;
+  // IMPORTANTE: dice a Cookiebot di NON bloccare questo script
+  // perché il Consent Mode V2 gestisce internamente il consenso
+  script.setAttribute('data-cookieconsent', 'ignore');
   document.head.appendChild(script);
   
-  // Inizializza dataLayer
-  window.dataLayer = window.dataLayer || [];
-  window.gtag = function() { dataLayer.push(arguments); };
-  window.gtag('js', new Date());
-  window.gtag('config', id, {
-    'anonymize_ip': true, // GDPR-friendly
-    'cookie_flags': 'SameSite=None;Secure'
-  });
+  // NON ridefinire dataLayer e gtag: lo fa già consent-defaults.js
+  // Configura solo la proprietà Analytics
+  script.onload = function() {
+    gtag('js', new Date());
+    gtag('config', id, {
+      'anonymize_ip': true,
+      'cookie_flags': 'SameSite=None;Secure',
+      'send_page_view': true
+    });
+  };
 }
 
 /** Traccia un evento custom (es. lettura articolo, click su newsletter) */
