@@ -56,8 +56,9 @@ const BITGEN_CONFIG = {
     
     // Per Brevo (ex Sendinblue)
     brevoListId: "", // ID lista Brevo
-    brevoApiKey: "", // ⚠️ Da gestire lato backend per sicurezza
-    
+    // NB: la API key di Brevo NON va messa qui: questo file è pubblico.
+    // Va usata solo lato backend/funzione serverless.
+
     // Per Substack
     substackUrl: "https://bitgen.substack.com", // Il tuo URL Substack
   },

@@ -149,7 +149,74 @@ function getReadingTime(content) {
 
 function escapeHtml(text) {
   const map = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' };
-  return text.replace(/[&<>"']/g, m => map[m]);
+  return String(text).replace(/[&<>"']/g, m => map[m]);
+}
+
+/** Neutralizza schemi pericolosi (javascript:, data:, vbscript:) in un URL destinato a href. */
+function safeUrl(url) {
+  const u = String(url || '').trim();
+  if (/^(javascript|data|vbscript):/i.test(u)) return '#';
+  return u;
+}
+
+/** Risolve il percorso di un'immagine: se è solo un nome file, la cerca in assets/images/. */
+function resolveImg(src) {
+  src = String(src || '').trim();
+  if (!src) return '';
+  if (/^https?:/i.test(src) || src.startsWith('/') || src.includes('/')) return src;
+  return 'assets/images/' + src;
+}
+
+/**
+ * Trasforma il testo grezzo di un articolo in HTML.
+ * - paragrafi separati da righe vuote
+ * - RIGHE IN MAIUSCOLO -> sottotitoli <h3>
+ * - marcatore [IMG: file.png] o [IMG: file.png | Didascalia] -> <figure> con immagine
+ */
+function formatContenuto(testo) {
+  return String(testo || '')
+    .split(/\n\s*\n/)
+    .map(block => {
+      const trimmed = block.trim();
+      if (!trimmed) return '';
+      const lines = trimmed.split('\n').map(l => l.trim()).filter(l => l);
+      const result = [];
+      let currentParagraph = [];
+
+      const flushParagraph = () => {
+        if (currentParagraph.length > 0) {
+          result.push(`<p>${escapeHtml(currentParagraph.join(' '))}</p>`);
+          currentParagraph = [];
+        }
+      };
+
+      lines.forEach(line => {
+        const img = line.match(/^\[IMG:\s*([^\]|]+?)\s*(?:\|\s*(.+?))?\s*\]$/i);
+        if (img) {
+          flushParagraph();
+          const src = resolveImg(img[1]);
+          const caption = img[2] ? img[2].trim() : '';
+          const figcap = caption ? `<figcaption>${escapeHtml(caption)}</figcaption>` : '';
+          result.push(
+            `<figure class="article-figure"><img src="${escapeHtml(src)}" alt="${escapeHtml(caption)}" loading="lazy">${figcap}</figure>`
+          );
+          return;
+        }
+        const isSubtitle = line.length < 80
+          && line === line.toUpperCase()
+          && /[A-Z]/.test(line)
+          && !line.endsWith('.') && !line.endsWith('?') && !line.endsWith('!');
+        if (isSubtitle) {
+          flushParagraph();
+          result.push(`<h3>${escapeHtml(line)}</h3>`);
+        } else {
+          currentParagraph.push(line);
+        }
+      });
+      flushParagraph();
+      return result.join('');
+    })
+    .join('');
 }
 
 
@@ -168,7 +235,7 @@ function searchArticoli(query) {
   
   return articoli.filter(art => {
     const searchableText = [
-      art.titolo, art.estratto, art.contenuto, art.rubrica,
+      art.titolo, art.estratto, art.contenuto, art.contenutoBreve, art.rubrica,
       (art.tags || []).join(' ')
     ].join(' ').toLowerCase();
     return queryWords.every(word => searchableText.includes(word));
@@ -268,13 +335,17 @@ function renderSearchResults(container, results, query) {
 function createArticleCard(art, featured = false) {
   const color = getRubricaColor(art.rubrica);
   const icon = getRubricaIcon(art.rubrica);
-  
+
+  const thumbInner = art.thumbnail
+    ? `<img class="article-thumb-img" src="${escapeHtml(resolveImg(art.thumbnail))}" alt="${escapeHtml(art.titolo)}" loading="lazy">`
+    : `<div class="article-thumbnail-inner">BItGen</div>`;
+
   return `
-    <a href="articolo.html?id=${art.id}" class="article-card">
+    <a href="articolo.html?id=${encodeURIComponent(art.id)}" class="article-card">
       <div class="article-thumbnail" style="background: linear-gradient(135deg, ${color}dd 0%, ${color} 100%);">
-        <div class="article-rubrica-badge">${icon} ${art.rubrica}</div>
-        <div class="article-duration">▶ ${art.durata}</div>
-        <div class="article-thumbnail-inner">BItGen</div>
+        <div class="article-rubrica-badge">${icon} ${escapeHtml(art.rubrica)}</div>
+        <div class="article-duration">▶ ${escapeHtml(art.durata)}</div>
+        ${thumbInner}
       </div>
       <div class="article-content">
         <div class="article-meta">
@@ -478,41 +549,26 @@ function renderArticolo() {
   
   const color = getRubricaColor(art.rubrica);
   const icon = getRubricaIcon(art.rubrica);
-  
-  // Formatta contenuto
-  const formattedContent = art.contenuto
-    .split(/\n\s*\n/)
-    .map(block => {
-      const trimmed = block.trim();
-      if (!trimmed) return '';
-      const lines = trimmed.split('\n').map(l => l.trim()).filter(l => l);
-      const result = [];
-      let currentParagraph = [];
-      
-      const flushParagraph = () => {
-        if (currentParagraph.length > 0) {
-          result.push(`<p>${escapeHtml(currentParagraph.join(' '))}</p>`);
-          currentParagraph = [];
-        }
-      };
-      
-      lines.forEach(line => {
-        const isSubtitle = line.length < 80 
-          && line === line.toUpperCase() 
-          && /[A-Z]/.test(line)
-          && !line.endsWith('.') && !line.endsWith('?') && !line.endsWith('!');
-        if (isSubtitle) {
-          flushParagraph();
-          result.push(`<h3>${escapeHtml(line)}</h3>`);
-        } else {
-          currentParagraph.push(line);
-        }
-      });
-      flushParagraph();
-      return result.join('');
-    })
-    .join('');
-  
+
+  // Due versioni del contenuto: breve (opzionale) e approfondita (principale)
+  const hasBreve = !!art.hasBreve;
+  const bodyLunga = formatContenuto(art.contenuto || art.contenutoBreve);
+  const bodyBreve = hasBreve ? formatContenuto(art.contenutoBreve) : bodyLunga;
+  const versioneIniziale = hasBreve ? 'breve' : 'lunga';
+
+  // Immagine di copertina in cima all'articolo (se presente)
+  const coverHtml = art.thumbnail
+    ? `<img class="article-cover" src="${escapeHtml(resolveImg(art.thumbnail))}" alt="${escapeHtml(art.titolo)}">`
+    : '';
+
+  // Switch breve / approfondita (solo se esiste una versione breve)
+  const toggleHtml = hasBreve ? `
+    <div class="version-toggle" role="group" aria-label="Scegli la versione dell'articolo">
+      <button type="button" class="version-btn active" data-version="breve" aria-pressed="true">📄 Versione breve</button>
+      <button type="button" class="version-btn" data-version="lunga" aria-pressed="false">📖 Approfondisci</button>
+    </div>
+  ` : '';
+
   container.innerHTML = `
     <div class="article-breadcrumb">
       <a href="index.html">Home</a>
@@ -524,12 +580,12 @@ function renderArticolo() {
     
     <div class="article-header">
       <div class="article-header-meta">
-        <span class="article-rubrica-badge" style="background: ${color}22; color: ${color}; position: static;">
-          ${icon} ${art.rubrica}
+        <span class="article-rubrica-badge" style="background: ${color}22; color: var(--ink); border: 1px solid ${color}66; position: static;">
+          ${icon} ${escapeHtml(art.rubrica)}
         </span>
         <span style="color: var(--text-muted); font-size: 0.9rem;">${formatDate(art.data)}</span>
         <span style="color: var(--text-muted); font-size: 0.9rem;">•</span>
-        <span style="color: var(--text-muted); font-size: 0.9rem;">${getReadingTime(art.contenuto)}</span>
+        <span style="color: var(--text-muted); font-size: 0.9rem;">${getReadingTime(art.contenuto || art.contenutoBreve)}</span>
       </div>
       <h1>${escapeHtml(art.titolo)}</h1>
       <p class="article-excerpt-large">${escapeHtml(art.estratto)}</p>
@@ -537,11 +593,13 @@ function renderArticolo() {
         ${(art.tags || []).map(t => `<span class="tag">${escapeHtml(t)}</span>`).join('')}
       </div>
     </div>
-    
+
+    ${coverHtml}
+
     ${art.videoUrl && !art.videoUrl.includes('placeholder') ? `
       <div class="video-embed-container">
         <h4>▶️ Guarda il video su YouTube</h4>
-        <a href="${escapeHtml(art.videoUrl)}" target="_blank" rel="noopener" class="video-link-btn" onclick="trackEvent('click_video', {article_id: '${art.id}'})">
+        <a href="${escapeHtml(safeUrl(art.videoUrl))}" target="_blank" rel="noopener noreferrer" class="video-link-btn" onclick="trackEvent('click_video', {article_id: '${escapeHtml(art.id)}'})">
           Vai al video
           <span>↗</span>
         </a>
@@ -554,16 +612,37 @@ function renderArticolo() {
         </p>
       </div>
     `}
-    
-    <div class="article-body">
-      ${formattedContent}
+
+    ${toggleHtml}
+
+    <div class="article-body" id="article-body">
+      ${versioneIniziale === 'breve' ? bodyBreve : bodyLunga}
     </div>
-    
+
     <div class="article-footer-share">
       <a href="enciclopedia.html" class="btn btn-secondary">← Torna all'enciclopedia</a>
     </div>
   `;
-  
+
+  // Cablaggio dello switch breve / approfondita
+  if (hasBreve) {
+    const bodyEl = container.querySelector('#article-body');
+    const versioni = { breve: bodyBreve, lunga: bodyLunga };
+    container.querySelectorAll('.version-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const v = btn.dataset.version;
+        bodyEl.innerHTML = versioni[v];
+        container.querySelectorAll('.version-btn').forEach(b => {
+          const on = b === btn;
+          b.classList.toggle('active', on);
+          b.setAttribute('aria-pressed', on ? 'true' : 'false');
+        });
+        bodyEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        trackEvent('toggle_versione_articolo', { article_id: art.id, versione: v });
+      });
+    });
+  }
+
   if (relatedContainer) {
     const related = articoli
       .filter(a => a.id !== art.id && (a.rubrica === art.rubrica || 
@@ -598,7 +677,8 @@ function initMobileMenu() {
   const nav = document.querySelector('.nav');
   if (toggle && nav) {
     toggle.addEventListener('click', () => {
-      nav.classList.toggle('mobile-open');
+      const open = nav.classList.toggle('mobile-open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
   }
 }

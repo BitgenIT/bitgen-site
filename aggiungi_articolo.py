@@ -1,48 +1,50 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """
-BItGen - Tool per aggiungere nuovi articoli all'enciclopedia
-=============================================================
+BItGen - Tool da terminale per aggiungere nuovi articoli all'enciclopedia
+=========================================================================
 
 USO:
     python3 aggiungi_articolo.py
 
-Ti farà domande e aggiungerà automaticamente l'articolo al file data.js.
-Tutti i parametri opzionali vengono calcolati automaticamente.
+Alternativa testuale al Gestore Articoli grafico (bitgen_manager.py).
+Usa lo stesso core robusto (bitgen_data.py): scrittura JSON atomica, backup con
+data/ora e validazione automatica. Niente più rischio di corrompere data.js.
 
 REQUISITI:
     - Python 3.7+
     - Solo librerie standard (nessuna installazione necessaria)
 """
 
-import os
 import sys
-import re
-from datetime import datetime
+import shutil
 from pathlib import Path
 
+SCRIPT_DIR = Path(__file__).parent
+sys.path.insert(0, str(SCRIPT_DIR))
+import bitgen_data as bd
+
+try:
+    sys.stdout.reconfigure(encoding="utf-8")
+except Exception:
+    pass
 
 RUBRICHE = [
     "Ma cos'è?",
-    "Sotto il Cofano", 
+    "Sotto il Cofano",
     "Digitale Pratico",
     "Miti Digitali",
-    "Il Dietro le Quinte"
+    "Il Dietro le Quinte",
 ]
 
-# Path al file data.js
-SCRIPT_DIR = Path(__file__).parent
 DATA_FILE = SCRIPT_DIR / "assets" / "js" / "data.js"
+IMAGES_DIR = SCRIPT_DIR / "assets" / "images"
 
 
 def colored(text, color):
-    """Colorazione output terminale"""
     colors = {
-        'green': '\033[92m',
-        'yellow': '\033[93m',
-        'red': '\033[91m',
-        'blue': '\033[94m',
-        'bold': '\033[1m',
-        'end': '\033[0m'
+        'green': '\033[92m', 'yellow': '\033[93m', 'red': '\033[91m',
+        'blue': '\033[94m', 'bold': '\033[1m', 'end': '\033[0m',
     }
     return f"{colors.get(color, '')}{text}{colors['end']}"
 
@@ -55,19 +57,7 @@ def print_header():
     print()
 
 
-def ask(prompt, required=True, multiline=False):
-    """Chiede input all'utente con validazione"""
-    if multiline:
-        print(colored(prompt, 'yellow'))
-        print(colored("(Scrivi il contenuto. Termina con una riga vuota contenente solo 'FINE')", 'blue'))
-        lines = []
-        while True:
-            line = input()
-            if line.strip() == 'FINE':
-                break
-            lines.append(line)
-        return '\n'.join(lines)
-    
+def ask(prompt, required=True):
     while True:
         value = input(colored(f"{prompt}: ", 'yellow')).strip()
         if value or not required:
@@ -76,7 +66,6 @@ def ask(prompt, required=True, multiline=False):
 
 
 def scegli_rubrica():
-    """Menu per la scelta della rubrica"""
     print(colored("\nScegli la rubrica:", 'yellow'))
     for i, r in enumerate(RUBRICHE, 1):
         print(f"  {i}. {r}")
@@ -90,166 +79,150 @@ def scegli_rubrica():
         print(colored(f"Inserisci un numero da 1 a {len(RUBRICHE)}", 'red'))
 
 
-def carica_contenuto_da_file():
-    """Opzionale: carica il contenuto da un file esterno"""
-    path = input(colored("Percorso file (o Invio per saltare): ", 'yellow')).strip()
-    if not path:
+def leggi_blocco_multilinea(etichetta):
+    """Legge testo multilinea: termina con una riga contenente solo FINE. 'FILE' carica da file."""
+    print(colored(etichetta, 'yellow'))
+    print(colored("(Termina con una riga 'FINE'. Scrivi 'FILE' per caricare da un file.)", 'blue'))
+    primo = input()
+    if primo.strip().upper() == 'FILE':
+        path = input(colored("Percorso file: ", 'yellow')).strip()
+        try:
+            return Path(path).read_text(encoding='utf-8')
+        except Exception as e:
+            print(colored(f"Errore apertura file: {e}", 'red'))
+            return ''
+    if primo.strip().upper() == 'FINE':
+        return ''
+    lines = [primo]
+    while True:
+        line = input()
+        if line.strip() == 'FINE':
+            break
+        lines.append(line)
+    return '\n'.join(lines)
+
+
+def copia_immagine(path_str):
+    """Copia un'immagine in assets/images/ con nome pulito e univoco. Ritorna il nome file o None."""
+    src = Path(path_str.strip().strip('"'))
+    if not src.exists():
+        print(colored(f"Immagine non trovata: {src}", 'red'))
         return None
-    try:
-        with open(path, 'r', encoding='utf-8') as f:
-            return f.read()
-    except Exception as e:
-        print(colored(f"Errore apertura file: {e}", 'red'))
-        return None
+    IMAGES_DIR.mkdir(parents=True, exist_ok=True)
+    stem = bd.slugify(src.stem) or "immagine"
+    ext = src.suffix.lower() or ".png"
+    dest = IMAGES_DIR / (stem + ext)
+    n = 2
+    while dest.exists():
+        try:
+            if dest.read_bytes() == src.read_bytes():
+                break
+        except OSError:
+            pass
+        dest = IMAGES_DIR / f"{stem}-{n}{ext}"
+        n += 1
+    if not dest.exists():
+        shutil.copy2(str(src), str(dest))
+    print(colored(f"  → immagine copiata in assets/images/{dest.name}", 'blue'))
+    return dest.name
 
 
 def aggiungi_articolo():
-    """Procedura guidata di aggiunta articolo"""
     print_header()
-    
-    # 1. Titolo
-    titolo = ask("Titolo dell'articolo")
-    
-    # 2. Rubrica
-    rubrica = scegli_rubrica()
-    
-    # 3. Video URL (opzionale)
-    print(colored("\nVideo YouTube URL (Invio se non ancora disponibile):", 'yellow'))
-    video_url = input().strip() or "https://youtube.com/watch?v=placeholder"
-    
-    # 4. Contenuto
-    print(colored("\nContenuto dell'articolo:", 'yellow'))
-    print(colored("Opzione 1: scrivi qui direttamente (termina con 'FINE' su riga vuota)", 'blue'))
-    print(colored("Opzione 2: carica da file (scrivi 'FILE')", 'blue'))
-    primo_input = input().strip()
-    
-    if primo_input.upper() == 'FILE':
-        contenuto = carica_contenuto_da_file()
-        if not contenuto:
-            print(colored("Contenuto mancante. Annullo.", 'red'))
-            return
-    elif primo_input.upper() == 'FINE':
-        print(colored("Contenuto vuoto. Annullo.", 'red'))
+
+    if not DATA_FILE.exists():
+        print(colored(f"✗ File non trovato: {DATA_FILE}", 'red'))
         return
-    else:
-        # Continua a leggere righe fino a FINE
-        lines = [primo_input]
-        while True:
-            line = input()
-            if line.strip() == 'FINE':
-                break
-            lines.append(line)
-        contenuto = '\n'.join(lines)
-    
-    # 5. Data (default: oggi)
-    print()
-    data_default = datetime.now().strftime('%Y-%m-%d')
-    data = input(colored(f"Data pubblicazione [{data_default}]: ", 'yellow')).strip() or data_default
-    
-    # 6. Tag opzionali (verranno calcolati in auto se vuoto)
+
+    titolo = ask("Titolo dell'articolo")
+    rubrica = scegli_rubrica()
+
+    print(colored("\nVideo YouTube URL (Invio se non ancora disponibile):", 'yellow'))
+    video_url = input().strip()
+    if video_url and video_url.lower().startswith(("javascript:", "data:", "vbscript:")):
+        print(colored("URL non ammesso, lo ignoro.", 'red'))
+        video_url = ""
+    if not video_url:
+        video_url = "https://youtube.com/watch?v=placeholder"
+
+    # Copertina opzionale
+    print(colored("\nImmagine di copertina (percorso file, Invio per saltare):", 'yellow'))
+    cover_path = input().strip()
+    thumbnail = None
+    if cover_path:
+        nome = copia_immagine(cover_path)
+        if nome:
+            thumbnail = f"assets/images/{nome}"
+
+    # Versione breve opzionale
+    breve = leggi_blocco_multilinea(
+        "\nVersione BREVE (opzionale — se compilata, nel sito appare lo switch):")
+
+    # Versione approfondita (obbligatoria)
+    contenuto = leggi_blocco_multilinea("\nVersione APPROFONDITA / completa (obbligatoria):")
+    if not contenuto.strip():
+        print(colored("Contenuto approfondito mancante. Annullo.", 'red'))
+        return
+
+    data_default = bd.data_oggi()
+    data = input(colored(f"\nData pubblicazione [{data_default}]: ", 'yellow')).strip() or data_default
+
     print(colored("\nTag personalizzati (separati da virgola, o Invio per auto):", 'yellow'))
     tags_raw = input().strip()
     tags = [t.strip() for t in tags_raw.split(',') if t.strip()] if tags_raw else None
-    
-    # Ricapitolazione
+
+    # Riepilogo
     print()
     print(colored("=" * 60, 'green'))
     print(colored("RIEPILOGO:", 'bold'))
     print(colored("=" * 60, 'green'))
-    print(f"  Titolo:   {titolo}")
-    print(f"  Rubrica:  {rubrica}")
-    print(f"  Data:     {data}")
-    print(f"  Video:    {video_url}")
-    if tags:
-        print(f"  Tag:      {', '.join(tags)}")
-    else:
-        print(f"  Tag:      (verranno estratti automaticamente)")
-    print(f"  Contenuto: {len(contenuto)} caratteri")
+    print(f"  Titolo:    {titolo}")
+    print(f"  Rubrica:   {rubrica}")
+    print(f"  Data:      {data}")
+    print(f"  Video:     {video_url}")
+    print(f"  Copertina: {thumbnail or '(nessuna)'}")
+    print(f"  Versioni:  {'Breve + Approfondita' if breve.strip() else 'Solo approfondita'}")
+    print(f"  Tag:       {', '.join(tags) if tags else '(automatici)'}")
+    print(f"  Slug/id:   {bd.slugify(titolo)}")
     print()
-    
+
     conferma = input(colored("Confermi l'aggiunta? [S/n]: ", 'yellow')).strip().lower()
     if conferma not in ('', 's', 'si', 'y', 'yes'):
         print(colored("Annullato.", 'red'))
         return
-    
-    # Scrivi nel file data.js
-    if not DATA_FILE.exists():
-        print(colored(f"✗ File non trovato: {DATA_FILE}", 'red'))
+
+    # Costruisci e scrivi tramite il core robusto
+    nuovo = {"titolo": titolo, "rubrica": rubrica, "data": data, "videoUrl": video_url}
+    if thumbnail:
+        nuovo["thumbnail"] = thumbnail
+    if tags:
+        nuovo["tags"] = tags
+    if breve.strip():
+        nuovo["contenutoBreve"] = breve.strip()
+    nuovo["contenuto"] = contenuto.strip()
+
+    try:
+        articoli = bd.leggi_articoli(DATA_FILE)
+        # avviso collisione slug
+        nuovo_slug = bd.slugify(titolo)
+        if any(bd.id_articolo(a) == nuovo_slug for a in articoli):
+            print(colored(f"⚠ Attenzione: esiste già un articolo con slug «{nuovo_slug}». "
+                          "Cambia leggermente il titolo per evitare URL sovrapposti.", 'red'))
+        articoli.insert(0, nuovo)
+        backup = bd.scrivi_articoli(DATA_FILE, articoli)
+    except Exception as e:
+        print(colored(f"\n✗ Errore durante il salvataggio: {e}", 'red'))
         return
-    
-    testo = DATA_FILE.read_text(encoding='utf-8')
-    
-    # Crea nuovo articolo in formato JS
-    nuovo_articolo = costruisci_articolo_js(titolo, rubrica, data, video_url, contenuto, tags)
-    
-    # Inserisci prima della chiusura di articoliGrezzi (cerca "];" preceduto da "}")
-    # Pattern: trova l'ultimo "}," nell'array e aggiungi dopo
-    pattern = r'(const articoliGrezzi = \[[\s\S]*?)(\n\];)'
-    match = re.search(pattern, testo)
-    
-    if not match:
-        print(colored("✗ Non riesco a trovare l'array articoliGrezzi in data.js", 'red'))
-        return
-    
-    # Se l'array ha già articoli, aggiungi una virgola e poi il nuovo
-    # Se è vuoto, aggiungi solo il nuovo articolo
-    contenuto_array = match.group(1)
-    chiusura = match.group(2)
-    
-    # Controlla se l'ultimo carattere significativo è '},' o '['
-    contenuto_trim = contenuto_array.rstrip()
-    if contenuto_trim.endswith('['):
-        # Array vuoto
-        new_array = contenuto_array + '\n  ' + nuovo_articolo
-    else:
-        # Già ha articoli - aggiungi in cima per avere i più recenti per primi
-        # In realtà aggiungiamo in fondo; l'ordinamento avviene lato JS
-        # Assicuriamoci che l'ultimo articolo abbia la virgola
-        if not contenuto_trim.endswith(','):
-            # Aggiungi virgola prima del nuovo articolo
-            contenuto_array_corretto = contenuto_array.rstrip()
-            if contenuto_array_corretto.endswith('}'):
-                contenuto_array_corretto += ','
-            new_array = contenuto_array_corretto + '\n\n  ' + nuovo_articolo
-        else:
-            new_array = contenuto_array + '\n  ' + nuovo_articolo
-    
-    nuovo_testo = testo[:match.start()] + new_array + chiusura + testo[match.end():]
-    
-    # Backup
-    backup_path = DATA_FILE.with_suffix('.js.bak')
-    backup_path.write_text(testo, encoding='utf-8')
-    
-    # Scrivi nuovo contenuto
-    DATA_FILE.write_text(nuovo_testo, encoding='utf-8')
-    
+
     print()
     print(colored("✓ Articolo aggiunto con successo!", 'green'))
-    print(colored(f"✓ Backup salvato in: {backup_path.name}", 'blue'))
+    if backup:
+        print(colored(f"✓ Backup salvato in: {backup.name}", 'blue'))
     print()
     print(colored("Prossimo passo:", 'bold'))
     print("  1. Apri index.html nel browser per verificare")
-    print("  2. Ricarica il sito sul tuo hosting (Netlify: trascina la cartella)")
+    print("  2. Carica data.js e le immagini nuove sul tuo hosting/GitHub")
     print()
-
-
-def costruisci_articolo_js(titolo, rubrica, data, video_url, contenuto, tags):
-    """Costruisce la stringa JS per il nuovo articolo"""
-    # Escape del contenuto per template literal JS
-    # Dobbiamo escape solo backtick e ${ 
-    contenuto_escaped = contenuto.replace('\\', '\\\\').replace('`', '\\`').replace('${', '\\${')
-    titolo_escaped = titolo.replace('"', '\\"')
-    
-    js = '{\n'
-    js += f'    titolo: "{titolo_escaped}",\n'
-    js += f'    rubrica: "{rubrica}",\n'
-    js += f'    data: "{data}",\n'
-    js += f'    videoUrl: "{video_url}",\n'
-    if tags:
-        js += f'    tags: {tags},\n'
-    js += f'    contenuto: `{contenuto_escaped}`\n'
-    js += '  },'
-    return js
 
 
 if __name__ == "__main__":
