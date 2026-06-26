@@ -1197,6 +1197,64 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
   outline-offset: 2px;
 }
 
+/* ===== Banner consenso cookie ===== */
+.cc-overlay {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  pointer-events: none;
+}
+
+.cc-card {
+  pointer-events: auto;
+  width: 100%;
+  max-width: 560px;
+  background: var(--white, #fff);
+  border: 1px solid var(--border, #e5e7eb);
+  border-radius: 16px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.18);
+  padding: 1.25rem 1.4rem;
+}
+
+.cc-title { margin: 0 0 0.4rem; font-size: 1.1rem; }
+.cc-text { margin: 0 0 0.9rem; font-size: 0.92rem; line-height: 1.55; color: var(--text-soft, #475569); }
+.cc-text a { color: var(--green-darker, #15803d); font-weight: 600; text-decoration: underline; }
+
+.cc-prefs { margin: 0 0 0.9rem; border-top: 1px solid var(--border, #e5e7eb); }
+.cc-row {
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  padding: 0.7rem 0; border-bottom: 1px solid var(--border, #e5e7eb);
+  font-size: 0.9rem;
+}
+.cc-muted { color: var(--text-muted, #94a3b8); font-size: 0.82rem; }
+.cc-always { color: var(--green-darker, #15803d); font-weight: 600; font-size: 0.82rem; white-space: nowrap; }
+.cc-toggle { width: 20px; height: 20px; accent-color: var(--green-primary, #22c55e); cursor: pointer; flex: none; }
+
+.cc-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: flex-end; }
+.cc-btn {
+  font-family: inherit; font-size: 0.9rem; font-weight: 600;
+  padding: 0.6rem 1.1rem; border-radius: 999px; border: 1px solid transparent; cursor: pointer;
+}
+.cc-btn-primary { background: var(--green-primary, #22c55e); color: #fff; }
+.cc-btn-primary:hover { background: var(--green-darker, #15803d); }
+.cc-btn-secondary { background: transparent; color: var(--ink, #0a0a0a); border-color: var(--border, #e5e7eb); }
+.cc-btn-secondary:hover { background: var(--green-subtle, #f0fdf4); }
+.cc-btn-ghost { background: transparent; color: var(--text-soft, #475569); margin-right: auto; }
+.cc-btn-ghost:hover { color: var(--ink, #0a0a0a); }
+.cc-btn:focus-visible { outline: 2px solid var(--green-darker, #15803d); outline-offset: 2px; }
+
+.cc-reopen { color: inherit; opacity: 0.85; cursor: pointer; }
+.cc-reopen:hover { opacity: 1; text-decoration: underline; }
+
+@media (max-width: 520px) {
+  .cc-actions { justify-content: stretch; }
+  .cc-btn { flex: 1 1 auto; text-align: center; }
+  .cc-btn-ghost { flex-basis: 100%; margin-right: 0; }
+}
+
 .article-footer-share {
   margin-top: 3rem;
   padding-top: 2rem;

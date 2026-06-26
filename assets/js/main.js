@@ -64,7 +64,7 @@ function setSEO({ title, description, image, url, type = 'website', keywords = [
   // Open Graph (Facebook, WhatsApp, LinkedIn)
   setMeta('og:title', fullTitle, true);
   setMeta('og:description', finalDesc, true);
-  setMeta('og:image', new URL(finalImage, window.location.href).href, true);
+  setMeta('og:image', new URL(finalImage, document.baseURI).href, true);
   setMeta('og:url', finalUrl, true);
   setMeta('og:type', type, true);
   setMeta('og:site_name', cfg.name, true);
@@ -74,7 +74,7 @@ function setSEO({ title, description, image, url, type = 'website', keywords = [
   setMeta('twitter:card', 'summary_large_image');
   setMeta('twitter:title', fullTitle);
   setMeta('twitter:description', finalDesc);
-  setMeta('twitter:image', new URL(finalImage, window.location.href).href);
+  setMeta('twitter:image', new URL(finalImage, document.baseURI).href);
   
   // Canonical URL
   let canonical = document.querySelector('link[rel="canonical"]');
@@ -165,6 +165,12 @@ function resolveImg(src) {
   if (!src) return '';
   if (/^https?:/i.test(src) || src.startsWith('/') || src.includes('/')) return src;
   return 'assets/images/' + src;
+}
+
+/** Percorso (relativo alla radice del sito) della pagina di un articolo. */
+function articoloHref(art) {
+  const rub = (typeof slugify === 'function' ? slugify(art.rubrica || '') : '') || 'altro';
+  return `enciclopedia/${rub}/${encodeURIComponent(art.id)}.html`;
 }
 
 /**
@@ -314,7 +320,7 @@ function renderSearchResults(container, results, query) {
   
   const displayedResults = results.slice(0, 6);
   container.innerHTML = displayedResults.map(art => `
-    <a href="${encodeURIComponent(art.id)}.html" class="search-result-item">
+    <a href="${articoloHref(art)}" class="search-result-item">
       <div class="search-result-rubrica">${getRubricaIcon(art.rubrica)} ${art.rubrica}</div>
       <div class="search-result-title">${escapeHtml(art.titolo)}</div>
       <div class="search-result-excerpt">${escapeHtml(art.estratto)}</div>
@@ -341,7 +347,7 @@ function createArticleCard(art, featured = false) {
     : `<div class="article-thumbnail-inner">BItGen</div>`;
 
   return `
-    <a href="${encodeURIComponent(art.id)}.html" class="article-card">
+    <a href="${articoloHref(art)}" class="article-card">
       <div class="article-thumbnail" style="background: linear-gradient(135deg, ${color}dd 0%, ${color} 100%);">
         <div class="article-rubrica-badge">${icon} ${escapeHtml(art.rubrica)}</div>
         <div class="article-duration">▶ ${escapeHtml(art.durata)}</div>
@@ -504,9 +510,9 @@ function renderArticolo() {
   // SEO DINAMICO PER ARTICOLO
   // ═══════════════════════════════════════
   // URL "pulito" della pagina articolo (es. .../slug.html) per canonical e condivisioni
-  const articleUrl = new URL(`${art.id}.html`, window.location.href).href;
+  const articleUrl = new URL(articoloHref(art), document.baseURI).href;
   const articleImage = art.thumbnail
-    ? new URL(resolveImg(art.thumbnail), window.location.href).href
+    ? new URL(resolveImg(art.thumbnail), document.baseURI).href
     : undefined;
   setSEO({
     title: art.titolo,
@@ -525,7 +531,7 @@ function renderArticolo() {
     "@type": "Article",
     "headline": art.titolo,
     "description": art.estratto,
-    "image": articleImage || new URL(BITGEN_CONFIG.site.ogImageUrl, window.location.href).href,
+    "image": articleImage || new URL(BITGEN_CONFIG.site.ogImageUrl, document.baseURI).href,
     "author": {
       "@type": "Organization",
       "name": BITGEN_CONFIG.site.author,
@@ -536,7 +542,7 @@ function renderArticolo() {
       "name": BITGEN_CONFIG.site.name,
       "logo": {
         "@type": "ImageObject",
-        "url": new URL(BITGEN_CONFIG.site.logoUrl, window.location.href).href
+        "url": new URL(BITGEN_CONFIG.site.logoUrl, document.baseURI).href
       }
     },
     "datePublished": art.data,

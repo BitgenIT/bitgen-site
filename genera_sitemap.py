@@ -61,6 +61,7 @@ def estrai_articoli():
         out.append({
             "id": bd.id_articolo(a),
             "titolo": a.get("titolo", ""),
+            "rubrica": a.get("rubrica", ""),
             "data": a.get("data") or bd.data_oggi(),
         })
     return out
@@ -77,6 +78,7 @@ def genera_sitemap(url_base, articoli):
         ('/', '1.0', 'daily'),
         ('/enciclopedia.html', '0.9', 'daily'),
         ('/contatti.html', '0.5', 'monthly'),
+        ('/privacy.html', '0.2', 'yearly'),
     ]
     for path, priority, freq in pagine:
         xml += '  <url>\n'
@@ -87,7 +89,7 @@ def genera_sitemap(url_base, articoli):
         xml += '  </url>\n'
 
     for art in articoli:
-        loc = f'{url_base}/{genera_pagine.nome_file(art["id"])}'
+        loc = f'{url_base}/{genera_pagine.percorso_articolo(art)}'
         xml += '  <url>\n'
         xml += f'    <loc>{xml_escape(loc)}</loc>\n'
         xml += f'    <lastmod>{art["data"]}</lastmod>\n'

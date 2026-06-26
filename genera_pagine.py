@@ -4,20 +4,23 @@
 BItGen - Generatore pagine articolo statiche (per anteprime social e SEO)
 =========================================================================
 
-Per OGNI articolo crea una pagina HTML a sé (es. cose-il-cloud.html) partendo
-dal template articolo.html, con i meta "cotti" nell'HTML:
-  - <title>, description, Open Graph (og:title/description/image/url), Twitter Card,
-    canonical e dati strutturati JSON-LD specifici dell'articolo.
+Per OGNI articolo crea una pagina HTML a sé dentro una struttura ordinata:
 
-Così quando condividi il link su WhatsApp/Facebook/Telegram (che NON eseguono
-JavaScript) l'anteprima mostra titolo e immagine GIUSTI dell'articolo.
+    enciclopedia/<rubrica>/<slug>.html
+    es.  enciclopedia/ma-cos-e/cose-il-cloud.html
 
-Il corpo dell'articolo viene comunque renderizzato dallo stesso main.js (un solo
-motore di rendering), tramite window.__ARTICLE_ID__; per chi non ha JavaScript
-c'è un fallback <noscript> con titolo ed estratto.
+così la cartella principale del sito resta pulita. Ogni pagina ha i meta
+"cotti" nell'HTML (Open Graph, Twitter Card, canonical, JSON-LD) per le
+anteprime social di WhatsApp/Facebook (che NON eseguono JavaScript).
 
-Le pagine generate contengono il marcatore BITGEN-AUTO-GENERATED: a ogni esecuzione
-quelle non più corrispondenti a un articolo vengono rimosse (cleanup automatico).
+Le pagine stanno in sottocartelle: un tag <base href="../../"> fa sì che CSS,
+JS, immagini e link continuino a funzionare come se la pagina fosse nella radice.
+
+Il corpo dell'articolo è reso dallo stesso main.js (un solo motore) tramite
+window.__ARTICLE_ID__; per chi non ha JavaScript c'è un fallback <noscript>.
+
+Le pagine generate contengono il marcatore BITGEN-AUTO-GENERATED: a ogni
+esecuzione quelle non più corrispondenti a un articolo vengono rimosse.
 """
 
 import re
@@ -30,9 +33,8 @@ SCRIPT_DIR = Path(__file__).parent
 sys.path.insert(0, str(SCRIPT_DIR))
 import bitgen_data as bd
 
-TEMPLATE = SCRIPT_DIR / "articolo.html"
 MARKER = "<!-- BITGEN-AUTO-GENERATED -->"
-RISERVATI = {"index", "enciclopedia", "contatti", "articolo", "404", "sitemap", "robots"}
+ENC_DIR = "enciclopedia"
 
 try:
     sys.stdout.reconfigure(encoding="utf-8")
@@ -40,10 +42,13 @@ except Exception:
     pass
 
 
-def nome_file(slug):
-    if slug in RISERVATI:
-        slug = "articolo-" + slug
-    return slug + ".html"
+def rubrica_slug(rubrica):
+    return bd.slugify(rubrica) or "altro"
+
+
+def percorso_articolo(art):
+    """Percorso relativo della pagina di un articolo (con / come separatore)."""
+    return f"{ENC_DIR}/{rubrica_slug(art.get('rubrica', ''))}/{bd.id_articolo(art)}.html"
 
 
 def costruisci_pagina(template, art, url_base):
@@ -54,7 +59,8 @@ def costruisci_pagina(template, art, url_base):
     rubrica = art.get("rubrica", "")
     tags = art.get("tags", []) or []
 
-    url = f"{url_base}/{nome_file(slug)}"
+    rel = percorso_articolo(art)
+    url = f"{url_base}/{rel}"
     if art.get("thumbnail"):
         img_abs = f"{url_base}/{art['thumbnail']}"
     else:
@@ -103,7 +109,7 @@ def costruisci_pagina(template, art, url_base):
     noscript = (
         '<article class="article-page" id="articolo-container">'
         '<noscript><div class="container" style="padding:2rem 0">'
-        f'<p><a href="enciclopedia.html">← Enciclopedia</a></p>'
+        '<p><a href="enciclopedia.html">← Enciclopedia</a></p>'
         f'<h1>{e(titolo)}</h1><p>{e(estratto)}</p>'
         '<p>Attiva JavaScript per leggere l\'articolo completo.</p>'
         '</div></noscript></article>'
@@ -111,6 +117,11 @@ def costruisci_pagina(template, art, url_base):
 
     page = template
     page = page.replace("<!DOCTYPE html>", "<!DOCTYPE html>\n" + MARKER, 1)
+    # <base> per far funzionare percorsi relativi da dentro le sottocartelle
+    page = page.replace(
+        '<meta name="viewport" content="width=device-width, initial-scale=1.0">',
+        '<meta name="viewport" content="width=device-width, initial-scale=1.0">\n'
+        '<base href="../../">', 1)
     page = page.replace("<title>Articolo — BItGen</title>",
                         f"<title>{e(full_title)}</title>", 1)
     page = page.replace(
@@ -126,7 +137,7 @@ def costruisci_pagina(template, art, url_base):
     page = page.replace(
         '<article class="article-page" id="articolo-container"></article>',
         noscript, 1)
-    return slug, page
+    return rel, page
 
 
 def genera_pagine(site_dir, articoli, url_base):
@@ -138,15 +149,22 @@ def genera_pagine(site_dir, articoli, url_base):
     for art in articoli:
         if not art.get("titolo"):
             continue
-        slug, page = costruisci_pagina(template, art, url_base)
-        fname = nome_file(slug)
-        (site_dir / fname).write_text(page, encoding="utf-8")
-        generati.add(fname)
+        rel, page = costruisci_pagina(template, art, url_base)
+        out = site_dir / rel
+        out.parent.mkdir(parents=True, exist_ok=True)
+        out.write_text(page, encoding="utf-8")
+        generati.add(rel)
 
-    # cleanup: rimuovi vecchie pagine generate non più corrispondenti ad alcun articolo
+    # cleanup: rimuovi vecchie pagine generate (anche quelle nella radice della v
+    # precedente) non più corrispondenti ad alcun articolo
+    candidati = list(site_dir.glob("*.html"))
+    enc = site_dir / ENC_DIR
+    if enc.exists():
+        candidati += list(enc.rglob("*.html"))
     rimossi = 0
-    for f in site_dir.glob("*.html"):
-        if f.name in generati:
+    for f in candidati:
+        rel = f.relative_to(site_dir).as_posix()
+        if rel in generati:
             continue
         try:
             testo = f.read_text(encoding="utf-8")
@@ -155,6 +173,15 @@ def genera_pagine(site_dir, articoli, url_base):
         if MARKER in testo:
             f.unlink()
             rimossi += 1
+
+    # rimuovi eventuali sottocartelle rubrica rimaste vuote
+    if enc.exists():
+        for d in sorted(enc.glob("*"), reverse=True):
+            if d.is_dir():
+                try:
+                    next(d.iterdir())
+                except StopIteration:
+                    d.rmdir()
 
     return generati, rimossi
 
