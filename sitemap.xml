@@ -2,90 +2,96 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://bitgen.it/</loc>
-    <lastmod>2026-06-25</lastmod>
+    <lastmod>2026-06-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://bitgen.it/enciclopedia.html</loc>
-    <lastmod>2026-06-25</lastmod>
+    <lastmod>2026-06-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://bitgen.it/contatti.html</loc>
-    <lastmod>2026-06-25</lastmod>
+    <lastmod>2026-06-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://bitgen.it/articolo.html?id=computer-vs-monitor-non-sono-la-stessa-cosa</loc>
+    <loc>https://bitgen.it/cose-il-cloud-spoiler-e-il-computer-di-qualcun-altro.html</loc>
+    <lastmod>2026-06-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/computer-vs-monitor-non-sono-la-stessa-cosa.html</loc>
     <lastmod>2026-04-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://bitgen.it/articolo.html?id=come-riconoscere-unemail-di-spam-in-10-secondi</loc>
+    <loc>https://bitgen.it/come-riconoscere-unemail-di-spam-in-10-secondi.html</loc>
     <lastmod>2026-04-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://bitgen.it/articolo.html?id=il-mac-non-prende-virus-vero-o-falso</loc>
+    <loc>https://bitgen.it/il-mac-non-prende-virus-vero-o-falso.html</loc>
     <lastmod>2026-04-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://bitgen.it/articolo.html?id=cpu-ram-disco-spiegati-con-una-cucina</loc>
+    <loc>https://bitgen.it/cpu-ram-disco-spiegati-con-una-cucina.html</loc>
     <lastmod>2026-04-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://bitgen.it/articolo.html?id=ssd-vs-hdd-perche-il-tuo-vecchio-pc-sembra-rinascere</loc>
+    <loc>https://bitgen.it/ssd-vs-hdd-perche-il-tuo-vecchio-pc-sembra-rinascere.html</loc>
     <lastmod>2026-04-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://bitgen.it/articolo.html?id=task-manager-il-primo-strumento-quando-il-pc-e-lento</loc>
+    <loc>https://bitgen.it/task-manager-il-primo-strumento-quando-il-pc-e-lento.html</loc>
     <lastmod>2026-04-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://bitgen.it/articolo.html?id=cose-il-wi-fi-no-non-e-internet</loc>
+    <loc>https://bitgen.it/cose-il-wi-fi-no-non-e-internet.html</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://bitgen.it/articolo.html?id=cosa-succede-quando-digiti-un-sito-web-il-viaggio-dei-dati</loc>
+    <loc>https://bitgen.it/cosa-succede-quando-digiti-un-sito-web-il-viaggio-dei-dati.html</loc>
     <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://bitgen.it/articolo.html?id=la-modalita-in-incognito-ti-rende-invisibile-falso</loc>
+    <loc>https://bitgen.it/la-modalita-in-incognito-ti-rende-invisibile-falso.html</loc>
     <lastmod>2026-05-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://bitgen.it/articolo.html?id=http-vs-https-quella-s-ti-salva-la-vita-digitale</loc>
+    <loc>https://bitgen.it/http-vs-https-quella-s-ti-salva-la-vita-digitale.html</loc>
     <lastmod>2026-05-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://bitgen.it/articolo.html?id=firewall-la-guardia-del-corpo-del-tuo-pc</loc>
+    <loc>https://bitgen.it/firewall-la-guardia-del-corpo-del-tuo-pc.html</loc>
     <lastmod>2026-05-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://bitgen.it/articolo.html?id=piu-ram-pc-piu-veloce-non-sempre</loc>
+    <loc>https://bitgen.it/piu-ram-pc-piu-veloce-non-sempre.html</loc>
     <lastmod>2026-05-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>

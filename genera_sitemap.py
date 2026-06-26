@@ -26,6 +26,7 @@ from urllib.parse import quote
 SCRIPT_DIR = Path(__file__).parent
 sys.path.insert(0, str(SCRIPT_DIR))
 import bitgen_data as bd
+import genera_pagine
 
 DATA_FILE = SCRIPT_DIR / "assets" / "js" / "data.js"
 CONFIG_FILE = SCRIPT_DIR / "assets" / "js" / "config.js"
@@ -86,7 +87,7 @@ def genera_sitemap(url_base, articoli):
         xml += '  </url>\n'
 
     for art in articoli:
-        loc = f'{url_base}/articolo.html?id={quote(art["id"], safe="")}'
+        loc = f'{url_base}/{genera_pagine.nome_file(art["id"])}'
         xml += '  <url>\n'
         xml += f'    <loc>{xml_escape(loc)}</loc>\n'
         xml += f'    <lastmod>{art["data"]}</lastmod>\n'
@@ -128,6 +129,15 @@ def main():
     robots_path = SCRIPT_DIR / "robots.txt"
     robots_path.write_text(robots_content, encoding='utf-8')
     print(f"✓ Robots.txt generato: {robots_path.name}")
+
+    # Pagine articolo statiche (anteprime social + SEO)
+    try:
+        articoli_full = bd.leggi_articoli(DATA_FILE)
+        generati, rimossi = genera_pagine.genera_pagine(SCRIPT_DIR, articoli_full, url_base)
+        print(f"✓ Pagine articolo generate: {len(generati)}"
+              + (f" (rimosse {rimossi} obsolete)" if rimossi else ""))
+    except Exception as e:
+        print(f"✗ Errore generazione pagine articolo: {e}")
 
     print()
     print("Prossimi passi per la SEO:")

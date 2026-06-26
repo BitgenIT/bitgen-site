@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f1117"/>
+      <stop offset="1" stop-color="#16331f"/>
+    </linearGradient>
+    <linearGradient id="cloud" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#22c55e"/>
+      <stop offset="1" stop-color="#16a34a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <g transform="translate(600 250)">
+    <path fill="url(#cloud)" d="M-150 40 a70 70 0 0 1 20 -137 a95 95 0 0 1 183 -20 a65 65 0 0 1 27 157 z"/>
+    <text x="0" y="14" font-family="Arial" font-size="46" font-weight="bold" fill="#0f1117" text-anchor="middle">CLOUD</text>
+  </g>
+  <text x="600" y="430" font-family="Arial" font-size="62" font-weight="bold" fill="#ffffff" text-anchor="middle">Cos'è il Cloud?</text>
+  <text x="600" y="500" font-family="Arial" font-size="34" fill="#9aa0b0" text-anchor="middle">Spoiler: è il computer di qualcun altro</text>
+  <text x="600" y="585" font-family="monospace" font-size="26" fill="#22c55e" text-anchor="middle">BItGen · Ma cos'è?</text>
+</svg>

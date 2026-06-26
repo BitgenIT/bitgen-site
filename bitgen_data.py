@@ -50,6 +50,39 @@ def id_articolo(art):
     return art.get('id') or slugify(art.get('titolo', ''))
 
 
+def estrae_estratto(contenuto, max_length=180):
+    """Estratto dalle prime frasi utili. Parità con estraeEstratto() in data.js."""
+    blocchi = re.split(r'\n\s*\n', contenuto or "")
+    testo = ''
+    for blocco in blocchi:
+        trimmed = blocco.strip()
+        if not trimmed:
+            continue
+        if re.match(r'^\[IMG:', trimmed, re.IGNORECASE):
+            continue
+        if len(trimmed) < 80 and trimmed == trimmed.upper():
+            continue
+        testo = trimmed
+        break
+    if not testo:
+        testo = (contenuto or "").strip()
+    if len(testo) <= max_length:
+        return testo
+    truncated = testo[:max_length]
+    last_dot = truncated.rfind('.')
+    last_space = truncated.rfind(' ')
+    cut = last_dot + 1 if last_dot > 50 else last_space
+    return testo[:cut].strip() + ('…' if cut < len(testo) else '')
+
+
+def estratto_articolo(art):
+    """Estratto come lo calcola il frontend: campo esplicito, poi breve, poi approfondito."""
+    if art.get('estratto'):
+        return art['estratto']
+    base = art.get('contenutoBreve') or art.get('contenuto') or ''
+    return estrae_estratto(base)
+
+
 def _individua_array(testo):
     """Trova gli indici [start, end) del literal array JSON dopo 'const articoliGrezzi ='.
 

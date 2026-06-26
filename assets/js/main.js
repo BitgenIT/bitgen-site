@@ -314,7 +314,7 @@ function renderSearchResults(container, results, query) {
   
   const displayedResults = results.slice(0, 6);
   container.innerHTML = displayedResults.map(art => `
-    <a href="articolo.html?id=${art.id}" class="search-result-item">
+    <a href="${encodeURIComponent(art.id)}.html" class="search-result-item">
       <div class="search-result-rubrica">${getRubricaIcon(art.rubrica)} ${art.rubrica}</div>
       <div class="search-result-title">${escapeHtml(art.titolo)}</div>
       <div class="search-result-excerpt">${escapeHtml(art.estratto)}</div>
@@ -341,7 +341,7 @@ function createArticleCard(art, featured = false) {
     : `<div class="article-thumbnail-inner">BItGen</div>`;
 
   return `
-    <a href="articolo.html?id=${encodeURIComponent(art.id)}" class="article-card">
+    <a href="${encodeURIComponent(art.id)}.html" class="article-card">
       <div class="article-thumbnail" style="background: linear-gradient(135deg, ${color}dd 0%, ${color} 100%);">
         <div class="article-rubrica-badge">${icon} ${escapeHtml(art.rubrica)}</div>
         <div class="article-duration">▶ ${escapeHtml(art.durata)}</div>
@@ -484,9 +484,9 @@ function renderArticolo() {
   if (!container) return;
   
   const urlParams = new URLSearchParams(window.location.search);
-  const id = urlParams.get('id');
+  const id = window.__ARTICLE_ID__ || urlParams.get('id');
   const art = articoli.find(a => a.id === id);
-  
+
   if (!art) {
     setSEO({ title: 'Articolo non trovato', description: 'L\'articolo che cerchi non esiste o è stato rimosso.' });
     container.innerHTML = `
@@ -503,9 +503,16 @@ function renderArticolo() {
   // ═══════════════════════════════════════
   // SEO DINAMICO PER ARTICOLO
   // ═══════════════════════════════════════
+  // URL "pulito" della pagina articolo (es. .../slug.html) per canonical e condivisioni
+  const articleUrl = new URL(`${art.id}.html`, window.location.href).href;
+  const articleImage = art.thumbnail
+    ? new URL(resolveImg(art.thumbnail), window.location.href).href
+    : undefined;
   setSEO({
     title: art.titolo,
     description: art.estratto,
+    image: articleImage,
+    url: articleUrl,
     type: 'article',
     keywords: [...(art.tags || []), art.rubrica, 'informatica', 'BItGen'],
     publishedDate: art.data,
@@ -518,7 +525,7 @@ function renderArticolo() {
     "@type": "Article",
     "headline": art.titolo,
     "description": art.estratto,
-    "image": new URL(BITGEN_CONFIG.site.ogImageUrl, window.location.href).href,
+    "image": articleImage || new URL(BITGEN_CONFIG.site.ogImageUrl, window.location.href).href,
     "author": {
       "@type": "Organization",
       "name": BITGEN_CONFIG.site.author,
@@ -537,7 +544,7 @@ function renderArticolo() {
     "articleSection": art.rubrica,
     "keywords": (art.tags || []).join(', '),
     "inLanguage": BITGEN_CONFIG.site.language,
-    "mainEntityOfPage": window.location.href
+    "mainEntityOfPage": articleUrl
   });
   
   // Track view
