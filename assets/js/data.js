@@ -132,15 +132,6 @@ function normalizzaArticolo(art) {
 
 const articoliGrezzi = [
   {
-    "titolo": "test",
-    "rubrica": "Ma cos'è?",
-    "data": "2026-06-26",
-    "videoUrl": "https://youtube.com/watch?v=placeholder",
-    "thumbnail": "assets/images/screenshot-2023-03-09-163111.png",
-    "contenutoBreve": "test",
-    "contenuto": "test\n[IMG: screenshot-2023-03-20-142147.png]"
-  },
-  {
     "titolo": "Cos'è il Cloud? (Spoiler: è il computer di qualcun altro)",
     "rubrica": "Ma cos'è?",
     "data": "2026-06-26",
