@@ -27,6 +27,7 @@ import re
 import sys
 import json
 import html
+import hashlib
 from pathlib import Path
 
 SCRIPT_DIR = Path(__file__).parent
@@ -35,6 +36,14 @@ import bitgen_data as bd
 
 MARKER = "<!-- BITGEN-AUTO-GENERATED -->"
 ENC_DIR = "enciclopedia"
+
+# File di codice/dati su cui applicare il cache-busting (?v=hash)
+ASSET_VERSIONABILI = [
+    "assets/js/config.js", "assets/js/data.js",
+    "assets/js/main.js", "assets/js/consent.js", "assets/css/style.css",
+]
+ASSET_RE = re.compile(
+    r'(assets/(?:js/(?:config|data|main|consent)\.js|css/style\.css))(\?v=[0-9a-f]+)?')
 
 try:
     sys.stdout.reconfigure(encoding="utf-8")
@@ -130,10 +139,12 @@ def costruisci_pagina(template, art, url_base):
     page = page.replace(
         '<meta property="og:image" content="assets/images/logo.png">', social, 1)
     page = page.replace("</head>", jsonld, 1)
-    page = page.replace(
-        '<script src="assets/js/config.js"></script>',
-        f'<script>window.__ARTICLE_ID__ = {json.dumps(slug)};</script>\n'
-        '<script src="assets/js/config.js"></script>', 1)
+    # inietta l'id PRIMA di config.js (gestendo l'eventuale ?v= del cache-busting)
+    def _inietta_id(m):
+        return f'<script>window.__ARTICLE_ID__ = {json.dumps(slug)};</script>\n' + m.group(1)
+    page = re.sub(
+        r'(<script src="assets/js/config\.js(?:\?v=[0-9a-f]+)?"></script>)',
+        _inietta_id, page, count=1)
     page = page.replace(
         '<article class="article-page" id="articolo-container"></article>',
         noscript, 1)
@@ -183,7 +194,43 @@ def genera_pagine(site_dir, articoli, url_base):
                 except StopIteration:
                     d.rmdir()
 
+    # cache-busting: marca CSS/JS/data con la versione corrente in TUTTE le pagine
+    stampa_versione(site_dir)
+
     return generati, rimossi
+
+
+def _versione_asset(site_dir):
+    """Hash breve del contenuto di CSS/JS/data: cambia solo quando il codice cambia."""
+    h = hashlib.sha1()
+    for rel in ASSET_VERSIONABILI:
+        p = Path(site_dir) / rel
+        if p.exists():
+            h.update(p.read_bytes())
+    return h.hexdigest()[:8]
+
+
+def stampa_versione(site_dir):
+    """Aggiunge ?v=<hash> ai riferimenti CSS/JS/data in tutte le pagine HTML.
+
+    Così quando aggiorni un articolo (o il codice) il browser è OBBLIGATO a
+    ricaricare i file nuovi invece di servire la versione vecchia dalla cache.
+    """
+    site_dir = Path(site_dir)
+    v = _versione_asset(site_dir)
+    files = list(site_dir.glob("*.html"))
+    enc = site_dir / ENC_DIR
+    if enc.exists():
+        files += list(enc.rglob("*.html"))
+    for f in files:
+        try:
+            t = f.read_text(encoding="utf-8")
+        except OSError:
+            continue
+        nt = ASSET_RE.sub(lambda m: m.group(1) + "?v=" + v, t)
+        if nt != t:
+            f.write_text(nt, encoding="utf-8")
+    return v
 
 
 def _url_base_da_config(site_dir):

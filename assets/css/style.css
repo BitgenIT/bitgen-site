@@ -1159,6 +1159,22 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
   font-style: italic;
 }
 
+/* Segnaposto per immagini non ancora caricate (marcatori [IMG:] in attesa del file) */
+.article-figure.img-missing {
+  background: var(--green-subtle);
+  border: 1.5px dashed var(--border);
+  border-radius: 16px;
+  padding: 2rem 1rem;
+}
+.article-figure.img-missing img { display: none; }
+.article-figure.img-missing::before {
+  content: '🖼️ Immagine esplicativa in arrivo';
+  display: block;
+  color: var(--text-muted);
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
 /* Switch versione breve / approfondita */
 .version-toggle {
   display: inline-flex;

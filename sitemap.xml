@@ -25,7 +25,397 @@
     <priority>0.2</priority>
   </url>
   <url>
-    <loc>https://bitgen.it/enciclopedia/ma-cose/cose-il-cloud-spoiler-e-il-computer-di-qualcun-altro.html</loc>
+    <loc>https://bitgen.it/enciclopedia/ma-cose/dallo-schermo-al-touch-come-linformatica-e-entrata-in-tasca.html</loc>
+    <lastmod>2026-06-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/ma-cose/console-smartphone-tablet-pc-ma-sono-tutti-computer.html</loc>
+    <lastmod>2026-06-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/ma-cose/bit-e-byte-perche-i-tuoi-file-pesano-in-kb-mb-e-gb.html</loc>
+    <lastmod>2026-06-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/ma-cose/and-or-not-come-il-computer-prende-decisioni.html</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/ma-cose/monotasking-vs-multitasking-il-pc-fa-davvero-piu-cose-insiem.html</loc>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/ma-cose/cose-un-browser-e-perche-non-e-il-motore-di-ricerca.html</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/reti-internet/cose-unemail-e-perche-esistono-pop3-e-imap.html</loc>
+    <lastmod>2026-06-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/sistema-software/accendere-il-pc-cosa-serve-davvero-per-farlo-partire.html</loc>
+    <lastmod>2026-06-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/hardware-periferiche/bios-e-firmware-chi-accende-il-pc-prima-di-windows.html</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/hardware-periferiche/il-pc-fa-beep-e-non-parte-il-codice-segreto-della-scheda-mad.html</loc>
+    <lastmod>2026-06-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/sicurezza/cifrare-un-messaggio-le-basi-della-crittografia-spiegate-sem.html</loc>
+    <lastmod>2026-06-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/sistema-software/int-float-string-i-mattoncini-con-cui-parlano-i-programmi.html</loc>
+    <lastmod>2026-06-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/sistema-software/trovare-lago-nel-pagliaio-come-cerca-davvero-un-algoritmo.html</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/digitale-pratico/cose-un-pdf-e-perche-si-apre-uguale-ovunque.html</loc>
+    <lastmod>2026-06-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/ma-cose/reti-per-umani-cose-davvero-una-rete-e-perche-lan-non-e-wan.html</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/reti-internet/indirizzo-ip-il-numero-civico-del-tuo-dispositivo-e-perche-n.html</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/reti-internet/subnet-mask-e-gateway-il-cap-e-luscita-della-tua-rete.html</loc>
+    <lastmod>2026-06-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/reti-internet/indirizzo-mac-limpronta-digitale-stampata-nella-tua-scheda-d.html</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/hardware-periferiche/hub-switch-e-router-chi-fa-cosa-nella-scatola-dei-cavi.html</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/reti-internet/dns-la-rubrica-telefonica-che-traduce-i-nomi-dei-siti-in-num.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/reti-internet/dominio-e-domini-di-terzo-livello-lindirizzo-di-casa-dei-sit.html</loc>
+    <lastmod>2026-06-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/reti-internet/tcp-vs-udp-il-corriere-con-ricevuta-contro-quello-che-spara-.html</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/reti-internet/le-porte-di-comunicazione-65535-finestre-sul-tuo-dispositivo.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/reti-internet/vlan-tante-reti-separate-dentro-un-unico-cavo.html</loc>
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/reti-internet/telefonia-analogica-vs-voip-la-voce-che-e-diventata-dati.html</loc>
+    <lastmod>2026-06-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/sicurezza/vpn-il-tunnel-blindato-tra-te-e-la-rete-a-distanza.html</loc>
+    <lastmod>2026-06-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/sicurezza/firewall-avanzato-regole-filtri-e-controllo-accessi-spiegati.html</loc>
+    <lastmod>2026-05-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/sicurezza/dmz-la-zona-cuscinetto-tra-internet-e-i-tuoi-server.html</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/reti-internet/i-7-livelli-del-modello-isoosi-il-viaggio-di-un-pacchetto-pi.html</loc>
+    <lastmod>2026-05-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/ma-cose/cose-la-programmazione-dare-ordini-al-computer-nella-sua-lin.html</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/ma-cose/basso-e-alto-livello-perche-al-computer-non-parli-come-a-un-.html</loc>
+    <lastmod>2026-05-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/sistema-software/c-sql-javascript-a-ogni-mestiere-il-suo-linguaggio.html</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/sistema-software/come-e-fatto-un-sito-web-dentro-html-css-javascript-e-il-mot.html</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/sistema-software/windows-dalla-a-alla-z-lanatomia-del-sistema-che-usi-ogni-gi.html</loc>
+    <lastmod>2026-05-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/sistema-software/esplora-file-la-mappa-per-non-perderti-tra-le-tue-cartelle.html</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/sistema-software/partizioni-dividere-il-disco-in-stanze-separate.html</loc>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/sistema-software/admin-utente-standard-e-uac-chi-comanda-davvero-sul-tuo-pc.html</loc>
+    <lastmod>2026-05-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/sistema-software/aggiornamenti-di-windows-quando-installarli-e-quando-rimanda.html</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/sistema-software/il-terminale-dei-comandi-il-pc-senza-finestre-ne-bottoni.html</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/sistema-software/32-o-64-bit-cosa-cambia-davvero-nel-cuore-del-tuo-computer.html</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/digitale-pratico/installare-disinstallare-e-scegliere-i-programmi-predefiniti.html</loc>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/digitale-pratico/personalizzare-laspetto-di-windows-il-pc-come-piace-a-te.html</loc>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/digitale-pratico/zip-rar-e-7zip-rimpicciolire-e-impacchettare-i-tuoi-file.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/sistema-software/macchine-virtuali-un-computer-dentro-il-tuo-computer.html</loc>
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/sicurezza/antivirus-serve-davvero-e-quale-scegliere.html</loc>
+    <lastmod>2026-05-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/sistema-software/office-e-sharepoint-la-cassetta-degli-attrezzi-per-lavorare-.html</loc>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/hardware-periferiche/dentro-la-scatola-le-6-parti-che-fanno-funzionare-ogni-pc.html</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/ma-cose/cose-un-hertz-la-pulsazione-segreta-che-muove-ogni-dispositi.html</loc>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/hardware-periferiche/60hz-144hz-e-oltre-cose-la-frequenza-di-refresh-dello-scherm.html</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/hardware-periferiche/dai-nastri-allnvme-la-corsa-di-70-anni-dellarchiviazione-dat.html</loc>
+    <lastmod>2026-05-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/hardware-periferiche/ram-perche-si-chiama-ad-accesso-casuale-e-i-nastri-no.html</loc>
+    <lastmod>2026-05-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/hardware-periferiche/da-un-cervello-a-tanti-levoluzione-delle-cpu-multicore.html</loc>
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/digitale-pratico/videochiamate-senza-imbarazzi-le-impostazioni-giuste-su-team.html</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/ma-cose/input-o-output-chi-parla-e-chi-ascolta-nel-tuo-pc.html</loc>
+    <lastmod>2026-05-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/hardware-periferiche/la-giungla-dei-cavi-una-guida-per-non-perdersi-dietro-al-pc.html</loc>
+    <lastmod>2026-05-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/reti-internet/cat-5-cat-6-cat-7-che-numero-ha-il-tuo-cavo-di-rete.html</loc>
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/ma-cose/cose-un-server-e-no-non-e-una-stanza-piena-di-lucine.html</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/ma-cose/nas-il-cloud-privato-che-vive-in-casa-tua.html</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/digitale-pratico/installare-una-stampante-via-ip-o-con-il-programma-del-produ.html</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/hardware-periferiche/touchscreen-perche-il-guanto-funziona-su-alcuni-schermi-e-su.html</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/hardware-periferiche/usb-a-b-c-il-dizionario-delle-porte-e-perche-la-c-ha-vinto.html</loc>
+    <lastmod>2026-04-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/hardware-periferiche/hdmi-o-displayport-collegare-lo-schermo-senza-sbagliare-cavo.html</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/digitale-pratico/doppio-schermo-come-affiancare-due-monitor-e-impostare-la-ri.html</loc>
+    <lastmod>2026-04-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/hardware-periferiche/audio-sul-pc-scegliere-casse-cuffie-e-far-suonare-ogni-app-d.html</loc>
+    <lastmod>2026-04-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/digitale-pratico/trasferire-foto-e-file-dal-cellulare-al-pc-tutti-i-modi-che-.html</loc>
+    <lastmod>2026-04-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/reti-internet/cose-il-cloud-spoiler-e-il-computer-di-qualcun-altro.html</loc>
     <lastmod>2026-06-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -37,7 +427,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://bitgen.it/enciclopedia/digitale-pratico/come-riconoscere-unemail-di-spam-in-10-secondi.html</loc>
+    <loc>https://bitgen.it/enciclopedia/sicurezza/come-riconoscere-unemail-di-spam-in-10-secondi.html</loc>
     <lastmod>2026-04-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -49,13 +439,13 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://bitgen.it/enciclopedia/ma-cose/cpu-ram-disco-spiegati-con-una-cucina.html</loc>
+    <loc>https://bitgen.it/enciclopedia/hardware-periferiche/cpu-ram-disco-spiegati-con-una-cucina.html</loc>
     <lastmod>2026-04-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://bitgen.it/enciclopedia/sotto-il-cofano/ssd-vs-hdd-perche-il-tuo-vecchio-pc-sembra-rinascere.html</loc>
+    <loc>https://bitgen.it/enciclopedia/hardware-periferiche/ssd-vs-hdd-perche-il-tuo-vecchio-pc-sembra-rinascere.html</loc>
     <lastmod>2026-04-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -67,13 +457,13 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://bitgen.it/enciclopedia/ma-cose/cose-il-wi-fi-no-non-e-internet.html</loc>
+    <loc>https://bitgen.it/enciclopedia/reti-internet/cose-il-wi-fi-no-non-e-internet.html</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://bitgen.it/enciclopedia/sotto-il-cofano/cosa-succede-quando-digiti-un-sito-web-il-viaggio-dei-dati.html</loc>
+    <loc>https://bitgen.it/enciclopedia/reti-internet/cosa-succede-quando-digiti-un-sito-web-il-viaggio-dei-dati.html</loc>
     <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -85,13 +475,13 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://bitgen.it/enciclopedia/ma-cose/http-vs-https-quella-s-ti-salva-la-vita-digitale.html</loc>
+    <loc>https://bitgen.it/enciclopedia/sicurezza/http-vs-https-quella-s-ti-salva-la-vita-digitale.html</loc>
     <lastmod>2026-05-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://bitgen.it/enciclopedia/sotto-il-cofano/firewall-la-guardia-del-corpo-del-tuo-pc.html</loc>
+    <loc>https://bitgen.it/enciclopedia/sicurezza/firewall-la-guardia-del-corpo-del-tuo-pc.html</loc>
     <lastmod>2026-05-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>

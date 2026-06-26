@@ -119,7 +119,7 @@ def _pulisci_articolo(art):
     """
     campi_runtime = {'hasBreve'}
     ordine = ['titolo', 'rubrica', 'data', 'videoUrl', 'thumbnail',
-              'tags', 'id', 'estratto', 'durata', 'contenutoBreve', 'contenuto']
+              'tags', 'correlati', 'id', 'estratto', 'durata', 'contenutoBreve', 'contenuto']
     out = {}
     for k in ordine:
         if k in art and k not in campi_runtime:

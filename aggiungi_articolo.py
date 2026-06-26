@@ -31,10 +31,12 @@ except Exception:
 
 RUBRICHE = [
     "Ma cos'è?",
-    "Sotto il Cofano",
+    "Reti & Internet",
+    "Hardware & Periferiche",
+    "Sistema & Software",
+    "Sicurezza",
     "Digitale Pratico",
     "Miti Digitali",
-    "Il Dietro le Quinte",
 ]
 
 DATA_FILE = SCRIPT_DIR / "assets" / "js" / "data.js"

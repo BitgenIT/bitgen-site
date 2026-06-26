@@ -121,10 +121,12 @@ function formatDate(isoDate) {
 function getRubricaColor(rubrica) {
   const colors = {
     "Ma cos'è?": "#10b981",
-    "Sotto il Cofano": "#3b82f6",
-    "Digitale Pratico": "#f59e0b",
-    "Miti Digitali": "#a855f7",
-    "Il Dietro le Quinte": "#ec4899"
+    "Reti & Internet": "#3b82f6",
+    "Hardware & Periferiche": "#f59e0b",
+    "Sistema & Software": "#8b5cf6",
+    "Sicurezza": "#ef4444",
+    "Digitale Pratico": "#14b8a6",
+    "Miti Digitali": "#ec4899"
   };
   return colors[rubrica] || "#22c55e";
 }
@@ -132,10 +134,12 @@ function getRubricaColor(rubrica) {
 function getRubricaIcon(rubrica) {
   const icons = {
     "Ma cos'è?": "💡",
-    "Sotto il Cofano": "🔧",
+    "Reti & Internet": "🌐",
+    "Hardware & Periferiche": "🔌",
+    "Sistema & Software": "💻",
+    "Sicurezza": "🔒",
     "Digitale Pratico": "🎯",
-    "Miti Digitali": "⚡",
-    "Il Dietro le Quinte": "🧠"
+    "Miti Digitali": "⚡"
   };
   return icons[rubrica] || "📝";
 }
@@ -171,6 +175,19 @@ function resolveImg(src) {
 function articoloHref(art) {
   const rub = (typeof slugify === 'function' ? slugify(art.rubrica || '') : '') || 'altro';
   return `enciclopedia/${rub}/${encodeURIComponent(art.id)}.html`;
+}
+
+/** Per le immagini [IMG:] non ancora caricate mostra un segnaposto "immagine in arrivo". */
+function wireFigureFallbacks(root) {
+  if (!root) return;
+  root.querySelectorAll('.article-figure img').forEach(img => {
+    const mark = () => {
+      const fig = img.closest('.article-figure');
+      if (fig) fig.classList.add('img-missing');
+    };
+    if (img.complete && img.naturalWidth === 0) mark();
+    img.addEventListener('error', mark);
+  });
 }
 
 /**
@@ -637,6 +654,8 @@ function renderArticolo() {
     </div>
   `;
 
+  wireFigureFallbacks(container);
+
   // Cablaggio dello switch breve / approfondita
   if (hasBreve) {
     const bodyEl = container.querySelector('#article-body');
@@ -645,6 +664,7 @@ function renderArticolo() {
       btn.addEventListener('click', () => {
         const v = btn.dataset.version;
         bodyEl.innerHTML = versioni[v];
+        wireFigureFallbacks(bodyEl);
         container.querySelectorAll('.version-btn').forEach(b => {
           const on = b === btn;
           b.classList.toggle('active', on);
@@ -657,11 +677,18 @@ function renderArticolo() {
   }
 
   if (relatedContainer) {
-    const related = articoli
-      .filter(a => a.id !== art.id && (a.rubrica === art.rubrica || 
-        (a.tags || []).some(t => (art.tags || []).includes(t))))
-      .slice(0, 3);
-    
+    // 1) correlati scelti a mano dall'autore (in ordine), risolti da id
+    const manual = (art.correlati || [])
+      .map(id => articoli.find(a => a.id === id))
+      .filter(a => a && a.id !== art.id);
+    // 2) completa con automatici (stessa rubrica o tag in comune) fino a 4
+    const auto = articoli.filter(a =>
+      a.id !== art.id &&
+      !manual.some(m => m.id === a.id) &&
+      (a.rubrica === art.rubrica || (a.tags || []).some(t => (art.tags || []).includes(t)))
+    );
+    const related = [...manual, ...auto].slice(0, 4);
+
     if (related.length > 0) {
       relatedContainer.innerHTML = `
         <div class="container">
