@@ -136,6 +136,7 @@ const articoliGrezzi = [
     "rubrica": "Ma cos'è?",
     "data": "2026-06-26",
     "videoUrl": "https://youtube.com/watch?v=placeholder",
+    "thumbnail": "assets/images/thumbnail-touch.png",
     "tags": [
       "storia",
       "informatica",
