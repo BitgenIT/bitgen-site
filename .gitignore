@@ -1,0 +1,8 @@
+# File temporanei / generati che non devono finire nel sito pubblicato
+__pycache__/
+*.pyc
+*.bak
+assets/js/*.bak
+*.tmp
+.DS_Store
+Thumbs.db
