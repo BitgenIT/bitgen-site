@@ -18,58 +18,184 @@ coerenza grafica, ogni nuova immagine dovrebbe seguire queste regole:
 - **Copertine (thumbnail):** includono in grande il **titolo dell'articolo** (come un poster). Nome file consigliato: `thumbnail-<tema>.png`.
 - **Immagini interne:** niente titolo dell'articolo; si concentrano su **un solo concetto** (quello descritto nella didascalia), stesso stile grafico.
 
-**Stato: 146 copertine + 315 immagini interne da creare, su 189 articoli.**
+**Stato: 163 copertine + 342 immagini interne da creare, su 213 articoli.**
 
 ---
+
+## Il telefono ti ascolta per venderti pubblicità: vero o falso?
+*(Miti Digitali)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-il-telefono-ti-ascolta-per-vende.png` (poster col titolo dell'articolo)
+- `profilazione-vs-microfono.png` — Non è il microfono: è la somma di posizione, ricerche, acquisti e contatti a disegnare il tuo profilo.
+
+## Caricare il telefono tutta la notte rovina la batteria: vero o falso?
+*(Miti Digitali)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-caricare-il-telefono-tutta-la-no.png` (poster col titolo dell'articolo)
+
+## Scaricare la batteria a zero prima di ricaricarla: un mito da buttare
+*(Miti Digitali)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-scaricare-la-batteria-a-zero-pri.png` (poster col titolo dell'articolo)
+
+## Chiudere le app aperte fa durare di più la batteria: spesso è il contrario
+*(Miti Digitali)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-chiudere-le-app-aperte-fa-durare.png` (poster col titolo dell'articolo)
+
+## Il 5G fa male alla salute: cosa dice davvero la scienza
+*(Miti Digitali)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-il-5g-fa-male-alla-salute-cosa-d.png` (poster col titolo dell'articolo)
+- `radiazioni-ionizzanti-non-ionizzanti.png` — Da una parte raggi X e gamma, dall'altra radio, Wi-Fi e 5G: due famiglie con energie molto diverse.
+
+## Più tacche di segnale uguale connessione più veloce: non proprio
+*(Miti Digitali)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-piu-tacche-di-segnale-uguale-con.png` (poster col titolo dell'articolo)
+- `tacche-segnale-vs-velocità.png` — Tacche piene misurano la potenza dell'antenna, non quanto velocemente navighi davvero.
+
+## Cancellare un file (o svuotare il cestino) lo elimina per sempre: falso
+*(Miti Digitali)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-cancellare-un-file-o-svuotare-il.png` (poster col titolo dell'articolo)
+
+## Il lucchetto HTTPS vuol dire che il sito è sicuro e affidabile: falso
+*(Miti Digitali)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-il-lucchetto-https-vuol-dire-che.png` (poster col titolo dell'articolo)
+- `lucchetto-https-phishing.png` — Stesso lucchetto, due mondi diversi: la connessione è cifrata in entrambi i casi, ma uno dei due siti è una trappola.
+
+## Il Wi-Fi pubblico è sempre una trappola: vero o falso?
+*(Miti Digitali)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-il-wi-fi-pubblico-e-sempre-una-t.png` (poster col titolo dell'articolo)
+- `lucchetto-https-barra-browser.png` — Il lucchetto e la scritta https indicano che i tuoi dati viaggiano cifrati, anche sul Wi-Fi pubblico.
+
+## Riavviare il computer non serve a niente: falso
+*(Miti Digitali)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-riavviare-il-computer-non-serve.png` (poster col titolo dell'articolo)
+- `menu-arresta-riavvia.png` — Su Windows, Riavvia azzera tutto. Arresta, con l'avvio rapido, no.
+
+## Gli aggiornamenti rallentano apposta i telefoni vecchi: vero o falso?
+*(Miti Digitali)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-gli-aggiornamenti-rallentano-app.png` (poster col titolo dell'articolo)
+
+## Coprire la webcam è da paranoici: vero o falso?
+*(Miti Digitali)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-coprire-la-webcam-e-da-paranoici.png` (poster col titolo dell'articolo)
+- `copri-webcam-slider.png` — Uno slider copri-webcam: pochi euro, si apre e si chiude con un dito.
+
+## Entrare nel BIOS/UEFI: la guida per (quasi) ogni PC
+*(Digitale Pratico)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-entrare-nel-biosuefi-la-guida-pe.png` (poster col titolo dell'articolo)
+- `tabella-tasti-bios.png` — I tasti per entrare nel BIOS variano da marca a marca
+
+## Creare una chiavetta USB avviabile per installare un sistema
+*(Digitale Pratico)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-creare-una-chiavetta-usb-avviabi.png` (poster col titolo dell'articolo)
+- `file-iso-chiavetta.png` — Una ISO è un sistema operativo intero impacchettato in un solo file, pronto da scrivere sulla chiavetta.
+
+## Reinstallare Windows da zero senza perdere i tuoi dati
+*(Digitale Pratico)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-reinstallare-windows-da-zero-sen.png` (poster col titolo dell'articolo)
+- `installazione-windows-personalizzata.png` — La schermata "Personalizzata" dove scegli su quale disco installare Windows da zero.
+
+## Dual boot: avere Windows e Linux sullo stesso PC
+*(Digitale Pratico)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-dual-boot-avere-windows-e-linux.png` (poster col titolo dell'articolo)
+- `dual-boot-menu-grub.png` — Il menu GRUB all'avvio: scegli tu se entrare in Windows o in Linux.
+- `installazione-accanto-a-windows.png` — L'opzione chiave: Installa accanto a Windows lascia intatti i tuoi dati.
+
+## Aggiornare i driver (soprattutto della scheda video)
+*(Digitale Pratico)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-aggiornare-i-driver-soprattutto.png` (poster col titolo dell'articolo)
+- `dxdiag-scheda-video.png` — Lo strumento dxdiag mostra marca e modello della tua scheda grafica nella scheda Schermo.
+
+## Cifrare il disco con BitLocker e FileVault: i tuoi dati al sicuro se ti rubano il PC
+*(Digitale Pratico)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-cifrare-il-disco-con-bitlocker-e.png` (poster col titolo dell'articolo)
+- `cassaforte-disco.png` — Cifrare il disco è come chiudere ogni file in una cassaforte: senza chiave restano numeri illeggibili.
+
+## Hai dimenticato la password di Windows: come recuperare l'accesso
+*(Digitale Pratico)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-hai-dimenticato-la-password-di-w.png` (poster col titolo dell'articolo)
+
+## Recuperare file cancellati per sbaglio
+*(Digitale Pratico)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-recuperare-file-cancellati-per-s.png` (poster col titolo dell'articolo)
+- `cestino-windows-mac.png` — Cestino e cronologia: la prima cosa da controllare, su ogni sistema.
+
+## Proteggere file e cartelle con una password
+*(Digitale Pratico)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-proteggere-file-e-cartelle-con-u.png` (poster col titolo dell'articolo)
+- `7zip-cifratura-aes.png` — La finestra di 7-Zip: la password va nel riquadro Crittografia, con metodo AES-256.
+- `veracrypt-contenitore.png` — VeraCrypt monta il contenitore come un disco: ci lavori dentro e poi lo richiudi.
+
+## Registrare lo schermo (screen recording) su PC e telefono
+*(Digitale Pratico)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-registrare-lo-schermo-screen-rec.png` (poster col titolo dell'articolo)
+- `windows-game-bar-cattura.png` — La barra di cattura della Xbox Game Bar su Windows 11, con il pulsante di registrazione e il microfono.
+
+## Comandi base del terminale: ping, ipconfig e i loro amici
+*(Digitale Pratico)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-comandi-base-del-terminale-ping.png` (poster col titolo dell'articolo)
+- `terminale-ping.png` — Il risultato di un comando ping: cerca il tempo in millisecondi e i pacchetti persi.
+
+## Aggiungere o sostituire RAM e SSD: l'upgrade che ringiovanisce il PC
+*(Digitale Pratico)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-aggiungere-o-sostituire-ram-e-ss.png` (poster col titolo dell'articolo)
+- `gestione-attivita-memoria.png` — La scheda Prestazioni di Gestione attività ti dice tipo di RAM e slot in uso
 
 ## Wi-Fi 8: la rivoluzione che punta sull'affidabilità, non sulla velocità
 *(Reti & Internet)*
 
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-wi-fi-8-la-rivoluzione-che-punta.png` (poster col titolo dell'articolo)
+- `latenza-percentile.png` — La media nasconde i ritardatari: il 95esimo percentile guarda la coda lunga, quella che ti rovina la videochiamata.
 
 ## 6G: come sarà la rete mobile del 2030 (e perché 'vedrà' il mondo)
-*(Reti & Internet)*
+*(Hardware & Periferiche)*
 
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-6g-sara-la-rete-mobile-del-2030.png` (poster col titolo dell'articolo)
-- `6g-rete-sensing.png` — Il 6G punta a usare le stesse onde per trasmettere dati e "percepire" l'ambiente, come un radar.
+- `6g-ris-cellfree.png` — Le RIS reindirizzano le onde dietro gli ostacoli, mentre il cell-free MIMO abolisce il concetto di "cella".
 
 ## Internet dal cielo: come Starlink e i satelliti portano la rete ovunque
 *(Reti & Internet)*
 
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-internet-dal-cielo-starlink-e-i.png` (poster col titolo dell'articolo)
-
-## Wi-Fi HaLow: il cugino del Wi-Fi che arriva lontano (per gli oggetti smart)
-*(Reti & Internet)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-wi-fi-halow-il-cugino-del-wi-fi.png` (poster col titolo dell'articolo)
-- `wifi-halow-confronto-portata.png` — Stessa "famiglia" Wi-Fi, due caratteri diversi: il Wi-Fi di casa è veloce ma corto, HaLow è lento ma arriva lontano.
-
-## 5G-Advanced: il 5G 'e mezzo' che ci traghetta verso il 6G
-*(Reti & Internet)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-5g-advanced-il-5g-e-mezzo-che-ci.png` (poster col titolo dell'articolo)
-
-## iSIM: la SIM che sparisce dentro il chip (dopo la eSIM)
-*(Reti & Internet)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-isim-la-sim-che-sparisce-dentro.png` (poster col titolo dell'articolo)
+- `laser-mesh.png` — I collegamenti laser tra satelliti formano una rete a maglia in orbita, instradando i dati sopra gli oceani senza scendere a terra.
 
 ## USB4 e Thunderbolt 5: una porta sola per 120 gigabit
 *(Hardware & Periferiche)*
 
 - 🖼️ **COPERTINA mancante** — consigliato `thumbnail-usb4-e-thunderbolt-5-una-porta-s.png` (poster col titolo dell'articolo)
 - `tunneling-usb4.png` — Video, dati e PCIe viaggiano insieme nello stesso cavo come corsie diverse di un'unica autostrada.
+- `tunneling-stack.png` — I flussi USB 3.x, DisplayPort 2.1 e PCIe vengono incapsulati e si dividono dinamicamente la banda dello stesso link USB4.
 
 ## Batterie allo stato solido: il salto che aspettiamo da vent'anni
 *(Hardware & Periferiche)*
 
 - 🖼️ **COPERTINA mancante** — consigliato `thumbnail-batterie-allo-stato-solido-il-sa.png` (poster col titolo dell'articolo)
 - `stato-solido-confronto.png` — A sinistra l'elettrolita liquido di oggi, a destra quello solido: lo stesso viaggio degli ioni, ma su un "pavimento" più sicuro.
+- `stato-solido-elettroliti.png` — Le tre famiglie a confronto: solfuri conduttivi ma instabili, ossidi stabili ma fragili, polimeri flessibili ma da scaldare.
 
 ## NPU: il terzo chip che porta l'intelligenza artificiale dentro il telefono
 *(Hardware & Periferiche)*
 
 - 🖼️ **COPERTINA mancante** — consigliato `thumbnail-npu-il-terzo-chip-che-porta-lint.png` (poster col titolo dell'articolo)
+- `array-sistolico.png` — La griglia di unità moltiplica-e-accumula: i dati pulsano attraverso le celle e vengono riusati a ogni passo, invece di essere riletti dalla memoria.
 
 ## Caricatori GaN: perché sono diventati piccoli come una moneta (e potentissimi)
 *(Hardware & Periferiche)*
@@ -88,6 +214,7 @@ coerenza grafica, ogni nuova immagine dovrebbe seguire queste regole:
 
 - 🖼️ **COPERTINA mancante** — consigliato `thumbnail-agenti-ia-quando-lintelligenza-a.png` (poster col titolo dell'articolo)
 - `agente-ia-vs-chatbot.png` — A sinistra un assistente che risponde con una nuvoletta di testo, a destra un agente che usa strumenti reali per portare a termine un compito.
+- `loop-react-agente.png` — Il ciclo ReAct di un agente: ragiona, agisce chiamando uno strumento, osserva il risultato, e ripete fino all'obiettivo.
 
 ## Immagini e video dal nulla: come funziona l'IA generativa
 *(Ma cos'è?)*
@@ -98,6 +225,7 @@ coerenza grafica, ogni nuova immagine dovrebbe seguire queste regole:
 *(Ma cos'è?)*
 
 - 🖼️ **COPERTINA mancante** — consigliato `thumbnail-computer-quantistico-e-perche-ti.png` (poster col titolo dell'articolo)
+- `qubit-logico-fisici.png` — Un qubit logico "pulito" nasce dall'intreccio di tanti qubit fisici imperfetti: è il prezzo della correzione d'errore.
 
 ## Crittografia post-quantistica: blindare i dati prima che arrivi il quantistico
 *(Sicurezza)*
@@ -108,12 +236,14 @@ coerenza grafica, ogni nuova immagine dovrebbe seguire queste regole:
 *(Sicurezza)*
 
 - 🖼️ **COPERTINA mancante** — consigliato `thumbnail-passkey-la-fine-delle-password-e.png` (poster col titolo dell'articolo)
+- `webauthn-ceremony.png` — La cerimonia: sfida del sito, firma con la chiave privata nel chip, verifica della pubblica. La privata non esce mai.
 
 ## Identità digitale europea: il portafoglio (EUDI Wallet) che arriva entro fine 2026
 *(Sicurezza)*
 
 - 🖼️ **COPERTINA mancante** — consigliato `thumbnail-identita-digitale-europea-il-por.png` (poster col titolo dell'articolo)
 - `eudi-wallet-app.png` — Il portafoglio digitale vive in un'app sul telefono e custodisce i tuoi documenti.
+- `eudi-formati-credenziali.png` — Due binari tecnici a confronto: SD-JWT VC per le credenziali generiche, ISO mdoc per la patente digitale.
 
 ## Euro digitale: cos'è la moneta digitale della BCE (e cosa cambierebbe per te)
 *(Ma cos'è?)*
@@ -126,6 +256,7 @@ coerenza grafica, ogni nuova immagine dovrebbe seguire queste regole:
 
 - 🖼️ **COPERTINA mancante** — consigliato `thumbnail-matter-e-thread-lo-standard-che.png` (poster col titolo dell'articolo)
 - `matter-scatola-logo.png` — Sulla confezione cerca il logo Matter e la dicitura "over Thread" o "over Wi-Fi": ti dice subito con cosa avrai a che fare.
+- `matter-cluster-endpoint.png` — Un dispositivo Matter espone Endpoint che contengono Cluster: ogni cluster è un blocco funzionale standard, con attributi (lo stato) e comandi (le azioni).
 
 ## Occhiali smart e realtà aumentata: la prossima interfaccia dopo lo smartphone
 *(Ma cos'è?)*
@@ -577,13 +708,6 @@ coerenza grafica, ogni nuova immagine dovrebbe seguire queste regole:
 *(Sicurezza)*
 
 - `doppia-estorsione.png` — Doppia estorsione: i dati vengono prima copiati verso il server C2, poi cifrati sul tuo disco. Due ricatti, non uno.
-
-## 2.4 GHz o 5 GHz? Le due 'corsie' del tuo Wi-Fi e quando usarle
-*(Reti & Internet)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-24-ghz-o-5-ghz-le-due-corsie-del.png` (poster col titolo dell'articolo)
-- `due-corsie-wifi-statale-autostrada.png` — Il segnale a 2.4 GHz come una statale lunga e lenta, quello a 5 GHz come un'autostrada veloce ma corta
-- `impostazioni-wifi-due-reti-telefono.png` — Le impostazioni Wi-Fi del telefono mostrano due reti con lo stesso nome, una con la sigla 5G o 5GHz
 
 ## Come fa Netflix a non incepparsi? Lo streaming spiegato (e cos'è un codec)
 *(Reti & Internet)*
