@@ -18,59 +18,32 @@ coerenza grafica, ogni nuova immagine dovrebbe seguire queste regole:
 - **Copertine (thumbnail):** includono in grande il **titolo dell'articolo** (come un poster). Nome file consigliato: `thumbnail-<tema>.png`.
 - **Immagini interne:** niente titolo dell'articolo; si concentrano su **un solo concetto** (quello descritto nella didascalia), stesso stile grafico.
 
-**Stato: 163 copertine + 342 immagini interne da creare, su 213 articoli.**
+**Stato: 154 copertine + 378 immagini interne da creare, su 213 articoli.**
 
 ---
-
-## Il telefono ti ascolta per venderti pubblicità: vero o falso?
-*(Miti Digitali)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-il-telefono-ti-ascolta-per-vende.png` (poster col titolo dell'articolo)
-- `profilazione-vs-microfono.png` — Non è il microfono: è la somma di posizione, ricerche, acquisti e contatti a disegnare il tuo profilo.
-
-## Caricare il telefono tutta la notte rovina la batteria: vero o falso?
-*(Miti Digitali)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-caricare-il-telefono-tutta-la-no.png` (poster col titolo dell'articolo)
-
-## Scaricare la batteria a zero prima di ricaricarla: un mito da buttare
-*(Miti Digitali)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-scaricare-la-batteria-a-zero-pri.png` (poster col titolo dell'articolo)
-
-## Chiudere le app aperte fa durare di più la batteria: spesso è il contrario
-*(Miti Digitali)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-chiudere-le-app-aperte-fa-durare.png` (poster col titolo dell'articolo)
-
-## Il 5G fa male alla salute: cosa dice davvero la scienza
-*(Miti Digitali)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-il-5g-fa-male-alla-salute-cosa-d.png` (poster col titolo dell'articolo)
-- `radiazioni-ionizzanti-non-ionizzanti.png` — Da una parte raggi X e gamma, dall'altra radio, Wi-Fi e 5G: due famiglie con energie molto diverse.
 
 ## Più tacche di segnale uguale connessione più veloce: non proprio
 *(Miti Digitali)*
 
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-piu-tacche-di-segnale-uguale-con.png` (poster col titolo dell'articolo)
-- `tacche-segnale-vs-velocità.png` — Tacche piene misurano la potenza dell'antenna, non quanto velocemente navighi davvero.
+- `potenza-vs-velocità.png` — Tacche piene misurano la potenza dell'antenna, non quanto velocemente navighi davvero.
+- `rsrp-vs-sinr-modulazione.png` — Le tacche stimano l'RSRP, la potenza; ma sono SINR e modulazione a decidere quanti bit passano davvero.
 
 ## Cancellare un file (o svuotare il cestino) lo elimina per sempre: falso
 *(Miti Digitali)*
 
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-cancellare-un-file-o-svuotare-il.png` (poster col titolo dell'articolo)
+- `cancellazione-logica-vs-fisica.png` — A sinistra la cancellazione logica: il puntatore nella tabella sparisce ma i blocchi restano pieni. A destra il crypto-erase: i blocchi restano ma la chiave è distrutta e i dati diventano rumore.
 
 ## Il lucchetto HTTPS vuol dire che il sito è sicuro e affidabile: falso
 *(Miti Digitali)*
 
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-il-lucchetto-https-vuol-dire-che.png` (poster col titolo dell'articolo)
-- `lucchetto-https-phishing.png` — Stesso lucchetto, due mondi diversi: la connessione è cifrata in entrambi i casi, ma uno dei due siti è una trappola.
+- `tls-handshake-dv-vs-ev.png` — Lo stesso lucchetto chiude su un certificato DV gratuito e su un EV verificato: la barra del browser non li distingue più.
 
 ## Il Wi-Fi pubblico è sempre una trappola: vero o falso?
 *(Miti Digitali)*
 
 - 🖼️ **COPERTINA mancante** — consigliato `thumbnail-il-wi-fi-pubblico-e-sempre-una-t.png` (poster col titolo dell'articolo)
 - `lucchetto-https-barra-browser.png` — Il lucchetto e la scritta https indicano che i tuoi dati viaggiano cifrati, anche sul Wi-Fi pubblico.
+- `handshake-tls-certificato.png` — L'handshake TLS: il server presenta un certificato firmato da una CA, il browser lo verifica prima di cifrare la sessione end-to-end.
 
 ## Riavviare il computer non serve a niente: falso
 *(Miti Digitali)*
@@ -136,6 +109,7 @@ coerenza grafica, ogni nuova immagine dovrebbe seguire queste regole:
 
 - 🖼️ **COPERTINA mancante** — consigliato `thumbnail-recuperare-file-cancellati-per-s.png` (poster col titolo dell'articolo)
 - `cestino-windows-mac.png` — Cestino e cronologia: la prima cosa da controllare, su ogni sistema.
+- `carving-vs-metadati.png` — Due logiche a confronto: ricostruire dalla scheda residua o cercare le firme nei dati grezzi.
 
 ## Proteggere file e cartelle con una password
 *(Digitale Pratico)*
@@ -155,12 +129,13 @@ coerenza grafica, ogni nuova immagine dovrebbe seguire queste regole:
 
 - 🖼️ **COPERTINA mancante** — consigliato `thumbnail-comandi-base-del-terminale-ping.png` (poster col titolo dell'articolo)
 - `terminale-ping.png` — Il risultato di un comando ping: cerca il tempo in millisecondi e i pacchetti persi.
+- `netstat-tcp.png` — L'output di netstat: ogni riga è una connessione TCP con il suo stato, da LISTEN a ESTABLISHED.
 
 ## Aggiungere o sostituire RAM e SSD: l'upgrade che ringiovanisce il PC
 *(Digitale Pratico)*
 
 - 🖼️ **COPERTINA mancante** — consigliato `thumbnail-aggiungere-o-sostituire-ram-e-ss.png` (poster col titolo dell'articolo)
-- `gestione-attivita-memoria.png` — La scheda Prestazioni di Gestione attività ti dice tipo di RAM e slot in uso
+- `gestione-attività-memoria.png` — La scheda Prestazioni di Gestione attività ti dice tipo di RAM e slot in uso
 
 ## Wi-Fi 8: la rivoluzione che punta sull'affidabilità, non sulla velocità
 *(Reti & Internet)*
@@ -177,11 +152,14 @@ coerenza grafica, ogni nuova immagine dovrebbe seguire queste regole:
 
 - `laser-mesh.png` — I collegamenti laser tra satelliti formano una rete a maglia in orbita, instradando i dati sopra gli oceani senza scendere a terra.
 
+## iSIM: la SIM che sparisce dentro il chip (dopo la eSIM)
+*(Reti & Internet)*
+
+- `isim-soc-tre.png` — La iUICC come Tamper Resistant Element ricavato dentro il SoC, accanto a CPU e modem.
+
 ## USB4 e Thunderbolt 5: una porta sola per 120 gigabit
 *(Hardware & Periferiche)*
 
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-usb4-e-thunderbolt-5-una-porta-s.png` (poster col titolo dell'articolo)
-- `tunneling-usb4.png` — Video, dati e PCIe viaggiano insieme nello stesso cavo come corsie diverse di un'unica autostrada.
 - `tunneling-stack.png` — I flussi USB 3.x, DisplayPort 2.1 e PCIe vengono incapsulati e si dividono dinamicamente la banda dello stesso link USB4.
 
 ## Batterie allo stato solido: il salto che aspettiamo da vent'anni
@@ -202,12 +180,14 @@ coerenza grafica, ogni nuova immagine dovrebbe seguire queste regole:
 
 - 🖼️ **COPERTINA mancante** — consigliato `thumbnail-caricatori-gan-perche-sono-diven.png` (poster col titolo dell'articolo)
 - `gan-vs-silicio.png` — A parità di Watt, il GaN permette un caricatore molto più piccolo del vecchio mattone al silicio.
+- `gan-band-gap.png` — Il band gap del GaN è circa tre volte quello del silicio: da qui campo di rottura più alto, RDS(on) più bassa e frequenze più spinte.
 
 ## Micro-LED: lo schermo perfetto che verrà dopo l'OLED
 *(Hardware & Periferiche)*
 
 - 🖼️ **COPERTINA mancante** — consigliato `thumbnail-micro-led-lo-schermo-perfetto-ch.png` (poster col titolo dell'articolo)
 - `micro-led-pixel.png` — Ogni pixel è un LED minuscolo che fa luce da solo: niente retroilluminazione dietro, niente filtri davanti.
+- `mass-transfer.png` — Il mass transfer: staccare milioni di chip dal wafer di crescita e posarli sul backplane con precisione micrometrica. Qui si decide il prezzo.
 
 ## Agenti IA: quando l'intelligenza artificiale smette di parlare e inizia a fare
 *(Ma cos'è?)*
@@ -250,6 +230,7 @@ coerenza grafica, ogni nuova immagine dovrebbe seguire queste regole:
 
 - 🖼️ **COPERTINA mancante** — consigliato `thumbnail-euro-digitale-la-moneta-digitale.png` (poster col titolo dell'articolo)
 - `euro-digitale-confronto.png` — Conto, carta, contanti, crypto ed euro digitale: cinque modi diversi di intendere il denaro
+- `euro-digitale-architettura.png` — Emissione BCE, intermediari, secure element offline e meccanismo a cascata: lo schema sotto il cofano
 
 ## Matter e Thread: lo standard che fa finalmente parlare la casa intelligente
 *(Reti & Internet)*
@@ -263,6 +244,7 @@ coerenza grafica, ogni nuova immagine dovrebbe seguire queste regole:
 
 - 🖼️ **COPERTINA mancante** — consigliato `thumbnail-occhiali-smart-e-realta-aumentat.png` (poster col titolo dell'articolo)
 - `ar-vr-realta-mista.png` — AR aggiunge al reale, VR ti porta in un mondo finto, la realtà mista fonde i due
+- `waveguide-microled.png` — La luce del microLED entra nella waveguide, rimbalza per riflessione interna e raggiunge l'occhio
 
 ## Convertire un file: da Word a PDF e ritorno, senza siti loschi
 *(Digitale Pratico)*
@@ -305,7 +287,7 @@ coerenza grafica, ogni nuova immagine dovrebbe seguire queste regole:
 *(Sicurezza)*
 
 - 🖼️ **COPERTINA mancante** — consigliato `thumbnail-spid-login-con-google-e-accedi-c.png` (poster col titolo dell'articolo)
-- `identita-digitale-pass-ingresso.png` — Una persona mostra un pass all'ingresso invece di compilare un modulo a ogni porta: è l'idea dell'identità digitale
+- `identità-digitale-pass-ingresso.png` — Una persona mostra un pass all'ingresso invece di compilare un modulo a ogni porta: è l'idea dell'identità digitale
 - `bottoni-accedi-con-google-apple.png` — I tipici pulsanti 'Accedi con Google' e 'Accedi con Apple' nella schermata di registrazione di app e siti
 
 ## Bluetooth: come fanno cuffie e auto a parlarsi senza fili
@@ -354,6 +336,7 @@ coerenza grafica, ogni nuova immagine dovrebbe seguire queste regole:
 - `pixel-mosaico-zoom.png` — A sinistra un'immagine normale, a destra lo stesso angolo ingrandito che mostra i singoli pixel quadrati
 - `confronto-risoluzioni-rettangoli.png` — Quattro rettangoli concentrici che mostrano in scala la differenza di superficie tra Full HD, 4K e 8K
 - `distanza-divano-tv-schema.png` — Schema dall'alto con divano e TV e una freccia che indica la distanza oltre la quale 4K e 8K si equivalgono
+- `catena-pixel-codec.png` — La catena completa: risoluzione, chroma subsampling, codec e banda, upscaling, fino all'occhio
 
 ## OLED, LCD, LED, Mini-LED: la guerra degli schermi spiegata col buio
 *(Hardware & Periferiche)*
@@ -370,6 +353,7 @@ coerenza grafica, ogni nuova immagine dovrebbe seguire queste regole:
 - `foto-pixel-ingrandimento.png` — Una foto normale e, di fianco, lo stesso pezzetto ingrandito fino a vedere i singoli pixel colorati che la compongono
 - `secchi-luce-sensore.png` — A sinistra pochi secchi grandi pieni d'acqua, a destra tanti secchi piccoli quasi vuoti: la stessa pioggia raccolta in due modi diversi
 - `cosa-guardare-fotocamera.png` — Schema con i tre fattori che contano davvero: grandezza del sensore, apertura f dell'obiettivo, qualità del software
+- `quad-bayer-binning.png` — Lo schema del Quad Bayer: gruppi 2x2 di filtri dello stesso colore, e come nove fotositi da 0,8 µm si fondono in un super-fotosito da 2,4 µm
 
 ## Face ID e lettore di impronte: il tuo corpo è la password (ma è sicuro?)
 *(Sicurezza)*
@@ -407,7 +391,7 @@ coerenza grafica, ogni nuova immagine dovrebbe seguire queste regole:
 *(Digitale Pratico)*
 
 - 🖼️ **COPERTINA mancante** — consigliato `thumbnail-svuotare-la-cache-del-browser-il.png` (poster col titolo dell'articolo)
-- `cache-browser-dispensa-analogia.png` — La cache e' come una dispensa: tiene copie pronte all'uso, ma un elemento troppo vecchio crea problemi
+- `cache-browser-dispensa-analogia.png` — La cache è come una dispensa: tiene copie pronte all'uso, ma un elemento troppo vecchio crea problemi
 - `cancella-dati-navigazione-finestra.png` — La finestra "Cancella dati di navigazione" con le spunte da scegliere: la cache si', le password no
 - `spunte-cache-password-cookie.png` — Le tre spunte da distinguere: cache da svuotare, password da lasciare, cookie da toccare solo se serve
 
@@ -464,6 +448,7 @@ coerenza grafica, ogni nuova immagine dovrebbe seguire queste regole:
 - 🖼️ **COPERTINA mancante** — consigliato `thumbnail-deepfake-quando-il-video-del-vip.png` (poster col titolo dell'articolo)
 - `deepfake-vip-investimento-finto.png` — Esempio di video deepfake: il volto di un personaggio noto applicato a un finto messaggio pubblicitario su un investimento
 - `confronto-video-vero-falso-volto.png` — Confronto tra un fotogramma autentico e uno generato dall'IA: i punti dove il falso tradisce piccoli difetti
+- `deepfake-pipeline-tecnica.png` — Schema della pipeline: encoder, spazio latente, decoder e il duello generatore-discriminatore
 
 ## Cookie e tracciamento pubblicitario: perché quella scarpa ti segue ovunque
 *(Sicurezza)*
@@ -478,6 +463,7 @@ coerenza grafica, ogni nuova immagine dovrebbe seguire queste regole:
 - 🖼️ **COPERTINA mancante** — consigliato `thumbnail-dark-web-davvero-la-parte-oscura.png` (poster col titolo dell'articolo)
 - `tre-piani-internet-superficie-deep-dark.png` — I tre livelli di Internet a confronto: il web di superficie (i siti su Google), il deep web (tutto ciò che è protetto da login) e il piccolo dark web nascosto in fondo
 - `instradamento-cipolla-tor-tre-nodi.png` — Come Tor anonimizza la navigazione: la richiesta rimbalza tra tre nodi e nessuno conosce contemporaneamente mittente e destinazione
+- `onion-service-rendezvous-point.png` — In un servizio .onion non c'è nodo di uscita: i due circuiti Tor si incontrano in un rendezvous point e nessuno dei due lati conosce la posizione dell'altro
 
 ## Quei quadratini con semafori e biciclette: a cosa serve davvero il CAPTCHA
 *(Ma cos'è?)*
@@ -486,6 +472,7 @@ coerenza grafica, ogni nuova immagine dovrebbe seguire queste regole:
 - `captcha-griglia-semafori.png` — La classica griglia di immagini in cui devi selezionare semafori, biciclette o strisce pedonali
 - `bot-vs-umano-confronto.png` — Da una parte una persona che riconosce un semaforo a colpo d'occhio, dall'altra un computer in difficoltà davanti alla stessa immagine
 - `captcha-non-sono-un-robot.png` — La casella Non sono un robot: dietro quel semplice clic il sito ti ha già osservato a lungo
+- `captcha-score-comportamento.png` — Lo score invisibile di reCAPTCHA v3: la decisione nasce dal comportamento, non da un clic
 
 ## Torrent e P2P: scaricare senza un negozio centrale (e dove finisce la legge)
 *(Reti & Internet)*
@@ -500,13 +487,14 @@ coerenza grafica, ogni nuova immagine dovrebbe seguire queste regole:
 - 🖼️ **COPERTINA mancante** — consigliato `thumbnail-cache-la-memoria-a-portata-di-ma.png` (poster col titolo dell'articolo)
 - `cache-browser-prima-dopo.png` — A sinistra la prima visita: il browser scarica tutto dalla rete. A destra la seconda: ripesca le copie già salvate sul dispositivo.
 - `cache-vecchia-pagina-rotta.png` — Una pagina web visualizzata male: pezzi nuovi e vecchi mescolati perché il browser usa una copia in cache ormai datata.
+- `cache-http-header.png` — Lo scambio invisibile: insieme alla pagina, il server invia l'header Cache-Control che dice al browser per quanto tenere la copia.
 
 ## Android o iPhone: due modi diversi di intendere il telefono
 *(Sistema & Software)*
 
 - 🖼️ **COPERTINA mancante** — consigliato `thumbnail-android-o-iphone-due-modi-divers.png` (poster col titolo dell'articolo)
-- `ios-android-palazzo-citta.png` — A sinistra un palazzo ordinato e recintato (iOS), a destra una citta' aperta e variegata (Android): due idee diverse di telefono
-- `android-personalizzazione-home.png` — Una schermata Android con widget e icone spostate a piacere: la liberta' di organizzare la home come vuoi tu
+- `ios-android-palazzo-città.png` — A sinistra un palazzo ordinato e recintato (iOS), a destra una città' aperta e variegata (Android): due idee diverse di telefono
+- `android-personalizzazione-home.png` — Una schermata Android con widget e icone spostate a piacere: la libertà' di organizzare la home come vuoi tu
 
 ## Estensioni del browser: i super-poteri (e i rischi) di Chrome e Firefox
 *(Sistema & Software)*
@@ -528,6 +516,7 @@ coerenza grafica, ogni nuova immagine dovrebbe seguire queste regole:
 - 🖼️ **COPERTINA mancante** — consigliato `thumbnail-soc-perche-nel-telefono-cpu-sche.png` (poster col titolo dell'articolo)
 - `pc-villa-telefono-monolocale.png` — A sinistra la scheda madre di un PC con i componenti separati e distanti; a destra un SoC che li raccoglie tutti in un unico chip
 - `dentro-soc-cpu-gpu-modem-npu.png` — Schema di un SoC con le sue parti principali: CPU, GPU, modem e chip per l'intelligenza artificiale, tutti affiancati
+- `soc-die-blocchi-pop-ram.png` — Vista schematica di un die SoC con i blocchi CPU big.LITTLE, GPU, NPU, ISP e modem collegati dal bus interno, e il package della RAM LPDDR impilato sopra in configurazione package-on-package
 
 ## eSIM: la SIM che non puoi perdere perché non esiste (come attivarla)
 *(Digitale Pratico)*
@@ -536,6 +525,7 @@ coerenza grafica, ogni nuova immagine dovrebbe seguire queste regole:
 - `confronto-sim-fisica-esim.png` — A sinistra il classico chip di plastica nel cassettino, a destra il telefono che mostra una eSIM già installata nelle impostazioni
 - `iphone-aggiungi-esim-qr.png` — La schermata Cellulare di iPhone con la voce Aggiungi eSIM evidenziata e l'inquadratura del codice QR
 - `due-linee-doppia-sim-telefono.png` — La schermata di gestione SIM con due linee attive, una personale e una di lavoro, e la scelta di quale usare per i dati
+- `qr-esim-sequenza-download.png` — Lo schema del download: dal QR all'LPA sul telefono, fino al server SM-DP+ che consegna il profilo cifrato alla eUICC
 
 ## HDR: perché lo stesso video sembra 'più vero' su un TV e spento su un altro
 *(Ma cos'è?)*
@@ -544,6 +534,7 @@ coerenza grafica, ogni nuova immagine dovrebbe seguire queste regole:
 - `hdr-finestra-stanza-buia.png` — La stessa scena con la finestra: in SDR o si brucia il cielo o si annega la stanza nel nero, in HDR si vedono entrambi
 - `hdr-formati-scatola-tv.png` — Le sigle HDR10, HDR10+, Dolby Vision e HLG come appaiono sulla scatola di un televisore
 - `hdr-vs-sdr-confronto.png` — Stessa scena di un tramonto: a sinistra spenta in SDR, a destra viva e luminosa in HDR
+- `hdr-curva-pq-hlg.png` — La curva PQ assegna i livelli digitali seguendo la sensibilità dell'occhio; la HLG resta compatibile con i vecchi schermi nella parte bassa
 
 ## Pollici, pixel e PPI: perché un telefono piccolo è più nitido del tuo TV gigante
 *(Hardware & Periferiche)*
@@ -551,6 +542,7 @@ coerenza grafica, ogni nuova immagine dovrebbe seguire queste regole:
 - 🖼️ **COPERTINA mancante** — consigliato `thumbnail-pollici-pixel-e-ppi-perche-un-te.png` (poster col titolo dell'articolo)
 - `piastrelle-densita-pixel.png` — Le stesse mattonelle su un bagno piccolo sembrano lisce; lo stesso numero spalmato in un salone enorme fa risaltare le fughe
 - `confronto-ppi-telefono-tv.png` — A sinistra un telefono con pixel piccolissimi e fitti; a destra un TV con pixel più grandi e radi, a parità di vicinanza
+- `ppd-angolo-visivo.png` — Il PPD misura quanti pixel cadono in un grado del tuo campo visivo: è il PPI corretto per la distanza
 
 ## Il telefono scotta e va a rilento: cos'è il throttling termico (e come tenerlo fresco)
 *(Hardware & Periferiche)*
@@ -558,6 +550,7 @@ coerenza grafica, ogni nuova immagine dovrebbe seguire queste regole:
 - 🖼️ **COPERTINA mancante** — consigliato `thumbnail-il-telefono-scotta-e-va-a-rilent.png` (poster col titolo dell'articolo)
 - `chip-telefono-calore-throttling.png` — Il chip del telefono scalda lavorando e si auto-rallenta quando supera la soglia di sicurezza, come un corridore senza fiato
 - `laptop-prese-aria-superficie.png` — Un laptop su superficie rigida con le prese d'aria libere, accanto allo stesso laptop su un letto con le griglie soffocate
+- `vapor-chamber-grafite-soc.png` — La camera di vapore sopra il SoC: il liquido evapora sul punto caldo, si ricondensa nelle zone fredde e torna indietro per capillarità
 
 ## IP67, IP68: cosa promette davvero quel codice 'impermeabile' (e cosa no)
 *(Hardware & Periferiche)*
@@ -565,6 +558,7 @@ coerenza grafica, ogni nuova immagine dovrebbe seguire queste regole:
 - 🖼️ **COPERTINA mancante** — consigliato `thumbnail-ip67-ip68-cosa-promette-davvero.png` (poster col titolo dell'articolo)
 - `ip67-ip68-significato-numeri.png` — I due numeri del codice IP: il primo è la polvere, il secondo l'acqua
 - `telefono-acqua-cosa-non-fare.png` — Mare, piscina, doccia e sapone: situazioni che il test IP non prevede
+- `ip-guarnizione-compression-set.png` — Una guarnizione nuova torna alla forma; una invecchiata resta schiacciata e lascia passare l'acqua
 
 ## Una porta USB-C che diventa di tutto: cos'è una dock (e perché un adattatore non basta)
 *(Hardware & Periferiche)*
@@ -574,6 +568,7 @@ coerenza grafica, ogni nuova immagine dovrebbe seguire queste regole:
 - `adattatore-hub-dock-confronto.png` — Confronto tra un piccolo adattatore, un hub da viaggio e una dock da scrivania con alimentatore
 - `porta-usb-c-simboli.png` — I simboli accanto a una porta USB-C: il fulmine di Thunderbolt e l'icona della modalità video
 - `dock-usb-c-scrivania.png` — Una dock collegata al portatile con un solo cavo, da cui partono monitor, rete e USB
+- `usb-c-lane-budget.png` — Le quattro lane del connettore USB-C divise tra segnale video DisplayPort e traffico dati: aumentando i pixel sui monitor resta meno banda per dischi e periferiche
 
 ## Quel caricatore non è il tuo: perché Watt e Volt sbagliati possono friggere il dispositivo
 *(Hardware & Periferiche)*
@@ -581,6 +576,7 @@ coerenza grafica, ogni nuova immagine dovrebbe seguire queste regole:
 - 🖼️ **COPERTINA mancante** — consigliato `thumbnail-quel-caricatore-non-e-il-tuo-per.png` (poster col titolo dell'articolo)
 - `etichetta-caricatore-input-output.png` — L'etichetta di un alimentatore con la riga INPUT e la riga OUTPUT cerchiata, dove leggere Volt e Ampere
 - `usb-c-power-delivery-numeri.png` — Un caricatore USB-C che mostra più valori di uscita, come 5V 3A, 9V 3A, 20V 3,25A: segno che è un caricatore che si adatta
+- `usb-c-pd-pdo-menu.png` — Lo schema del dialogo CC: il caricatore offre la lista di PDO, il dispositivo invia la Request, seguono Accept e PS_RDY
 
 ## Webcam e microfono fanno schifo in videochiamata: come sistemarli senza comprare nulla
 *(Digitale Pratico)*
@@ -608,7 +604,7 @@ coerenza grafica, ogni nuova immagine dovrebbe seguire queste regole:
 
 - 🖼️ **COPERTINA mancante** — consigliato `thumbnail-canali-wi-fi-perche-il-vicino-ti.png` (poster col titolo dell'articolo)
 - `canali-wifi-condominio-affollato.png` — Tante reti di un condominio ammassate sugli stessi canali, come tante voci nella stessa stanza
-- `app-analizzatore-wifi-grafico-canali.png` — Il grafico a gobbe di un analizzatore Wi-Fi: ogni curva e' una rete, e si vede subito quale canale e' meno affollato
+- `app-analizzatore-wifi-grafico-canali.png` — Il grafico a gobbe di un analizzatore Wi-Fi: ogni curva è una rete, e si vede subito quale canale è meno affollato
 - `router-pannello-cambio-canale.png` — La schermata Wireless del router con la voce Canale impostata da Automatico a manuale
 
 ## Port forwarding e NAT: aprire la porta giusta per giochi e telecamere
@@ -627,6 +623,7 @@ coerenza grafica, ogni nuova immagine dovrebbe seguire queste regole:
 - `lista-reti-wifi-telefono.png` — La lista delle reti sul telefono: l'SSID è semplicemente il nome che leggi accanto a ogni Wi-Fi
 - `segnale-wifi-attraversa-muri.png` — Il segnale Wi-Fi riempie la casa e oltre: nascondere il nome non spegne le onde radio che si propagano nei dintorni
 - `pannello-router-cifratura-wpa.png` — Nelle impostazioni del router la sicurezza vera si imposta qui: cifratura WPA2 o WPA3 e una password lunga
+- `probe-request-sniffing.png` — Il client trasmette in chiaro il nome della rete cercata: ogni probe request è una confessione dell'SSID che credevi nascosto
 
 ## NFC: il chip che paga con un tocco (ed è già nel tuo telefono)
 *(Reti & Internet)*
@@ -640,7 +637,7 @@ coerenza grafica, ogni nuova immagine dovrebbe seguire queste regole:
 *(Reti & Internet)*
 
 - 🖼️ **COPERTINA mancante** — consigliato `thumbnail-dhcp-chi-assegna-lindirizzo-a-og.png` (poster col titolo dell'articolo)
-- `dhcp-reception-hotel.png` — Il DHCP come la reception di un hotel: assegna a ogni dispositivo che arriva una "stanza" libera, cioe un indirizzo IP
+- `dhcp-reception-hotel.png` — Il DHCP come la reception di un hotel: assegna a ogni dispositivo che arriva una "stanza" libera, cioè un indirizzo IP
 - `dhcp-quattro-passi-handshake.png` — I quattro passi del DHCP: il dispositivo chiede, il router offre, il dispositivo accetta, il router conferma
 - `pannello-router-elenco-dispositivi-dhcp.png` — La lista dei dispositivi connessi nel pannello del router: ognuno ha ricevuto il suo indirizzo dal DHCP
 - `dhcp-dora-pacchetti-udp.png` — I quattro messaggi DORA come datagrammi UDP tra porta 68 (client) e porta 67 (server), legati dallo stesso transaction ID
@@ -651,6 +648,7 @@ coerenza grafica, ogni nuova immagine dovrebbe seguire queste regole:
 - 🖼️ **COPERTINA mancante** — consigliato `thumbnail-versioni-e-aggiornamenti-perche.png` (poster col titolo dell'articolo)
 - `numero-versione-app-spiegato.png` — Lo stesso numero di versione scomposto: il primo numero è la grande novità, gli altri sono ritocchi e correzioni
 - `schermata-aggiornamenti-disponibili.png` — La lista degli aggiornamenti disponibili sullo store: ogni app mostra a che versione vuole salire
+- `firma-digitale-pacchetto-aggiornamento.png` — Il dispositivo verifica firma e integrità del pacchetto prima di installarlo: se il sigillo non torna, l'aggiornamento viene rifiutato
 
 ## Ripristinare ai dati di fabbrica: il grande reset prima di vendere o regalare un dispositivo
 *(Digitale Pratico)*
@@ -689,6 +687,7 @@ coerenza grafica, ogni nuova immagine dovrebbe seguire queste regole:
 - 🖼️ **COPERTINA mancante** — consigliato `thumbnail-devi-davvero-spegnere-il-pc-ogni.png` (poster col titolo dell'articolo)
 - `tre-opzioni-spegnimento-windows.png` — Il menu di accensione di Windows con le voci Sospendi, Iberna e Arresta il sistema
 - `avvio-rapido-windows-impostazioni.png` — L'opzione Avvio rapido nelle impostazioni di risparmio energia di Windows
+- `powercfg-a-stati-acpi.png` — L'output di powercfg /a che elenca gli stati di sospensione supportati dal sistema
 
 ## 'Cancellare i cookie ti protegge dai virus': i miti sulla privacy che ti illudono
 *(Miti Digitali)*
@@ -703,6 +702,12 @@ coerenza grafica, ogni nuova immagine dovrebbe seguire queste regole:
 - 🖼️ **COPERTINA mancante** — consigliato `thumbnail-emoji-e-unicode-perche-la-tua-fa.png` (poster col titolo dell'articolo)
 - `unicode-tabella-numeri-simboli.png` — A ogni lettera, accento ed emoji Unicode assegna un numero unico, identico in tutto il mondo.
 - `emoji-quadratino-vuoto-messaggio.png` — Il quadratino vuoto significa: il numero è arrivato, ma manca il disegno corrispondente nel dispositivo.
+- `zwj-sequence-emoji-famiglia.png` — Una ZWJ sequence: più code point uniti dal giuntore invisibile U+200D, mostrati come un'unica immagine solo se il font la riconosce.
+
+## PC lento da impazzire: la cura completa per farlo ripartire come nuovo
+*(Digitale Pratico)*
+
+- `chiudere-la-attività.png` — Decine di schede aperte nel browser e il consumo di memoria che schizza in Gestione attività
 
 ## Ransomware: quando un virus prende in ostaggio i tuoi file e chiede il riscatto
 *(Sicurezza)*
@@ -714,7 +719,7 @@ coerenza grafica, ogni nuova immagine dovrebbe seguire queste regole:
 
 - 🖼️ **COPERTINA mancante** — consigliato `thumbnail-fa-netflix-a-non-incepparsi-lo-s.png` (poster col titolo dell'articolo)
 - `streaming-film-a-pezzetti.png` — Il film tagliato in tanti piccoli spezzoni che arrivano in fila, come secchielli d'acqua passati di mano in mano
-- `qualita-video-adattiva.png` — Le diverse versioni dello stesso video, dalla più leggera al 4K: il lettore sceglie quella giusta in base alla velocità della tua linea
+- `qualità-video-adattiva.png` — Le diverse versioni dello stesso video, dalla più leggera al 4K: il lettore sceglie quella giusta in base alla velocità della tua linea
 - `catena-streaming-cdn-abr.png` — Il percorso completo: codifica multi-bitrate, manifest, segmenti distribuiti dalla CDN, e il lettore con ABR che sceglie la variante in base a buffer e banda
 
 ## Fibra, ADSL, FWA: che connessione hai davvero sotto casa?
@@ -746,6 +751,7 @@ coerenza grafica, ogni nuova immagine dovrebbe seguire queste regole:
 - 🖼️ **COPERTINA mancante** — consigliato `thumbnail-poe-un-cavo-solo-per-dati-e-corr.png` (poster col titolo dell'articolo)
 - `poe-cavo-dati-e-corrente.png` — Un cavo di rete che entra in una telecamera: porta sia i dati sia l'elettricità, senza nessuna presa della corrente vicina
 - `switch-poe-prese-rete.png` — Uno switch PoE: la scatola con le prese di rete che invia dati e corrente nello stesso cavo verso telecamere e access point
+- `poe-quattro-coppie-corrente.png` — Le quattro coppie di un cavo Cat6: nel 4PPoE (802.3bt) tutte trasportano corrente, ed è così che si arriva fino a 90 W
 
 ## Cos'è l'Intelligenza Artificiale? La differenza tra un pappagallo e un cervello
 *(Ma cos'è?)*
@@ -770,6 +776,7 @@ coerenza grafica, ogni nuova immagine dovrebbe seguire queste regole:
 - 🖼️ **COPERTINA mancante** — consigliato `thumbnail-perche-tiktok-e-instagram-ti-leg.png` (poster col titolo dell'articolo)
 - `cameriere-algoritmo-analogia.png` — Il cameriere che dopo due piatti ha capito i tuoi gusti: così funziona l'algoritmo dei social
 - `gruppi-gusti-simili-feed.png` — Schema dei gruppi di utenti con gusti simili: l'algoritmo propone a te ciò che è piaciuto a chi ti somiglia
+- `pipeline-candidate-ranking.png` — I due stadi del feed: prima il setaccio veloce dei candidati, poi il modello di ranking che decide l'ordine
 
 ## Cookie: quei biscotti che il sito ti lascia in tasca (e perché tutti li chiedono)
 *(Ma cos'è?)*
@@ -778,6 +785,7 @@ coerenza grafica, ogni nuova immagine dovrebbe seguire queste regole:
 - `cookie-biglietto-nel-taschino.png` — Un sito che infila un bigliettino di testo nel taschino del browser dell'utente, con su scritto un codice di riconoscimento
 - `cookie-prima-parte-terza-parte.png` — Confronto tra il cookie di prima parte messo dal sito visitato e il cookie di terza parte messo dalla rete pubblicitaria
 - `impostazioni-browser-cancella-cookie.png` — La sezione Privacy del browser con il pulsante per cancellare i cookie e l'opzione per bloccare quelli di terze parti
+- `header-set-cookie-attributi.png` — Una risposta HTTP con la riga Set-Cookie e i suoi attributi HttpOnly, Secure e SameSite evidenziati
 
 ## Scheda video (GPU): il chip dei videogiochi che oggi muove anche l'intelligenza artificiale
 *(Ma cos'è?)*
@@ -786,6 +794,21 @@ coerenza grafica, ogni nuova immagine dovrebbe seguire queste regole:
 - `cpu-vs-gpu-cuoco-sguatteri.png` — A sinistra un cuoco solo che cucina un piatto alla volta (la CPU), a destra una brigata di tanti sguatteri che lavorano insieme (la GPU)
 - `gpu-integrata-vs-dedicata.png` — Confronto tra una GPU integrata dentro il processore e una scheda video dedicata con la sua ventola
 - `pipeline-grafica-gpu.png` — I tre passaggi dentro la GPU: dai vertici 3D alla rasterizzazione fino al colore calcolato per ogni pixel
+
+## Bit e byte: perché i tuoi file pesano in KB, MB e GB
+*(Ma cos'è?)*
+
+- `bit-vs-byte.png` — A sinistra il tubo della rete misurato in bit, a destra il file misurato in byte: tra i due c'è sempre il fattore 8.
+
+## AND, OR, NOT: come il computer prende decisioni
+*(Ma cos'è?)*
+
+- `half-adder.png` — Il mezzo sommatore: una porta XOR produce la cifra della somma, una porta AND produce il riporto. Da qui, in fila, nascono i conti a 64 bit.
+
+## Monotasking vs multitasking: il PC fa davvero più cose insieme?
+*(Ma cos'è?)*
+
+- `processo-thread.png` — Un processo come una scatola di memoria isolata che contiene più thread, fili che condividono lo stesso spazio
 
 ## Accendere il PC: cosa serve davvero per farlo partire
 *(Sistema & Software)*
@@ -1086,18 +1109,21 @@ coerenza grafica, ogni nuova immagine dovrebbe seguire queste regole:
 - 🖼️ **COPERTINA mancante** — consigliato `thumbnail-cat-5-cat-6-cat-7-che-numero-ha.png` (poster col titolo dell'articolo)
 - `scritta-categoria-su-cavo-ethernet.png` — Dove leggere la categoria: la sigla "Cat 5e", "Cat 6" o "Cat 7" è stampata in piccolo lungo la guaina del cavo.
 - `confronto-cat5e-cat6-cat7.png` — Sezione dei tre cavi a confronto: si vede l'intreccio delle coppie, la crocetta separatrice del Cat 6 e le schermature metalliche del Cat 7.
+- `schema-frequenza-velocità-categorie.png` — La scala delle categorie: a sinistra i MHz di banda passante, a destra i Gbps e la distanza massima. Si vede come, salendo di velocità, la lunghezza utile si accorci.
 
 ## Cos'è un server (e no, non è una stanza piena di lucine)
 *(Ma cos'è?)*
 
 - 🖼️ **COPERTINA mancante** — consigliato `thumbnail-un-server-e-no-non-e-una-stanza.png` (poster col titolo dell'articolo)
 - `client-server-ristorante.png` — Il client (il tavolo) fa una richiesta, il server (il cameriere) la prende e restituisce la risposta: lo stesso schema vale per ogni sito web
+- `virtualizzazione-vm-container.png` — Una sola macchina fisica può ospitare più macchine virtuali, gestite dall'hypervisor; i container vanno oltre e condividono il sistema operativo per partire in millisecondi
 
 ## NAS: il cloud privato che vive in casa tua
 *(Ma cos'è?)*
 
 - 🖼️ **COPERTINA mancante** — consigliato `thumbnail-nas-il-cloud-privato-che-vive-in.png` (poster col titolo dell'articolo)
 - `schema-nas-rete-casa.png` — Il NAS collegato al router: PC, telefono e smart TV lo raggiungono tutti dalla stessa rete di casa
+- `raid-vs-checksum.png` — Il RAID copia anche l'errore; il checksum del file system lo riconosce e lo ripara dalla copia sana
 
 ## Installare una stampante: via IP o con il programma del produttore?
 *(Digitale Pratico)*
@@ -1119,6 +1145,7 @@ coerenza grafica, ogni nuova immagine dovrebbe seguire queste regole:
 - 🖼️ **COPERTINA mancante** — consigliato `thumbnail-usb-a-b-c-il-dizionario-delle-po.png` (poster col titolo dell'articolo)
 - `confronto-usb-a-b-c.png` — I tre connettori a confronto: USB-A rettangolare, USB-B quasi quadrata, USB-C piccola e ovale (reversibile).
 - `porte-usb-blu-vs-nere.png` — Sul retro di un PC: le porte blu indicano USB 3.0 (veloci), quelle nere di solito USB 2.0 (più lente).
+- `usb-c-pinout-24pin.png` — I 24 pin del connettore USB-C disposti a specchio: in evidenza i due contatti CC che negoziano alimentazione e Alt Mode.
 
 ## HDMI o DisplayPort? Collegare lo schermo senza sbagliare cavo
 *(Hardware & Periferiche)*
