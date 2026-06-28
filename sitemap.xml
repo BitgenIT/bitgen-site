@@ -2,27 +2,147 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://bitgen.it/</loc>
-    <lastmod>2026-06-27</lastmod>
+    <lastmod>2026-06-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://bitgen.it/enciclopedia.html</loc>
-    <lastmod>2026-06-27</lastmod>
+    <lastmod>2026-06-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://bitgen.it/contatti.html</loc>
-    <lastmod>2026-06-27</lastmod>
+    <lastmod>2026-06-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://bitgen.it/privacy.html</loc>
-    <lastmod>2026-06-27</lastmod>
+    <lastmod>2026-06-28</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/reti-internet/wi-fi-8-la-rivoluzione-che-punta-sullaffidabilita-non-sulla-.html</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/hardware-periferiche/6g-come-sara-la-rete-mobile-del-2030-e-perche-vedra-il-mondo.html</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/reti-internet/internet-dal-cielo-come-starlink-e-i-satelliti-portano-la-re.html</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/reti-internet/wi-fi-halow-il-cugino-del-wi-fi-che-arriva-lontano-per-gli-o.html</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/reti-internet/5g-advanced-il-5g-e-mezzo-che-ci-traghetta-verso-il-6g.html</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/reti-internet/isim-la-sim-che-sparisce-dentro-il-chip-dopo-la-esim.html</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/hardware-periferiche/usb4-e-thunderbolt-5-una-porta-sola-per-120-gigabit.html</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/hardware-periferiche/batterie-allo-stato-solido-il-salto-che-aspettiamo-da-ventan.html</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/hardware-periferiche/npu-il-terzo-chip-che-porta-lintelligenza-artificiale-dentro.html</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/hardware-periferiche/caricatori-gan-perche-sono-diventati-piccoli-come-una-moneta.html</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/hardware-periferiche/micro-led-lo-schermo-perfetto-che-verra-dopo-loled.html</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/ma-cose/agenti-ia-quando-lintelligenza-artificiale-smette-di-parlare.html</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/ma-cose/immagini-e-video-dal-nulla-come-funziona-lia-generativa.html</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/ma-cose/computer-quantistico-cose-e-perche-tiene-sveglia-la-crittogr.html</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/sicurezza/crittografia-post-quantistica-blindare-i-dati-prima-che-arri.html</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/sicurezza/passkey-la-fine-delle-password-e-come-funziona-davvero.html</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/sicurezza/identita-digitale-europea-il-portafoglio-eudi-wallet-che-arr.html</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/ma-cose/euro-digitale-cose-la-moneta-digitale-della-bce-e-cosa-cambi.html</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/reti-internet/matter-e-thread-lo-standard-che-fa-finalmente-parlare-la-cas.html</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/ma-cose/occhiali-smart-e-realta-aumentata-la-prossima-interfaccia-do.html</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://bitgen.it/enciclopedia/digitale-pratico/convertire-un-file-da-word-a-pdf-e-ritorno-senza-siti-loschi.html</loc>

@@ -225,10 +225,17 @@ function formatContenuto(testo) {
           );
           return;
         }
+        // Sottotitolo = riga in MAIUSCOLO e "prosa" (dominata da lettere).
+        // Esclude le righe di calcolo/esempio tipo "10.0 AND 255.0 = 10.0" che,
+        // pur essendo senza minuscole, NON sono titoli (poche lettere, contengono "=").
+        const compact = line.replace(/\s/g, '');
+        const lettere = (line.match(/[A-Za-zÀ-ÿ]/g) || []).length;
         const isSubtitle = line.length < 80
           && line === line.toUpperCase()
           && /[A-Z]/.test(line)
-          && !line.endsWith('.') && !line.endsWith('?') && !line.endsWith('!');
+          && !line.endsWith('.') && !line.endsWith('?') && !line.endsWith('!')
+          && !line.includes('=')
+          && compact.length > 0 && (lettere / compact.length) >= 0.5;
         if (isSubtitle) {
           flushParagraph();
           result.push(`<h3>${escapeHtml(line)}</h3>`);
@@ -580,10 +587,12 @@ function renderArticolo() {
   const color = getRubricaColor(art.rubrica);
   const icon = getRubricaIcon(art.rubrica);
 
-  // Due versioni del contenuto: breve (opzionale) e approfondita (principale)
+  // Versioni del contenuto: breve (opzionale), approfondita (principale), tecnico (opzionale)
   const hasBreve = !!art.hasBreve;
+  const hasTecnico = !!art.hasTecnico;
   const bodyLunga = formatContenuto(art.contenuto || art.contenutoBreve);
   const bodyBreve = hasBreve ? formatContenuto(art.contenutoBreve) : bodyLunga;
+  const bodyTecnico = hasTecnico ? formatContenuto(art.contenutoTecnico) : bodyLunga;
   const versioneIniziale = hasBreve ? 'breve' : 'lunga';
 
   // Immagine di copertina in cima all'articolo (se presente)
@@ -591,11 +600,19 @@ function renderArticolo() {
     ? `<img class="article-cover" src="${escapeHtml(resolveImg(art.thumbnail))}" alt="${escapeHtml(art.titolo)}">`
     : '';
 
-  // Switch breve / approfondita (solo se esiste una versione breve)
-  const toggleHtml = hasBreve ? `
+  // Switch breve / approfondita / tecnico (compare se esiste almeno una versione extra)
+  const mostraToggle = hasBreve || hasTecnico;
+  const toggleBtns = [];
+  if (hasBreve) {
+    toggleBtns.push(`<button type="button" class="version-btn${versioneIniziale === 'breve' ? ' active' : ''}" data-version="breve" aria-pressed="${versioneIniziale === 'breve'}">📄 Versione breve</button>`);
+  }
+  toggleBtns.push(`<button type="button" class="version-btn${versioneIniziale === 'lunga' ? ' active' : ''}" data-version="lunga" aria-pressed="${versioneIniziale === 'lunga'}">📖 Approfondisci</button>`);
+  if (hasTecnico) {
+    toggleBtns.push(`<button type="button" class="version-btn" data-version="tecnico" aria-pressed="false">🔬 Tecnico</button>`);
+  }
+  const toggleHtml = mostraToggle ? `
     <div class="version-toggle" role="group" aria-label="Scegli la versione dell'articolo">
-      <button type="button" class="version-btn active" data-version="breve" aria-pressed="true">📄 Versione breve</button>
-      <button type="button" class="version-btn" data-version="lunga" aria-pressed="false">📖 Approfondisci</button>
+      ${toggleBtns.join('\n      ')}
     </div>
   ` : '';
 
@@ -656,10 +673,10 @@ function renderArticolo() {
 
   wireFigureFallbacks(container);
 
-  // Cablaggio dello switch breve / approfondita
-  if (hasBreve) {
+  // Cablaggio dello switch breve / approfondita / tecnico
+  if (mostraToggle) {
     const bodyEl = container.querySelector('#article-body');
-    const versioni = { breve: bodyBreve, lunga: bodyLunga };
+    const versioni = { breve: bodyBreve, lunga: bodyLunga, tecnico: bodyTecnico };
     container.querySelectorAll('.version-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         const v = btn.dataset.version;

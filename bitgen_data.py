@@ -117,9 +117,9 @@ def _pulisci_articolo(art):
     Salviamo solo i dati 'sorgente'; id/estratto/durata/hasBreve sono ricalcolati
     dal frontend, quindi non li persistiamo a meno che siano stati impostati a mano.
     """
-    campi_runtime = {'hasBreve'}
+    campi_runtime = {'hasBreve', 'hasTecnico'}
     ordine = ['titolo', 'rubrica', 'data', 'videoUrl', 'thumbnail',
-              'tags', 'correlati', 'id', 'estratto', 'durata', 'contenutoBreve', 'contenuto']
+              'tags', 'correlati', 'id', 'estratto', 'durata', 'contenutoBreve', 'contenuto', 'contenutoTecnico']
     out = {}
     for k in ordine:
         if k in art and k not in campi_runtime:
