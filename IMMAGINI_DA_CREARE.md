@@ -18,21 +18,33 @@ coerenza grafica, ogni nuova immagine dovrebbe seguire queste regole:
 - **Copertine (thumbnail):** includono in grande il **titolo dell'articolo** (come un poster). Nome file consigliato: `thumbnail-<tema>.png`.
 - **Immagini interne:** niente titolo dell'articolo; si concentrano su **un solo concetto** (quello descritto nella didascalia), stesso stile grafico.
 
-**Stato: 182 copertine + 399 immagini interne da creare, su 245 articoli.**
+**Stato: 184 copertine + 402 immagini interne da creare, su 249 articoli.**
 
 ---
 
-## Scaricare file da Internet: dove finiscono e come riprendere un download interrotto
-*(Digitale Pratico)*
+## Quale browser scegliere: Chrome, Firefox, Edge, Safari e Brave a confronto
+*(Sistema & Software)*
 
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-scaricare-file-da-internet-dove.png` (poster col titolo dell'articolo)
-- `lista-download-browser.png` — La lista dei download, che si apre con Ctrl+J: da qui ritrovi ogni file e puoi riprendere quelli interrotti.
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-quale-browser-scegliere-chrome-f.png` (poster col titolo dell'articolo)
+- `browser-a-confronto.png` — I principali browser e il motore che hanno sotto il cofano
 
-## Condividere una cartella in rete (e decidere chi può accedere)
-*(Digitale Pratico)*
+## Cos'è Chromium: il motore open source dietro mezzo web
+*(Ma cos'è?)*
 
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-condividere-una-cartella-in-rete.png` (poster col titolo dell'articolo)
-- `condivisione-avanzata-windows.png` — La scheda Condivisione con il pulsante per le autorizzazioni
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-chromium-il-motore-open-source-d.png` (poster col titolo dell'articolo)
+- `chromium-vs-chrome.png` — Chromium è il telaio grezzo; Chrome è Chromium più il vestito di Google
+
+## Motori di ricerca a confronto: Google, Bing, DuckDuckGo ed Ecosia
+*(Reti & Internet)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-motori-di-ricerca-a-confronto-go.png` (poster col titolo dell'articolo)
+- `motori-ricerca-confronto.png` — I principali motori di ricerca a confronto: chi ha un indice proprio, chi punta sulla privacy, chi sull'ambiente
+
+## VPN dal browser o da tutto il PC: che differenza fa
+*(Sicurezza)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-vpn-dal-browser-o-da-tutto-il-pc.png` (poster col titolo dell'articolo)
+- `vpn-browser-vs-sistema.png` — A sinistra solo il browser nel tunnel, a destra tutto il PC dentro al tunnel cifrato.
 
 ## Creare più account utente su Windows (e gestirli)
 *(Digitale Pratico)*
@@ -995,6 +1007,7 @@ coerenza grafica, ogni nuova immagine dovrebbe seguire queste regole:
 - 🖼️ **COPERTINA mancante** — consigliato `thumbnail-hub-switch-e-router-chi-fa-cosa.png` (poster col titolo dell'articolo)
 - `switch-tabella-mac.png` — Schema di uno switch che associa ogni porta a un indirizzo MAC, mostrando come il dato vada solo al destinatario corretto
 - `scatola-tutto-in-uno.png` — Il dispositivo di casa con le sue anime evidenziate: modem, router, switch e access point Wi-Fi in un solo apparecchio
+- `hub-switch-router-domini.png` — Hub: un solo dominio di collisione. Switch: tanti domini di collisione, un solo dominio di broadcast. Router: separa anche i domini di broadcast.
 
 ## DNS: la rubrica telefonica che traduce i nomi dei siti in numeri
 *(Reti & Internet)*
