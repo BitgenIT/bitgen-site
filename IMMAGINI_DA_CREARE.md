@@ -18,9 +18,187 @@ coerenza grafica, ogni nuova immagine dovrebbe seguire queste regole:
 - **Copertine (thumbnail):** includono in grande il **titolo dell'articolo** (come un poster). Nome file consigliato: `thumbnail-<tema>.png`.
 - **Immagini interne:** niente titolo dell'articolo; si concentrano su **un solo concetto** (quello descritto nella didascalia), stesso stile grafico.
 
-**Stato: 152 copertine + 370 immagini interne da creare, su 215 articoli.**
+**Stato: 182 copertine + 399 immagini interne da creare, su 245 articoli.**
 
 ---
+
+## Scaricare file da Internet: dove finiscono e come riprendere un download interrotto
+*(Digitale Pratico)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-scaricare-file-da-internet-dove.png` (poster col titolo dell'articolo)
+- `lista-download-browser.png` — La lista dei download, che si apre con Ctrl+J: da qui ritrovi ogni file e puoi riprendere quelli interrotti.
+
+## Condividere una cartella in rete (e decidere chi può accedere)
+*(Digitale Pratico)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-condividere-una-cartella-in-rete.png` (poster col titolo dell'articolo)
+- `condivisione-avanzata-windows.png` — La scheda Condivisione con il pulsante per le autorizzazioni
+
+## Creare più account utente su Windows (e gestirli)
+*(Digitale Pratico)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-creare-piu-account-utente-su-win.png` (poster col titolo dell'articolo)
+- `aggiungi-account-windows.png` — Il pulsante "Aggiungi account" dentro Impostazioni, Account, Famiglia e altri utenti.
+
+## Creare una macchina virtuale passo passo (VirtualBox e Hyper-V)
+*(Digitale Pratico)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-creare-una-macchina-virtuale-pas.png` (poster col titolo dell'articolo)
+- `virtualbox-nuova-vm.png` — La schermata "Nuova" di VirtualBox: nome, ISO, RAM e disco in un colpo solo
+
+## PST e OST: i file della posta di Outlook (dimensioni, archivio e come condividerli)
+*(Sistema & Software)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-pst-e-ost-i-file-della-posta-di.png` (poster col titolo dell'articolo)
+- `ost-vs-pst-outlook.png` — OST è la copia locale che si risincronizza dal server; PST è l'archivio autonomo che puoi portare via.
+
+## Programmazione procedurale e a oggetti: due modi di pensare il codice
+*(Sistema & Software)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-programmazione-procedurale-e-a-o.png` (poster col titolo dell'articolo)
+- `classe-oggetto.png` — La classe è lo stampo, gli oggetti sono gli esemplari che ne escono
+
+## HTML 4 e HTML 5: cos'è cambiato nel web
+*(Sistema & Software)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-html-4-e-html-5-cambiato-nel-web.png` (poster col titolo dell'articolo)
+- `html-scheletro.png` — HTML è l'ossatura della pagina: dice dove vanno titoli, immagini e link
+
+## Il bit di parità: il trucco per accorgersi di un errore nei dati
+*(Ma cos'è?)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-il-bit-di-parita-il-trucco-per-a.png` (poster col titolo dell'articolo)
+- `bit-parita-esempio.png` — Otto bit di dati più il bit di parità che pareggia il conto degli "1".
+
+## Cos'è un file ISO: la copia esatta di un disco (e come si usa)
+*(Ma cos'è?)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-un-file-iso-la-copia-esatta-di-u.png` (poster col titolo dell'articolo)
+
+## I file temporanei: cosa sono e si possono cancellare?
+*(Digitale Pratico)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-i-file-temporanei-cosa-sono-e-si.png` (poster col titolo dell'articolo)
+- `impostazioni-archiviazione-file-temporanei.png` — Da Impostazioni, Sistema, Archiviazione si raggiunge la voce File temporanei
+
+## Dominio locale e Active Directory: la rete aziendale che gestisce utenti e PC
+*(Reti & Internet)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-dominio-locale-e-active-director.png` (poster col titolo dell'articolo)
+- `active-directory-schema.png` — Un solo elenco centrale: utenti, PC e stampanti fanno capo al controller di dominio.
+
+## Switch L2 e L3: cosa cambia (e quando serve uno o l'altro)
+*(Reti & Internet)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-switch-l2-e-l3-cosa-cambia-e-qua.png` (poster col titolo dell'articolo)
+- `switch-l2-l3-postino.png` — L2 consegna porta a porta nello stesso palazzo, L3 smista anche tra palazzi diversi
+
+## Telnet e SSH: comandare un computer a distanza (prima e dopo la cifratura)
+*(Reti & Internet)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-telnet-e-ssh-comandare-un-comput.png` (poster col titolo dell'articolo)
+- `telnet-vs-ssh.png` — Telnet manda i dati in chiaro, SSH li chiude in un tunnel cifrato: stesso lavoro, sicurezza opposta.
+
+## ICMP: il protocollo dietro ping e traceroute
+*(Reti & Internet)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-icmp-il-protocollo-dietro-ping-e.png` (poster col titolo dell'articolo)
+- `ping-terminale.png` — L'output del comando ping: tempi di risposta in millisecondi, riga dopo riga.
+
+## SNMP: come si tengono d'occhio i dispositivi di rete
+*(Reti & Internet)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-snmp-si-tengono-docchio-i-dispos.png` (poster col titolo dell'articolo)
+- `snmp-manager-agent.png` — Il manager interroga gli agent sui dispositivi e raccoglie tutto su un unico cruscotto
+
+## NTP: come fanno tutti i dispositivi ad avere l'ora giusta
+*(Reti & Internet)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-ntp-fanno-tutti-i-dispositivi-ad.png` (poster col titolo dell'articolo)
+- `ntp-orologi-sincronizzati.png` — Telefono, PC e router prendono tutti la stessa ora dai server di riferimento
+
+## Multicast e IGMP: un dato spedito a un gruppo (non a uno, non a tutti)
+*(Reti & Internet)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-multicast-e-igmp-un-dato-spedito.png` (poster col titolo dell'articolo)
+- `multicast-canale-tv.png` — Un solo flusso che si sdoppia solo dove serve, come il segnale di un canale TV.
+
+## STP e LLDP: come gli switch evitano i loop e si riconoscono tra loro
+*(Reti & Internet)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-stp-e-lldp-gli-switch-evitano-i.png` (poster col titolo dell'articolo)
+- `stp-anello-rete.png` — STP individua i percorsi ridondanti e ne disattiva alcuni, tenendoli di riserva
+
+## OSPF e BGP: come i router trovano la strada (dentro e tra le reti)
+*(Reti & Internet)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-ospf-e-bgp-i-router-trovano-la-s.png` (poster col titolo dell'articolo)
+- `ospf-mappa-città.png` — OSPF dentro una rete: i router condividono la stessa mappa e ricalcolano la via più breve in pochi secondi.
+
+## VPN a confronto: PPTP, L2TP/IPsec, IKEv2, SSL e WireGuard
+*(Sicurezza)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-vpn-a-confronto-pptp-l2tpipsec-i.png` (poster col titolo dell'articolo)
+- `vpn-tunnel-confronto.png` — Tutte le VPN scavano un tunnel cifrato: cambiano i materiali e gli attrezzi.
+
+## Intelligenza Artificiale, Machine Learning, Deep Learning: chi sta dentro chi
+*(Ma cos'è?)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-intelligenza-artificiale-machine.png` (poster col titolo dell'articolo)
+- `matrioske-ia-ml-dl.png` — Tre matrioske una dentro l'altra: dalla più grande (IA) alla più piccola (deep learning).
+
+## Cos'è il Machine Learning: come un computer impara dagli esempi
+*(Ma cos'è?)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-il-machine-learning-un-computer.png` (poster col titolo dell'articolo)
+- `bambino-foto-gatti.png` — Come un bambino impara cos'è un gatto guardando tante foto, il machine learning ricava da solo lo schema dagli esempi.
+
+## Deep Learning e reti neurali: il cervello artificiale a strati
+*(Ma cos'è?)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-deep-learning-e-reti-neurali-il.png` (poster col titolo dell'articolo)
+- `rete-neurale-strati.png` — I dati entrano da sinistra, attraversano gli strati nascosti e diventano una risposta a destra
+
+## FTP, FTPS e SFTP: come si spostano i file in rete (e quale è sicuro)
+*(Reti & Internet)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-ftp-ftps-e-sftp-si-spostano-i-fi.png` (poster col titolo dell'articolo)
+- `ftp-ftps-sftp-confronto.png` — FTP manda i dati in chiaro, FTPS e SFTP li cifrano con due tecnologie diverse: SSL/TLS contro SSH.
+
+## SSL e TLS: il lucchetto che cifra (non solo) il web
+*(Sicurezza)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-ssl-e-tls-il-lucchetto-che-cifra.png` (poster col titolo dell'articolo)
+- `tls-lucchetto-protocolli.png` — Lo stesso lucchetto TLS protegge web, posta, trasferimento file e VPN
+
+## WinPE e i 'dischi di soccorso' come Strelec: il PC che si ripara da fuori
+*(Sistema & Software)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-winpe-e-i-dischi-di-soccorso-str.png` (poster col titolo dell'articolo)
+- `strelec-winpe-desktop.png` — Il desktop di un disco di soccorso WinPE: sembra un Windows normale, ma gira tutto nella RAM.
+
+## I file nascosti di Windows: cosa sono e come mostrarli (senza fare danni)
+*(Digitale Pratico)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-i-file-nascosti-di-windows-cosa.png` (poster col titolo dell'articolo)
+- `windows-elementi-nascosti.png` — Il menu Visualizza, Mostra, Elementi nascosti in Esplora File di Windows 11.
+
+## Tutto troppo piccolo o sfocato? Risoluzione e scala dello schermo su Windows
+*(Digitale Pratico)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-tutto-troppo-piccolo-o-sfocato-r.png` (poster col titolo dell'articolo)
+- `windows-impostazioni-schermo.png` — Le voci "Risoluzione" e "Scala" nella schermata Schermo di Windows
+
+## La barra delle applicazioni di Windows: domala e fattela tua
+*(Digitale Pratico)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-la-barra-delle-applicazioni-di-w.png` (poster col titolo dell'articolo)
+- `barra-applicazioni-tasto-destro.png` — Il menu del tasto destro su un'icona: da qui si appunta o si rimuove un'app.
+
+## I protocolli di rete: il dizionario di HTTP, FTP, SMTP e tutti gli altri
+*(Reti & Internet)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-i-protocolli-di-rete-il-dizionar.png` (poster col titolo dell'articolo)
 
 ## FAT32, exFAT, NTFS e gli altri: cos'è un file system (e quale scegliere)
 *(Sistema & Software)*
@@ -32,6 +210,11 @@ coerenza grafica, ogni nuova immagine dovrebbe seguire queste regole:
 *(Digitale Pratico)*
 
 - 🖼️ **COPERTINA mancante** — consigliato `thumbnail-la-chiavetta-non-si-apre-sullalt.png` (poster col titolo dell'articolo)
+
+## Più tacche di segnale uguale connessione più veloce: non proprio
+*(Miti Digitali)*
+
+- `velocità-rete-mobile.png` — Tacche piene misurano la potenza dell'antenna, non quanto velocemente navighi davvero.
 
 ## Coprire la webcam è da paranoici: vero o falso?
 *(Miti Digitali)*
