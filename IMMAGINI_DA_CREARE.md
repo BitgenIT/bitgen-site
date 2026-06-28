@@ -18,43 +18,20 @@ coerenza grafica, ogni nuova immagine dovrebbe seguire queste regole:
 - **Copertine (thumbnail):** includono in grande il **titolo dell'articolo** (come un poster). Nome file consigliato: `thumbnail-<tema>.png`.
 - **Immagini interne:** niente titolo dell'articolo; si concentrano su **un solo concetto** (quello descritto nella didascalia), stesso stile grafico.
 
-**Stato: 154 copertine + 378 immagini interne da creare, su 213 articoli.**
+**Stato: 152 copertine + 370 immagini interne da creare, su 215 articoli.**
 
 ---
 
-## Più tacche di segnale uguale connessione più veloce: non proprio
-*(Miti Digitali)*
+## FAT32, exFAT, NTFS e gli altri: cos'è un file system (e quale scegliere)
+*(Sistema & Software)*
 
-- `potenza-vs-velocità.png` — Tacche piene misurano la potenza dell'antenna, non quanto velocemente navighi davvero.
-- `rsrp-vs-sinr-modulazione.png` — Le tacche stimano l'RSRP, la potenza; ma sono SINR e modulazione a decidere quanti bit passano davvero.
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-fat32-exfat-ntfs-e-gli-altri-un.png` (poster col titolo dell'articolo)
+- `file-system-compatibilita.png` — Quale sistema legge quale file system: la mappa che spiega perché una chiavetta a volte non si apre sull'altro dispositivo.
 
-## Cancellare un file (o svuotare il cestino) lo elimina per sempre: falso
-*(Miti Digitali)*
+## La chiavetta non si apre sull'altro dispositivo? È il file system
+*(Digitale Pratico)*
 
-- `cancellazione-logica-vs-fisica.png` — A sinistra la cancellazione logica: il puntatore nella tabella sparisce ma i blocchi restano pieni. A destra il crypto-erase: i blocchi restano ma la chiave è distrutta e i dati diventano rumore.
-
-## Il lucchetto HTTPS vuol dire che il sito è sicuro e affidabile: falso
-*(Miti Digitali)*
-
-- `tls-handshake-dv-vs-ev.png` — Lo stesso lucchetto chiude su un certificato DV gratuito e su un EV verificato: la barra del browser non li distingue più.
-
-## Il Wi-Fi pubblico è sempre una trappola: vero o falso?
-*(Miti Digitali)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-il-wi-fi-pubblico-e-sempre-una-t.png` (poster col titolo dell'articolo)
-- `lucchetto-https-barra-browser.png` — Il lucchetto e la scritta https indicano che i tuoi dati viaggiano cifrati, anche sul Wi-Fi pubblico.
-- `handshake-tls-certificato.png` — L'handshake TLS: il server presenta un certificato firmato da una CA, il browser lo verifica prima di cifrare la sessione end-to-end.
-
-## Riavviare il computer non serve a niente: falso
-*(Miti Digitali)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-riavviare-il-computer-non-serve.png` (poster col titolo dell'articolo)
-- `menu-arresta-riavvia.png` — Su Windows, Riavvia azzera tutto. Arresta, con l'avvio rapido, no.
-
-## Gli aggiornamenti rallentano apposta i telefoni vecchi: vero o falso?
-*(Miti Digitali)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-gli-aggiornamenti-rallentano-app.png` (poster col titolo dell'articolo)
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-la-chiavetta-non-si-apre-sullalt.png` (poster col titolo dell'articolo)
 
 ## Coprire la webcam è da paranoici: vero o falso?
 *(Miti Digitali)*
@@ -110,13 +87,6 @@ coerenza grafica, ogni nuova immagine dovrebbe seguire queste regole:
 - 🖼️ **COPERTINA mancante** — consigliato `thumbnail-recuperare-file-cancellati-per-s.png` (poster col titolo dell'articolo)
 - `cestino-windows-mac.png` — Cestino e cronologia: la prima cosa da controllare, su ogni sistema.
 - `carving-vs-metadati.png` — Due logiche a confronto: ricostruire dalla scheda residua o cercare le firme nei dati grezzi.
-
-## Proteggere file e cartelle con una password
-*(Digitale Pratico)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-proteggere-file-e-cartelle-con-u.png` (poster col titolo dell'articolo)
-- `7zip-cifratura-aes.png` — La finestra di 7-Zip: la password va nel riquadro Crittografia, con metodo AES-256.
-- `veracrypt-contenitore.png` — VeraCrypt monta il contenitore come un disco: ci lavori dentro e poi lo richiudi.
 
 ## Registrare lo schermo (screen recording) su PC e telefono
 *(Digitale Pratico)*
