@@ -18,9 +18,45 @@ coerenza grafica, ogni nuova immagine dovrebbe seguire queste regole:
 - **Copertine (thumbnail):** includono in grande il **titolo dell'articolo** (come un poster). Nome file consigliato: `thumbnail-<tema>.png`.
 - **Immagini interne:** niente titolo dell'articolo; si concentrano su **un solo concetto** (quello descritto nella didascalia), stesso stile grafico.
 
-**Stato: 213 copertine + 443 immagini interne da creare, su 279 articoli.**
+**Stato: 219 copertine + 449 immagini interne da creare, su 285 articoli.**
 
 ---
+
+## La modalità provvisoria di Windows: cos'è e le sue tre varianti
+*(Sistema & Software)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-la-modalita-provvisoria-di-windo.png` (poster col titolo dell'articolo)
+- `modalita-provvisoria-desktop.png` — Il desktop in modalità provvisoria: bassa risoluzione e la scritta agli angoli
+- `msconfig-avvio-sicuro.png` — La spunta "Avvio sicuro" in msconfig: ricordati di toglierla per uscire
+
+## Come entrare (e forzare) la modalità provvisoria: msconfig e gli altri metodi
+*(Digitale Pratico)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-entrare-e-forzare-la-modalita-pr.png` (poster col titolo dell'articolo)
+- `impostazioni-avvio-windows.png` — La schermata Impostazioni di avvio: premi 4, 5 o 6 a seconda della provvisoria che ti serve
+- `ripristino-automatico-windows.png` — Dopo alcuni avvii interrotti compare il Ripristino automatico: da Opzioni avanzate raggiungi le Impostazioni di avvio
+
+## Virus e antivirus: il vero antivirus sei tu
+*(Sicurezza)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-virus-e-antivirus-il-vero-antivi.png` (poster col titolo dell'articolo)
+- `pulsante-download-falso.png` — Il pulsante verde gigante non è quasi mai quello giusto: occhio alle finte pubblicità travestite da "Download"
+
+## Cos'è un LLM: il 'modello linguistico' dietro ChatGPT e gli altri
+*(Ma cos'è?)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-un-llm-il-modello-linguistico-di.png` (poster col titolo dell'articolo)
+
+## eMule e i torrent a confronto: due ere del peer-to-peer
+*(Reti & Internet)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-emule-e-i-torrent-a-confronto-du.png` (poster col titolo dell'articolo)
+
+## È legale scaricare da torrent o eMule? Cosa dice davvero la legge
+*(Sicurezza)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-e-legale-scaricare-da-torrent-o.png` (poster col titolo dell'articolo)
+- `torrent-legge-italia.png` — In Italia AGCOM può oscurare i siti pirata e dal 2023 c'è Piracy Shield contro lo streaming illegale dello sport.
 
 ## Cos'è un processore x86: il motore di PC e portatili
 *(Hardware & Periferiche)*
