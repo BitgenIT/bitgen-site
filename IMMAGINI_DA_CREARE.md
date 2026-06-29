@@ -18,216 +18,27 @@ coerenza grafica, ogni nuova immagine dovrebbe seguire queste regole:
 - **Copertine (thumbnail):** includono in grande il **titolo dell'articolo** (come un poster). Nome file consigliato: `thumbnail-<tema>.png`.
 - **Immagini interne:** niente titolo dell'articolo; si concentrano su **un solo concetto** (quello descritto nella didascalia), stesso stile grafico.
 
-**Stato: 219 copertine + 449 immagini interne da creare, su 285 articoli.**
+**Stato: 187 copertine + 420 immagini interne da creare, su 288 articoli.**
 
 ---
 
-## La modalità provvisoria di Windows: cos'è e le sue tre varianti
+## Il limite di 260 caratteri nei percorsi di Windows (MAX_PATH)
 *(Sistema & Software)*
 
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-la-modalita-provvisoria-di-windo.png` (poster col titolo dell'articolo)
-- `modalita-provvisoria-desktop.png` — Il desktop in modalità provvisoria: bassa risoluzione e la scritta agli angoli
-- `msconfig-avvio-sicuro.png` — La spunta "Avvio sicuro" in msconfig: ricordati di toglierla per uscire
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-il-limite-di-260-caratteri-nei-p.png` (poster col titolo dell'articolo)
+- `max-path-errore.png` — Il classico messaggio "Percorso di destinazione troppo lungo" che blocca la copia
 
-## Come entrare (e forzare) la modalità provvisoria: msconfig e gli altri metodi
-*(Digitale Pratico)*
+## Il diagramma a blocchi (flowchart): disegnare la logica prima di scriverla
+*(Sistema & Software)*
 
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-entrare-e-forzare-la-modalita-pr.png` (poster col titolo dell'articolo)
-- `impostazioni-avvio-windows.png` — La schermata Impostazioni di avvio: premi 4, 5 o 6 a seconda della provvisoria che ti serve
-- `ripristino-automatico-windows.png` — Dopo alcuni avvii interrotti compare il Ripristino automatico: da Opzioni avanzate raggiungi le Impostazioni di avvio
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-il-diagramma-a-blocchi-flowchart.png` (poster col titolo dell'articolo)
+- `flowchart-pari-dispari.png` — Il diagramma di "pari o dispari": il rombo crea due strade che poi si ricongiungono
 
-## Virus e antivirus: il vero antivirus sei tu
-*(Sicurezza)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-virus-e-antivirus-il-vero-antivi.png` (poster col titolo dell'articolo)
-- `pulsante-download-falso.png` — Il pulsante verde gigante non è quasi mai quello giusto: occhio alle finte pubblicità travestite da "Download"
-
-## Cos'è un LLM: il 'modello linguistico' dietro ChatGPT e gli altri
-*(Ma cos'è?)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-un-llm-il-modello-linguistico-di.png` (poster col titolo dell'articolo)
-
-## eMule e i torrent a confronto: due ere del peer-to-peer
+## Microsoft Entra ID (l'ex Azure AD): l'identità aziendale nel cloud
 *(Reti & Internet)*
 
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-emule-e-i-torrent-a-confronto-du.png` (poster col titolo dell'articolo)
-
-## È legale scaricare da torrent o eMule? Cosa dice davvero la legge
-*(Sicurezza)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-e-legale-scaricare-da-torrent-o.png` (poster col titolo dell'articolo)
-- `torrent-legge-italia.png` — In Italia AGCOM può oscurare i siti pirata e dal 2023 c'è Piracy Shield contro lo streaming illegale dello sport.
-
-## Cos'è un processore x86: il motore di PC e portatili
-*(Hardware & Periferiche)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-un-processore-x86-il-motore-di-p.png` (poster col titolo dell'articolo)
-- `scatola-cpu-intel-amd.png` — La scatola di un processore Intel o AMD: dentro, quasi sempre, batte l'architettura x86.
-
-## Cos'è un processore ARM: perché è nel telefono (e ora nei PC)
-*(Hardware & Periferiche)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-un-processore-arm-perche-e-nel-t.png` (poster col titolo dell'articolo)
-- `arm-licenza-schema.png` — ARM disegna il progetto, le aziende ci costruiscono sopra i loro chip su misura
-
-## x86 vs ARM: la sfida tra le due grandi architetture
-*(Hardware & Periferiche)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-x86-vs-arm-la-sfida-tra-le-due-g.png` (poster col titolo dell'articolo)
-- `x86-vs-arm-motore.png` — Due filosofie a confronto: il motore a benzina di grossa cilindrata e l'ibrido parsimonioso
-
-## Come funziona un processore: dentro la CPU e il ciclo che esegue tutto
-*(Ma cos'è?)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-funziona-un-processore-dentro-la.png` (poster col titolo dell'articolo)
-- `ciclo-fetch-decode-execute.png` — Il ciclo prendi-capisci-esegui che il processore ripete miliardi di volte al secondo
-
-## Com'è strutturato un file: dentro c'è più di quello che vedi
-*(Ma cos'è?)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-strutturato-un-file-dentro-ce-pi.png` (poster col titolo dell'articolo)
-- `header-magic-number.png` — I primi byte di un file sono una firma che ne rivela il tipo, prima ancora del nome
-
-## Variabili e tipi di dati in C++: i contenitori dei tuoi dati
-*(Sistema & Software)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-variabili-e-tipi-di-dati-in-c-i.png` (poster col titolo dell'articolo)
-
-## Input e output in C++: printf, scanf, cout e cin
-*(Sistema & Software)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-input-e-output-in-c-printf-scanf.png` (poster col titolo dell'articolo)
-
-## Le decisioni in C++: if, else e switch
-*(Sistema & Software)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-le-decisioni-in-c-if-else-e-swit.png` (poster col titolo dell'articolo)
-
-## I cicli in C++: while, do-while e for
-*(Sistema & Software)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-i-cicli-in-c-while-do-while-e-fo.png` (poster col titolo dell'articolo)
-
-## Array e matrici in C++: liste e tabelle di dati
-*(Sistema & Software)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-array-e-matrici-in-c-liste-e-tab.png` (poster col titolo dell'articolo)
-
-## I puntatori in C++: l'indirizzo invece del dato
-*(Sistema & Software)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-i-puntatori-in-c-lindirizzo-inve.png` (poster col titolo dell'articolo)
-
-## Le struct in C++: raggruppare dati diversi sotto un nome
-*(Sistema & Software)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-le-struct-in-c-raggruppare-dati.png` (poster col titolo dell'articolo)
-
-## Le funzioni in C++: dividere il programma in pezzi riutilizzabili
-*(Sistema & Software)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-le-funzioni-in-c-dividere-il-pro.png` (poster col titolo dell'articolo)
-
-## Rete privata, pubblica e dominio: i tre profili di rete di Windows
-*(Reti & Internet)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-rete-privata-pubblica-e-dominio.png` (poster col titolo dell'articolo)
-- `windows-profilo-rete.png` — La schermata di Windows dove scegli se la rete è Pubblica o Privata.
-
-## Autologin di Windows: entrare senza digitare la password
-*(Digitale Pratico)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-autologin-di-windows-entrare-sen.png` (poster col titolo dell'articolo)
-- `netplwiz-account-utente.png` — La finestra netplwiz: basta togliere la spunta in alto e confermare la password una volta sola
-- `opzioni-accesso-windows-hello.png` — Le Opzioni di accesso: l'interruttore di Windows Hello da portare su Disattivato
-
-## Il Registro di Windows e regedit: cos'è e come si tocca (con prudenza)
-*(Sistema & Software)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-il-registro-di-windows-e-regedit.png` (poster col titolo dell'articolo)
-- `regedit-finestra.png` — La finestra di regedit: a sinistra l'albero delle chiavi, a destra i valori
-- `esporta-chiave.png` — Tasto destro sulla chiave e poi Esporta: così crei il tuo backup .reg
-
-## I log di Windows e il Visualizzatore eventi: leggere il diario del PC
-*(Sistema & Software)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-i-log-di-windows-e-il-visualizza.png` (poster col titolo dell'articolo)
-- `visualizzatore-eventi-finestra.png` — La finestra del Visualizzatore eventi: a sinistra le categorie, al centro la lista degli eventi
-- `filtra-registro-errori.png` — Con Filtra registro corrente puoi mostrare solo gli errori e nascondere le centinaia di righe innocue
-
-## Manca un driver? Come scoprirlo e risolvere con Gestione dispositivi
-*(Hardware & Periferiche)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-manca-un-driver-scoprirlo-e-riso.png` (poster col titolo dell'articolo)
-- `gestione-dispositivi-finestra.png` — La finestra di Gestione dispositivi con l'elenco di tutti i componenti del PC
-
-## Le porte del PC: USB, seriale, parallela, PS/2 e le altre
-*(Hardware & Periferiche)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-le-porte-del-pc-usb-seriale-para.png` (poster col titolo dell'articolo)
-- `retro-pc-porte.png` — Il retro di un PC: a ogni forma corrisponde una porta diversa
-
-## Le uscite e gli ingressi audio: jack, ottico, RCA, HDMI e USB
-*(Hardware & Periferiche)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-le-uscite-e-gli-ingressi-audio-j.png` (poster col titolo dell'articolo)
-- `jack-colori-pc.png` — I tre jack colorati sul retro del PC: verde uscita, rosa microfono, azzurro line-in
-
-## Connettori video a confronto: HDMI, DisplayPort, VGA e DVI (e chi vince)
-*(Hardware & Periferiche)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-connettori-video-a-confronto-hdm.png` (poster col titolo dell'articolo)
-- `connettori-video-confronto.png` — I quattro connettori a confronto: VGA, DVI, HDMI e DisplayPort
-
-## I preferiti del browser: salvarli, organizzarli e ritrovarli su ogni PC
-*(Digitale Pratico)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-i-preferiti-del-browser-salvarli.png` (poster col titolo dell'articolo)
-- `stellina-salva-preferito-barra-indirizzo.png` — La stellina nella barra dell'indirizzo apre la finestrella per salvare il preferito
-- `sincronizzazione-preferiti-browser.png` — La sincronizzazione fa viaggiare i preferiti tra PC, telefono e tablet collegati allo stesso account
-
-## Il codice ASCII e l'ASCII esteso: come le lettere diventano numeri
-*(Ma cos'è?)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-il-codice-ascii-e-lascii-esteso.png` (poster col titolo dell'articolo)
-- `tabella-ascii.png` — Un pezzo della tabella ASCII: a sinistra il numero, a destra il carattere corrispondente.
-
-## Installare un nuovo font su Windows (e su Mac)
-*(Digitale Pratico)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-installare-un-nuovo-font-su-wind.png` (poster col titolo dell'articolo)
-- `windows-installa-font.png` — Il pulsante Installa che appare facendo doppio click su un file .ttf o .otf
-
-## Guida rapida a Microsoft Office: Word, Excel, PowerPoint e gli altri
-*(Sistema & Software)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-guida-rapida-a-microsoft-office.png` (poster col titolo dell'articolo)
-- `icone-office-word-excel-powerpoint.png` — Le icone colorate dei programmi di Office: ognuna un mestiere diverso.
-- `docx-rinominato-zip-struttura-cartelle.png` — Un .docx rinominato in .zip: dentro le cartelle word, _rels e il file Content_Types.xml.
-
-## Office: licenza "una volta per sempre" o Microsoft 365 in abbonamento?
-*(Sistema & Software)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-office-licenza-una-volta-per-sem.png` (poster col titolo dell'articolo)
-- `confronto-office-perpetua-365.png` — Da un lato il pagamento unico della licenza perpetua, dall'altro il canone di Microsoft 365 con cloud e dispositivi multipli
-
-## Guida rapida a LibreOffice: l'alternativa gratuita a Office
-*(Sistema & Software)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-guida-rapida-a-libreoffice-lalte.png` (poster col titolo dell'articolo)
-- `libreoffice-start-center.png` — Il Centro di avvio di LibreOffice: da qui scegli se aprire Writer, Calc o Impress.
-
-## Guida rapida ad Apache OpenOffice (e perché oggi conviene LibreOffice)
-*(Sistema & Software)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-guida-rapida-ad-apache-openoffic.png` (poster col titolo dell'articolo)
-- `openoffice-suite-programmi.png` — I sei programmi di Apache OpenOffice nella schermata di avvio
-
-## Cos'è l'XML: il linguaggio con cui i programmi si scambiano dati
-*(Ma cos'è?)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-lxml-il-linguaggio-con-cui-i-pro.png` (poster col titolo dell'articolo)
-- `xml-esempio-contatto.png` — Lo stesso contatto: a sinistra come lo leggi tu, a destra come lo vede ordinato un programma in XML
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-microsoft-entra-id-lex-azure-ad.png` (poster col titolo dell'articolo)
+- `entra-id-sso-login.png` — Il pulsante "Accedi con l'account aziendale o dell'istituto": dietro c'è Entra ID che verifica chi sei
 
 ## Installare Windows 11 senza account Microsoft (account locale)
 *(Digitale Pratico)*

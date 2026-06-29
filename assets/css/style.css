@@ -989,6 +989,104 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
   color: var(--ink);
 }
 
+/* Barra strumenti enciclopedia: conteggio + selettore "per pagina" */
+.enciclopedia-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.page-size-selector {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.page-size-label {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-right: 0.2rem;
+}
+
+.page-size-btn {
+  min-width: 2.2rem;
+  padding: 0.35rem 0.7rem;
+  background: var(--bg-muted);
+  border: 1.5px solid var(--border);
+  border-radius: 999px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text);
+  transition: var(--transition);
+}
+
+.page-size-btn:hover {
+  border-color: var(--green-primary);
+}
+
+.page-size-btn.active {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--white);
+}
+
+/* Paginazione */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 3rem;
+}
+
+.pagination:empty {
+  display: none;
+}
+
+.page-num,
+.page-nav {
+  min-width: 2.5rem;
+  height: 2.5rem;
+  padding: 0 0.6rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-muted);
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text);
+  transition: var(--transition);
+}
+
+.page-num:hover:not(.active),
+.page-nav:hover:not(:disabled) {
+  border-color: var(--green-primary);
+}
+
+.page-num.active {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--white);
+  cursor: default;
+}
+
+.page-nav:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.page-ellipsis {
+  padding: 0 0.3rem;
+  color: var(--text-muted);
+  align-self: flex-end;
+}
+
 /* No results state */
 .no-results {
   padding: 5rem 1.5rem;

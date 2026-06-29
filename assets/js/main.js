@@ -452,31 +452,51 @@ function renderLatestArticles() {
 
 let currentFilter = 'all';
 let currentSearchQuery = '';
+let pageSize = 15;          // quanti articoli per pagina (15/30/45/60)
+let currentPage = 1;
+
+// Lista COMPLETA filtrata: la ricerca lavora sempre su TUTTI gli articoli,
+// non solo su quelli mostrati nella pagina corrente.
+function getFilteredArticoli() {
+  let filtered;
+  if (currentSearchQuery) {
+    filtered = searchArticoli(currentSearchQuery).filter(a =>
+      currentFilter === 'all' || a.rubrica === currentFilter
+    );
+  } else {
+    filtered = [...articoli];
+    if (currentFilter !== 'all') {
+      filtered = filtered.filter(a => a.rubrica === currentFilter);
+    }
+    filtered.sort((a, b) => new Date(b.data) - new Date(a.data));
+  }
+  return filtered;
+}
 
 function renderEnciclopedia() {
   const container = document.getElementById('enciclopedia-grid');
   const countEl = document.getElementById('filter-count');
+  const pagEl = document.getElementById('enciclopedia-pagination');
   if (!container) return;
-  
-  let filtered = [...articoli];
-  
-  if (currentFilter !== 'all') {
-    filtered = filtered.filter(a => a.rubrica === currentFilter);
-  }
-  
-  if (currentSearchQuery) {
-    filtered = searchArticoli(currentSearchQuery).filter(a => 
-      currentFilter === 'all' || a.rubrica === currentFilter
-    );
-  } else {
-    filtered.sort((a, b) => new Date(b.data) - new Date(a.data));
-  }
-  
+
+  const filtered = getFilteredArticoli();
+  const total = filtered.length;
+  const totalPages = Math.max(1, Math.ceil(total / pageSize));
+  if (currentPage > totalPages) currentPage = totalPages;
+  if (currentPage < 1) currentPage = 1;
+
   if (countEl) {
-    countEl.innerHTML = `<strong>${filtered.length}</strong> ${filtered.length === 1 ? 'risultato' : 'risultati'}`;
+    if (total === 0) {
+      countEl.innerHTML = `<strong>0</strong> risultati`;
+    } else {
+      const start = (currentPage - 1) * pageSize + 1;
+      const end = Math.min(currentPage * pageSize, total);
+      const range = total > pageSize ? ` · ${start}–${end}` : '';
+      countEl.innerHTML = `<strong>${total}</strong> ${total === 1 ? 'risultato' : 'risultati'}${range}`;
+    }
   }
-  
-  if (filtered.length === 0) {
+
+  if (total === 0) {
     container.innerHTML = `
       <div class="no-results" style="grid-column: 1/-1;">
         <div class="no-results-icon">🔍</div>
@@ -485,14 +505,58 @@ function renderEnciclopedia() {
         <button class="btn btn-secondary" onclick="resetFilters()">Reset filtri</button>
       </div>
     `;
-  } else {
-    container.innerHTML = filtered.map(art => createArticleCard(art)).join('');
+    if (pagEl) pagEl.innerHTML = '';
+    return;
+  }
+
+  const pageItems = filtered.slice((currentPage - 1) * pageSize, currentPage * pageSize);
+  container.innerHTML = pageItems.map(art => createArticleCard(art)).join('');
+  renderPagination(totalPages);
+}
+
+function renderPagination(totalPages) {
+  const pagEl = document.getElementById('enciclopedia-pagination');
+  if (!pagEl) return;
+  if (totalPages <= 1) { pagEl.innerHTML = ''; return; }
+
+  const p = currentPage;
+  const pages = new Set([1, totalPages]);
+  for (let i = p - 1; i <= p + 1; i++) if (i >= 1 && i <= totalPages) pages.add(i);
+  const sorted = [...pages].sort((a, b) => a - b);
+
+  let html = `<button class="page-nav" ${p === 1 ? 'disabled' : ''} data-page="${p - 1}" aria-label="Pagina precedente">‹</button>`;
+  let prev = 0;
+  for (const n of sorted) {
+    if (n - prev > 1) html += `<span class="page-ellipsis">…</span>`;
+    html += `<button class="page-num${n === p ? ' active' : ''}" data-page="${n}"${n === p ? ' aria-current="page"' : ''}>${n}</button>`;
+    prev = n;
+  }
+  html += `<button class="page-nav" ${p === totalPages ? 'disabled' : ''} data-page="${p + 1}" aria-label="Pagina successiva">›</button>`;
+  pagEl.innerHTML = html;
+
+  pagEl.querySelectorAll('button[data-page]').forEach(b => {
+    b.addEventListener('click', () => {
+      const n = parseInt(b.dataset.page, 10);
+      if (!isNaN(n) && n >= 1 && n <= totalPages && n !== currentPage) goToPage(n);
+    });
+  });
+}
+
+function goToPage(n) {
+  currentPage = n;
+  renderEnciclopedia();
+  const grid = document.getElementById('enciclopedia-grid');
+  const sec = (grid && grid.closest('.section')) || grid;
+  if (sec) {
+    const y = sec.getBoundingClientRect().top + window.pageYOffset - 90;
+    window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
   }
 }
 
 function resetFilters() {
   currentFilter = 'all';
   currentSearchQuery = '';
+  currentPage = 1;
   const searchInput = document.getElementById('enciclopedia-search');
   if (searchInput) searchInput.value = '';
   document.querySelectorAll('.filter-btn').forEach(btn => {
@@ -508,11 +572,25 @@ function initEnciclopedia() {
       filterButtons.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       currentFilter = btn.dataset.filter;
+      currentPage = 1;
       renderEnciclopedia();
       trackEvent('filter_rubrica', { rubrica: currentFilter });
     });
   });
-  
+
+  // Selettore del numero di articoli per pagina (15 / 30 / 45 / 60)
+  const sizeButtons = document.querySelectorAll('.page-size-btn');
+  sizeButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      sizeButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      pageSize = parseInt(btn.dataset.size, 10) || 15;
+      currentPage = 1;
+      renderEnciclopedia();
+      trackEvent('enciclopedia_page_size', { size: pageSize });
+    });
+  });
+
   const searchInput = document.getElementById('enciclopedia-search');
   if (searchInput) {
     let debounceTimer;
@@ -520,6 +598,7 @@ function initEnciclopedia() {
       clearTimeout(debounceTimer);
       debounceTimer = setTimeout(() => {
         currentSearchQuery = e.target.value.trim();
+        currentPage = 1;
         renderEnciclopedia();
       }, 200);
     });

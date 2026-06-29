@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=8c7991bc">
+<link rel="stylesheet" href="assets/css/style.css?v=4833271a">
 <link rel="icon" type="image/png" href="assets/images/logo.png">
 
 <!-- Google Consent Mode V2 (deve essere PRIMO) -->
@@ -113,10 +113,18 @@ gtag("set", "url_passthrough", false);
 
 <section class="section" style="padding-top: 3rem;">
   <div class="container">
-    <div style="margin-bottom: 2rem;">
+    <div class="enciclopedia-toolbar">
       <span class="filter-count" id="filter-count"><strong>0</strong> risultati</span>
+      <div class="page-size-selector" role="group" aria-label="Articoli per pagina">
+        <span class="page-size-label">Per pagina</span>
+        <button class="page-size-btn active" data-size="15">15</button>
+        <button class="page-size-btn" data-size="30">30</button>
+        <button class="page-size-btn" data-size="45">45</button>
+        <button class="page-size-btn" data-size="60">60</button>
+      </div>
     </div>
     <div class="articoli-grid" id="enciclopedia-grid"></div>
+    <nav class="pagination" id="enciclopedia-pagination" aria-label="Paginazione articoli"></nav>
   </div>
 </section>
 
@@ -168,10 +176,10 @@ gtag("set", "url_passthrough", false);
   </div>
 </footer>
 
-<script src="assets/js/config.js?v=8c7991bc"></script>
-<script src="assets/js/data.js?v=8c7991bc"></script>
-<script src="assets/js/main.js?v=8c7991bc"></script>
-<script src="assets/js/consent.js?v=8c7991bc"></script>
+<script src="assets/js/config.js?v=4833271a"></script>
+<script src="assets/js/data.js?v=4833271a"></script>
+<script src="assets/js/main.js?v=4833271a"></script>
+<script src="assets/js/consent.js?v=4833271a"></script>
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const total = document.getElementById('stat-total');

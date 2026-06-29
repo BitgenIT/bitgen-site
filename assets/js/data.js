@@ -135,20 +135,89 @@ function normalizzaArticolo(art) {
 
 const articoliGrezzi = [
   {
+    "titolo": "Il limite di 260 caratteri nei percorsi di Windows (MAX_PATH)",
+    "rubrica": "Sistema & Software",
+    "data": "2026-06-29",
+    "videoUrl": "https://youtube.com/watch?v=placeholder",
+    "tags": [
+      "MAX_PATH",
+      "Windows",
+      "percorsi",
+      "file system",
+      "NTFS",
+      "robocopy",
+      "registro di sistema"
+    ],
+    "correlati": [
+      "fat32-exfat-ntfs-e-gli-altri-cose-un-file-system-e-quale-sce",
+      "il-registro-di-windows-e-regedit-cose-e-come-si-tocca-con-pr",
+      "esplora-file-la-mappa-per-non-perderti-tra-le-tue-cartelle",
+      "il-terminale-dei-comandi-il-pc-senza-finestre-ne-bottoni"
+    ],
+    "contenutoBreve": "Hai scaricato uno ZIP enorme, lo estrai, e proprio mentre pensi di aver finito Windows ti sbatte in faccia un messaggio: \"Il nome del file è troppo lungo\" oppure \"Percorso di destinazione troppo lungo\". Provi a copiare quella cartella in un'altra posizione e niente. Provi a cancellarla e ti dice che non può. Provi perfino a rinominarla e ti guarda male. A quel punto la tentazione è pensare di aver fatto qualcosa di sbagliato tu, magari un file corrotto, magari il disco che si sta rompendo.\n\nE invece no. Stai semplicemente sbattendo la testa contro uno dei limiti più vecchi e più testardi di Windows: si chiama MAX_PATH ed è il famoso tetto dei 260 caratteri.\n\nFacciamo un passo indietro e chiariamo una parola: il \"percorso\" è l'indirizzo completo di un file. Non solo il nome, ma tutta la strada per arrivarci, dalla lettera del disco fino al file vero e proprio, cartella dopo cartella. Qualcosa come C:\\Utenti\\Mario\\Documenti\\Lavoro\\2026\\Clienti\\Fatture\\fattura.pdf. Per decenni Windows ha preteso che questo indirizzo, tutto intero, non superasse i 260 caratteri. Sembrano tanti, vero? Il problema è che con le cartelle dai nomi lunghi, annidate una dentro l'altra (pensa a OneDrive che sincronizza progetti su progetti, o a un archivio ZIP gonfio di sottocartelle), quei 260 caratteri li bruci senza nemmeno accorgertene.\n\nLa buona notizia è che non sei in trappola. Si può aggirare in più modi: spostando le cartelle, usando i programmi giusti, o perfino togliendo il limite con una piccola modifica al sistema. In questo articolo vediamo perché esiste questo paletto, come riconoscerlo e, soprattutto, come uscirne con le mani pulite, senza perdere i tuoi file per strada.",
+    "contenuto": "CHE COS'È DAVVERO UN PERCORSO\n\nPrima di prendercela con il limite, mettiamoci d'accordo su una parola che useremo di continuo: percorso. Immagina di dover spiegare a un amico dove abiti. Non gli dici solo \"interno 7\": gli dai l'indirizzo completo, città, via, numero civico, piano, interno. Solo così può arrivare alla tua porta.\n\nPer i file è identico. Il percorso è l'indirizzo completo che dice a Windows esattamente dove sta un file. Parte dalla lettera del disco (C:), passa per ogni cartella e sottocartella, e finisce sul nome del file. Per esempio:\n\n[CODE]\nC:\\Utenti\\Mario\\Documenti\\Progetti\\2026\\Bilanci\\Trimestre1\\fattura.pdf\n[/CODE]\n\nOgni carattere conta: le lettere, le barre rovesciate, gli spazi, i due punti. Tutto.\n\nIL TETTO DEI 260 CARATTERI\n\nEd eccoci al punto. Per decenni Windows ha imposto che questo indirizzo completo non superasse i 260 caratteri in tutto. Si chiama MAX_PATH, un nome tecnico che troverai citato spesso quando cerchi soluzioni online.\n\nA prima vista 260 sembrano tantissimi. Ma fai un gioco: prendi quel percorso dell'esempio qui sopra e immagina che ogni cartella abbia un nome lungo e descrittivo, tipo \"Documenti condivisi del reparto amministrazione 2026\", e che ci siano otto o nove livelli uno dentro l'altro. Ti accorgi che i 260 caratteri svaniscono in fretta.\n\nE qui entrano in scena i grandi colpevoli: OneDrive e i servizi cloud, che spesso creano cartelle dai nomi chilometrici; gli archivi ZIP scaricati da Internet, che dentro nascondono strutture profondissime; le cartelle di progetti, programmi e backup che si annidano all'infinito.\n\nPERCHÉ ESISTE QUESTO LIMITE\n\nLa risposta breve: è un fossile. Viene dai primissimi anni di Windows, quando 260 caratteri sembravano più che sufficienti per qualsiasi essere umano sano di mente. Nessuno immaginava che un giorno avremmo avuto dischi pieni di cartelle sincronizzate dal cloud con nomi lunghissimi.\n\nÈ rimasto lì per anni e anni per una ragione sola: la compatibilità. Cambiare quel limite avrebbe rischiato di rompere migliaia di vecchi programmi che lo davano per scontato. Così Microsoft se lo è tenuto, come quel mobile vecchio che non butti perché \"non si sa mai\".\n\nI SINTOMI: COME CAPISCI CHE È LUI\n\nRiconoscerlo è facile, perché si manifesta sempre nelle stesse situazioni. Provi a copiare o spostare una cartella e l'operazione si blocca con un errore tipo \"Il nome del file è troppo lungo\" o \"Percorso di destinazione troppo lungo\". Provi a rinominare una cartella in alto nella gerarchia e Windows si rifiuta, perché allungando quel nome sforeresti il limite più in fondo. A volte il file sembra addirittura \"intoccabile\": non lo cancelli, non lo apri, e da fuori sembra stregato. Niente magia nera: è solo il percorso troppo lungo per le vecchie regole.\n\nLE SOLUZIONI PRATICHE\n\nVediamo come uscirne, dalla più semplice alla più \"smanettona\".\n\nSOLUZIONE 1: ACCORCIA IL PERCORSO\n\nÈ la mossa più ovvia e spesso la più efficace. Il limite riguarda la lunghezza totale dell'indirizzo, quindi basta renderlo più corto.\n\nSposta la cartella problematica il più vicino possibile alla radice del disco. Invece di lasciarla sepolta dentro Documenti\\Progetti\\2026\\..., creala direttamente in C:\\temp. Da lì, con il percorso accorciato di decine di caratteri, riuscirai a lavorarci. Approfittane anche per dare nomi più corti alle cartelle: \"Foto2026\" al posto di \"Le mie fotografie delle vacanze estive 2026\".\n\nSOLUZIONE 2: USA I PROGRAMMI GIUSTI\n\nNon tutti i programmi soffrono di questo limite. Alcuni sono \"immuni\" e ti tirano fuori dai guai.\n\nPer estrarre o comprimere archivi, usa 7-Zip (gratuito): apre e scompatta cartelle profonde dove Esplora File alza bandiera bianca. Per copiare o spostare grandi quantità di file, c'è robocopy, uno strumento già incluso in Windows che si usa da riga di comando. Apri il Prompt dei comandi e dai un comando del tipo:\n\n[CODE]\nrobocopy \"C:\\cartella_origine\" \"D:\\cartella_destinazione\" /E\n[/CODE]\n\nL'opzione /E copia tutte le sottocartelle, anche quelle vuote, e robocopy gestisce i percorsi lunghi senza battere ciglio.\n\nSOLUZIONE 3: TOGLI IL LIMITE DAL SISTEMA\n\nSu Windows 10 e 11 puoi proprio disattivare il tetto dei 260 caratteri. Si fa con una piccola modifica al Registro di Windows (l'archivio delle impostazioni di sistema) oppure tramite i Criteri di gruppo.\n\nAttenzione però: il Registro è una zona delicata. Tocca solo ciò che ti serve, e se non te la senti chiedi aiuto. La voce da modificare è LongPathsEnabled, che va impostata a 1. Da quel momento il sistema \"in teoria\" supporta percorsi lunghissimi. Diciamo \"in teoria\" perché ogni singolo programma deve essere stato progettato per approfittarne: tanti applicativi vecchi continueranno a fermarsi lo stesso. È utile, ma non è una bacchetta magica.\n\n[IMG: max-path-errore.png | Il classico messaggio \"Percorso di destinazione troppo lungo\" che blocca la copia]\n\nE SU MAC E LINUX?\n\nSe hai un amico con il Mac che ti guarda perplesso quando racconti questo problema, ha le sue ragioni: macOS e Linux non hanno un limite così basso. Possono gestire percorsi enormemente più lunghi senza fare una piega. È un grattacapo tipicamente, anzi storicamente, di Windows.\n\nIL CONSIGLIO DELLA CASA\n\nLa verità è che il modo migliore di affrontare MAX_PATH è non incontrarlo affatto. Tieni le tue cartelle poco profonde, evita di annidarle all'infinito, e dai nomi corti e sensati. Una struttura ordinata e leggera non ti salva solo dai 260 caratteri: ti fa anche ritrovare le cose più in fretta.\n\nE tu, quante volte hai visto quel messaggio senza capire da dove arrivasse?",
+    "contenutoTecnico": "MAX_PATH È DEFINITO A 260, MA NON SONO 260 CARATTERI LIBERI\n\nLa costante MAX_PATH vale 260, ma quel numero non corrisponde a 260 caratteri di percorso utilizzabili. Il conteggio si scompone così: 1 carattere per la lettera del disco (C), 1 per i due punti (:), 1 per la barra rovesciata iniziale (\\), poi 256 caratteri effettivi di percorso, più 1 per il terminatore null finale (\\0). Totale: 260. In pratica hai a disposizione 256 caratteri \"veri\" per directory e nome file, non 260.\n\nIl terminatore null è quel byte a zero che chiude la stringa nei linguaggi in stile C: l'API deve poterlo scrivere, quindi rientra nel conteggio.\n\nLIMITE PER-COMPONENTE CONTRO LIMITE TOTALE\n\nQui c'è una distinzione che confonde molti. NTFS impone che ogni singolo componente del percorso (un nome di file o di cartella) arrivi al massimo a 255 caratteri, codificati in UTF-16. Questo è il limite \"per-componente\" del file system. Ma il limite TOTALE del percorso, quei 260, non è di NTFS: è imposto dallo strato Win32 che sta sopra.\n\nQuindi puoi avere teoricamente un singolo nome di file da 255 caratteri, ma sommato al resto del percorso sfonderesti subito il tetto Win32.\n\nLA VERA RADICE DEL PROBLEMA: WIN32, NON NTFS\n\nQuesto è il punto chiave da capire. NTFS in sé supporta percorsi lunghi fino a circa 32.767 caratteri. Il tetto a 260 non è una limitazione del disco o del file system, ma dell'API Win32, in particolare delle vecchie funzioni ANSI/legacy che gestiscono i nomi dei file. Il file system sotto sarebbe prontissimo ad accettare percorsi enormi; è lo strato di compatibilità sopra a tenere il freno tirato.\n\nIL PREFISSO \\\\?\\\n\nEsiste un modo di dire all'API Win32 di \"togliersi di mezzo\". Anteponendo il prefisso \\\\?\\ al percorso, si istruisce l'API a saltare la fase di normalizzazione e di controllo del limite, passando la stringa quasi così com'è al file system. Con questo prefisso si arriva a circa 32.767 caratteri, che è il limite imposto dalla struttura UNICODE_STRING usata internamente da Windows (un campo a 16 bit per la lunghezza).\n\nUn percorso esteso ha questo aspetto:\n\n[CODE]\n\\\\?\\C:\\cartella\\sottocartella\\...\\file.txt\n[/CODE]\n\nPer le condivisioni di rete il prefisso diventa \\\\?\\UNC\\server\\condivisione\\... al posto del classico \\\\server\\condivisione.\n\nUna conseguenza importante: con \\\\?\\ salti la normalizzazione, quindi niente conversione automatica di / in \\, niente espansione di . e .. e niente nomi brevi. Devi passare un percorso già pulito e assoluto.\n\nLONGPATHSENABLED: RIMUOVERE IL LIMITE A LIVELLO DI SISTEMA\n\nDa Windows 10 versione 1607 in poi è possibile rimuovere il limite a livello globale. Due strade equivalenti:\n\nVia Registro, impostando a 1 il valore (di tipo DWORD) LongPathsEnabled nella chiave:\n\n[CODE]\nHKLM\\SYSTEM\\CurrentControlSet\\Control\\FileSystem\n[/CODE]\n\nVia Criteri di gruppo, abilitando il criterio \"Abilita percorsi lunghi Win32\" (Enable Win32 long paths), che in Configurazione computer si trova sotto Modelli amministrativi > Sistema > File system.\n\nPERCHÉ NON BASTA: IL MANIFEST LONGPATHAWARE\n\nAnche con LongPathsEnabled=1, non tutto funziona magicamente. C'è una seconda condizione: l'applicazione deve dichiararsi esplicitamente compatibile con i percorsi lunghi inserendo nel proprio manifest l'elemento longPathAware con valore true. Se il manifest non lo dichiara, l'applicazione continua a vedere il vecchio comportamento a 260 caratteri.\n\nEcco perché tanti programmi continuano a \"rompersi\" anche su un sistema configurato per i percorsi lunghi: non sono stati aggiornati per dichiararsi consapevoli. La modifica di sistema è una condizione necessaria, ma non sufficiente.\n\n[CODE]\n<application xmlns=\"urn:schemas-microsoft-com:asm.v3\">\n  <windowsSettings>\n    <longPathAware\n      xmlns=\"http://schemas.microsoft.com/SMI/2016/WindowsSettings\">true</longPathAware>\n  </windowsSettings>\n</application>\n[/CODE]\n\nI NOMI BREVI 8.3 (FORMATO DOS)\n\nUn'eredità parallela è quella dei nomi brevi 8.3, il formato DOS: massimo 8 caratteri per il nome, 3 per l'estensione, con una tilde e un numero per gestire le collisioni (per esempio PROGRA~1 per \"Program Files\"). NTFS può mantenere, accanto al nome lungo, un nome breve alternativo proprio per compatibilità. Puoi vederli con:\n\n[CODE]\ndir /x\n[/CODE]\n\nIn alcuni casi limite, accedere a un file tramite il suo nome breve 8.3 può accorciare il percorso quel tanto che basta per rientrare nei 260.\n\nCHI USA GIÀ I PERCORSI ESTESI\n\nrobocopy e PowerShell (i suoi cmdlet per il file system) utilizzano internamente il prefisso esteso \\\\?\\, motivo per cui gestiscono senza problemi cartelle profonde che mandano in errore Esplora File. Storicamente cmd.exe classico e l'Explorer grafico erano legati alle API legacy a 260 caratteri, ed è questa la ragione per cui le copie da interfaccia grafica fallivano mentre la stessa operazione da PowerShell o robocopy andava a buon fine. Le versioni recenti di Explorer su Windows 10/11 con LongPathsEnabled attivo si comportano meglio, ma il quadro storico resta questo: lo strumento conta quanto la configurazione."
+  },
+  {
+    "titolo": "Il diagramma a blocchi (flowchart): disegnare la logica prima di scriverla",
+    "rubrica": "Sistema & Software",
+    "data": "2026-06-29",
+    "videoUrl": "https://youtube.com/watch?v=placeholder",
+    "tags": [
+      "flowchart",
+      "diagramma a blocchi",
+      "programmazione",
+      "algoritmi",
+      "pseudocodice",
+      "draw.io"
+    ],
+    "correlati": [
+      "le-decisioni-in-c-if-else-e-switch",
+      "i-cicli-in-c-while-do-while-e-for",
+      "cose-la-programmazione-dare-ordini-al-computer-nella-sua-lin",
+      "programmazione-procedurale-e-a-oggetti-due-modi-di-pensare-i"
+    ],
+    "contenutoBreve": "Immagina di dover spiegare a un bambino come si attraversa la strada. Non gli diresti soltanto \"attraversa\": gli faresti capire che prima deve guardare il semaforo, e che se è rosso aspetta, se è verde controlla comunque a destra e a sinistra e poi passa. Senza accorgertene hai appena descritto un algoritmo, cioè una sequenza di passi con dentro delle decisioni. E se invece di raccontarlo a parole lo DISEGNASSI?\n\nQuesto è esattamente quello che fa un diagramma a blocchi, che in inglese si chiama flowchart, cioè \"carta del flusso\". È un disegno fatto di forme geometriche collegate da frecce, che mostra tutti i passi di una procedura dall'inizio alla fine, comprese le scelte da prendere lungo il cammino. È la mappa di un percorso: tu segui le frecce e sai sempre dove sei e dove devi andare.\n\nLa cosa bella è che questo strumento non serve solo ai programmatori. Lo usa chi scrive le istruzioni di un montaggio, chi descrive una procedura aziendale, chi spiega come funziona il triage al pronto soccorso. Ma il suo regno naturale è la programmazione: prima di scrivere una sola riga di codice, conviene disegnare cosa il programma deve fare. Perché un errore di logica scoperto su un foglio di carta costa pochi secondi e una gomma da cancellare; lo stesso errore scoperto dentro mille righe di codice ti può rovinare la giornata.\n\nLe forme di un flowchart non sono decorative: ognuna ha un significato preciso e universale. Un ovale vuol dire una cosa, un rombo un'altra, un rettangolo un'altra ancora. Imparare questo piccolo alfabeto ti permette di leggere e disegnare la logica di qualunque procedura, e ti dà un modo di pensare ordinato che torna utile ben oltre il computer. Vediamo come funziona, con un esempio che capisci al volo.",
+    "contenuto": "PERCHÉ DISEGNARE PRIMA DI SCRIVERE\n\nC'è una tentazione fortissima, quando impari a programmare: aprire subito l'editor e cominciare a battere codice. È come partire per un viaggio senza guardare la mappa, fidandoti dell'istinto. A volte arrivi, ma più spesso ti perdi. Il diagramma a blocchi è la mappa che disegni PRIMA di metterti in viaggio. Ti costringe a pensare ai passi nell'ordine giusto e, soprattutto, a tutte le strade che si aprono quando devi prendere una decisione.\n\nIl vantaggio enorme è che gli errori di logica saltano fuori sulla carta. Se ti accorgi disegnando che hai dimenticato un caso (\"e se l'utente non inserisce niente?\"), correggere è questione di una freccia in più. Lo stesso buco scoperto dentro il programma già scritto può significare ore di caccia all'errore.\n\nL'ALFABETO DELLE FORME\n\nOgni forma del flowchart ha un significato standard, condiviso in tutto il mondo. Sono poche e si imparano in cinque minuti.\n\nL'OVALE (o rettangolo con gli angoli arrotondati) segna l'INIZIO e la FINE. È la partenza e l'arrivo del percorso. Ogni diagramma comincia con un ovale \"Inizio\" e termina con uno o più ovali \"Fine\".\n\nIl RETTANGOLO è un'AZIONE, un'operazione da compiere. \"Scalda il forno a 180 gradi\", \"somma due numeri\", \"aumenta il contatore di uno\". È il blocco che fa qualcosa.\n\nIl ROMBO è una DECISIONE: una domanda con risposta sì o no, da cui partono DUE frecce diverse. \"La temperatura è giusta?\" Se sì, vai di qua; se no, vai di là. Il rombo è il cuore vivo del diagramma, perché è il punto in cui il percorso si biforca.\n\nIl PARALLELOGRAMMA (un rettangolo \"storto\") è un INGRESSO o un'USCITA di dati. \"Chiedi il nome all'utente\" è un ingresso; \"mostra il risultato sullo schermo\" è un'uscita. È il momento in cui il programma parla con il mondo esterno.\n\nLe FRECCE, infine, indicano il FLUSSO: l'ordine in cui si procede da un blocco al successivo. Sono il filo che tieni in mano per non perderti.\n\nUN ESEMPIO CHE CAPISCI AL VOLO\n\nFacciamo il classico: capire se un numero è pari o dispari. Ecco il diagramma raccontato a parole.\n\nSi parte dall'ovale INIZIO. Una freccia porta a un parallelogramma: \"Chiedi un numero all'utente\". Da lì la freccia arriva a un rombo, la decisione: \"Il resto della divisione per 2 è zero?\". Qui il percorso si spacca in due. Se la risposta è SI, la freccia porta a un parallelogramma \"Mostra: è PARI\". Se la risposta è NO, l'altra freccia porta a \"Mostra: è DISPARI\". Le due strade poi si ricongiungono e arrivano all'ovale FINE.\n\nGuarda cosa è successo: il rombo ha creato due strade, ma alla fine il percorso è chiarissimo. Chiunque, anche chi non ha mai programmato, può seguirlo con il dito e capire la logica.\n\n[IMG: flowchart-pari-dispari.png | Il diagramma di \"pari o dispari\": il rombo crea due strade che poi si ricongiungono]\n\nIL PONTE CON LA PROGRAMMAZIONE\n\nQui sta la magia: ogni forma del diagramma corrisponde a qualcosa nel codice. Il rombo, con la sua domanda sì/no, è esattamente l'istruzione if (e la sua compagna else), di cui parliamo in \"Le decisioni in C++\". Una freccia che invece di andare avanti TORNA INDIETRO, per ripetere dei passi, è un ciclo: il while o il for che trovi in \"I cicli in C++\". Il rettangolo è un'operazione, il parallelogramma è un input o un output (printf, scanf, cout, cin).\n\nIn altre parole, se sai disegnare un flowchart, hai già in testa la struttura del programma. Il codice diventa solo la \"traduzione\" del disegno nella lingua del computer.\n\nVediamo come l'esempio di prima diventa codice C++:\n\n[CODE]\nint n;\ncout << \"Inserisci un numero: \";\ncin >> n;\nif (n % 2 == 0)\n    cout << \"e PARI\";\nelse\n    cout << \"e DISPARI\";\n[/CODE]\n\nRiconosci i pezzi? Il parallelogramma \"chiedi un numero\" è diventato cout e cin; il rombo è diventato l'if con la sua domanda (n % 2 == 0); le due strade sono il ramo dopo l'if e quello dopo l'else.\n\nCON COSA SI DISEGNANO\n\nNon ti serve niente di sofisticato. Carta e penna vanno benissimo, anzi per buttare giù un'idea sono spesso lo strumento migliore: veloci e senza distrazioni. Quando vuoi qualcosa di pulito e condivisibile, esistono programmi gratuiti come draw.io (oggi anche diagrams.net), che funziona dentro il browser senza installare niente: trascini le forme, le colleghi con le frecce e il gioco è fatto. In alternativa ci sono Lucidchart, o anche le forme di base dentro Word e PowerPoint.\n\nIl consiglio finale: la prossima volta che devi spiegare una procedura, tua o di qualcun altro, prova a disegnarla con questo alfabetino. Ti accorgerai che pensare per blocchi e frecce ti chiarisce le idee molto più di mille parole. E se un giorno ti metterai a programmare, partirai già con un vantaggio. Quale procedura della tua giornata proveresti a disegnare per prima?",
+    "contenutoTecnico": "LO STANDARD DEI SIMBOLI\n\nI simboli dei diagrammi a blocchi non sono frutto di convenzione informale: sono codificati dalla norma ISO 5807, erede dello storico standard ANSI/ISO 1028. Oltre alle quattro forme base (terminatore, processo, decisione, input/output), lo standard definisce simboli che nella pratica professionale fanno la differenza. Il PROCESSO PREDEFINITO, un rettangolo con due barre verticali ai lati, indica una subroutine o una funzione già definita altrove: in pratica un \"chiama una procedura\" che non vuoi dettagliare qui. I CONNETTORI di pagina (un piccolo cerchio) e fuori-pagina (un pentagono) servono a spezzare diagrammi grandi senza incrociare linee: marchi un punto con una lettera e lo riprendi altrove con lo stesso simbolo. Le LINEE DI FLUSSO con la freccia chiudono il quadro.\n\nIL TEOREMA DI BOHM-JACOPINI\n\nIl vero fondamento teorico arriva dalla programmazione strutturata e dal teorema di Bohm-Jacopini (1966). Il teorema dimostra che QUALUNQUE algoritmo computabile si può esprimere con sole tre strutture di controllo: la SEQUENZA (un blocco dopo l'altro), la SELEZIONE (la decisione, l'if) e l'ITERAZIONE (il ciclo, il while). Il corollario pratico, sostenuto poi da Dijkstra nel celebre \"Go To Statement Considered Harmful\", è che il salto incondizionato (il goto) non serve mai ed è anzi dannoso, perché genera il cosiddetto SPAGHETTI CODE: flussi aggrovigliati in cui le frecce saltano dappertutto e seguire la logica diventa un incubo. Un flowchart ben fatto, che usa solo le tre strutture, resta leggibile perché le frecce non si attorcigliano.\n\nLA COMPLESSITA CICLOMATICA\n\nDa questa idea nasce una metrica concreta: la COMPLESSITA CICLOMATICA di McCabe. Misura quanto un flusso è intricato e, sul grafo del programma, si calcola come M = E - N + 2P (archi meno nodi più due volte le componenti connesse). Per chi guarda un flowchart c'è una scorciatoia comodissima: la complessità ciclomatica è circa il numero di rombi decisionali più uno. Un diagramma con tre rombi ha complessità 4. Il valore non è accademico: indica anche il numero minimo di cammini indipendenti, e quindi quanti casi di test servono per coprire tutta la logica. Valori sopra 10-15 sono un segnale che la procedura andrebbe spezzata in funzioni più piccole.\n\nLE REGOLE DI BUON DISEGNO\n\nDue regole rendono un diagramma professionale. Primo: EVITARE GLI INCROCI tra le linee di flusso, usando i connettori quando serve; un incrocio è quasi sempre sintomo di logica che si potrebbe semplificare. Secondo: ogni blocco dovrebbe avere UN SOLO INGRESSO e UNA SOLA USCITA (le decisioni fanno eccezione controllata, con due uscite etichettate). Questa regola del \"single entry, single exit\" è il riflesso grafico della programmazione strutturata e rende ogni blocco un'unità ben definita, sostituibile e testabile.\n\nI PARENTI E LE ALTERNATIVE\n\nIl flowchart non è l'unico modo di descrivere la logica. Lo PSEUDOCODICE è la sua versione testuale: scrivi i passi in un misto di linguaggio naturale e costrutti di programmazione, senza la sintassi rigida di un vero linguaggio. È più rapido da scrivere e da modificare, ma meno immediato per chi non programma.\n\n[CODE]\nLEGGI n\nSE n mod 2 = 0 ALLORA\n    SCRIVI \"pari\"\nALTRIMENTI\n    SCRIVI \"dispari\"\nFINE SE\n[/CODE]\n\nI DIAGRAMMI DI NASSI-SHNEIDERMAN (o structogram) sono blocchi annidati senza frecce: ogni struttura sta dentro un riquadro e l'annidamento fisico rispecchia l'annidamento logico. Proprio l'assenza di frecce FORZA la struttura e rende impossibile lo spaghetti code. In ambito più moderno e standardizzato troviamo i DIAGRAMMI DI ATTIVITÀ UML, usati nella progettazione del software orientato agli oggetti (vedi \"Programmazione procedurale e a oggetti\"), il BPMN (Business Process Model and Notation) per i processi aziendali, e i DATA FLOW DIAGRAM, che si concentrano non sui passi ma sul movimento dei dati tra i processi.\n\nA COSA SERVE DAVVERO OGGI\n\nNonostante l'età, il flowchart resta vivo per due ruoli. Come DOCUMENTAZIONE: un diagramma vale più di pagine di commenti per spiegare a un collega come funziona una procedura critica. E come strumento di DEBUG LOGICO PRIMA della codifica: disegnando il flusso a tavolino si scoprono i casi limite dimenticati, i rami che non portano a una fine, le condizioni che si escludono o si sovrappongono. Trovare un errore di logica sulla carta costa una frazione di quanto costa trovarlo dopo, sepolto nel codice e magari in produzione."
+  },
+  {
+    "titolo": "Microsoft Entra ID (l'ex Azure AD): l'identità aziendale nel cloud",
+    "rubrica": "Reti & Internet",
+    "data": "2026-06-29",
+    "videoUrl": "https://youtube.com/watch?v=placeholder",
+    "tags": [
+      "Entra ID",
+      "Azure AD",
+      "identità digitale",
+      "single sign-on",
+      "Microsoft 365",
+      "Active Directory",
+      "MFA"
+    ],
+    "correlati": [
+      "dominio-locale-e-active-directory-la-rete-aziendale-che-gest",
+      "autenticazione-a-due-fattori-la-seconda-serratura-che-salva-",
+      "cose-il-cloud-spoiler-e-il-computer-di-qualcun-altro",
+      "spid-login-con-google-e-accedi-con-apple-cose-la-tua-identit"
+    ],
+    "contenutoBreve": "Primo giorno in un'azienda nuova. Ti danno un foglietto con scritto \"il tuo account: mario.rossi@nomeazienda.it\". Accendi il computer, lo digiti una volta sola, e di colpo si apre tutto: la posta su Outlook, i messaggi su Teams, i file condivisi, il gestionale, persino l'app delle ferie. Non hai inserito dieci password diverse. Una sola, e sei dentro ovunque.\n\nDietro quella magia, nelle aziende e nelle scuole che usano gli strumenti Microsoft, c'è quasi sempre lui: Microsoft Entra ID. Fino al 2023 si chiamava Azure Active Directory, o Azure AD per gli amici. Poi Microsoft ha cambiato nome, ma il lavoro e rimasto identico: tenere il registro di CHI sei e decidere A COSA puoi accedere. Non più solo dentro le quattro mura dell'ufficio, ma su Internet, su migliaia di servizi che vivono nel cloud.\n\nSe hai già letto la guida su Active Directory, l'immagine e questa: l'AD classico e l'elenco del personale e il buttafuori della rete LOCALE, quello che controlla i PC e le cartelle dentro l'azienda. Entra ID e il suo cugino nato e cresciuto nel cloud, che fa lo stesso mestiere ma per le APP online. E quel pulsante \"Accedi con l'account aziendale o dell'istituto\" che vedi spuntare in tante applicazioni: quando lo premi, stai bussando alla porta di Entra ID, che controlla chi sei e ti apre (o ti chiude) il passaggio.\n\nPer te che lo usi, il vantaggio e tutto qui: un'identità sola per tutto, un login solo, e la possibilità di lavorare da casa, dal treno o dall'altro capo del mondo, perché la tua identità non e più inchiodata alla scrivania dell'ufficio. Vediamo come funziona davvero e perché le aziende ci hanno costruito sopra mezza vita digitale.",
+    "contenuto": "UN'IDENTITÀ SOLA PER APRIRE TUTTE LE PORTE\n\nImmagina di entrare in un grande centro commerciale dove ogni negozio chiede un documento diverso: in libreria la tessera della libreria, dal fruttivendolo la tessera del fruttivendolo, in palestra ancora un'altra. Una follia. Sarebbe molto più comodo avere un unico braccialetto, controllato all'ingresso una volta sola, che tutti i negozi riconoscono.\n\nMicrosoft Entra ID e quel braccialetto unico per il mondo del lavoro digitale. Ti autentichi una volta con il tuo account aziendale o scolastico, e da quel momento entri in Microsoft 365, in Teams, in Outlook sul web, in OneDrive e in tantissime altre app, senza ridigitare la password ogni volta. Questo meccanismo si chiama Single Sign-On, in sigla SSO: un solo accesso (single sign-on, appunto) per tante destinazioni diverse.\n\nIl bello e che funziona da qualunque luogo. La tua identità non vive nel computer dell'ufficio ne in un server nascosto nello sgabuzzino: vive nel cloud, nei data center di Microsoft. Quindi che tu sia in sede, sul divano di casa o in un albergo all'estero, l'identità e sempre la stessa e sempre raggiungibile.\n\nDAL VECCHIO NOME AL NUOVO: AZURE AD E DIVENTATO ENTRA ID\n\nSe senti qualcuno dire \"Azure AD\", non si e perso nel tempo: e semplicemente il vecchio nome. Fino al 2023 questo servizio si chiamava Azure Active Directory. Poi Microsoft ha deciso di ribattezzarlo Microsoft Entra ID, infilandolo in una famiglia di prodotti chiamata Entra. Cambia l'etichetta sul barattolo, non quello che c'è dentro: il servizio fa lo stesso lavoro di prima.\n\nLo diciamo perché per anni ancora troverai guide, video e schermate che parlano di Azure AD. Sappi solo che, oggi, Azure AD e Entra ID sono la stessa cosa.\n\nLA SECONDA SERRATURA E IL PORTIERE INTELLIGENTE\n\nUna password sola che apre tutto e comoda, ma anche pericolosa: se te la rubano, il ladro entra ovunque. Per questo Entra ID si appoggia all'autenticazione a più fattori (MFA, dall'inglese Multi-Factor Authentication, cugina dell'autenticazione a due fattori di cui parliamo altrove). In pratica, dopo la password ti chiede una seconda prova: un codice che arriva via SMS, oppure una notifica sul telefono dove tocchi \"Approva\", o un codice generato da un'app. E la classica seconda serratura: anche se qualcuno conosce la tua chiave, senza il tuo telefono non passa.\n\nC'è poi una funzione che gli amministratori adorano e che lavora dietro le quinte: l'accesso condizionale (Conditional Access). Sono regole automatiche, decise dall'azienda, che cambiano il comportamento del portiere a seconda della situazione. Per esempio: \"Se l'accesso arriva dall'estero, bloccalo\". Oppure: \"Se il dispositivo non e uno di quelli aziendali, chiedi comunque l'MFA prima di far entrare\". E come un portiere che non si limita a guardare il documento, ma osserva anche da dove arrivi, con che dispositivo e a che ora, e regola di conseguenza quanto essere sospettoso.\n\nLA GRANDE DIFFERENZA CON L'ACTIVE DIRECTORY CLASSICO\n\nQui sta il cuore della faccenda, e vale la pena fermarsi. L'Active Directory classico (quello del dominio locale) e Entra ID sembrano fratelli, ma vivono in due mondi diversi.\n\nL'Active Directory tradizionale vive su SERVER fisici dentro l'azienda. Parla i protocolli della rete locale e governa soprattutto i PC e le cartelle dentro il dominio: quando accendi il computer in ufficio e lui a dire \"si, questo utente può entrare in questa macchina e vedere quella cartella di rete\". E pensato per la LAN, la rete dell'edificio.\n\nEntra ID, invece, vive nel cloud di Microsoft. Parla i protocolli del web e governa soprattutto le APP e i servizi online. Non gli importa in che stanza sei seduto: gli importa che tu sia chi dici di essere quando bussi a un'applicazione su Internet.\n\nDetto in immagini: l'AD locale e il custode che conosce ogni porta dell'edificio e ogni dipendente che ci lavora dentro; Entra ID e l'ufficio che emette i pass validi in tutto il mondo per accedere ai servizi online dell'azienda.\n\nE quale usano le aziende? Spesso tutti e due insieme. Molte realta tengono l'AD locale per gestire i PC e le cartelle dell'ufficio, e Entra ID per i servizi cloud, sincronizzando le due cose così che il tuo account sia lo stesso in entrambi i mondi. Si chiama identità ibrida: una sola password, due regni che si parlano. Tu cambi la password una volta e funziona ovunque, senza accorgerti che dietro ci sono due sistemi diversi che si scambiano informazioni.\n\nCOSA SIGNIFICA TUTTO QUESTO PER TE\n\nSe non fai l'informatico, la sintesi e semplice: Entra ID e quel pulsante \"Accedi con l'account aziendale o dell'istituto\" che incontri in tante applicazioni. Quando lo premi, vieni rimandato a una pagina Microsoft, metti le tue credenziali (magari con il codice sul telefono), e torni nell'app già dentro. Non e un'app che usi tu direttamente: e l'impalcatura invisibile che decide, ogni volta, se farti entrare.\n\nE quando la tua azienda dice \"da oggi serve l'autenticazione a due fattori per la posta\" o \"non puoi più accedere ai file da reti non sicure\", non e un capriccio dell'ufficio IT: sono regole impostate proprio qui, in quel registro centrale che custodisce la tua identità digitale di lavoro.\n\n[IMG: entra-id-sso-login.png | Il pulsante \"Accedi con l'account aziendale o dell'istituto\": dietro c'è Entra ID che verifica chi sei]\n\nLa prossima volta che entri in Teams o in Outlook senza ridigitare nulla, sai che c'è un portiere nel cloud che ti ha riconosciuto e ti ha lasciato passare. Ti sei mai chiesto quante porte apri ogni giorno con quell'unica identità, senza accorgertene?",
+    "contenutoTecnico": "IDaaS CONTRO DIRECTORY ON-PREM: DUE FILOSOFIE\n\nMicrosoft Entra ID e un servizio di tipo IDaaS (Identity-as-a-Service): l'identità erogata come servizio cloud, multi-tenant, gestita da Microsoft. Va distinto con cura da Active Directory Domain Services (AD DS), il classico AD on-premise. Non sono due versioni dello stesso prodotto: condividono il nome \"directory\" e poco altro.\n\nAD DS e progettato per la LAN. Usa LDAP per le query alla directory, Kerberos e (in retrocompatibilita) NTLM per l'autenticazione, ruota attorno ai domain controller e al concetto di dominio, foresta, Organizational Unit (OU) e Group Policy Object (GPO). Tutto presuppone che client e server si vedano sulla rete interna.\n\nEntra ID nasce per il web. Non parla LDAP ne Kerberos verso le applicazioni: parla i protocolli moderni delle identità federate. OAuth 2.0 per l'autorizzazione (rilascio di access token e refresh token), OpenID Connect (OIDC), che e lo strato di autenticazione costruito sopra OAuth 2.0 e introduce l'id_token in formato JWT, e per la federazione con applicazioni legacy SAML 2.0 e WS-Federation. Quel pulsante di login che l'utente vede e l'innesco di un flusso OIDC o SAML verso l'endpoint di Entra ID.\n\nTENANT, OGGETTI, RUOLI: IL NUOVO VOCABOLARIO\n\nIl confine dell'organizzazione non e più il dominio ma il TENANT: un'istanza dedicata di Entra ID, identificata da un Tenant ID (un GUID) e da uno o più domini DNS verificati (es. nomeazienda.onmicrosoft.com più i domini custom).\n\nDentro il tenant vivono oggetti: utenti, gruppi e applicazioni. Le applicazioni hanno due rappresentazioni che conviene non confondere: l'app registration (la definizione dell'applicazione, con client ID, secret/certificati, redirect URI, permessi richiesti) e l'enterprise application (il service principal, cioè l'istanza dell'app dentro il tuo tenant, su cui assegni utenti e configuri SSO).\n\nAl posto di OU e GPO si usano i ruoli RBAC (Role-Based Access Control). Entra ID ha ruoli di directory (Global Administrator, User Administrator, ecc.), distinti dai ruoli RBAC di Azure che governano le risorse della subscription. Niente più Group Policy in senso classico per imporre configurazioni: quel compito, sui dispositivi, passa a Intune (MDM/MAM).\n\nIDENTITÀ IBRIDA: SINCRONIZZARE I DUE MONDI\n\nLa maggior parte delle aziende non sostituisce l'AD locale, lo affianca. Lo strumento e Microsoft Entra Connect (ex Azure AD Connect), un agente installato on-prem che sincronizza utenti e gruppi dall'AD verso Entra ID. Le opzioni di autenticazione ibrida sono tre:\n\nPassword Hash Sync (PHS): viene sincronizzato nel cloud un hash dell'hash della password. L'autenticazione avviene in Entra ID. Semplice e resiliente a guasti della rete locale.\n\nPass-through Authentication (PTA): la password non lascia mai l'on-prem; un agente leggero la valida contro l'AD locale al volo. Utile per policy di sicurezza stringenti.\n\nFederazione con AD FS (Active Directory Federation Services): Entra ID delega l'autenticazione a un'infrastruttura AD FS aziendale. Massimo controllo, massima complessita operativa; oggi spesso sconsigliata a favore di PHS/PTA con SSO seamless.\n\nLE FUNZIONI DI SICUREZZA\n\nOltre a MFA e Conditional Access (le policy valutano segnali come utente, gruppo, app, posizione, stato del dispositivo, rischio della sessione e applicano grant o block), Entra ID offre SSPR (Self-Service Password Reset, l'utente resetta da solo previa verifica dei fattori), PIM (Privileged Identity Management, attivazione just-in-time e a tempo dei ruoli privilegiati, con approvazione), e i security defaults, un set di protezioni di base attivabili con un clic per i tenant che non hanno licenze o competenze per costruire policy su misura.\n\nCOSA NON E\n\nEntra ID non e un rimpiazzo 1:1 di AD DS. Non c'è la Group Policy classica, non c'è il join al dominio nel senso tradizionale Kerberos/LDAP. Esiste però il device identity: i dispositivi possono essere Entra registered (BYOD), Entra joined (aziendali, aggregati direttamente a Entra ID) o Entra hybrid joined (aggregati sia all'AD locale sia a Entra ID, scenario tipico delle migrazioni). La gestione dei dispositivi così censiti passa a Intune.\n\nPer il provisioning automatico verso app SaaS di terze parti, Entra ID usa SCIM (System for Cross-domain Identity Management): quando assegni un utente a un'enterprise app compatibile, Entra ID può creare, aggiornare e disattivare l'account corrispondente nell'app esterna via API SCIM, senza intervento manuale.\n\n[CODE]\n# Esempio di chiamata a Microsoft Graph (l'API di Entra ID)\n# per leggere il proprio profilo dopo aver ottenuto un access token\n\nGET https://graph.microsoft.com/v1.0/me\nAuthorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOi...   (access token JWT)\n[/CODE]\n\nIL REBRAND E LA FAMIGLIA ENTRA\n\nNel 2023 Microsoft ha rinominato Azure AD in Microsoft Entra ID. Il rename e cosmetico per le funzionalita ma reale per nomi di portali, SKU e documentazione: Azure AD Connect e diventato Entra Connect, e così via. Entra ID e il membro principale di una famiglia più ampia chiamata Microsoft Entra, che include anche Permissions Management (governance dei permessi multi-cloud, CIEM) e Verified ID (credenziali verificabili decentralizzate basate su standard W3C). Quando leggi materiale precedente al 2023, traduci mentalmente Azure AD in Entra ID: e lo stesso servizio."
+  },
+  {
     "titolo": "La modalità provvisoria di Windows: cos'è e le sue tre varianti",
     "rubrica": "Sicurezza",
     "data": "2026-06-29",
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "thumbnail": "assets/images/thumbnail-modalita-provvisoria.png",
     "tags": [
-      "modalita provvisoria",
+      "modalità provvisoria",
       "safe mode",
-      "windows",
+      "Windows",
       "driver",
-      "malware",
       "risoluzione problemi",
-      "avvio windows",
-      "msconfig"
+      "avvio Windows"
     ],
     "correlati": [
       "come-entrare-e-forzare-la-modalita-provvisoria-msconfig-e-gl",
@@ -170,8 +239,7 @@ const articoliGrezzi = [
       "modalità provvisoria",
       "msconfig",
       "safe mode",
-      "windows",
-      "ripristino",
+      "Windows",
       "bcdedit",
       "WinRE",
       "avvio sicuro"
@@ -193,14 +261,13 @@ const articoliGrezzi = [
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "thumbnail": "assets/images/thumbnail-antivirus.png",
     "tags": [
-      "sicurezza",
       "virus",
       "antivirus",
       "malware",
       "ransomware",
       "phishing",
       "Microsoft Defender",
-      "fattore umano"
+      "sicurezza"
     ],
     "correlati": [
       "antivirus-serve-davvero-e-quale-scegliere",
@@ -223,10 +290,9 @@ const articoliGrezzi = [
       "intelligenza artificiale",
       "ChatGPT",
       "modello linguistico",
-      "GPT",
       "Gemini",
       "Claude",
-      "allucinazioni IA"
+      "allucinazioni"
     ],
     "correlati": [
       "come-funziona-chatgpt-il-completa-la-frase-piu-potente-del-m",
@@ -251,8 +317,7 @@ const articoliGrezzi = [
       "BitTorrent",
       "qBittorrent",
       "magnet link",
-      "seed",
-      "swarm"
+      "seed"
     ],
     "correlati": [
       "torrent-e-p2p-scaricare-senza-un-negozio-centrale-e-dove-fin",
@@ -272,12 +337,11 @@ const articoliGrezzi = [
     "thumbnail": "assets/images/thumbnail-scaricare-da-emule.png",
     "tags": [
       "torrent",
-      "emule",
+      "eMule",
       "copyright",
       "pirateria",
-      "legge",
-      "P2P",
       "diritto d'autore",
+      "peer-to-peer",
       "AGCOM"
     ],
     "correlati": [
@@ -302,7 +366,6 @@ const articoliGrezzi = [
       "CPU",
       "Intel",
       "AMD",
-      "architettura",
       "x86-64",
       "CISC"
     ],
@@ -324,13 +387,12 @@ const articoliGrezzi = [
     "thumbnail": "assets/images/thumbnail-processore-arm.png",
     "tags": [
       "ARM",
-      "processori",
+      "processore",
       "smartphone",
       "Apple Silicon",
       "RISC",
       "efficienza energetica",
-      "Windows on ARM",
-      "architettura CPU"
+      "Windows on ARM"
     ],
     "correlati": [
       "x86-vs-arm-la-sfida-tra-le-due-grandi-architetture",
@@ -355,7 +417,6 @@ const articoliGrezzi = [
       "architettura",
       "RISC",
       "CISC",
-      "Apple Silicon",
       "emulazione"
     ],
     "correlati": [
@@ -380,7 +441,7 @@ const articoliGrezzi = [
       "fetch-decode-execute",
       "clock",
       "core",
-      "hardware"
+      "architettura"
     ],
     "correlati": [
       "cpu-ram-disco-spiegati-con-una-cucina",
@@ -404,7 +465,6 @@ const articoliGrezzi = [
       "magic number",
       "estensione",
       "metadati",
-      "byte",
       "binario",
       "EXIF"
     ],
@@ -431,7 +491,6 @@ const articoliGrezzi = [
       "programmazione",
       "int",
       "float",
-      "string",
       "const"
     ],
     "correlati": [
@@ -457,8 +516,7 @@ const articoliGrezzi = [
       "cout",
       "cin",
       "input output",
-      "iostream",
-      "programmazione"
+      "iostream"
     ],
     "correlati": [
       "variabili-e-tipi-di-dati-in-c-i-contenitori-dei-tuoi-dati",
@@ -482,8 +540,7 @@ const articoliGrezzi = [
       "if",
       "switch",
       "condizioni",
-      "operatori logici",
-      "bug comuni"
+      "operatori logici"
     ],
     "correlati": [
       "variabili-e-tipi-di-dati-in-c-i-contenitori-dei-tuoi-dati",
@@ -508,7 +565,6 @@ const articoliGrezzi = [
       "while",
       "for",
       "do-while",
-      "loop",
       "break"
     ],
     "correlati": [
@@ -556,7 +612,6 @@ const articoliGrezzi = [
       "puntatori",
       "programmazione",
       "memoria",
-      "pointer",
       "nullptr",
       "smart pointer"
     ],
@@ -577,13 +632,12 @@ const articoliGrezzi = [
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "thumbnail": "assets/images/thumbnail-struct.png",
     "tags": [
-      "c++",
+      "C++",
       "struct",
       "programmazione",
-      "tipi di dati",
       "strutture dati",
       "class",
-      "oop"
+      "OOP"
     ],
     "correlati": [
       "variabili-e-tipi-di-dati-in-c-i-contenitori-dei-tuoi-dati",
@@ -608,7 +662,6 @@ const articoliGrezzi = [
       "parametri",
       "return",
       "scope",
-      "riferimento",
       "void"
     ],
     "correlati": [
@@ -628,13 +681,12 @@ const articoliGrezzi = [
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "thumbnail": "assets/images/thumbanil-tipologia-reti.png",
     "tags": [
-      "windows",
+      "Windows",
       "rete",
       "firewall",
-      "wi-fi pubblico",
+      "Wi-Fi",
       "condivisione",
-      "sicurezza",
-      "active directory",
+      "Active Directory",
       "profilo di rete"
     ],
     "correlati": [
@@ -654,14 +706,12 @@ const articoliGrezzi = [
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "thumbnail": "assets/images/thumbnail-autologin.png",
     "tags": [
-      "windows",
+      "Windows",
       "autologin",
       "accesso automatico",
       "netplwiz",
       "password",
-      "sicurezza",
-      "registro di windows",
-      "media center"
+      "registro di Windows"
     ],
     "correlati": [
       "hai-dimenticato-la-password-di-windows-come-recuperare-lacce",
@@ -680,14 +730,12 @@ const articoliGrezzi = [
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "thumbnail": "assets/images/thumbnail-regedit.png",
     "tags": [
-      "registro di windows",
+      "registro di Windows",
       "regedit",
       "chiavi di registro",
       "backup .reg",
       "HKEY",
-      "modifica registro",
-      "windows",
-      "troubleshooting"
+      "Windows"
     ],
     "correlati": [
       "windows-dalla-a-alla-z-lanatomia-del-sistema-che-usi-ogni-gi",
@@ -707,11 +755,9 @@ const articoliGrezzi = [
     "thumbnail": "assets/images/thumbnail-log-windows.png",
     "tags": [
       "visualizzatore eventi",
-      "windows",
+      "Windows",
       "log",
       "eventvwr",
-      "errori",
-      "registro eventi",
       "diagnostica",
       "crash"
     ],
@@ -734,11 +780,9 @@ const articoliGrezzi = [
     "tags": [
       "driver",
       "gestione dispositivi",
-      "windows",
-      "dispositivo sconosciuto",
+      "Windows",
       "hardware",
       "id hardware",
-      "punto esclamativo giallo",
       "periferiche"
     ],
     "correlati": [
@@ -764,8 +808,7 @@ const articoliGrezzi = [
       "porta parallela",
       "PS/2",
       "RS-232",
-      "connettori",
-      "adattatori"
+      "connettori"
     ],
     "correlati": [
       "usb-a-b-c-il-dizionario-delle-porte-e-perche-la-c-ha-vinto",
@@ -786,12 +829,11 @@ const articoliGrezzi = [
     "tags": [
       "audio",
       "jack 3.5mm",
-      "ottico SPDIF",
+      "SPDIF ottico",
       "HDMI",
       "RCA",
-      "USB audio",
-      "cuffie",
-      "microfono"
+      "USB",
+      "cuffie"
     ],
     "correlati": [
       "audio-sul-pc-scegliere-casse-cuffie-e-far-suonare-ogni-app-d",
@@ -816,8 +858,7 @@ const articoliGrezzi = [
       "DVI",
       "monitor",
       "cavi video",
-      "USB-C",
-      "gaming"
+      "USB-C"
     ],
     "correlati": [
       "hdmi-o-displayport-collegare-lo-schermo-senza-sbagliare-cavo",
@@ -842,8 +883,7 @@ const articoliGrezzi = [
       "sincronizzazione",
       "Chrome",
       "Edge",
-      "Firefox",
-      "bookmark"
+      "Firefox"
     ],
     "correlati": [
       "cose-un-browser-e-perche-non-e-il-motore-di-ricerca",
@@ -862,11 +902,11 @@ const articoliGrezzi = [
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "thumbnail": "assets/images/thumbnail-codice-ascii.png",
     "tags": [
-      "ascii",
-      "ascii esteso",
+      "ASCII",
+      "ASCII esteso",
       "codifica caratteri",
       "code page",
-      "unicode",
+      "Unicode",
       "byte"
     ],
     "correlati": [
@@ -887,13 +927,12 @@ const articoliGrezzi = [
     "thumbnail": "assets/images/thumbnail-font.png",
     "tags": [
       "font",
-      "windows",
-      "mac",
-      "ttf",
-      "otf",
-      "google fonts",
-      "tipografia",
-      "word"
+      "Windows",
+      "Mac",
+      "TTF",
+      "OTF",
+      "Google Fonts",
+      "tipografia"
     ],
     "correlati": [
       "personalizzare-laspetto-di-windows-il-pc-come-piace-a-te",
@@ -913,13 +952,11 @@ const articoliGrezzi = [
     "thumbnail": "assets/images/thumbanil-office.png",
     "tags": [
       "Microsoft Office",
-      "Microsoft 365",
       "Word",
       "Excel",
       "PowerPoint",
-      "docx",
-      "OOXML",
-      "produttivita"
+      "Microsoft 365",
+      "produttività"
     ],
     "correlati": [
       "office-licenza-una-volta-per-sempre-o-microsoft-365-in-abbon",
@@ -938,14 +975,13 @@ const articoliGrezzi = [
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "thumbnail": "assets/images/thumbnail-office-vs-365.png",
     "tags": [
-      "microsoft 365",
-      "office 2021",
+      "Microsoft 365",
+      "Office",
       "licenza perpetua",
       "abbonamento",
-      "onedrive",
-      "word",
-      "excel",
-      "office web"
+      "Word",
+      "Excel",
+      "OneDrive"
     ],
     "correlati": [
       "guida-rapida-a-microsoft-office-word-excel-powerpoint-e-gli-",
@@ -970,8 +1006,7 @@ const articoliGrezzi = [
       "Writer",
       "Calc",
       "ODF",
-      "gratis",
-      "alternativa Office"
+      "alternativa a Office"
     ],
     "correlati": [
       "guida-rapida-a-microsoft-office-word-excel-powerpoint-e-gli-",
@@ -990,14 +1025,13 @@ const articoliGrezzi = [
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "thumbnail": "assets/images/thumbnail-open-office-2.png",
     "tags": [
-      "openoffice",
-      "apache openoffice",
-      "libreoffice",
+      "OpenOffice",
+      "Apache OpenOffice",
+      "LibreOffice",
       "software libero",
-      "office gratuito",
-      "writer",
-      "calc",
-      "impress"
+      "Writer",
+      "Calc",
+      "Impress"
     ],
     "correlati": [
       "guida-rapida-a-libreoffice-lalternativa-gratuita-a-office",
@@ -1019,8 +1053,7 @@ const articoliGrezzi = [
       "formati file",
       "fattura elettronica",
       "dati strutturati",
-      "JSON",
-      "standard"
+      "JSON"
     ],
     "correlati": [
       "html-4-e-html-5-cose-cambiato-nel-web",
@@ -1038,14 +1071,12 @@ const articoliGrezzi = [
     "data": "2026-06-29",
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "tags": [
-      "Windows 11",
+      "Windows",
       "account locale",
       "installazione",
       "account Microsoft",
       "OOBE",
-      "BypassNRO",
-      "privacy",
-      "BitLocker"
+      "privacy"
     ],
     "correlati": [
       "creare-piu-account-utente-su-windows-e-gestirli",
@@ -1069,8 +1100,7 @@ const articoliGrezzi = [
       "Edge",
       "Safari",
       "Brave",
-      "Chromium",
-      "privacy"
+      "Chromium"
     ],
     "correlati": [
       "cose-un-browser-e-perche-non-e-il-motore-di-ricerca",
@@ -1094,7 +1124,6 @@ const articoliGrezzi = [
       "Google",
       "Chrome",
       "Edge",
-      "Brave",
       "Blink"
     ],
     "correlati": [
@@ -1114,11 +1143,11 @@ const articoliGrezzi = [
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "tags": [
       "motori di ricerca",
-      "google",
-      "bing",
-      "duckduckgo",
-      "privacy",
-      "internet"
+      "Google",
+      "Bing",
+      "DuckDuckGo",
+      "Ecosia",
+      "privacy"
     ],
     "correlati": [
       "cose-un-browser-e-perche-non-e-il-motore-di-ricerca",
@@ -1140,8 +1169,7 @@ const articoliGrezzi = [
       "browser",
       "privacy",
       "proxy",
-      "sicurezza",
-      "Wi-Fi pubblico"
+      "wi-fi pubblico"
     ],
     "correlati": [
       "vpn-il-tunnel-blindato-tra-te-e-la-rete-a-distanza",
@@ -1183,7 +1211,6 @@ const articoliGrezzi = [
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "thumbnail": "assets/images/thumbnail-condividere-una-cartella.png",
     "tags": [
-      "condivisione di rete",
       "cartella condivisa",
       "SMB",
       "permessi",
@@ -1209,12 +1236,11 @@ const articoliGrezzi = [
     "thumbnail": "assets/images/thumbnail-nuovi-unteti-windows.png",
     "tags": [
       "account utente",
-      "windows",
+      "Windows",
       "amministratore",
       "account standard",
-      "family safety",
+      "Family Safety",
       "parental control",
-      "account microsoft",
       "account locale"
     ],
     "correlati": [
@@ -1239,8 +1265,7 @@ const articoliGrezzi = [
       "hypervisor",
       "file ISO",
       "virtualizzazione",
-      "snapshot",
-      "guida pratica"
+      "snapshot"
     ],
     "correlati": [
       "macchine-virtuali-un-computer-dentro-il-tuo-computer",
@@ -1258,14 +1283,13 @@ const articoliGrezzi = [
     "data": "2026-06-28",
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "tags": [
-      "outlook",
-      "pst",
-      "ost",
+      "Outlook",
+      "PST",
+      "OST",
       "archivio email",
       "scanpst",
-      "microsoft 365",
       "backup posta",
-      "exchange"
+      "Exchange"
     ],
     "correlati": [
       "cose-unemail-e-perche-esistono-pop3-e-imap",
@@ -1286,9 +1310,8 @@ const articoliGrezzi = [
       "programmazione",
       "OOP",
       "paradigmi",
-      "procedurale",
-      "classi e oggetti",
-      "linguaggi"
+      "programmazione procedurale",
+      "classi e oggetti"
     ],
     "correlati": [
       "cose-la-programmazione-dare-ordini-al-computer-nella-sua-lin",
@@ -1306,12 +1329,10 @@ const articoliGrezzi = [
     "data": "2026-06-28",
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "tags": [
-      "HTML5",
-      "HTML4",
+      "HTML",
       "Flash",
       "web",
       "browser",
-      "tag video",
       "tag semantici",
       "WHATWG"
     ],
@@ -1335,7 +1356,6 @@ const articoliGrezzi = [
       "errori dati",
       "controllo errori",
       "XOR",
-      "RAID",
       "checksum",
       "memoria ECC"
     ],
@@ -1360,7 +1380,6 @@ const articoliGrezzi = [
       "ISO 9660",
       "chiavetta avviabile",
       "montare immagine",
-      "masterizzare",
       "checksum"
     ],
     "correlati": [
@@ -1382,10 +1401,9 @@ const articoliGrezzi = [
       "file temporanei",
       "pulizia disco",
       "liberare spazio",
-      "windows",
+      "Windows",
       "cache",
-      "sensore memoria",
-      "manutenzione PC"
+      "sensore memoria"
     ],
     "correlati": [
       "il-telefono-e-pieno-come-liberare-spazio-senza-cancellare-i-",
@@ -1404,13 +1422,12 @@ const articoliGrezzi = [
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "tags": [
       "dominio locale",
-      "active directory",
+      "Active Directory",
       "domain controller",
       "rete aziendale",
-      "ldap",
-      "kerberos",
-      "group policy",
-      "entra id"
+      "LDAP",
+      "Kerberos",
+      "Entra ID"
     ],
     "correlati": [
       "dominio-e-domini-di-terzo-livello-lindirizzo-di-casa-dei-sit",
@@ -1429,13 +1446,11 @@ const articoliGrezzi = [
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "tags": [
       "switch",
-      "switch L3",
       "VLAN",
       "routing",
       "rete locale",
       "indirizzo MAC",
-      "indirizzo IP",
-      "rete aziendale"
+      "indirizzo IP"
     ],
     "correlati": [
       "hub-switch-e-router-chi-fa-cosa-nella-scatola-dei-cavi",
@@ -1458,7 +1473,6 @@ const articoliGrezzi = [
       "terminale",
       "cifratura",
       "amministrazione remota",
-      "porta 22",
       "sicurezza di rete"
     ],
     "correlati": [
@@ -1482,7 +1496,6 @@ const articoliGrezzi = [
       "traceroute",
       "reti",
       "TTL",
-      "diagnostica",
       "ICMPv6",
       "Path MTU"
     ],
@@ -1504,12 +1517,10 @@ const articoliGrezzi = [
     "tags": [
       "SNMP",
       "monitoraggio rete",
-      "agent",
       "MIB",
       "OID",
       "trap",
-      "SNMPv3",
-      "Zabbix"
+      "SNMPv3"
     ],
     "correlati": [
       "hub-switch-e-router-chi-fa-cosa-nella-scatola-dei-cavi",
@@ -1530,10 +1541,8 @@ const articoliGrezzi = [
       "NTP",
       "sincronizzazione oraria",
       "reti",
-      "protocolli",
       "UDP",
       "stratum",
-      "pool.ntp.org",
       "SNTP"
     ],
     "correlati": [
@@ -1556,10 +1565,8 @@ const articoliGrezzi = [
       "IGMP",
       "IPTV",
       "streaming",
-      "rete",
       "router",
-      "switch",
-      "banda"
+      "switch"
     ],
     "correlati": [
       "come-fa-netflix-a-non-incepparsi-lo-streaming-spiegato-e-cos",
@@ -1583,8 +1590,7 @@ const articoliGrezzi = [
       "spanning tree",
       "loop di rete",
       "RSTP",
-      "broadcast storm",
-      "LLDP-MED"
+      "broadcast storm"
     ],
     "correlati": [
       "hub-switch-e-router-chi-fa-cosa-nella-scatola-dei-cavi",
@@ -1607,7 +1613,6 @@ const articoliGrezzi = [
       "routing",
       "router",
       "sistemi autonomi",
-      "Internet",
       "routing dinamico",
       "route hijack"
     ],
@@ -1629,11 +1634,10 @@ const articoliGrezzi = [
     "tags": [
       "VPN",
       "PPTP",
-      "L2TP",
-      "IPsec",
+      "L2TP/IPsec",
       "IKEv2",
       "OpenVPN",
-      "SSL VPN",
+      "SSL",
       "WireGuard"
     ],
     "correlati": [
@@ -1656,10 +1660,9 @@ const articoliGrezzi = [
       "machine learning",
       "deep learning",
       "reti neurali",
-      "ChatGPT",
       "IA generativa",
-      "AGI",
-      "narrow AI"
+      "ChatGPT",
+      "AGI"
     ],
     "correlati": [
       "cose-lintelligenza-artificiale-la-differenza-tra-un-pappagal",
@@ -1682,8 +1685,7 @@ const articoliGrezzi = [
       "apprendimento automatico",
       "dati",
       "algoritmi",
-      "overfitting",
-      "previsioni"
+      "overfitting"
     ],
     "correlati": [
       "intelligenza-artificiale-machine-learning-deep-learning-chi-",
@@ -1703,12 +1705,11 @@ const articoliGrezzi = [
     "tags": [
       "deep learning",
       "reti neurali",
-      "intelligenza artificiale",
       "machine learning",
+      "intelligenza artificiale",
       "CNN",
-      "transformer",
-      "GPU",
-      "backpropagation"
+      "backpropagation",
+      "GPU"
     ],
     "correlati": [
       "cose-il-machine-learning-come-un-computer-impara-dagli-esemp",
@@ -1732,7 +1733,6 @@ const articoliGrezzi = [
       "SSH",
       "trasferimento file",
       "SSL/TLS",
-      "hosting",
       "sicurezza di rete"
     ],
     "correlati": [
@@ -1756,7 +1756,6 @@ const articoliGrezzi = [
       "crittografia",
       "certificati",
       "HTTPS",
-      "sicurezza",
       "handshake",
       "CA"
     ],
@@ -1782,8 +1781,7 @@ const articoliGrezzi = [
       "Hiren's BootCD",
       "recupero file",
       "USB avviabile",
-      "WinRE",
-      "manutenzione PC"
+      "WinRE"
     ],
     "correlati": [
       "creare-una-chiavetta-usb-avviabile-per-installare-un-sistema",
@@ -1805,9 +1803,7 @@ const articoliGrezzi = [
       "Windows",
       "AppData",
       "Esplora File",
-      "elementi nascosti",
       "file di sistema",
-      "Windows 10",
       "Windows 11"
     ],
     "correlati": [
@@ -1827,11 +1823,9 @@ const articoliGrezzi = [
     "tags": [
       "risoluzione schermo",
       "scala display",
-      "Windows 10",
-      "Windows 11",
       "DPI",
       "monitor",
-      "frequenza aggiornamento",
+      "Windows",
       "impostazioni schermo"
     ],
     "correlati": [
@@ -1852,11 +1846,9 @@ const articoliGrezzi = [
       "Windows",
       "barra delle applicazioni",
       "personalizzazione",
-      "Windows 11",
-      "Windows 10",
       "system tray",
-      "Esplora risorse",
-      "Start"
+      "Start",
+      "Windows 11"
     ],
     "correlati": [
       "personalizzare-laspetto-di-windows-il-pc-come-piace-a-te",
@@ -1879,7 +1871,6 @@ const articoliGrezzi = [
       "TCP",
       "UDP",
       "DNS",
-      "FTP",
       "SMTP"
     ],
     "correlati": [
@@ -1899,9 +1890,9 @@ const articoliGrezzi = [
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "tags": [
       "file system",
-      "fat32",
-      "exfat",
-      "ntfs",
+      "FAT32",
+      "exFAT",
+      "NTFS",
       "formattazione",
       "compatibilità"
     ],
@@ -1922,10 +1913,10 @@ const articoliGrezzi = [
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "tags": [
       "file system",
-      "chiavetta usb",
-      "formattare",
-      "exfat",
-      "ntfs",
+      "chiavetta USB",
+      "formattazione",
+      "exFAT",
+      "NTFS",
       "compatibilità"
     ],
     "correlati": [
@@ -1971,9 +1962,9 @@ const articoliGrezzi = [
       "batteria",
       "ricarica",
       "smartphone",
-      "miti",
       "litio",
-      "ricarica ottimizzata"
+      "ricarica ottimizzata",
+      "miti digitali"
     ],
     "correlati": [
       "batteria-al-litio-perche-si-consuma-e-i-gesti-che-la-fanno-d",
@@ -2016,11 +2007,10 @@ const articoliGrezzi = [
     "tags": [
       "batteria",
       "smartphone",
-      "android",
-      "iphone",
-      "app",
-      "miti digitali",
-      "risparmio energetico"
+      "Android",
+      "iPhone",
+      "risparmio energetico",
+      "miti digitali"
     ],
     "correlati": [
       "batteria-al-litio-perche-si-consuma-e-i-gesti-che-la-fanno-d",
@@ -2044,7 +2034,7 @@ const articoliGrezzi = [
       "radiazioni",
       "ICNIRP",
       "OMS",
-      "bufale"
+      "miti digitali"
     ],
     "correlati": [
       "5g-4g-lte-cosa-significano-davvero-quelle-tacchette-in-alto",
@@ -2065,10 +2055,9 @@ const articoliGrezzi = [
     "tags": [
       "segnale telefono",
       "tacche segnale",
-      "5G",
       "velocità connessione",
       "congestione rete",
-      "wi-fi",
+      "5G",
       "miti digitali"
     ],
     "correlati": [
@@ -2091,11 +2080,9 @@ const articoliGrezzi = [
       "cancellare file",
       "cestino",
       "recupero dati",
-      "privacy",
       "secure erase",
       "cifratura",
-      "reset di fabbrica",
-      "vendere PC"
+      "reset di fabbrica"
     ],
     "correlati": [
       "recuperare-file-cancellati-per-sbaglio",
@@ -2114,13 +2101,12 @@ const articoliGrezzi = [
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "thumbnail": "assets/images/thumbnail-https.png",
     "tags": [
-      "https",
-      "lucchetto",
+      "HTTPS",
       "phishing",
-      "certificato ssl",
-      "sicurezza",
+      "certificato SSL",
       "truffe online",
-      "dominio"
+      "dominio",
+      "miti digitali"
     ],
     "correlati": [
       "http-vs-https-quella-s-ti-salva-la-vita-digitale",
@@ -2140,13 +2126,11 @@ const articoliGrezzi = [
     "thumbnail": "assets/images/thumbnail-wifi-pubblico.png",
     "tags": [
       "wi-fi pubblico",
-      "sicurezza",
-      "https",
-      "vpn",
-      "reti",
+      "HTTPS",
+      "VPN",
       "privacy",
-      "mitm",
-      "spoofing"
+      "MITM",
+      "miti digitali"
     ],
     "correlati": [
       "http-vs-https-quella-s-ti-salva-la-vita-digitale",
@@ -2166,13 +2150,11 @@ const articoliGrezzi = [
     "thumbnail": "assets/images/thumbnail-riavviare-il-pc.png",
     "tags": [
       "riavvio",
-      "computer",
-      "windows",
-      "ram",
+      "Windows",
+      "RAM",
       "fast startup",
-      "manutenzione",
-      "miti digitali",
-      "pc lento"
+      "PC lento",
+      "miti digitali"
     ],
     "correlati": [
       "devi-davvero-spegnere-il-pc-ogni-sera-sospensione-ibernazion",
@@ -2195,8 +2177,6 @@ const articoliGrezzi = [
       "obsolescenza programmata",
       "batteria",
       "prestazioni",
-      "iphone",
-      "android",
       "miti digitali"
     ],
     "correlati": [
@@ -2219,9 +2199,7 @@ const articoliGrezzi = [
       "sicurezza",
       "malware",
       "RAT",
-      "spionaggio",
-      "microfono",
-      "permessi app"
+      "spionaggio"
     ],
     "correlati": [
       "perche-lapp-della-torcia-vuole-i-tuoi-contatti-capire-i-perm",
@@ -2241,11 +2219,10 @@ const articoliGrezzi = [
     "tags": [
       "BIOS",
       "UEFI",
-      "Windows",
       "avvio",
       "ordine di avvio",
-      "TPM",
-      "boot"
+      "boot",
+      "Windows"
     ],
     "correlati": [
       "bios-e-firmware-chi-accende-il-pc-prima-di-windows",
@@ -2262,14 +2239,12 @@ const articoliGrezzi = [
     "data": "2026-06-28",
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "tags": [
-      "chiavetta usb avviabile",
-      "rufus",
-      "iso",
-      "media creation tool",
-      "balenaetcher",
-      "installare windows",
-      "installare linux",
-      "uefi"
+      "chiavetta USB avviabile",
+      "Rufus",
+      "ISO",
+      "Media Creation Tool",
+      "balenaEtcher",
+      "UEFI"
     ],
     "correlati": [
       "reinstallare-windows-da-zero-senza-perdere-i-tuoi-dati",
@@ -2286,12 +2261,11 @@ const articoliGrezzi = [
     "data": "2026-06-28",
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "tags": [
-      "windows",
-      "reinstallare windows",
-      "reset pc",
+      "Windows",
+      "reinstallazione",
+      "reset PC",
       "backup",
-      "installazione pulita",
-      "guida"
+      "installazione pulita"
     ],
     "correlati": [
       "pc-lento-da-impazzire-la-cura-completa-per-farlo-ripartire-c",
@@ -2314,8 +2288,7 @@ const articoliGrezzi = [
       "Ubuntu",
       "GRUB",
       "partizioni",
-      "Secure Boot",
-      "USB avviabile"
+      "Secure Boot"
     ],
     "correlati": [
       "creare-una-chiavetta-usb-avviabile-per-installare-un-sistema",
@@ -2337,9 +2310,7 @@ const articoliGrezzi = [
       "GPU",
       "NVIDIA",
       "AMD",
-      "Intel",
-      "Windows",
-      "aggiornamenti"
+      "Windows"
     ],
     "correlati": [
       "scheda-video-gpu-il-chip-dei-videogiochi-che-oggi-muove-anch",
@@ -2356,13 +2327,12 @@ const articoliGrezzi = [
     "data": "2026-06-28",
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "tags": [
-      "bitlocker",
-      "filevault",
+      "BitLocker",
+      "FileVault",
       "crittografia disco",
       "sicurezza dati",
-      "windows",
-      "mac",
-      "furto pc",
+      "Windows",
+      "Mac",
       "chiave di recupero"
     ],
     "correlati": [
@@ -2382,12 +2352,11 @@ const articoliGrezzi = [
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "tags": [
       "password",
-      "windows",
-      "account microsoft",
+      "Windows",
+      "account Microsoft",
       "account locale",
-      "bitlocker",
+      "BitLocker",
       "reset password",
-      "sicurezza",
       "recupero accesso"
     ],
     "correlati": [
@@ -2407,12 +2376,11 @@ const articoliGrezzi = [
     "tags": [
       "recupero file",
       "cestino",
-      "backup",
-      "recuva",
-      "photorec",
-      "ssd",
+      "Recuva",
+      "PhotoRec",
+      "SSD",
       "cronologia file",
-      "time machine"
+      "Time Machine"
     ],
     "correlati": [
       "il-backup-e-la-tua-assicurazione-la-copia-che-ti-salva-da-vi",
@@ -2433,12 +2401,11 @@ const articoliGrezzi = [
     "tags": [
       "password",
       "cifratura",
-      "sicurezza",
-      "7-zip",
-      "veracrypt",
-      "pdf",
+      "7-Zip",
+      "VeraCrypt",
+      "PDF",
       "privacy",
-      "windows"
+      "Windows"
     ],
     "correlati": [
       "zip-rar-e-7zip-rimpicciolire-e-impacchettare-i-tuoi-file",
@@ -2458,11 +2425,10 @@ const articoliGrezzi = [
       "screen recording",
       "registrare schermo",
       "Windows 11",
-      "Mac",
       "iPhone",
       "Android",
       "Xbox Game Bar",
-      "tutorial"
+      "macOS"
     ],
     "correlati": [
       "fare-uno-screenshot-la-foto-allo-schermo-che-salva-mille-spi",
@@ -2485,8 +2451,7 @@ const articoliGrezzi = [
       "rete",
       "diagnostica",
       "prompt dei comandi",
-      "windows",
-      "mac"
+      "Windows"
     ],
     "correlati": [
       "il-terminale-dei-comandi-il-pc-senza-finestre-ne-bottoni",
@@ -2510,8 +2475,7 @@ const articoliGrezzi = [
       "hardware",
       "DDR4",
       "NVMe",
-      "Windows",
-      "guida pratica"
+      "Windows"
     ],
     "correlati": [
       "ssd-vs-hdd-perche-il-tuo-vecchio-pc-sembra-rinascere",
@@ -2534,7 +2498,6 @@ const articoliGrezzi = [
       "802.11bn",
       "UHR",
       "reti wireless",
-      "tecnologie emergenti",
       "latenza",
       "roaming"
     ],
@@ -2557,7 +2520,6 @@ const articoliGrezzi = [
     "tags": [
       "6G",
       "reti mobili",
-      "tecnologie future",
       "terahertz",
       "ISAC",
       "intelligenza artificiale",
@@ -2581,13 +2543,12 @@ const articoliGrezzi = [
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "thumbnail": "assets/images/thumbnail-starlink.png",
     "tags": [
-      "starlink",
+      "Starlink",
       "satelliti",
       "internet satellitare",
-      "leo",
+      "LEO",
       "direct-to-cell",
-      "connettivita",
-      "reti",
+      "connettività",
       "latenza"
     ],
     "correlati": [
@@ -2607,14 +2568,12 @@ const articoliGrezzi = [
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "thumbnail": "assets/images/thumbnail-wifi-halow.png",
     "tags": [
-      "wi-fi halow",
+      "Wi-Fi HaLow",
       "802.11ah",
-      "iot",
+      "IoT",
       "internet delle cose",
       "sensori",
-      "smart city",
-      "reti senza fili",
-      "tecnologie emergenti"
+      "reti senza fili"
     ],
     "correlati": [
       "matter-e-thread-lo-standard-che-fa-finalmente-parlare-la-cas",
@@ -2639,8 +2598,7 @@ const articoliGrezzi = [
       "6G",
       "3GPP",
       "RedCap",
-      "IoT",
-      "reti mobili"
+      "IoT"
     ],
     "correlati": [
       "6g-come-sara-la-rete-mobile-del-2030-e-perche-vedra-il-mondo",
@@ -2665,7 +2623,6 @@ const articoliGrezzi = [
       "SoC",
       "GSMA",
       "IoT",
-      "smartwatch",
       "operatori telefonici"
     ],
     "correlati": [
@@ -2688,7 +2645,6 @@ const articoliGrezzi = [
       "USB4",
       "Thunderbolt 5",
       "USB-C",
-      "porte",
       "monitor 8K",
       "eGPU",
       "dock",
@@ -2715,7 +2671,6 @@ const articoliGrezzi = [
       "litio",
       "ricarica",
       "auto elettriche",
-      "tecnologie emergenti",
       "sicurezza"
     ],
     "correlati": [
@@ -2740,7 +2695,6 @@ const articoliGrezzi = [
       "TOPS",
       "IA on-device",
       "chip",
-      "privacy",
       "Copilot+"
     ],
     "correlati": [
@@ -2765,7 +2719,6 @@ const articoliGrezzi = [
       "Power Delivery",
       "ricarica rapida",
       "nitruro di gallio",
-      "USB Power Delivery",
       "alimentatori"
     ],
     "correlati": [
@@ -2786,11 +2739,10 @@ const articoliGrezzi = [
     "tags": [
       "micro-led",
       "schermi",
-      "oled",
-      "tv",
+      "OLED",
+      "TV",
       "display",
-      "tecnologie emergenti",
-      "ces 2026"
+      "CES 2026"
     ],
     "correlati": [
       "oled-lcd-led-mini-led-la-guerra-degli-schermi-spiegata-col-b",
@@ -2813,9 +2765,7 @@ const articoliGrezzi = [
       "intelligenza artificiale",
       "automazione",
       "chatbot",
-      "assistenti virtuali",
-      "tecnologie emergenti",
-      "2026"
+      "assistenti virtuali"
     ],
     "correlati": [
       "come-funziona-chatgpt-il-completa-la-frase-piu-potente-del-m",
@@ -2837,7 +2787,6 @@ const articoliGrezzi = [
       "modelli di diffusione",
       "deepfake",
       "intelligenza artificiale",
-      "immagini AI",
       "C2PA",
       "watermark",
       "diritto d'autore"
@@ -2863,8 +2812,6 @@ const articoliGrezzi = [
       "crittografia",
       "algoritmo di Shor",
       "RSA",
-      "sicurezza",
-      "tecnologie emergenti",
       "superposizione"
     ],
     "correlati": [
@@ -2889,8 +2836,7 @@ const articoliGrezzi = [
       "computer quantistico",
       "ML-KEM",
       "harvest now decrypt later",
-      "cifratura",
-      "privacy"
+      "cifratura"
     ],
     "correlati": [
       "computer-quantistico-cose-e-perche-tiene-sveglia-la-crittogr",
@@ -2911,7 +2857,6 @@ const articoliGrezzi = [
       "passkey",
       "FIDO",
       "WebAuthn",
-      "sicurezza",
       "autenticazione",
       "password",
       "phishing",
@@ -2939,8 +2884,7 @@ const articoliGrezzi = [
       "IT-Wallet",
       "SPID",
       "CIE",
-      "privacy",
-      "selective disclosure"
+      "privacy"
     ],
     "correlati": [
       "spid-login-con-google-e-accedi-con-apple-cose-la-tua-identit",
@@ -2963,9 +2907,7 @@ const articoliGrezzi = [
       "BCE",
       "pagamenti digitali",
       "moneta digitale",
-      "privacy",
-      "banca centrale",
-      "tecnologie emergenti"
+      "privacy"
     ],
     "correlati": [
       "identita-digitale-europea-il-portafoglio-eudi-wallet-che-arr",
@@ -2983,13 +2925,12 @@ const articoliGrezzi = [
     "data": "2026-06-28",
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "tags": [
-      "matter",
-      "thread",
+      "Matter",
+      "Thread",
       "casa intelligente",
       "smart home",
       "domotica",
       "border router",
-      "standard",
       "interoperabilità"
     ],
     "correlati": [
@@ -3011,7 +2952,6 @@ const articoliGrezzi = [
       "realtà aumentata",
       "occhiali smart",
       "AR",
-      "tecnologie emergenti",
       "Meta",
       "Google",
       "intelligenza artificiale",
@@ -3033,13 +2973,13 @@ const articoliGrezzi = [
     "data": "2026-06-26",
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "tags": [
-      "pdf",
+      "PDF",
       "conversione",
-      "word",
+      "Word",
       "documenti",
-      "office",
-      "ios",
-      "android"
+      "Office",
+      "Android",
+      "iOS"
     ],
     "correlati": [
       "cose-un-pdf-e-perche-si-apre-uguale-ovunque",
@@ -3057,12 +2997,11 @@ const articoliGrezzi = [
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "tags": [
       "backup",
-      "copia-di-sicurezza",
+      "copia di sicurezza",
       "cloud",
-      "dati",
       "ransomware",
-      "windows",
-      "android"
+      "Windows",
+      "Android"
     ],
     "correlati": [
       "ransomware-quando-un-virus-prende-in-ostaggio-i-tuoi-file-e-",
@@ -3079,13 +3018,12 @@ const articoliGrezzi = [
     "data": "2026-06-26",
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "tags": [
-      "account-rubato",
-      "recupero-account",
-      "hackerato",
-      "emergenza",
+      "account rubato",
+      "recupero account",
       "sicurezza",
       "password",
-      "autenticazione-due-fattori"
+      "2FA",
+      "phishing"
     ],
     "correlati": [
       "autenticazione-a-due-fattori-la-seconda-serratura-che-salva-",
@@ -3106,9 +3044,9 @@ const articoliGrezzi = [
       "sincronizzazione",
       "cloud",
       "foto",
-      "google foto",
-      "icloud",
-      "onedrive"
+      "Google Foto",
+      "iCloud",
+      "OneDrive"
     ],
     "correlati": [
       "il-backup-e-la-tua-assicurazione-la-copia-che-ti-salva-da-vi",
@@ -3131,7 +3069,7 @@ const articoliGrezzi = [
       "browser",
       "offline",
       "installazione",
-      "pwa"
+      "PWA"
     ],
     "correlati": [
       "cose-un-browser-e-perche-non-e-il-motore-di-ricerca",
@@ -3148,13 +3086,12 @@ const articoliGrezzi = [
     "data": "2026-06-26",
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "tags": [
-      "spid",
+      "SPID",
       "identità digitale",
       "login",
-      "google",
-      "apple",
-      "account",
-      "sicurezza"
+      "Google",
+      "Apple",
+      "account"
     ],
     "correlati": [
       "autenticazione-a-due-fattori-la-seconda-serratura-che-salva-",
@@ -3172,11 +3109,10 @@ const articoliGrezzi = [
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "thumbnail": "assets/images/thumbnail-bluetooth.png",
     "tags": [
-      "bluetooth",
+      "Bluetooth",
       "cuffie",
       "wireless",
       "accoppiamento",
-      "auto",
       "auricolari",
       "codec"
     ],
@@ -3196,7 +3132,7 @@ const articoliGrezzi = [
     "data": "2026-06-26",
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "tags": [
-      "gpu",
+      "GPU",
       "scheda video",
       "scheda grafica",
       "acquisto pc",
@@ -3224,7 +3160,7 @@ const articoliGrezzi = [
       "ricarica",
       "salute batteria",
       "smartphone",
-      "laptop"
+      "cicli di ricarica"
     ],
     "correlati": [
       "mah-ricarica-rapida-e-quel-caricatore-da-65w-cosa-dicono-i-n",
@@ -3242,7 +3178,7 @@ const articoliGrezzi = [
     "data": "2026-06-26",
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "tags": [
-      "mah",
+      "mAh",
       "ricarica rapida",
       "watt",
       "power bank",
@@ -3265,7 +3201,7 @@ const articoliGrezzi = [
     "data": "2026-06-26",
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "tags": [
-      "usb-c",
+      "USB-C",
       "power delivery",
       "thunderbolt",
       "ricarica",
@@ -3289,11 +3225,11 @@ const articoliGrezzi = [
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "tags": [
       "risoluzione",
-      "4k",
-      "full hd",
+      "4K",
+      "full HD",
       "pixel",
-      "8k",
-      "tv",
+      "8K",
+      "TV",
       "schermo"
     ],
     "correlati": [
@@ -3312,12 +3248,12 @@ const articoliGrezzi = [
     "data": "2026-06-26",
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "tags": [
-      "oled",
-      "lcd",
+      "OLED",
+      "LCD",
       "mini-led",
-      "led",
+      "LED",
       "schermo",
-      "tv",
+      "TV",
       "burn-in"
     ],
     "correlati": [
@@ -3341,8 +3277,7 @@ const articoliGrezzi = [
       "sensore",
       "smartphone",
       "foto",
-      "pixel",
-      "binning"
+      "pixel binning"
     ],
     "correlati": [
       "pollici-pixel-e-ppi-perche-un-telefono-piccolo-e-piu-nitido-",
@@ -3361,10 +3296,9 @@ const articoliGrezzi = [
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "tags": [
       "impronta digitale",
-      "face id",
+      "Face ID",
       "biometria",
       "sblocco",
-      "sicurezza",
       "smartphone",
       "privacy"
     ],
@@ -3385,11 +3319,10 @@ const articoliGrezzi = [
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "tags": [
       "intelligenza artificiale",
-      "miti",
-      "chatgpt",
+      "miti digitali",
+      "ChatGPT",
       "allucinazioni",
-      "llm",
-      "come funziona"
+      "LLM"
     ],
     "correlati": [
       "come-funziona-chatgpt-il-completa-la-frase-piu-potente-del-m",
@@ -3409,8 +3342,8 @@ const articoliGrezzi = [
     "tags": [
       "velocità",
       "internet",
-      "speedtest",
-      "wi-fi",
+      "speed test",
+      "Wi-Fi",
       "ping",
       "download",
       "upload"
@@ -3430,7 +3363,7 @@ const articoliGrezzi = [
     "data": "2026-06-26",
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "tags": [
-      "dns",
+      "DNS",
       "rete",
       "internet",
       "velocità",
@@ -3456,8 +3389,7 @@ const articoliGrezzi = [
       "cache",
       "manutenzione",
       "internet",
-      "chrome",
-      "privacy"
+      "Chrome"
     ],
     "correlati": [
       "cache-la-memoria-a-portata-di-mano-che-a-volte-ti-frega",
@@ -3474,12 +3406,12 @@ const articoliGrezzi = [
     "data": "2026-06-26",
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "tags": [
-      "bluetooth",
+      "Bluetooth",
       "cuffie",
       "auricolari",
       "audio",
       "smartphone",
-      "abbinamento"
+      "accoppiamento"
     ],
     "correlati": [
       "bluetooth-come-fanno-cuffie-e-auto-a-parlarsi-senza-fili",
@@ -3496,12 +3428,12 @@ const articoliGrezzi = [
     "data": "2026-06-26",
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "tags": [
-      "tv",
+      "TV",
       "smartphone",
       "casting",
-      "chromecast",
-      "airplay",
-      "hdmi",
+      "Chromecast",
+      "AirPlay",
+      "HDMI",
       "mirroring"
     ],
     "correlati": [
@@ -3524,8 +3456,7 @@ const articoliGrezzi = [
       "compressione",
       "allegati",
       "file",
-      "zip",
-      "cloud"
+      "zip"
     ],
     "correlati": [
       "zip-rar-e-7zip-rimpicciolire-e-impacchettare-i-tuoi-file",
@@ -3547,8 +3478,7 @@ const articoliGrezzi = [
       "link",
       "truffa",
       "password",
-      "sicurezza",
-      "due fattori"
+      "2FA"
     ],
     "correlati": [
       "phishing-come-riconoscere-lemail-che-finge-di-essere-la-tua-",
@@ -3565,12 +3495,12 @@ const articoliGrezzi = [
     "data": "2026-06-26",
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "tags": [
-      "sicurezza",
+      "parental control",
       "famiglia",
       "minori",
-      "parental-control",
-      "android",
-      "iphone"
+      "Android",
+      "iPhone",
+      "Family Link"
     ],
     "correlati": [
       "perche-lapp-della-torcia-vuole-i-tuoi-contatti-capire-i-perm",
@@ -3590,9 +3520,8 @@ const articoliGrezzi = [
       "permessi",
       "app",
       "privacy",
-      "android",
-      "iphone",
-      "sicurezza",
+      "Android",
+      "iPhone",
       "microfono"
     ],
     "correlati": [
@@ -3611,11 +3540,10 @@ const articoliGrezzi = [
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "tags": [
       "deepfake",
-      "intelligenza-artificiale",
+      "intelligenza artificiale",
       "truffa",
       "video",
-      "disinformazione",
-      "sicurezza"
+      "disinformazione"
     ],
     "correlati": [
       "salve-sono-il-supporto-microsoft-la-truffa-del-finto-tecnico",
@@ -3638,7 +3566,6 @@ const articoliGrezzi = [
       "pubblicità",
       "privacy",
       "profilazione",
-      "cookie di terze parti",
       "retargeting"
     ],
     "correlati": [
@@ -3657,12 +3584,11 @@ const articoliGrezzi = [
     "data": "2026-06-26",
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "tags": [
-      "dark-web",
-      "deep-web",
-      "tor",
+      "dark web",
+      "deep web",
+      "Tor",
       "internet",
-      "privacy",
-      "sicurezza"
+      "privacy"
     ],
     "correlati": [
       "vpn-il-tunnel-blindato-tra-te-e-la-rete-a-distanza",
@@ -3680,13 +3606,11 @@ const articoliGrezzi = [
     "data": "2026-06-26",
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "tags": [
-      "captcha",
+      "CAPTCHA",
       "bot",
-      "sito-web",
+      "sito web",
       "sicurezza",
-      "privacy",
-      "intelligenza-artificiale",
-      "curiosità"
+      "spam"
     ],
     "correlati": [
       "cookie-quei-biscotti-che-il-sito-ti-lascia-in-tasca-e-perche",
@@ -3705,10 +3629,9 @@ const articoliGrezzi = [
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "tags": [
       "torrent",
-      "p2p",
+      "peer-to-peer",
       "download",
-      "reti",
-      "bittorrent",
+      "BitTorrent",
       "condivisione",
       "copyright"
     ],
@@ -3730,7 +3653,6 @@ const articoliGrezzi = [
       "cache",
       "browser",
       "prestazioni",
-      "ma cos'è",
       "velocità",
       "memoria"
     ],
@@ -3750,13 +3672,12 @@ const articoliGrezzi = [
     "data": "2026-06-26",
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "tags": [
-      "android",
-      "ios",
+      "Android",
+      "iOS",
       "smartphone",
       "sistema operativo",
-      "apple",
-      "google",
-      "personalizzazione"
+      "Apple",
+      "Google"
     ],
     "correlati": [
       "store-delle-app-perche-non-puoi-installare-quello-che-vuoi-e",
@@ -3775,11 +3696,10 @@ const articoliGrezzi = [
     "tags": [
       "estensioni",
       "browser",
-      "chrome",
-      "firefox",
+      "Chrome",
+      "Firefox",
       "adblock",
-      "sicurezza",
-      "edge"
+      "Edge"
     ],
     "correlati": [
       "password-manager-smetti-di-ricordare-le-password-e-falle-ric",
@@ -3796,12 +3716,12 @@ const articoliGrezzi = [
     "data": "2026-06-26",
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "tags": [
-      "app store",
-      "play store",
+      "App Store",
+      "Play Store",
       "app",
       "sicurezza",
-      "android",
-      "iphone"
+      "Android",
+      "iPhone"
     ],
     "correlati": [
       "perche-lapp-della-torcia-vuole-i-tuoi-contatti-capire-i-perm",
@@ -3818,12 +3738,11 @@ const articoliGrezzi = [
     "data": "2026-06-26",
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "tags": [
-      "soc",
-      "snapdragon",
-      "chip mobile",
+      "SoC",
+      "chip",
       "smartphone",
-      "cpu",
-      "gpu",
+      "CPU",
+      "GPU",
       "modem"
     ],
     "correlati": [
@@ -3842,13 +3761,12 @@ const articoliGrezzi = [
     "data": "2026-06-26",
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "tags": [
-      "esim",
-      "sim",
+      "eSIM",
+      "SIM",
       "operatore",
-      "viaggi",
-      "android",
-      "iphone",
-      "telefono"
+      "Android",
+      "iPhone",
+      "attivazione"
     ],
     "correlati": [
       "telefono-nuovo-trasferire-tutto-dal-vecchio-senza-perdere-ni",
@@ -3866,12 +3784,11 @@ const articoliGrezzi = [
     "data": "2026-06-26",
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "tags": [
-      "hdr",
+      "HDR",
       "luminosità",
       "contrasto",
       "video",
-      "tv",
-      "schermi",
+      "TV",
       "nit"
     ],
     "correlati": [
@@ -3890,13 +3807,12 @@ const articoliGrezzi = [
     "data": "2026-06-26",
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "tags": [
-      "ppi",
+      "PPI",
       "densità pixel",
       "pollici",
       "nitidezza",
       "schermo",
-      "risoluzione",
-      "4k"
+      "risoluzione"
     ],
     "correlati": [
       "full-hd-2k-4k-8k-cosa-cambia-davvero-e-da-quando-non-lo-vedi",
@@ -3914,13 +3830,12 @@ const articoliGrezzi = [
     "data": "2026-06-26",
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "tags": [
-      "throttling",
+      "throttling termico",
       "surriscaldamento",
       "dissipazione",
       "prestazioni",
-      "batteria",
       "smartphone",
-      "laptop"
+      "CPU"
     ],
     "correlati": [
       "batteria-al-litio-perche-si-consuma-e-i-gesti-che-la-fanno-d",
@@ -3938,13 +3853,12 @@ const articoliGrezzi = [
     "data": "2026-06-26",
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "tags": [
-      "ip67",
-      "ip68",
-      "impermeabile",
-      "resistenza acqua",
+      "IP67",
+      "IP68",
+      "impermeabilità",
+      "resistenza all'acqua",
       "smartphone",
-      "garanzia",
-      "guarnizioni"
+      "grado di protezione"
     ],
     "correlati": [
       "il-telefono-scotta-e-va-a-rilento-cose-il-throttling-termico",
@@ -3963,12 +3877,11 @@ const articoliGrezzi = [
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "tags": [
       "dock",
-      "adattatore",
-      "hub usb-c",
+      "hub",
+      "USB-C",
       "laptop",
-      "usb-c",
-      "thunderbolt",
-      "displayport"
+      "Thunderbolt",
+      "HDMI"
     ],
     "correlati": [
       "usb-c-power-delivery-e-thunderbolt-perche-lo-stesso-buco-fa-",
@@ -3986,13 +3899,12 @@ const articoliGrezzi = [
     "data": "2026-06-26",
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "tags": [
-      "alimentatore",
       "caricatore",
       "watt",
       "volt",
       "ricarica",
-      "usb-c",
-      "power delivery"
+      "USB-C",
+      "Power Delivery"
     ],
     "correlati": [
       "mah-ricarica-rapida-e-quel-caricatore-da-65w-cosa-dicono-i-n",
@@ -4014,7 +3926,7 @@ const articoliGrezzi = [
       "microfono",
       "videochiamata",
       "smart working",
-      "luce",
+      "illuminazione",
       "audio"
     ],
     "correlati": [
@@ -4032,13 +3944,12 @@ const articoliGrezzi = [
     "data": "2026-06-26",
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "tags": [
-      "ethernet",
-      "wi-fi",
+      "Ethernet",
+      "Wi-Fi",
       "cavo",
       "gaming",
       "latenza",
-      "ping",
-      "rete domestica"
+      "ping"
     ],
     "correlati": [
       "banda-latenza-e-ping-perche-1-giga-non-basta-per-non-lagghar",
@@ -4057,11 +3968,10 @@ const articoliGrezzi = [
     "tags": [
       "access point",
       "router",
-      "wi-fi",
-      "rete",
+      "Wi-Fi",
       "mesh",
       "ripetitore",
-      "ethernet"
+      "Ethernet"
     ],
     "correlati": [
       "il-wi-fi-non-arriva-in-camera-ripetitore-mesh-o-powerline",
@@ -4078,13 +3988,12 @@ const articoliGrezzi = [
     "data": "2026-06-26",
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "tags": [
-      "canali wi-fi",
+      "canali Wi-Fi",
       "interferenze",
       "router",
-      "wi-fi lento",
-      "condominio",
-      "2.4 ghz",
-      "5 ghz"
+      "2.4 GHz",
+      "5 GHz",
+      "frequenze"
     ],
     "correlati": [
       "24-ghz-o-5-ghz-le-due-corsie-del-tuo-wi-fi-e-quando-usarle",
@@ -4103,12 +4012,11 @@ const articoliGrezzi = [
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "tags": [
       "port forwarding",
-      "nat",
+      "NAT",
       "router",
       "gaming",
       "telecamere",
-      "rete",
-      "sicurezza"
+      "porte"
     ],
     "correlati": [
       "le-porte-di-comunicazione-65535-finestre-sul-tuo-dispositivo",
@@ -4126,13 +4034,12 @@ const articoliGrezzi = [
     "data": "2026-06-26",
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "tags": [
-      "ssid nascosto",
-      "wi-fi",
+      "SSID nascosto",
+      "Wi-Fi",
       "sicurezza",
-      "mito",
+      "miti digitali",
       "router",
-      "password",
-      "wpa"
+      "WPA"
     ],
     "correlati": [
       "cambiare-la-password-del-wi-fi-la-serratura-di-casa-che-non-",
@@ -4150,12 +4057,12 @@ const articoliGrezzi = [
     "data": "2026-06-26",
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "tags": [
-      "nfc",
+      "NFC",
       "pagamenti",
       "contactless",
       "smartphone",
-      "wireless",
-      "rfid"
+      "RFID",
+      "wireless"
     ],
     "correlati": [
       "bluetooth-come-fanno-cuffie-e-auto-a-parlarsi-senza-fili",
@@ -4173,12 +4080,11 @@ const articoliGrezzi = [
     "data": "2026-06-26",
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "tags": [
-      "dhcp",
-      "ip",
+      "DHCP",
+      "IP",
       "router",
       "rete",
       "indirizzo",
-      "wifi",
       "lease"
     ],
     "correlati": [
@@ -4200,7 +4106,6 @@ const articoliGrezzi = [
       "aggiornamenti",
       "versioni",
       "software",
-      "ma cos'è",
       "sicurezza",
       "app"
     ],
@@ -4220,13 +4125,12 @@ const articoliGrezzi = [
     "data": "2026-06-26",
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "tags": [
-      "reset",
+      "reset di fabbrica",
       "backup",
       "privacy",
-      "manutenzione",
-      "android",
-      "iphone",
-      "windows"
+      "Android",
+      "iPhone",
+      "Windows"
     ],
     "correlati": [
       "backup-delle-foto-come-non-perdere-10-anni-di-ricordi-se-cad",
@@ -4248,7 +4152,7 @@ const articoliGrezzi = [
       "sicurezza",
       "rete",
       "aggiornamenti",
-      "wi-fi"
+      "Wi-Fi"
     ],
     "correlati": [
       "cambiare-la-password-del-wi-fi-la-serratura-di-casa-che-non-",
@@ -4265,11 +4169,10 @@ const articoliGrezzi = [
     "data": "2026-06-26",
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "tags": [
-      "wi-fi",
+      "Wi-Fi ospiti",
       "router",
       "sicurezza",
       "rete",
-      "ospiti",
       "password"
     ],
     "correlati": [
@@ -4289,11 +4192,10 @@ const articoliGrezzi = [
     "tags": [
       "notifiche",
       "smartphone",
-      "produttività",
-      "benessere-digitale",
-      "android",
-      "iphone",
-      "windows"
+      "benessere digitale",
+      "Android",
+      "iPhone",
+      "produttività"
     ],
     "correlati": [
       "bloccare-chiamate-e-sms-spam-come-zittire-i-call-center-per-",
@@ -4310,12 +4212,12 @@ const articoliGrezzi = [
     "data": "2026-06-26",
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "tags": [
-      "miti",
-      "windows",
-      "energia",
-      "manutenzione",
+      "miti digitali",
+      "Windows",
       "sospensione",
-      "ibernazione"
+      "ibernazione",
+      "spegnimento",
+      "risparmio energetico"
     ],
     "correlati": [
       "aggiornamenti-di-windows-quando-installarli-e-quando-rimanda",
@@ -4333,13 +4235,12 @@ const articoliGrezzi = [
     "data": "2026-06-26",
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "tags": [
-      "miti",
+      "miti digitali",
       "privacy",
-      "sicurezza",
-      "false-credenze",
       "cookie",
-      "https",
-      "incognito"
+      "sicurezza",
+      "HTTPS",
+      "navigazione in incognito"
     ],
     "correlati": [
       "la-modalita-in-incognito-ti-rende-invisibile-falso",
@@ -4357,12 +4258,10 @@ const articoliGrezzi = [
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "tags": [
       "emoji",
-      "unicode",
+      "Unicode",
       "caratteri",
-      "ma cos'è",
-      "faccine",
       "font",
-      "quadratino"
+      "compatibilità"
     ],
     "correlati": [
       "bit-e-byte-perche-i-tuoi-file-pesano-in-kb-mb-e-gb",
@@ -4381,12 +4280,11 @@ const articoliGrezzi = [
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "thumbnail": "assets/images/thumbnail-password-wi-fi.png",
     "tags": [
-      "wi-fi",
+      "Wi-Fi",
       "router",
       "password",
       "sicurezza",
-      "modem",
-      "rete"
+      "modem"
     ],
     "correlati": [
       "cose-il-wi-fi-no-non-e-internet",
@@ -4404,12 +4302,12 @@ const articoliGrezzi = [
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "thumbnail": "assets/images/thumbnail-senza-internet.png",
     "tags": [
-      "rete",
-      "wi-fi",
+      "Wi-Fi",
       "router",
-      "internet",
+      "Internet",
       "modem",
-      "dns"
+      "DNS",
+      "connessione"
     ],
     "correlati": [
       "cose-il-wi-fi-no-non-e-internet",
@@ -4428,12 +4326,10 @@ const articoliGrezzi = [
     "thumbnail": "assets/images/thumbnail-screenshot.png",
     "tags": [
       "screenshot",
-      "windows",
-      "mac",
-      "android",
-      "iphone",
-      "trucchi",
-      "smartphone"
+      "Windows",
+      "Mac",
+      "Android",
+      "iPhone"
     ],
     "correlati": [
       "trasferire-foto-e-file-dal-cellulare-al-pc-tutti-i-modi-che-",
@@ -4451,12 +4347,11 @@ const articoliGrezzi = [
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "thumbnail": "assets/images/thumbnail-telefono-pieno.png",
     "tags": [
-      "smartphone",
-      "spazio",
+      "spazio di archiviazione",
       "memoria",
-      "android",
-      "iphone",
-      "whatsapp",
+      "Android",
+      "iPhone",
+      "WhatsApp",
       "cache"
     ],
     "correlati": [
@@ -4475,13 +4370,12 @@ const articoliGrezzi = [
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "thumbnail": "assets/images/thumbanil-pc-lento.png",
     "tags": [
-      "windows",
-      "mac",
-      "velocita",
+      "PC lento",
+      "Windows",
+      "Mac",
       "manutenzione",
-      "pc-lento",
       "avvio",
-      "ssd"
+      "SSD"
     ],
     "correlati": [
       "task-manager-il-primo-strumento-quando-il-pc-e-lento",
@@ -4503,8 +4397,8 @@ const articoliGrezzi = [
       "foto",
       "cloud",
       "smartphone",
-      "google foto",
-      "icloud"
+      "Google Foto",
+      "iCloud"
     ],
     "correlati": [
       "telefono-nuovo-trasferire-tutto-dal-vecchio-senza-perdere-ni",
@@ -4523,12 +4417,11 @@ const articoliGrezzi = [
     "thumbnail": "assets/images/thumbnail-nuovo-telefono.png",
     "tags": [
       "smartphone",
-      "trasferimento",
+      "trasferimento dati",
       "backup",
-      "setup",
-      "android",
-      "iphone",
-      "whatsapp"
+      "Android",
+      "iPhone",
+      "WhatsApp"
     ],
     "correlati": [
       "backup-delle-foto-come-non-perdere-10-anni-di-ricordi-se-cad",
@@ -4546,12 +4439,12 @@ const articoliGrezzi = [
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "thumbnail": "assets/images/thumbnail-scansioni-smartphone.png",
     "tags": [
-      "pdf",
       "scansione",
+      "PDF",
       "documenti",
       "smartphone",
-      "android",
-      "iphone"
+      "Android",
+      "iPhone"
     ],
     "correlati": [
       "cose-un-pdf-e-perche-si-apre-uguale-ovunque",
@@ -4569,12 +4462,12 @@ const articoliGrezzi = [
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "thumbnail": "assets/images/thumbnail-firma-pdf.png",
     "tags": [
-      "pdf",
-      "firma",
+      "PDF",
+      "firma digitale",
       "documenti",
       "modulo",
-      "telefono",
-      "digitale pratico"
+      "iPhone",
+      "Android"
     ],
     "correlati": [
       "cose-un-pdf-e-perche-si-apre-uguale-ovunque",
@@ -4592,12 +4485,12 @@ const articoliGrezzi = [
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "thumbnail": "assets/images/thumbnail-spam-call.png",
     "tags": [
-      "telefono",
       "spam",
-      "privacy",
-      "chiamate",
       "telemarketing",
-      "sms"
+      "chiamate",
+      "SMS",
+      "blocco numeri",
+      "smartphone"
     ],
     "correlati": [
       "lsms-del-finto-corriere-cose-lo-smishing-e-come-non-cascarci",
@@ -4615,13 +4508,12 @@ const articoliGrezzi = [
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "thumbnail": "assets/images/thumbnail-ho-perso-il-telefono.png",
     "tags": [
-      "sicurezza",
       "smartphone",
       "smarrimento",
-      "privacy",
-      "android",
-      "iphone",
-      "antifurto"
+      "antifurto",
+      "Android",
+      "iPhone",
+      "sicurezza"
     ],
     "correlati": [
       "backup-delle-foto-come-non-perdere-10-anni-di-ricordi-se-cad",
@@ -4639,11 +4531,11 @@ const articoliGrezzi = [
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "thumbnail": "assets/images/thumbnail-wifi-repeter.png",
     "tags": [
+      "wi-fi",
       "mesh",
       "ripetitore",
       "powerline",
-      "wi-fi",
-      "casa",
+      "router",
       "copertura"
     ],
     "correlati": [
@@ -4666,10 +4558,9 @@ const articoliGrezzi = [
       "hotspot",
       "tethering",
       "smartphone",
-      "connessione",
-      "emergenza",
-      "giga",
-      "android"
+      "dati mobili",
+      "wi-fi",
+      "connessione"
     ],
     "correlati": [
       "connesso-ma-senza-internet-la-guida-per-capire-dove-si-e-rot",
@@ -4687,13 +4578,13 @@ const articoliGrezzi = [
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "thumbnail": "assets/images/thumbnail-cambiare-sfondo.png",
     "tags": [
-      "personalizzazione",
       "sfondo",
+      "personalizzazione",
       "smartphone",
-      "windows",
-      "mac",
-      "android",
-      "iphone"
+      "Windows",
+      "Mac",
+      "Android",
+      "iPhone"
     ],
     "correlati": [
       "personalizzare-laspetto-di-windows-il-pc-come-piace-a-te",
@@ -4711,13 +4602,12 @@ const articoliGrezzi = [
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "thumbnail": "assets/images/thumbnail-mfa.png",
     "tags": [
-      "2fa",
-      "verifica in due passaggi",
-      "account",
+      "2FA",
       "autenticazione",
-      "sicurezza",
       "password",
-      "phishing"
+      "account",
+      "sicurezza",
+      "verifica in due passaggi"
     ],
     "correlati": [
       "una-password-robusta-in-1-minuto-la-frase-al-posto-della-par",
@@ -4736,11 +4626,11 @@ const articoliGrezzi = [
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "thumbnail": "assets/images/thumbnail-password-manager.png",
     "tags": [
-      "password-manager",
+      "password manager",
       "password",
-      "bitwarden",
+      "Bitwarden",
+      "1Password",
       "sicurezza",
-      "1password",
       "account"
     ],
     "correlati": [
@@ -4764,8 +4654,7 @@ const articoliGrezzi = [
       "passphrase",
       "sicurezza",
       "account",
-      "phishing",
-      "due fattori"
+      "2FA"
     ],
     "correlati": [
       "password-manager-smetti-di-ricordare-le-password-e-falle-ric",
@@ -4784,12 +4673,11 @@ const articoliGrezzi = [
     "thumbnail": "assets/images/thumbnail-smishing.png",
     "tags": [
       "smishing",
-      "sms",
-      "truffa",
+      "SMS",
       "phishing",
+      "truffa",
       "corriere",
-      "sicurezza",
-      "carta di credito"
+      "sicurezza"
     ],
     "correlati": [
       "phishing-come-riconoscere-lemail-che-finge-di-essere-la-tua-",
@@ -4812,8 +4700,7 @@ const articoliGrezzi = [
       "banca",
       "truffa",
       "credenziali",
-      "sicurezza",
-      "2fa"
+      "sicurezza"
     ],
     "correlati": [
       "lsms-del-finto-corriere-cose-lo-smishing-e-come-non-cascarci",
@@ -4832,12 +4719,11 @@ const articoliGrezzi = [
     "thumbnail": "assets/images/thumbnail-finto-tecnico.png",
     "tags": [
       "truffa",
-      "finto-supporto",
-      "microsoft",
-      "telefono",
-      "sicurezza",
-      "social-engineering",
-      "controllo-remoto"
+      "finto supporto",
+      "Microsoft",
+      "ingegneria sociale",
+      "controllo remoto",
+      "sicurezza"
     ],
     "correlati": [
       "phishing-come-riconoscere-lemail-che-finge-di-essere-la-tua-",
@@ -4856,11 +4742,11 @@ const articoliGrezzi = [
     "thumbnail": "assets/images/thumbnail-ramsonware.png",
     "tags": [
       "ransomware",
-      "virus",
-      "riscatto",
       "malware",
+      "riscatto",
       "backup",
-      "crittografia"
+      "crittografia",
+      "sicurezza"
     ],
     "correlati": [
       "antivirus-serve-davvero-e-quale-scegliere",
@@ -4881,11 +4767,10 @@ const articoliGrezzi = [
     "tags": [
       "wi-fi",
       "router",
-      "wi-fi 6",
-      "wi-fi 7",
-      "connessione",
-      "wi-fi 6e",
-      "fibra"
+      "Wi-Fi 6",
+      "Wi-Fi 7",
+      "Wi-Fi 6E",
+      "connessione"
     ],
     "correlati": [
       "cose-il-wi-fi-no-non-e-internet",
@@ -4905,11 +4790,10 @@ const articoliGrezzi = [
     "thumbnail": "assets/images/thumbnail-wifi-24-e-5.png",
     "tags": [
       "wi-fi",
-      "2.4 ghz",
-      "5 ghz",
+      "2.4 GHz",
+      "5 GHz",
       "bande",
       "router",
-      "rete",
       "velocità"
     ],
     "correlati": [
@@ -4930,11 +4814,10 @@ const articoliGrezzi = [
     "tags": [
       "streaming",
       "codec",
-      "netflix",
-      "youtube",
+      "Netflix",
       "buffering",
-      "wi-fi",
-      "banda"
+      "banda",
+      "video"
     ],
     "correlati": [
       "banda-latenza-e-ping-perche-1-giga-non-basta-per-non-lagghar",
@@ -4953,12 +4836,11 @@ const articoliGrezzi = [
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "tags": [
       "fibra",
-      "ftth",
-      "fttc",
-      "adsl",
-      "fwa",
-      "connessione",
-      "internet"
+      "ADSL",
+      "FWA",
+      "FTTH",
+      "FTTC",
+      "connessione"
     ],
     "correlati": [
       "banda-latenza-e-ping-perche-1-giga-non-basta-per-non-lagghar",
@@ -4979,10 +4861,9 @@ const articoliGrezzi = [
       "ping",
       "latenza",
       "banda",
-      "gaming",
       "jitter",
-      "rete",
-      "streaming"
+      "gaming",
+      "connessione"
     ],
     "correlati": [
       "fibra-adsl-fwa-che-connessione-hai-davvero-sotto-casa",
@@ -5000,13 +4881,12 @@ const articoliGrezzi = [
     "data": "2026-06-27",
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "tags": [
-      "5g",
-      "4g",
-      "lte",
+      "5G",
+      "4G",
+      "LTE",
       "rete mobile",
-      "smartphone",
       "internet mobile",
-      "latenza"
+      "smartphone"
     ],
     "correlati": [
       "banda-latenza-e-ping-perche-1-giga-non-basta-per-non-lagghar",
@@ -5024,13 +4904,12 @@ const articoliGrezzi = [
     "data": "2026-06-27",
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "tags": [
-      "poe",
+      "PoE",
       "power over ethernet",
       "telecamere",
       "cavo di rete",
-      "access point",
       "switch",
-      "rete"
+      "access point"
     ],
     "correlati": [
       "cat-5-cat-6-cat-7-che-numero-ha-il-tuo-cavo-di-rete",
@@ -5049,9 +4928,7 @@ const articoliGrezzi = [
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "tags": [
       "intelligenza artificiale",
-      "ai",
       "machine learning",
-      "ma cos'è",
       "reti neurali",
       "dati",
       "allucinazioni"
@@ -5072,8 +4949,8 @@ const articoliGrezzi = [
     "data": "2026-06-27",
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "tags": [
-      "chatgpt",
-      "llm",
+      "ChatGPT",
+      "LLM",
       "intelligenza artificiale",
       "chatbot",
       "modelli linguistici",
@@ -5097,8 +4974,8 @@ const articoliGrezzi = [
     "tags": [
       "algoritmo",
       "social",
-      "tiktok",
-      "instagram",
+      "TikTok",
+      "Instagram",
       "feed",
       "privacy"
     ],
@@ -5120,9 +4997,8 @@ const articoliGrezzi = [
     "tags": [
       "cookie",
       "privacy",
-      "browser",
       "tracciamento",
-      "internet",
+      "browser",
       "pubblicità"
     ],
     "correlati": [
@@ -5141,13 +5017,12 @@ const articoliGrezzi = [
     "data": "2026-06-27",
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "tags": [
-      "gpu",
+      "GPU",
       "scheda video",
       "gaming",
       "intelligenza artificiale",
-      "hardware",
-      "cpu",
-      "vram"
+      "CPU",
+      "VRAM"
     ],
     "correlati": [
       "da-un-cervello-a-tanti-levoluzione-delle-cpu-multicore",
@@ -5166,11 +5041,11 @@ const articoliGrezzi = [
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "thumbnail": "assets/images/thumbnail-touch.png",
     "tags": [
-      "storia",
-      "informatica",
+      "storia dell'informatica",
       "evoluzione",
       "touch",
-      "smartphone"
+      "smartphone",
+      "miniaturizzazione"
     ],
     "correlati": [
       "touchscreen-perche-il-guanto-funziona-su-alcuni-schermi-e-su",
@@ -5189,11 +5064,11 @@ const articoliGrezzi = [
     "thumbnail": "assets/images/thumbnail-console-tablet-computer.png",
     "tags": [
       "computer",
-      "device",
       "smartphone",
       "tablet",
       "console",
-      "definizioni"
+      "PC",
+      "hardware"
     ],
     "correlati": [
       "computer-vs-monitor-non-sono-la-stessa-cosa",
@@ -5216,8 +5091,7 @@ const articoliGrezzi = [
       "kilobyte",
       "megabyte",
       "gigabyte",
-      "memoria",
-      "dimensione file"
+      "memoria"
     ],
     "correlati": [
       "cpu-ram-disco-spiegati-con-una-cucina",
@@ -5236,16 +5110,12 @@ const articoliGrezzi = [
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "thumbnail": "assets/images/thumbnail-and-or-not.png",
     "tags": [
-      "logica",
-      "operatori",
-      "and-or-not",
-      "fondamenti",
-      "bit",
-      "nand",
-      "nor",
-      "xor",
-      "xnor",
-      "porte-logiche"
+      "logica booleana",
+      "operatori logici",
+      "AND OR NOT",
+      "porte logiche",
+      "XOR",
+      "fondamenti"
     ],
     "correlati": [
       "bit-e-byte-perche-i-tuoi-file-pesano-in-kb-mb-e-gb",
@@ -5266,9 +5136,9 @@ const articoliGrezzi = [
     "tags": [
       "multitasking",
       "processi",
-      "cpu",
-      "miti",
-      "core"
+      "CPU",
+      "core",
+      "miti digitali"
     ],
     "correlati": [
       "cpu-ram-disco-spiegati-con-una-cucina",
@@ -5290,8 +5160,9 @@ const articoliGrezzi = [
       "browser",
       "web",
       "internet",
-      "definizioni",
-      "motore di ricerca"
+      "motore di ricerca",
+      "Chrome",
+      "miti digitali"
     ],
     "correlati": [
       "cose-il-wi-fi-no-non-e-internet",
@@ -5309,10 +5180,11 @@ const articoliGrezzi = [
     "thumbnail": "assets/images/thumbnail-email.png",
     "tags": [
       "email",
-      "pop3",
-      "imap",
+      "POP3",
+      "IMAP",
       "posta elettronica",
-      "smtp"
+      "SMTP",
+      "server di posta"
     ],
     "correlati": [
       "come-riconoscere-unemail-di-spam-in-10-secondi",
@@ -5332,10 +5204,10 @@ const articoliGrezzi = [
     "thumbnail": "assets/images/thumbnail-accendere-il-pc.png",
     "tags": [
       "boot",
-      "sistema-operativo",
+      "sistema operativo",
       "avvio",
       "firmware",
-      "bios"
+      "BIOS"
     ],
     "correlati": [
       "bios-e-firmware-chi-accende-il-pc-prima-di-windows",
@@ -5354,12 +5226,12 @@ const articoliGrezzi = [
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "thumbnail": "assets/images/thumbnail-bios.png",
     "tags": [
-      "bios",
+      "BIOS",
       "firmware",
-      "scheda-madre",
+      "scheda madre",
       "avvio",
-      "uefi",
-      "post"
+      "UEFI",
+      "POST"
     ],
     "correlati": [
       "accendere-il-pc-cosa-serve-davvero-per-farlo-partire",
@@ -5379,11 +5251,11 @@ const articoliGrezzi = [
     "thumbnail": "assets/images/thumbnail-beep-pc.png",
     "tags": [
       "beep",
-      "scheda-madre",
+      "scheda madre",
       "diagnostica",
-      "errori",
-      "post",
-      "bios"
+      "POST",
+      "BIOS",
+      "avvio"
     ],
     "correlati": [
       "bios-e-firmware-chi-accende-il-pc-prima-di-windows",
@@ -5404,9 +5276,9 @@ const articoliGrezzi = [
       "crittografia",
       "cifratura",
       "privacy",
-      "fondamenti",
-      "firma digitale",
-      "chiave pubblica"
+      "chiave pubblica",
+      "sicurezza",
+      "fondamenti"
     ],
     "correlati": [
       "http-vs-https-quella-s-ti-salva-la-vita-digitale",
@@ -5427,9 +5299,9 @@ const articoliGrezzi = [
     "tags": [
       "variabili",
       "programmazione",
-      "tipi-dati",
-      "fondamenti",
-      "int-float-string"
+      "tipi di dati",
+      "int float string",
+      "fondamenti"
     ],
     "correlati": [
       "cose-la-programmazione-dare-ordini-al-computer-nella-sua-lin",
@@ -5449,10 +5321,10 @@ const articoliGrezzi = [
     "thumbnail": "assets/images/thumbnail-algoritmo.png",
     "tags": [
       "algoritmi",
-      "ricerca",
+      "ricerca binaria",
       "efficienza",
-      "fondamenti",
-      "ordinamento"
+      "ordinamento",
+      "fondamenti"
     ],
     "correlati": [
       "and-or-not-come-il-computer-prende-decisioni",
@@ -5471,11 +5343,11 @@ const articoliGrezzi = [
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "thumbnail": "assets/images/thumbnail-pdf.png",
     "tags": [
-      "pdf",
+      "PDF",
       "documenti",
-      "formati",
-      "file",
-      "impaginazione"
+      "formati di file",
+      "impaginazione",
+      "Word"
     ],
     "correlati": [
       "bit-e-byte-perche-i-tuoi-file-pesano-in-kb-mb-e-gb",
@@ -5494,10 +5366,10 @@ const articoliGrezzi = [
     "thumbnail": "assets/images/thumbnail-lan.png",
     "tags": [
       "reti",
-      "lan",
-      "wan",
-      "basi",
-      "router"
+      "LAN",
+      "WAN",
+      "router",
+      "Wi-Fi"
     ],
     "correlati": [
       "cose-il-wi-fi-no-non-e-internet",
@@ -5515,11 +5387,10 @@ const articoliGrezzi = [
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "thumbnail": "assets/images/thumbnail-indirizzo-ip.png",
     "tags": [
-      "indirizzo ip",
-      "ip pubblico",
-      "ip privato",
-      "indirizzamento",
-      "nat",
+      "indirizzo IP",
+      "IP pubblico",
+      "IP privato",
+      "NAT",
       "rete domestica"
     ],
     "correlati": [
@@ -5541,8 +5412,8 @@ const articoliGrezzi = [
     "tags": [
       "subnet mask",
       "gateway",
-      "indirizzamento",
       "sottoreti",
+      "indirizzamento",
       "rete locale"
     ],
     "correlati": [
@@ -5562,12 +5433,11 @@ const articoliGrezzi = [
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "thumbnail": "assets/images/thumbnail-mac-address.png",
     "tags": [
-      "indirizzo mac",
+      "indirizzo MAC",
       "scheda di rete",
-      "identificazione hardware",
       "reti locali",
       "ethernet",
-      "wi-fi"
+      "Wi-Fi"
     ],
     "correlati": [
       "indirizzo-ip-il-numero-civico-del-tuo-dispositivo-e-perche-n",
@@ -5588,8 +5458,7 @@ const articoliGrezzi = [
       "switch",
       "hub",
       "dispositivi di rete",
-      "LAN",
-      "reti"
+      "LAN"
     ],
     "correlati": [
       "reti-per-umani-cose-davvero-una-rete-e-perche-lan-non-e-wan",
@@ -5607,11 +5476,11 @@ const articoliGrezzi = [
     "rubrica": "Reti & Internet",
     "data": "2026-06-07",
     "tags": [
-      "dns",
+      "DNS",
       "risoluzione nomi",
       "internet",
-      "indirizzi ip",
-      "rete"
+      "indirizzo IP",
+      "domini"
     ],
     "correlati": [
       "cosa-succede-quando-digiti-un-sito-web-il-viaggio-dei-dati",
@@ -5633,7 +5502,7 @@ const articoliGrezzi = [
       "domini di terzo livello",
       "sottodomini",
       "DNS",
-      "nomi di rete"
+      "siti web"
     ],
     "correlati": [
       "dns-la-rubrica-telefonica-che-traduce-i-nomi-dei-siti-in-num",
@@ -5650,8 +5519,8 @@ const articoliGrezzi = [
     "rubrica": "Reti & Internet",
     "data": "2026-06-05",
     "tags": [
-      "tcp",
-      "udp",
+      "TCP",
+      "UDP",
       "protocolli",
       "trasmissione dati",
       "reti"
@@ -5672,11 +5541,11 @@ const articoliGrezzi = [
     "rubrica": "Reti & Internet",
     "data": "2026-06-04",
     "tags": [
-      "porte",
+      "porte di comunicazione",
       "protocolli",
-      "ssh",
-      "ftp",
-      "telnet"
+      "SSH",
+      "FTP",
+      "indirizzo IP"
     ],
     "correlati": [
       "indirizzo-ip-il-numero-civico-del-tuo-dispositivo-e-perche-n",
@@ -5694,8 +5563,8 @@ const articoliGrezzi = [
     "rubrica": "Reti & Internet",
     "data": "2026-06-03",
     "tags": [
-      "vlan",
-      "segmentazione",
+      "VLAN",
+      "segmentazione di rete",
       "switch",
       "reti virtuali",
       "sicurezza di rete"
@@ -5716,12 +5585,11 @@ const articoliGrezzi = [
     "rubrica": "Reti & Internet",
     "data": "2026-06-02",
     "tags": [
-      "voip",
+      "VoIP",
       "telefonia analogica",
-      "voce",
-      "internet",
       "doppino",
-      "rete"
+      "internet",
+      "reti"
     ],
     "correlati": [
       "tcp-vs-udp-il-corriere-con-ricevuta-contro-quello-che-spara-",
@@ -5739,12 +5607,11 @@ const articoliGrezzi = [
     "rubrica": "Sicurezza",
     "data": "2026-06-01",
     "tags": [
-      "vpn",
+      "VPN",
       "tunnel",
-      "site-to-site",
       "accesso remoto",
       "crittografia",
-      "rete"
+      "sicurezza"
     ],
     "correlati": [
       "cifrare-un-messaggio-le-basi-della-crittografia-spiegate-sem",
@@ -5763,10 +5630,9 @@ const articoliGrezzi = [
     "data": "2026-05-31",
     "tags": [
       "firewall",
-      "regole traffico",
+      "regole di traffico",
       "filtri",
       "controllo accessi",
-      "porte",
       "sicurezza di rete"
     ],
     "correlati": [
@@ -5784,11 +5650,11 @@ const articoliGrezzi = [
     "rubrica": "Sicurezza",
     "data": "2026-05-30",
     "tags": [
-      "dmz",
+      "DMZ",
       "server esposti",
-      "segmentazione",
-      "perimetro",
-      "firewall"
+      "segmentazione di rete",
+      "firewall",
+      "sicurezza di rete"
     ],
     "correlati": [
       "firewall-la-guardia-del-corpo-del-tuo-pc",
@@ -5805,7 +5671,7 @@ const articoliGrezzi = [
     "rubrica": "Reti & Internet",
     "data": "2026-05-29",
     "tags": [
-      "iso osi",
+      "ISO OSI",
       "modello a livelli",
       "pacchetti",
       "protocolli",
@@ -5830,8 +5696,8 @@ const articoliGrezzi = [
       "programmazione",
       "linguaggi",
       "codice",
-      "basi",
-      "algoritmi"
+      "algoritmi",
+      "fondamenti"
     ],
     "correlati": [
       "basso-e-alto-livello-perche-al-computer-non-parli-come-a-un-",
@@ -5848,10 +5714,11 @@ const articoliGrezzi = [
     "rubrica": "Ma cos'è?",
     "data": "2026-05-27",
     "tags": [
-      "linguaggi",
+      "linguaggi di programmazione",
       "basso livello",
       "alto livello",
-      "astrazione"
+      "astrazione",
+      "codice macchina"
     ],
     "correlati": [
       "cose-la-programmazione-dare-ordini-al-computer-nella-sua-lin",
@@ -5868,11 +5735,10 @@ const articoliGrezzi = [
     "rubrica": "Sistema & Software",
     "data": "2026-05-26",
     "tags": [
-      "linguaggi",
-      "sql",
-      "tipi di linguaggi",
+      "linguaggi di programmazione",
+      "SQL",
+      "JavaScript",
       "database",
-      "javascript",
       "programmazione"
     ],
     "correlati": [
@@ -5891,10 +5757,11 @@ const articoliGrezzi = [
     "rubrica": "Sistema & Software",
     "data": "2026-05-25",
     "tags": [
-      "html",
-      "css",
-      "javascript",
-      "php"
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "PHP",
+      "sviluppo web"
     ],
     "correlati": [
       "cosa-succede-quando-digiti-un-sito-web-il-viaggio-dei-dati",
@@ -5912,10 +5779,11 @@ const articoliGrezzi = [
     "rubrica": "Sistema & Software",
     "data": "2026-05-24",
     "tags": [
-      "windows",
+      "Windows",
       "sistema operativo",
-      "basi",
-      "periferiche"
+      "PC",
+      "hardware",
+      "software"
     ],
     "correlati": [
       "esplora-file-la-mappa-per-non-perderti-tra-le-tue-cartelle",
@@ -5933,12 +5801,12 @@ const articoliGrezzi = [
     "rubrica": "Sistema & Software",
     "data": "2026-05-23",
     "tags": [
-      "esplora file",
-      "indicizzazione",
-      "ricerca",
+      "Esplora File",
       "file",
       "cartelle",
-      "windows"
+      "ricerca",
+      "indicizzazione",
+      "Windows"
     ],
     "correlati": [
       "windows-dalla-a-alla-z-lanatomia-del-sistema-che-usi-ogni-gi",
@@ -5956,11 +5824,11 @@ const articoliGrezzi = [
     "rubrica": "Sistema & Software",
     "data": "2026-05-22",
     "tags": [
-      "dischi",
       "partizioni",
+      "dischi",
       "gestione disco",
       "archiviazione",
-      "windows"
+      "Windows"
     ],
     "correlati": [
       "ssd-vs-hdd-perche-il-tuo-vecchio-pc-sembra-rinascere",
@@ -5978,10 +5846,12 @@ const articoliGrezzi = [
     "rubrica": "Sistema & Software",
     "data": "2026-05-21",
     "tags": [
-      "utenze",
-      "uac",
+      "UAC",
+      "account utente",
       "amministratore",
-      "permessi"
+      "permessi",
+      "sicurezza",
+      "Windows"
     ],
     "correlati": [
       "windows-dalla-a-alla-z-lanatomia-del-sistema-che-usi-ogni-gi",
@@ -6000,9 +5870,10 @@ const articoliGrezzi = [
     "data": "2026-05-20",
     "tags": [
       "aggiornamenti",
-      "windows update",
+      "Windows Update",
       "manutenzione",
-      "sicurezza"
+      "sicurezza",
+      "Windows"
     ],
     "correlati": [
       "admin-utente-standard-e-uac-chi-comanda-davvero-sul-tuo-pc",
@@ -6022,7 +5893,8 @@ const articoliGrezzi = [
       "terminale",
       "riga di comando",
       "cmd",
-      "windows"
+      "PowerShell",
+      "Windows"
     ],
     "correlati": [
       "cose-la-programmazione-dare-ordini-al-computer-nella-sua-lin",
@@ -6043,8 +5915,9 @@ const articoliGrezzi = [
       "32 bit",
       "64 bit",
       "architettura",
-      "prestazioni",
-      "RAM"
+      "CPU",
+      "RAM",
+      "Windows"
     ],
     "correlati": [
       "cpu-ram-disco-spiegati-con-una-cucina",
@@ -6066,7 +5939,7 @@ const articoliGrezzi = [
       "installazione",
       "disinstallazione",
       "programmi predefiniti",
-      "procedure"
+      "sicurezza"
     ],
     "correlati": [
       "esplora-file-la-mappa-per-non-perderti-tra-le-tue-cartelle",
@@ -6085,10 +5958,9 @@ const articoliGrezzi = [
     "tags": [
       "personalizzazione",
       "tema",
-      "aspetto",
-      "windows",
       "sfondo",
-      "tema scuro"
+      "tema scuro",
+      "Windows"
     ],
     "correlati": [
       "windows-dalla-a-alla-z-lanatomia-del-sistema-che-usi-ogni-gi",
@@ -6106,9 +5978,10 @@ const articoliGrezzi = [
     "data": "2026-05-15",
     "tags": [
       "compressione",
-      "zip",
-      "rar",
-      "7zip"
+      "ZIP",
+      "RAR",
+      "7zip",
+      "file"
     ],
     "correlati": [
       "bit-e-byte-perche-i-tuoi-file-pesano-in-kb-mb-e-gb",
@@ -6127,9 +6000,8 @@ const articoliGrezzi = [
     "tags": [
       "macchine virtuali",
       "virtualizzazione",
-      "vm",
-      "sistema operativo",
-      "virtualbox"
+      "VirtualBox",
+      "sistema operativo"
     ],
     "correlati": [
       "cose-il-cloud-spoiler-e-il-computer-di-qualcun-altro",
@@ -6150,7 +6022,8 @@ const articoliGrezzi = [
       "antivirus",
       "sicurezza",
       "malware",
-      "protezione"
+      "Microsoft Defender",
+      "Windows"
     ],
     "correlati": [
       "il-mac-non-prende-virus-vero-o-falso",
@@ -6168,11 +6041,11 @@ const articoliGrezzi = [
     "rubrica": "Sistema & Software",
     "data": "2026-05-12",
     "tags": [
-      "office",
-      "sharepoint",
-      "produttivita",
-      "collaborazione",
-      "microsoft 365"
+      "Office",
+      "SharePoint",
+      "Microsoft 365",
+      "produttività",
+      "collaborazione"
     ],
     "correlati": [
       "cose-il-cloud-spoiler-e-il-computer-di-qualcun-altro",
@@ -6189,10 +6062,12 @@ const articoliGrezzi = [
     "rubrica": "Hardware & Periferiche",
     "data": "2026-05-11",
     "tags": [
-      "componenti",
       "hardware",
-      "pc",
-      "scheda madre"
+      "componenti",
+      "CPU",
+      "RAM",
+      "scheda madre",
+      "PC"
     ],
     "correlati": [
       "cpu-ram-disco-spiegati-con-una-cucina",
@@ -6209,9 +6084,8 @@ const articoliGrezzi = [
     "rubrica": "Ma cos'è?",
     "data": "2026-05-10",
     "tags": [
-      "hertz",
+      "Hertz",
       "frequenza",
-      "concetti base",
       "GHz",
       "CPU"
     ],
@@ -6230,10 +6104,10 @@ const articoliGrezzi = [
     "rubrica": "Hardware & Periferiche",
     "data": "2026-05-09",
     "tags": [
+      "frequenza di refresh",
       "monitor",
-      "refresh",
-      "hz",
-      "schermo"
+      "schermo",
+      "Hertz"
     ],
     "correlati": [
       "cose-un-hertz-la-pulsazione-segreta-che-muove-ogni-dispositi",
@@ -6252,9 +6126,10 @@ const articoliGrezzi = [
     "data": "2026-05-08",
     "tags": [
       "archiviazione",
-      "hdd",
-      "ssd",
-      "nvme"
+      "HDD",
+      "SSD",
+      "NVMe",
+      "storia"
     ],
     "correlati": [
       "ssd-vs-hdd-perche-il-tuo-vecchio-pc-sembra-rinascere",
@@ -6272,7 +6147,7 @@ const articoliGrezzi = [
     "rubrica": "Hardware & Periferiche",
     "data": "2026-05-07",
     "tags": [
-      "ram",
+      "RAM",
       "memoria",
       "accesso casuale",
       "accesso sequenziale",
@@ -6294,8 +6169,9 @@ const articoliGrezzi = [
     "rubrica": "Hardware & Periferiche",
     "data": "2026-05-06",
     "tags": [
-      "cpu",
+      "CPU",
       "core",
+      "multicore",
       "multithreading",
       "processore"
     ],
@@ -6316,9 +6192,9 @@ const articoliGrezzi = [
     "data": "2026-05-05",
     "tags": [
       "videochiamate",
-      "teams",
-      "meet",
-      "zoom",
+      "Teams",
+      "Meet",
+      "Zoom",
       "webcam",
       "microfono"
     ],
@@ -6340,7 +6216,6 @@ const articoliGrezzi = [
       "input",
       "output",
       "periferiche",
-      "basi",
       "hardware"
     ],
     "correlati": [
@@ -6359,12 +6234,11 @@ const articoliGrezzi = [
     "data": "2026-05-03",
     "tags": [
       "cavi",
-      "cavetteria",
       "connettori",
-      "hardware",
       "alimentazione",
       "video",
-      "dati"
+      "dati",
+      "hardware"
     ],
     "correlati": [
       "usb-a-b-c-il-dizionario-delle-porte-e-perche-la-c-ha-vinto",
@@ -6382,10 +6256,9 @@ const articoliGrezzi = [
     "data": "2026-05-02",
     "tags": [
       "cavi di rete",
-      "ethernet",
+      "Ethernet",
       "categorie",
-      "rete",
-      "cavi"
+      "rete"
     ],
     "correlati": [
       "la-giungla-dei-cavi-una-guida-per-non-perdersi-dietro-al-pc",
@@ -6405,9 +6278,8 @@ const articoliGrezzi = [
     "tags": [
       "server",
       "client",
-      "architettura",
-      "basi",
-      "rete"
+      "rete",
+      "architettura"
     ],
     "correlati": [
       "cose-il-cloud-spoiler-e-il-computer-di-qualcun-altro",
@@ -6425,7 +6297,7 @@ const articoliGrezzi = [
     "rubrica": "Ma cos'è?",
     "data": "2026-04-30",
     "tags": [
-      "nas",
+      "NAS",
       "archiviazione",
       "rete",
       "backup",
@@ -6449,8 +6321,9 @@ const articoliGrezzi = [
     "tags": [
       "stampante",
       "installazione",
-      "ip",
-      "wps"
+      "IP",
+      "driver",
+      "Windows"
     ],
     "correlati": [
       "indirizzo-ip-il-numero-civico-del-tuo-dispositivo-e-perche-n",
@@ -6488,11 +6361,11 @@ const articoliGrezzi = [
     "rubrica": "Hardware & Periferiche",
     "data": "2026-04-27",
     "tags": [
-      "usb",
+      "USB",
       "porte",
       "connettori",
-      "usb-c",
-      "usb 3.0"
+      "USB-C",
+      "USB 3.0"
     ],
     "correlati": [
       "la-giungla-dei-cavi-una-guida-per-non-perdersi-dietro-al-pc",
@@ -6510,10 +6383,11 @@ const articoliGrezzi = [
     "rubrica": "Hardware & Periferiche",
     "data": "2026-04-26",
     "tags": [
-      "hdmi",
-      "displayport",
+      "HDMI",
+      "DisplayPort",
       "monitor",
-      "cavi"
+      "cavi",
+      "video"
     ],
     "correlati": [
       "usb-a-b-c-il-dizionario-delle-porte-e-perche-la-c-ha-vinto",
@@ -6532,10 +6406,10 @@ const articoliGrezzi = [
     "data": "2026-04-25",
     "tags": [
       "multischermo",
-      "risoluzione",
       "monitor",
+      "risoluzione",
       "configurazione",
-      "windows"
+      "Windows"
     ],
     "correlati": [
       "computer-vs-monitor-non-sono-la-stessa-cosa",
@@ -6553,9 +6427,11 @@ const articoliGrezzi = [
     "data": "2026-04-24",
     "tags": [
       "audio",
+      "cuffie",
+      "casse",
       "periferiche",
-      "jack",
-      "configurazione"
+      "Windows",
+      "uscita audio"
     ],
     "correlati": [
       "la-giungla-dei-cavi-una-guida-per-non-perdersi-dietro-al-pc",
@@ -6576,8 +6452,9 @@ const articoliGrezzi = [
       "trasferimento file",
       "smartphone",
       "USB",
-      "wireless",
-      "cloud"
+      "Wi-Fi",
+      "cloud",
+      "foto"
     ],
     "correlati": [
       "cose-il-cloud-spoiler-e-il-computer-di-qualcun-altro",
@@ -6595,6 +6472,14 @@ const articoliGrezzi = [
     "data": "2026-06-26",
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "thumbnail": "assets/images/thumbnail-cloud.png",
+    "tags": [
+      "cloud",
+      "server",
+      "archiviazione",
+      "Google Drive",
+      "Dropbox",
+      "iCloud"
+    ],
     "contenutoBreve": "«I miei dati sono nel cloud.» Bella frase. Ma il cloud non è una nuvola magica nel cielo: è semplicemente il computer di qualcun altro.\n\nQuando salvi una foto su Google Foto, iCloud o Dropbox, quella foto non sta «nell'aria». Sta su un disco, dentro un computer molto potente, in un capannone pieno di computer chiamato data center, da qualche parte nel mondo. Tu ci accedi via Internet.\n\nIl vantaggio? Non devi più pensare tu a conservare e proteggere quei dati: lo fa l'azienda che gestisce il data center, che ne tiene anche più copie. Lo svantaggio? Ti fidi di loro, e senza Internet non ci arrivi.\n\nQuindi «cloud» significa solo questo: i tuoi file vivono sul computer di qualcun altro, e tu li raggiungi dalla rete.",
     "contenuto": "«I miei dati sono nel cloud.» La usiamo tutti, questa frase. Ma quasi nessuno sa cosa significhi davvero. E quando lo scopri, smetti di avere paura della parola «cloud».\n\nCOS'È DAVVERO IL CLOUD\nIl cloud non è una nuvola, non è «l'aria», non è qualcosa di etereo. È un nome poetico per una cosa molto concreta: computer di qualcun altro, accesi 24 ore su 24, a cui tu ti colleghi via Internet.\n\nQuando carichi una foto su iCloud o un documento su Google Drive, quel file viaggia dalla tua casa fino a un edificio chiamato data center: un capannone enorme, pieno di migliaia di computer (chiamati server) e di dischi, con impianti di raffreddamento e generatori di corrente. Lì il tuo file viene salvato. Quando lo riapri dal telefono, il file rifà il viaggio al contrario.\n\n\n[IMG: il-cloud.png | Dal tuo dispositivo, attraverso Internet, fino al data center: ecco dov'è il «cloud»]\n\n\nPERCHÉ CONVIENE\nIl motivo per cui il cloud ha avuto tanto successo è semplice: ti toglie dei pensieri. Prima, se volevi conservare le tue foto, dovevi pensarci tu: un hard disk, magari un secondo disco per il backup, la paura che si rompesse. Con il cloud, di tutto questo si occupa l'azienda: i data center seri tengono più copie dei tuoi dati in posti diversi, così se un disco si rompe non perdi niente.\n\nIn più i tuoi file ti seguono ovunque: la stessa foto è sul telefono, sul PC e sul tablet, perché in realtà sta in un posto solo e tutti i tuoi dispositivi la leggono da lì.\n\nI DUE PREZZI DA PAGARE\nIl cloud non è gratis, e non parlo solo di soldi. Ci sono due «costi» da capire. Il primo: ti fidi. I tuoi dati sono sul computer di un'azienda, quindi stai scegliendo di fidarti di come li custodisce e li protegge. Per questo conviene usare servizi seri e attivare sempre una password robusta e la verifica in due passaggi.\n\nIl secondo: senza Internet non ci arrivi. Se la connessione è giù, i file che stanno «solo nel cloud» per un momento non li raggiungi. Per i documenti più importanti, tieni anche una copia locale.\n\nCLOUD NON VUOL DIRE «AL SICURO PER SEMPRE»\nAttenzione a un equivoco diffuso: «tanto è nel cloud» non significa «non lo perderò mai». Se cancelli un file e svuoti il cestino, sparisce anche dal cloud. Se qualcuno entra nel tuo account, entra anche nei tuoi dati. Il cloud sposta i tuoi file su computer più affidabili dei tuoi, ma la responsabilità dell'accesso resta tua.\n\nIN UNA FRASE\nCloud è solo una parola elegante per dire: «i miei file vivono sul computer di qualcun altro, raggiungibile da Internet». Da oggi, quando qualcuno dice «mettilo nel cloud», sai esattamente dove finisce.\n\nE tu, quanti GB hai nel cloud senza saperlo? Controlla quanto spazio usano Google Foto o iCloud: a volte è una sorpresa.",
     "contenutoTecnico": "APRIAMO IL COFANO\n\nHai letto l'approfondita, quindi la sostanza la possiedi già: il cloud è il computer di qualcun altro, raggiungibile via Internet. Adesso però scendiamo sotto la lamiera e guardiamo gli ingranaggi. Perché un solo server fisico ospita centinaia di clienti, perché i tuoi file finiscono spezzettati su più dischi in città diverse, e cosa significano davvero quelle sigle che vedi sulle pagine dei provider. Niente paura: ogni concetto te lo spiego partendo dal motore, non dalla brochure.\n\n\nLA VIRTUALIZZAZIONE: UN COMPUTER CHE FINGE DI ESSERE TANTI\n\nIl trucco da cui nasce tutto il cloud si chiama virtualizzazione. Dentro il data center non c'è un computer fisico per ogni cliente: ci sono macchine potentissime (decine di core, centinaia di GB di RAM) su cui gira un programma speciale chiamato hypervisor. L'hypervisor prende l'hardware reale e lo affetta in tante macchine virtuali (VM): ognuna crede di essere un computer vero, con il suo sistema operativo, la sua RAM, il suo disco, ma in realtà è solo una porzione isolata della macchina fisica.\n\nEsempi di hypervisor reali: KVM (che muove gran parte di Google Cloud e oggi anche di AWS), Xen (usato a lungo da Amazon), VMware ESXi, Microsoft Hyper-V. Sopra le VM, da una decina d'anni, c'è un livello ancora più leggero: i container (Docker e simili), spesso orchestrati da Kubernetes. Un container non virtualizza l'intero computer ma solo l'ambiente dell'applicazione, quindi parte in millisecondi anziché in minuti e pesa pochissimo. È la ragione per cui un servizio può crescere da uno a mille processi quasi all'istante.\n\nLa virtualizzazione è la chiave di volta: senza la capacità di affettare l'hardware, l'azienda non potrebbe darti una fetta di server solo quando ti serve e ridartela quando non ti serve più.\n\n\nMULTI-TENANT: PERCHÉ CONDIVIDI IL FERRO CON ESTRANEI\n\nMulti-tenant significa proprio questo: sullo stesso server fisico convivono molti inquilini (tenant) diversi, spesso aziende che non si conoscono. È come un condominio: stesso edificio, stesso impianto di riscaldamento, ma ogni appartamento ha la sua porta blindata. L'isolamento tra inquilini è garantito a livello di hypervisor e di rete: ogni tenant ha le sue reti virtuali, le sue regole, le sue chiavi di cifratura.\n\nPerché ti riguarda? Perché il multi-tenant è ciò che rende il cloud economico: il costo del ferro, dell'energia e del raffreddamento viene spalmato su migliaia di clienti. Ma è anche il motivo per cui la separazione logica diventa critica. Una falla nell'isolamento (il cosiddetto rischio del noisy neighbor, il vicino rumoroso, o peggio una fuga tra VM) è esattamente ciò contro cui i provider investono di più.\n\n\nIAAS, PAAS, SAAS: TRE LIVELLI DI «QUANTO TE NE OCCUPI TU»\n\nQueste tre sigle descrivono quanta parte della macchina gestisci tu e quanta il provider. Immagina di voler una pizza.\n\nIaaS (Infrastructure as a Service). Il provider ti dà l'infrastruttura nuda: macchine virtuali, dischi, rete. Tu ci installi sopra il sistema operativo, gli aggiornamenti, l'applicazione. È come comprare farina e forno: massima libertà, massima responsabilità. Esempi: Amazon EC2, le VM di Google Compute Engine o di Azure.\n\nPaaS (Platform as a Service). Il provider gestisce anche il sistema operativo e l'ambiente di esecuzione: tu carichi solo il tuo codice e lui pensa al resto. È la pizza surgelata: la inforni e basta. Esempi: Google App Engine, Heroku, i database gestiti come Amazon RDS.\n\nSaaS (Software as a Service). Il software è già pronto e funzionante, tu lo usi dal browser e basta. È la pizza consegnata a domicilio. Gmail, Google Drive, Dropbox, Microsoft 365: i servizi cloud che usi ogni giorno sono SaaS. Quando dici «i miei dati sono nel cloud», quasi sempre stai parlando di SaaS, costruito sopra PaaS, costruito sopra IaaS. Tre strati uno sull'altro.\n\n\nREGIONI E ZONE DI DISPONIBILITÀ: LA GEOGRAFIA NASCOSTA\n\nI data center non sono un punto unico: sono organizzati in regioni e zone. Una regione è un'area geografica (per esempio Milano, Irlanda, Francoforte). Dentro ogni regione ci sono più zone di disponibilità (Availability Zone, abbreviato AZ): data center fisicamente separati, con alimentazione e raffreddamento indipendenti, ma collegati tra loro da fibra a bassissima latenza, di solito sotto il millisecondo.\n\nA cosa serve questa struttura? A sopravvivere ai guasti. Se un'intera AZ va giù per un incendio o un blackout, le altre zone della stessa regione continuano a funzionare. Per questo le applicazioni serie si distribuiscono su almeno due o tre AZ.\n\nE perché ti chiedono in quale regione mettere i dati? Per due motivi concreti. Il primo è la latenza: più sei vicino, più è veloce, perché la luce nella fibra non viaggia a 300.000 km/s come nel vuoto ma a circa 200.000 km/s, e ogni 1.000 km di distanza aggiungono qualche millisecondo all'andata e altrettanti al ritorno. Il secondo sono le leggi sulla residenza dei dati: se i tuoi dati riguardano cittadini europei, il GDPR ti spinge a tenerli su regioni europee. La nuvola, insomma, ha un indirizzo preciso e una giurisdizione.\n\n[IMG: regioni-zone.png | Una regione contiene più zone di disponibilità (AZ): data center separati ma vicini, così un guasto non ferma tutto]\n\n\nOBJECT STORAGE: NON UNA CARTELLA, MA UN MAGAZZINO DI OGGETTI\n\nQuando carichi una foto su un servizio cloud, di solito non finisce in un file dentro una cartella come sul tuo PC. Finisce in un object storage: un magazzino enorme dove ogni file è un oggetto identificato da una chiave univoca (una specie di codice a barre) e accompagnato da metadati (data, tipo, dimensione, permessi). Il sistema più famoso è Amazon S3 (Simple Storage Service); gli equivalenti sono Google Cloud Storage e Azure Blob Storage.\n\nLa differenza con il disco di casa è profonda. Non c'è una vera struttura ad albero di cartelle: c'è uno spazio piatto (un bucket, cioè un secchio) in cui ogni oggetto vive col suo nome. Ci accedi via HTTP, con chiamate API come GET e PUT, non come a un'unità del computer. Questo rende l'object storage praticamente illimitato e accessibile da qualunque parte del mondo con un URL. Il prezzo da pagare: un oggetto si sostituisce per intero, non si modifica un pezzettino come faresti con una riga di un documento. Per i file che cambiano di continuo (un database) si usa infatti il block storage, un'altra famiglia.\n\n\nRIDONDANZA E REPLICA: PERCHÉ NON PERDI IL FILE ANCHE SE SI ROMPE UN DISCO\n\nL'approfondita ti ha detto che il provider tiene «più copie». Ecco il meccanismo vero. Una copia identica si chiama replica, e i sistemi seri ne mantengono in genere tre, distribuite su zone diverse. Una tecnica più sofisticata è l'erasure coding: il file viene spezzato in frammenti e arricchito con frammenti di parità (calcolati matematicamente), così che basti recuperare una parte dei pezzi per ricostruire tutto. È lo stesso principio del RAID dei dischi, ma esteso a interi data center.\n\nQuando salvi su S3 in modalità standard, dietro le quinte il sistema scrive il tuo oggetto in più AZ prima ancora di confermarti il caricamento. I provider esprimono questa affidabilità con cifre come «undici nove» di durabilità (99,999999999% all'anno): significa, statisticamente, che se affidi loro dieci milioni di oggetti potresti perderne in media uno ogni diecimila anni. Attenzione: la durabilità riguarda la perdita per guasto hardware, non protegge dalla cancellazione che fai tu. La replica, poi, può essere sincrona (le copie vengono scritte tutte prima della conferma, massima sicurezza) oppure asincrona (le copie si allineano con un piccolo ritardo, più veloce ma con una finestra di rischio). Sapere quale delle due usa il tuo servizio ti dice quanto puoi davvero fidarti del «è già salvato».\n\n\nSCALABILITÀ: CRESCERE E RIMPICCIOLIRE DA SOLI\n\nL'ultimo pilastro è la scalabilità: la capacità di aggiungere potenza quando il carico sale e toglierla quando scende. Si fa in due modi. La scalabilità verticale (scale up) dà più RAM e più core alla stessa macchina: semplice, ma ha un tetto fisico. La scalabilità orizzontale (scale out) aggiunge altre macchine in parallelo e distribuisce il traffico tra loro con un bilanciatore di carico (load balancer). È così che un sito regge il picco del Black Friday: un meccanismo di autoscaling accende nuove istanze quando l'uso della CPU supera, poniamo, il 70%, e le spegne quando il picco passa.\n\nQui si chiude il cerchio con il multi-tenant e la virtualizzazione: puoi crescere all'istante perché il data center ha ferro condiviso pronto da affettare, e paghi solo le fette che usi davvero, spesso al secondo o al minuto. Il modello pay-as-you-go non è un'offerta commerciale: è la conseguenza tecnica diretta del fatto che una VM si crea e si distrugge con una semplice chiamata API.\n\n\nIN PROFONDITÀ, IN UNA FRASE\n\nIl cloud è virtualizzazione (affetto il ferro) più multi-tenant (lo condivido) più object storage replicato su regioni e zone (lo conservo in modo durevole) più autoscaling (lo dimensiono al volo). Tutto il resto sono nomi commerciali sopra questi quattro motori.\n\nOra che sai leggere le sigle: vai sul pannello del tuo provider e cerca in quale regione e in quale zona vivono davvero i tuoi dati. Sapresti dire se sono replicati in modo sincrono o asincrono? Quella riga, di solito, ti dice quanto stai rischiando senza saperlo."
@@ -6604,6 +6489,13 @@ const articoliGrezzi = [
     "rubrica": "Ma cos'è?",
     "data": "2026-04-14",
     "videoUrl": "https://youtube.com/watch?v=placeholder",
+    "tags": [
+      "monitor",
+      "computer",
+      "hardware",
+      "PC",
+      "basi informatica"
+    ],
     "contenutoBreve": "Punta il dito verso il tuo PC. Fatto? Se hai indicato lo schermo, questo video è per te.\n\nQuasi tutti chiamano \"computer\" quello che in realtà è solo il monitor, cioè lo schermo. Ma il monitor da solo non fa assolutamente nulla. È come un televisore spento senza decoder: vedi il vetro, ma non arriva nessun segnale.\n\nIl computer vero e proprio è quella scatola, spesso sotto la scrivania, che contiene il cervello della macchina: il processore, la memoria, il disco dove salvi i file. Lo schermo è solo la finestra attraverso cui vedi quello che il computer sta facendo.\n\nPensala così: il monitor è il televisore, il computer è il decoder. Il televisore mostra le immagini, ma chi fa il lavoro vero è il decoder.\n\nLa prossima volta che qualcuno ti chiede \"che computer hai?\" e tu indichi lo schermo, ricordati di BIT. Tagga nei commenti qualcuno che chiama computer il monitor.",
     "contenuto": "Sei al telefono con l'assistenza. Dall'altra parte ti chiedono: \"Mi dice che computer ha?\" e tu, senza pensarci, leggi la marca scritta sotto lo schermo. Niente di strano: lo facciamo quasi tutti. Eppure, quasi sempre, stiamo guardando la cosa sbagliata.\n\nQuello che chiamiamo \"computer\", nella maggior parte dei casi, è solo il monitor. Cioè lo schermo. E il monitor, da solo, non fa assolutamente nulla. È un vetro che aspetta. Se non riceve un segnale, resta lì spento, muto, inutile come un televisore staccato dalla corrente.\n\nMONITOR: LA FINESTRA, NON LA CASA\n\nImmagina la vetrina di un negozio. È bellissima, pulita, illuminata. Ma se dentro non c'è nessuno e non c'è merce, ti mostra solo il vuoto. Il monitor è esattamente questo: una vetrina. Ti fa vedere qualcosa, ma non è lui a produrre quel qualcosa.\n\nIl suo compito è uno solo: mostrarti le immagini. I colori, le scritte, i video, il puntatore che si muove. Tutto bellissimo, ma è solo il risultato finale. Il lavoro vero, quello pesante, succede altrove.\n\nPensala come al cinema. Lo schermo bianco davanti a te è enorme e ti incanta, ma il film non nasce lì. Nasce nella cabina di proiezione, dietro di te, dove c'è la macchina che fa partire tutto. Lo schermo riceve e basta.\n\nIL COMPUTER: IL CERVELLO NASCOSTO\n\nE allora dov'è il computer vero? Spesso è quella scatola che tieni sotto la scrivania, o di fianco. Quella che molti ignorano, magari coperta di polvere, con qualche lucina e una ventola che ronza. Ecco, quella scatola è il cervello.\n\nDentro ci sono tre cose che fanno tutto il lavoro.\n\nIl processore. È il cervello vero e proprio, la parte che pensa e fa i calcoli. Ogni volta che apri un programma, scrivi una mail o guardi un video, è lui che lavora dietro le quinte. È come il cuoco in cucina: tu vedi solo il piatto che arriva al tavolo, ma è lui che ha tagliato, cotto e impiattato.\n\nLa memoria. È il piano di lavoro, il tavolo su cui il cuoco appoggia gli ingredienti mentre cucina. Più è grande, più cose puoi tenere aperte insieme senza che tutto rallenti. Quando hai venti schede del browser aperte e il PC arranca, spesso è il tavolo che è diventato troppo piccolo.\n\nIl disco. È la dispensa, il magazzino dove resta tutto quando spegni: le foto, i documenti, la musica, i film. Anche a computer spento, lì le cose rimangono. È la differenza tra il tavolo, che si svuota a fine giornata, e la dispensa, che conserva tutto.\n\nLo schermo, di tutto questo, non sa niente. Si limita a mostrarti il risultato.\n\nLA METAFORA CHE RISOLVE TUTTO\n\nTe la metto nel modo più semplice possibile, lo stesso del video: il monitor è il televisore, il computer è il decoder.\n\nIl televisore mostra le immagini. Ma chi decide quali immagini, quale canale, quale segnale arriva? Il decoder. Stacca il decoder e il televisore non sa più cosa fare. Resta acceso, ma vuoto. Allo stesso modo, stacca il computer dal monitor e lo schermo non ha più niente da mostrare.\n\nQuesto spiega anche una cosa che magari ti è capitata. Hai cambiato lo schermo perché il vecchio si era rotto, e tutti i tuoi file erano ancora lì. Come mai? Perché i file non stavano nel monitor. Stavano nel computer, nella sua dispensa. Hai cambiato la finestra, non la casa.\n\nE AL CONTRARIO?\n\nQui arriva la parte interessante. Esistono computer che non hanno una scatola separata, e questo confonde ancora di più.\n\nPensa al portatile. Lì sembra che lo schermo e il computer siano la stessa cosa, perché sono attaccati. Ma non lo sono. Se apri un portatile, sotto la tastiera c'è tutto il cervello: processore, memoria, disco. Lo schermo è solo la metà di sopra. Sono semplicemente stati messi nella stessa scocca per comodità.\n\nStessa storia con certi computer \"tutto in uno\", quelli che sembrano solo un monitor elegante. In realtà il cervello è nascosto dietro lo schermo, infilato nello stesso guscio. Sembra un monitor, ma dentro è un computer completo.\n\nE poi c'è lo smartphone, che è il colpo di scena finale: è un computer a tutti gli effetti, con processore, memoria e disco, solo piccolo e che ci sta in tasca. Lo schermo che tocchi è, di nuovo, solo la finestra.\n\nPERCHÉ TI CONVIENE SAPERLO\n\nNon è una questione da pignoli. Capire questa differenza ti aiuta nella vita di tutti i giorni.\n\nSe il PC è lento, sai che non serve a niente comprare uno schermo nuovo: il problema è dentro la scatola, di solito memoria o disco. Se devi chiamare l'assistenza, sai descrivere cosa hai davvero. Se compri qualcosa, smetti di pagare per il monitor pensando di pagare per la potenza. La potenza sta nel cervello, non nel vetro.\n\n[IMG: computer-vs-monitor.png | A sinistra il monitor, la finestra. A destra la scatola del computer, il cervello.]\n\nLa prossima volta che qualcuno ti chiede \"che computer hai?\" e ti accorgi che stavi per indicare lo schermo, fermati un attimo e sorridi. Adesso sai dov'è davvero il cervello.\n\nE tu, fino a oggi, da che parte puntavi il dito?"
   },
@@ -6612,6 +6504,14 @@ const articoliGrezzi = [
     "rubrica": "Sicurezza",
     "data": "2026-04-16",
     "videoUrl": "https://youtube.com/watch?v=placeholder",
+    "tags": [
+      "spam",
+      "email",
+      "phishing",
+      "sicurezza",
+      "truffe online",
+      "mittente"
+    ],
     "contenutoBreve": "Hai appena vinto 10.000 euro? Oppure no. Hai appena ricevuto spam. E oggi ti insegno a riconoscerlo in dieci secondi netti.\n\nSEGNALE 1: IL MITTENTE\nLa prima cosa da guardare è l'indirizzo email del mittente. Non il nome visualizzato, proprio l'indirizzo. Se dice \"Banca Intesa\" ma l'email è qualcosa tipo info@bancaintesa-sicurezza-verifica.xyz, è spam. Le aziende serie usano il loro dominio ufficiale.\n\nSEGNALE 2: L'URGENZA ARTIFICIALE\nIl tuo account verrà chiuso entro 24 ore! Azione richiesta immediatamente! Se l'email ti mette fretta, fermati. Le aziende reali non ti danno ultimatum via email per cose importanti. L'urgenza serve a farti cliccare senza pensare.\n\nSEGNALE 3: ERRORI E LINK SOSPETTI\nLeggi con attenzione: spesso ci sono errori grammaticali, traduzioni approssimative, frasi che non hanno senso. E soprattutto: passa il mouse sopra i link SENZA cliccare. In basso a sinistra del browser vedi dove porta davvero quel link. Se l'indirizzo non corrisponde al sito ufficiale, non cliccare.\n\nLA REGOLA D'ORO\nNel dubbio, non cliccare mai sul link nell'email. Apri il browser, vai direttamente sul sito ufficiale digitando tu l'indirizzo, e controlla da lì. Se c'è davvero un problema, lo vedrai anche dal sito.\n\nRicapitoliamo: controlla il mittente, diffida dell'urgenza, verifica i link. Tre secondi per ciascuno, dieci secondi in tutto per salvarti da una truffa.",
     "contenuto": "Apri la posta al mattino, caffè in mano, e c'è scritto che hai vinto 10.000 euro. Oppure che la tua banca ha \"bloccato l'account\". Il cuore fa un piccolo salto. Ecco, è proprio in quel mezzo secondo di emozione che lo spam fa il suo lavoro. Ma la buona notizia è questa: imparare a smascherarlo richiede meno tempo di quanto ci metti a bere quel caffè. Dieci secondi netti.\n\nPensa allo spam come a un venditore porta a porta troppo insistente. Bussa, sorride, e ti racconta una storia perfetta per farti aprire la porta. Il tuo compito non è ascoltare la storia. È guardare bene chi hai davanti.\n\nSEGNALE 1: IL MITTENTE, GUARDA L'INDIRIZZO VERO\n\nLa prima mossa è sempre la stessa: controlla l'indirizzo email del mittente. Non il nome che vedi in grassetto, quello è solo un'etichetta che chiunque può scriversi. Devi guardare l'indirizzo vero, quello con la chiocciola.\n\nÈ come quando qualcuno suona al citofono dicendo \"sono il tecnico del gas\". Il nome lo può dire chiunque. Tu vuoi vedere il tesserino. Nell'email, il tesserino è il dominio, cioè la parte che viene dopo la chiocciola.\n\nUna banca seria ti scrive da un indirizzo pulito, tipo qualcosa@intesasanpaolo.com. I truffatori invece costruiscono indirizzi che sembrano ufficiali ma non lo sono: info@intesa-sicurezza-verifica.xyz, oppure assistenza@intesasanpaolo.servizio-clienti.info. Il trucco è infilare il nome famoso da qualche parte per rassicurarti, sperando che tu non guardi il resto. Le finali strane come .xyz, .info, .top o i trattini a raffica sono campanelli d'allarme. Sul telefono a volte il mittente è nascosto: tocca il nome e si apre l'indirizzo completo.\n\nSEGNALE 2: L'URGENZA ARTIFICIALE, LA FRETTA È UN'ARMA\n\n\"Il tuo account verrà chiuso entro 24 ore.\" \"Azione richiesta immediatamente.\" \"Ultimo avviso prima della sospensione.\" Se un'email ti mette fretta, fermati un attimo proprio lì.\n\nLa fretta non è un caso, è la strategia. Quando hai paura di perdere qualcosa, il cervello smette di ragionare e parte la mano verso il mouse. È lo stesso meccanismo del \"solo per oggi, ultimi tre pezzi\" dei venditori aggressivi. Ti tolgono il tempo di pensare, perché pensare è esattamente ciò che li smaschera.\n\nRagiona così: la tua banca, l'Agenzia delle Entrate, il corriere vero, nessuno di loro gestisce una cosa importante mettendoti un conto alla rovescia via email. Se c'è davvero un problema serio sul tuo conto, te lo comunicano in modi seri, non con un timer minaccioso e un grosso pulsante rosso. L'urgenza esagerata, da sola, è già quasi una confessione.\n\nSEGNALE 3: ERRORI E LINK SOSPETTI, LEGGI PRIMA DI TOCCARE\n\nAdesso leggi il testo con un occhio critico. Spesso lo spam tradisce se stesso: errori di grammatica, traduzioni che suonano finte, \"Gentile Cliente\" invece del tuo nome, frasi costruite male come se fossero passate da un traduttore automatico. Un'azienda vera fa rileggere le sue comunicazioni. Un truffatore che spedisce a milioni di persone no.\n\nPoi c'è la prova del nove, e qui ti chiedo un gesto preciso: passa il mouse sopra il link senza cliccare. Solo sopra, fermo. In basso a sinistra, nel computer, compare l'indirizzo reale dove quel link ti porterebbe. È come leggere la destinazione su un biglietto del treno prima di salire: il bottone può dire \"Vai alla tua banca\", ma l'indirizzo nascosto magari dice tutt'altro.\n\nSul telefono il trucco cambia un po': tieni premuto il dito sul link, senza rilasciare, e dopo un attimo si apre un'anteprima con l'indirizzo vero. Se quell'indirizzo non corrisponde al sito ufficiale, hai la risposta. Non cliccare.\n\n[IMG: anteprima-link-mouse.png | Passa il mouse sul link, senza cliccare: in basso a sinistra compare la destinazione reale.]\n\nUN CASO TIPICO, PER FISSARE LE IDEE\n\nImmagina questa email: mittente \"Poste Italiane\", ma indirizzo no-reply@poste-verifica24.xyz. Oggetto: \"Pacco in giacenza, paga 1,99 euro o sarà rispedito\". Dentro, un link grande e la frase \"entro oggi\". Tre segnali su tre. Mittente fasullo, urgenza costruita, micro-pagamento che serve solo a rubarti i dati della carta. Il bello è che non hai bisogno di essere un esperto di informatica per capirlo: hai solo applicato i tre controlli in fila.\n\nLA REGOLA D'ORO\n\nNel dubbio, non cliccare mai il link dentro l'email. Mai. Fai invece il giro lungo, che è anche il più sicuro: apri il browser e digita tu stesso l'indirizzo del sito ufficiale, oppure usa l'app che hai già installato sul telefono. Se davvero c'è un pacco in giacenza, un pagamento sospeso, un problema sul conto, lo ritrovi accedendo dalla porta principale. E se non c'è niente, hai la conferma che era spam.\n\nQuesto gesto è la tua salvezza, perché taglia fuori il truffatore alla radice. Lui può confezionare un'email perfetta, ma non può cambiare l'indirizzo vero del sito della tua banca.\n\nRicapitolando: controlla il mittente, diffida dell'urgenza, verifica i link senza cliccare. Tre secondi a testa, dieci secondi in tutto. Dieci secondi che possono salvarti il conto, la carta e parecchi mal di testa.\n\nE adesso una domanda per te: la prossima email che ti mette fretta, sei disposto a regalarle dieci secondi di calma prima di toccare qualsiasi cosa?"
   },
@@ -6620,6 +6520,14 @@ const articoliGrezzi = [
     "rubrica": "Miti Digitali",
     "data": "2026-04-18",
     "videoUrl": "https://youtube.com/watch?v=placeholder",
+    "tags": [
+      "Mac",
+      "virus",
+      "malware",
+      "sicurezza",
+      "macOS",
+      "miti digitali"
+    ],
     "contenutoBreve": "Se pensi che il tuo Mac sia immune dai virus, siediti. Perché quello che sto per dirti potrebbe rovinarti la giornata.\n\nIL MITO\nPer anni si è detto che i Mac non prendono virus. E per anni è stato quasi vero, ma non per il motivo che pensi. Non era perché macOS fosse invulnerabile, ma perché i Mac erano pochissimi rispetto ai PC Windows. Se sei un hacker, attacchi dove ci sono più vittime potenziali.\n\nLA REALTÀ\nOggi Apple ha una fetta di mercato enorme, e i malware per macOS sono in crescita costante. Il tuo Mac PUÒ prendere virus, trojan e malware. Il fatto che sia meno frequente non significa che sia impossibile.\n\nIl miglior antivirus non è il sistema operativo che usi. Il miglior antivirus sei tu, e le tue abitudini digitali. Ne parliamo in un prossimo video.\n\nSei Team Mac o Team Windows? Commenta!",
     "contenuto": "Stai bevendo il caffè, apri il portatile e scarichi al volo un programma \"gratis\" che ti serviva da settimane. Il tuo Mac non dice niente. Nessun allarme, nessuna sirena. E tu pensi: \"Tanto è un Mac, sono al sicuro\". Fermati un attimo. Perché quella sensazione di sicurezza è proprio la cosa più pericolosa di tutte.\n\nIL MITO CHE TUTTI RIPETONO\n\nPer anni la frase \"i Mac non prendono virus\" è girata nei bar, negli uffici e nei negozi di elettronica come se fosse una legge della fisica. E in parte ha funzionato, ma non per il motivo che immagini.\n\nNon era perché macOS fosse una fortezza inespugnabile. Era una questione di numeri. Immagina un ladro che deve scegliere un quartiere da svaligiare. Va dove ci sono più case, non dove ce ne sono quattro in croce. Per anni i Mac erano quelle quattro case isolate: pochi, sparsi, poco interessanti. I PC Windows erano invece l'intera metropoli affollata. Gli hacker, da bravi \"ladri\", andavano dove c'era più bottino da fare.\n\nQuindi sì, statisticamente eri più tranquillo. Ma \"meno bersagliato\" non vuol dire \"immune\". È una differenza enorme, e fa tutta la differenza del mondo.\n\nCOSA È CAMBIATO\n\nOggi il quartiere è cambiato. Apple ha conquistato una fetta di mercato enorme: MacBook negli zaini degli studenti, iMac negli studi dei professionisti, Mac nelle aziende. Quelle quattro case isolate sono diventate un intero condominio pieno di gente.\n\nE indovina chi se n'è accorto? Esatto. Gli hacker. I malware pensati apposta per macOS sono in crescita costante, anno dopo anno. Non parliamo di fantascienza: parliamo di trojan, adware e spyware progettati su misura per il tuo Mac.\n\nIl punto è proprio questo: il tuo Mac PUÒ prendere virus, trojan e malware. Il fatto che capiti meno spesso che su Windows non significa che sia impossibile. Significa solo che, quando capita, ti coglie impreparato, perché nessuno ti aveva detto che poteva succedere.\n\nCOME ENTRANO DAVVERO I PROBLEMI\n\nQui arriva la parte che pochi ti spiegano. Nella maggior parte dei casi il problema non è un super-virus invisibile che buca le difese di Apple come nei film. Il problema sei tu che, in buona fede, gli apri la porta.\n\nPensa al malware come a un vampiro delle leggende: non può entrare in casa se non lo inviti. E noi lo invitiamo di continuo, senza accorgercene.\n\nLo invitiamo quando scarichiamo un programma \"craccato\" per non pagare la licenza, e dentro ci troviamo un ospite indesiderato. Lo invitiamo quando clicchiamo su quel finto avviso \"Il tuo Mac è infetto, scarica subito il pulitore!\", che ironicamente è proprio lui il virus. Lo invitiamo quando apriamo l'allegato di una mail che sembra della banca ma non lo è, o quando installiamo quell'estensione del browser che promette sconti miracolosi.\n\nIn tutti questi casi macOS può anche fare il suo lavoro e avvisarti. Ma se tu, davanti alla finestra che dice \"Questo software proviene da uno sviluppatore non identificato, sei sicuro?\", clicchi \"Apri comunque\" senza pensarci, hai appena aperto la porta di casa al vampiro. E lui ringrazia.\n\nGATEKEEPER E XPROTECT: UTILI, NON MAGICI\n\nVa detto, per onestà: Apple non sta a guardare. Dentro al tuo Mac ci sono già delle guardie del corpo silenziose. Gatekeeper è quella che controlla i documenti all'ingresso e blocca i programmi che non hanno una \"firma\" affidabile. XProtect è una specie di antivirus integrato che riconosce le minacce già note e le ferma.\n\nSono strumenti seri e fanno un buon lavoro. Ma hanno un limite preciso: conoscono solo i criminali già schedati. Contro una minaccia nuova di zecca, o contro di te che decidi consapevolmente di scavalcare l'avviso, queste guardie possono poco. Sono come il casco in moto: ti protegge tantissimo, ma non ti rende immortale se guidi a occhi chiusi.\n\n[IMG: avviso-sviluppatore-non-identificato.png | L'avviso di macOS prima di aprire un'app non riconosciuta: leggilo, non cliccarci sopra a occhi chiusi.]\n\nI SEGNALI CHE QUALCOSA NON VA\n\nE se fosse già successo? Ci sono spie che vale la pena conoscere. Il Mac che di colpo diventa lentissimo senza un motivo. La ventola che gira a tutta forza anche se stai solo scrivendo una mail. Pubblicità che spuntano dove prima non c'erano. La pagina iniziale del browser cambiata da sola. Programmi che non ricordi di aver installato.\n\nNessuno di questi segnali, da solo, è una condanna. Ma se ne noti diversi insieme, è il tuo Mac che ti sta sussurrando \"ehi, qui c'è qualcosa che non torna\". Ascoltalo.\n\nIL VERO ANTIVIRUS\n\nArriviamo al cuore di tutto. Puoi installare il software di sicurezza più costoso del mondo, ma resterà sempre l'ultima linea di difesa, non la prima.\n\nIl miglior antivirus non è il sistema operativo che usi. Non è il Mac contro il PC. Il miglior antivirus sei tu, e le tue abitudini digitali. È la pausa di due secondi prima di cliccare. È il dubbio sano davanti a un download troppo bello per essere vero. È la domanda \"ma questo link, chi me lo ha mandato davvero?\".\n\nLa sicurezza non è un oggetto che compri una volta. È un comportamento che ripeti ogni giorno, come allacciare le cinture prima di partire. E la buona notizia è che è una cosa che puoi imparare. Ne parliamo meglio in un prossimo video, con le abitudini concrete da adottare da subito.\n\nPer ora ti lascio con una domanda: la prossima volta che il tuo Mac ti chiede \"sei sicuro?\", ti fermerai a leggere o cliccherai \"Apri comunque\" come hai sempre fatto?\n\nE tu, sei Team Mac o Team Windows? Commenta!"
   },
@@ -6628,6 +6536,14 @@ const articoliGrezzi = [
     "rubrica": "Hardware & Periferiche",
     "data": "2026-04-21",
     "videoUrl": "https://youtube.com/watch?v=placeholder",
+    "tags": [
+      "CPU",
+      "RAM",
+      "disco",
+      "hardware",
+      "prestazioni",
+      "PC"
+    ],
     "contenutoBreve": "Il tuo PC è lento? Forse ha il piano di lavoro troppo piccolo. E no, non sto parlando della tua scrivania.\n\nLA METAFORA\nImmagina il tuo computer come una cucina. La CPU, il processore, è il cuoco: è lui che fa il lavoro, taglia, cuoce, impiatta. Più è bravo e veloce il cuoco, più piatti escono in fretta.\n\nLa RAM è il piano di lavoro. Più è grande, più ingredienti puoi tenere pronti contemporaneamente. Se il piano è piccolo, il cuoco deve continuamente andare avanti e indietro a prendere roba.\n\nIl disco è la dispensa. Contiene tutto: le ricette, gli ingredienti, le pentole. Ma per usarli devi tirarli fuori e metterli sul piano di lavoro.\n\nIL PUNTO\nEcco perché quando apri troppi programmi il PC rallenta: il piano di lavoro è pieno, e il cuoco non riesce più a muoversi.\n\nQuanta RAM ha il tuo PC? Scrivilo nei commenti, ti dico se è abbastanza per quello che fai.",
     "contenuto": "Sono le 21 e vuoi solo guardare una serie. Apri il browser, parte la musica, hai ancora venti schede aperte da stamattina... e il PC inizia a respirare come se avesse corso una maratona. La ventola gira a tutta, il puntatore singhiozza. Cosa sta succedendo davvero là dentro?\n\nLa risposta è più semplice di quanto pensi. E, come sempre, te la racconto con una cucina.\n\nIL CUOCO, IL PIANO, LA DISPENSA\n\nImmagina il tuo computer come una cucina che lavora. La CPU, il processore, è il cuoco. È lui che fa il lavoro vero: taglia, cuoce, impiatta. Più è bravo e veloce, più piatti escono in fretta.\n\nLa RAM è il piano di lavoro. Più è grande, più ingredienti puoi tenere pronti davanti a te nello stesso momento. Se è piccolo, il cuoco perde tempo a spostare roba avanti e indietro per fare spazio.\n\nIl disco è la dispensa. Contiene tutto: ricette, ingredienti, pentole. Ma niente si cucina dentro la dispensa. Per usare qualcosa, devi prima tirarlo fuori e appoggiarlo sul piano.\n\nFin qui ci siamo. Ora aggiungiamo i dettagli che fanno la differenza quando devi capire perché il tuo PC va piano, o quando stai per comprarne uno nuovo.\n\nIL CUOCO PUÒ AVERE PIÙ MANI\n\nQuando senti parlare di \"core\", pensa a quante mani ha il cuoco. Un processore a 4 core è un cuoco con quattro mani che lavorano in parallelo. Uno a 8 core ne ha otto.\n\nA cosa serve? A fare più cose insieme. Mentre una mano monta la panna, un'altra gira il sugo. Per questo un PC moderno riesce a scaricare un file, suonare musica e tenere aperto il browser senza impazzire: il cuoco distribuisce i compiti tra le mani.\n\nLa velocità del cuoco si misura in gigahertz (GHz). È quanto è rapido nel singolo gesto. Un cuoco velocissimo con poche mani è perfetto per i lavori che vanno fatti uno alla volta e in fretta. Un cuoco con tante mani ma un po' più calmo è meglio quando i compiti sono tanti e tutti insieme. Non esiste il migliore in assoluto: dipende da cosa cucini.\n\nQUANDO IL PIANO DI LAVORO FINISCE\n\nEcco il punto che spiega il 90% dei rallentamenti. Apri tante schede, un programma di foto, la posta, la chat. Ogni cosa occupa un pezzo di piano di lavoro. A un certo punto il piano è pieno.\n\nCosa fa il computer? Non si arrende. Fa una cosa furba ma lenta: prende gli ingredienti che non sta usando in questo istante e li rimette temporaneamente in dispensa per liberare spazio. Quando ti servono di nuovo, deve tornare a prenderli.\n\nQuesto andirivieni si chiama \"memoria virtuale\" o \"swap\", ma il nome non conta. Conta l'effetto: ogni volta che torni su una scheda lasciata lì da un'ora, il cuoco deve correre in dispensa, recuperare tutto e rimetterlo sul piano. Ed è proprio quell'attimo di attesa, quella ruota che gira, che senti come lentezza.\n\nPiù RAM hai, più ingredienti restano sul piano, meno corse in dispensa. Ecco perché aggiungere RAM è spesso il modo più economico per dare nuova vita a un PC lento.\n\nLA DISPENSA VECCHIA E QUELLA NUOVA\n\nNon tutte le dispense sono uguali, e qui c'è un dettaglio che cambia tutto.\n\nI dischi vecchi, gli hard disk meccanici, sono una dispensa enorme ma con un solo addetto un po' lento che cammina tra gli scaffali per cercare le cose. I dischi nuovi, gli SSD, sono come avere tutto a portata di mano, già ordinato, recuperato in un lampo.\n\nLa differenza la senti soprattutto all'accensione. Un PC con SSD si avvia in pochi secondi. Lo stesso PC con un vecchio hard disk può metterci un minuto buono solo per arrivare alla scrivania. Se devi fare un solo aggiornamento al tuo computer e hai ancora un disco meccanico, passa a un SSD: è il salto che si nota di più.\n\nCOME LAVORANO INSIEME\n\nLa parte interessante è che questi tre elementi non lavorano da soli, si passano la palla in continuazione.\n\nApri un programma. Il cuoco (CPU) ordina di prendere il programma dalla dispensa (disco) e di stenderlo sul piano (RAM). Una volta lì, il cuoco ci lavora sopra. Quando salvi, il piatto finito torna in dispensa per non perderlo.\n\nSe uno dei tre è sottodimensionato, frena gli altri. Un cuoco bravissimo con un piano minuscolo resta fermo ad aspettare. Una dispensa lentissima fa attendere anche il miglior cuoco. È sempre l'anello più debole a decidere la velocità della cucina.\n\n[IMG: cucina-cpu-ram-disco.png | Il cuoco è la CPU, il piano di lavoro è la RAM, la dispensa è il disco: capisci il tuo PC con un colpo d'occhio.]\n\nQUANTO TI SERVE DAVVERO\n\nNiente numeri buttati a caso, solo buon senso. Se usi il PC per navigare, guardare video e scrivere qualche mail, un cuoco con quattro mani, un piano di lavoro generoso e una dispensa SSD ti bastano e avanzano.\n\nSe invece monti video, lavori con foto pesanti o tieni aperti venti programmi insieme, allora ti serve un piano più grande e un cuoco con più mani. È come la differenza tra cucinare per due o gestire il pranzo di Natale per venti parenti: stessa cucina, esigenze diverse.\n\nIl consiglio che vale per quasi tutti: prima di buttare il PC perché \"è vecchio\", controlla se puoi aggiungere RAM o mettere un SSD. Spesso bastano questi due gesti per farlo sembrare nuovo.\n\nE adesso tocca a te: il tuo PC rallenta quando apri tante cose o fatica già all'accensione? Scrivimelo, così capiamo insieme se il problema è il piano di lavoro o la dispensa."
   },
@@ -6636,6 +6552,14 @@ const articoliGrezzi = [
     "rubrica": "Hardware & Periferiche",
     "data": "2026-04-23",
     "videoUrl": "https://youtube.com/watch?v=placeholder",
+    "tags": [
+      "SSD",
+      "HDD",
+      "archiviazione",
+      "upgrade",
+      "prestazioni",
+      "hardware"
+    ],
     "contenutoBreve": "Il miglior upgrade che puoi fare al tuo PC costa meno di 50 euro. E no, non è più RAM. Oggi ti racconto la storia di come conserviamo i dati, e perché una tecnologia ha cambiato tutto.\n\nLA STORIA\nTutto è cominciato con i nastri magnetici: enormi bobine che giravano per leggere i dati in sequenza. Dovevi scorrere tutto il nastro per trovare quello che cercavi. Come cercare una canzone su una musicassetta senza poter saltare da un brano all'altro.\n\nPoi sono arrivati i dischi rigidi, gli HDD: un piatto metallico che gira a migliaia di giri al minuto, con una testina che si muove avanti e indietro per leggere e scrivere. Più veloce del nastro, ma sempre meccanico: pezzi che si muovono, che si consumano, che fanno rumore.\n\nL'SSD\nE poi arriva l'SSD, il Solid State Drive. Nessuna parte meccanica. Zero. I dati vengono salvati su chip di memoria, come nella chiavetta USB ma molto più veloce e affidabile. Il risultato? L'accesso ai dati è quasi istantaneo.\n\nPer farti capire la differenza: un PC con un disco meccanico si accende in 40-60 secondi. Lo stesso PC con un SSD? 10-15 secondi. Stessa macchina, stessa RAM, stesso processore. Cambia solo il disco.\n\nNVME E IL FUTURO\nE se pensavi che l'SSD fosse il massimo, esistono i dischi NVMe: SSD che si collegano direttamente alla scheda madre senza passare per il cavo SATA. Sono fino a 7 volte più veloci di un SSD tradizionale. Sembrano una scheda di memoria piccola così, ma volano.\n\nCONSIGLIO PRATICO\nSe il tuo PC è lento e ha ancora un disco meccanico, il primo upgrade da fare è mettere un SSD. Costa poco, si installa in mezz'ora, e il cambiamento è immediato. È il miglior rapporto spesa-beneficio che esiste nel mondo dei PC.",
     "contenuto": "Te lo immagini il momento? Premi il pulsante di accensione, vai in cucina a prepararti il caffè, e quando torni il PC sta ancora caricando. Quella clessidra che gira. Quella barra che avanza piano piano. Hai imparato a convivere con questa attesa, l'hai accettata come se fosse parte della vita. E se ti dicessi che non deve essere così?\n\nIl miglior upgrade che puoi fare al tuo PC costa meno di 50 euro. E no, non è più RAM. Oggi ti racconto la storia di come conserviamo i dati, e perché una sola tecnologia ha cambiato tutto. Perché il tuo vecchio PC, quello che pensavi di buttare, probabilmente ha bisogno di una sola cosa.\n\nDAI NASTRI AI DISCHI\n\nTutto è cominciato con i nastri magnetici: enormi bobine che giravano per leggere i dati in sequenza. Dovevi scorrere tutto il nastro per trovare quello che cercavi. Come cercare una canzone su una musicassetta senza poter saltare da un brano all'altro: se la canzone era alla fine, ti toccava aspettare che scorresse tutto.\n\nPoi sono arrivati i dischi rigidi, gli HDD. Immagina un giradischi in miniatura, chiuso dentro una scatola di metallo. C'è un piatto che gira a migliaia di giri al minuto, e una testina che si muove avanti e indietro per leggere e scrivere, esattamente come la puntina che legge il vinile. Più veloce del nastro, perché la testina può saltare direttamente nel punto giusto. Ma sempre meccanico: pezzi che si muovono, che si consumano, che fanno rumore.\n\nE qui sta il problema nascosto. Ogni volta che chiedi un file al tuo PC, quella testina fisica deve spostarsi nel punto esatto del piatto dove sono salvati i dati. Pochi millesimi di secondo, certo. Ma il tuo computer non apre un file alla volta: ne apre centinaia, migliaia, tutti insieme, sparsi in punti diversi del disco. E la testina deve correre avanti e indietro per ognuno. È come un cameriere che deve servire cento tavoli, ma può portare un solo piatto per volta.\n\nL'SSD: NIENTE PIÙ PARTI IN MOVIMENTO\n\nE poi arriva l'SSD, il Solid State Drive. Solido. Niente parti in movimento. Zero. I dati vengono salvati su chip di memoria, come nella chiavetta USB che hai nel cassetto, ma molto più veloce e affidabile. Non c'è nessuna testina che corre, nessun piatto che gira. Quando chiedi un file, è già lì, raggiungibile all'istante.\n\nTorniamo al cameriere. L'HDD è il cameriere che corre tra i tavoli con un piatto alla volta. L'SSD è come se ogni tavolo avesse il suo piatto già pronto davanti, nello stesso momento. Non c'è corsa, non c'è attesa. Ecco perché l'accesso ai dati è quasi istantaneo.\n\nPer farti capire la differenza con i numeri: un PC con un disco meccanico si accende in 40-60 secondi. Lo stesso PC, identico, con un SSD si accende in 10-15 secondi. Stessa macchina, stessa RAM, stesso processore. Cambia solo il disco. E non è solo l'accensione: i programmi si aprono in un lampo, i file si salvano subito, e quel fastidioso blocco quando apri troppe cose insieme quasi sparisce.\n\nC'è anche un altro vantaggio di cui si parla poco. Senza parti meccaniche, l'SSD è più resistente agli urti. Se ti cade il portatile mentre è acceso, con un HDD rischi che la testina graffi il piatto e perdi tutto. L'SSD non ha questo problema: è solo elettronica, niente da rompere fisicamente. E consuma meno energia, quindi sul portatile la batteria dura un po' di più.\n\n[IMG: ssd-vs-hdd-interno.png | A sinistra l'interno di un HDD con il piatto e la testina, a destra un SSD: solo chip, nessun pezzo in movimento.]\n\nNVMe: QUANDO L'SSD VOLA\n\nE se pensavi che l'SSD fosse il massimo, aspetta. Gli SSD tradizionali usano ancora un cavo, lo stesso dei vecchi dischi: si chiama SATA, ed è una strada a una corsia. Veloce, ma con un limite.\n\nPoi esistono i dischi NVMe. Sono SSD che si collegano direttamente alla scheda madre, senza passare per il cavo. Hanno la forma di una piccola scheda di memoria, grande come una gomma da masticare, e si infilano dritti dentro il PC. Niente più strada a una corsia: è un'autostrada a dieci corsie. Possono essere fino a 7 volte più veloci di un SSD tradizionale. Sembrano una sciocchezza, piccoli così, ma volano davvero.\n\nPer l'uso di tutti i giorni, ti dico la verità: la differenza tra un SSD normale e un NVMe la noti meno di quella tra un HDD e un SSD. Il salto grande, quello che cambia la vita al PC, è il primo. Il passaggio dal disco meccanico al solido. L'NVMe è la ciliegina, utile soprattutto se sposti file enormi o lavori con i video.\n\nIL CONSIGLIO CHE CONTA\n\nSe il tuo PC è lento e ha ancora un disco meccanico, smetti di pensare di buttarlo. Il primo upgrade da fare è mettere un SSD. Costa poco, si installa in mezz'ora, e il cambiamento è immediato, impossibile da non vedere. È il miglior rapporto spesa-beneficio che esiste nel mondo dei PC, senza nemmeno una gara.\n\nUn consiglio in più: quando lo monti, prova a installare da zero il sistema operativo sul nuovo disco, invece di copiare il vecchio. Parti pulito, e il PC respira come nuovo.\n\nQuindi, prima di mollare quel computer che ti fa imprecare ogni mattina: hai già guardato che tipo di disco ha dentro? Magari ti basta davvero quella spesa da una pizza per due per farlo rinascere.",
     "contenutoTecnico": "Hai letto l'approfondita, hai capito il \"perché\" del salto. Ora apriamo il cofano e guardiamo cosa succede davvero dentro quei chip, perché è lì che si nascondono le scelte di ingegneria che spiegano prezzo, durata e velocità del tuo SSD.\n\nLA CELLA: DOVE VIVE UN BIT\n\nIl cuore di un SSD è la memoria NAND flash. La parola chiave è \"flash\", e indica un tipo di memoria che mantiene i dati anche senza corrente: per questo si dice non volatile, al contrario della RAM che dimentica tutto allo spegnimento.\n\nL'unità minima è la cella: un minuscolo transistor con una trappola per elettroni, chiamata floating gate (o, nelle versioni moderne, charge trap). Intrappolando o liberando elettroni, la cella assume un livello di carica, e quel livello rappresenta i dati. Qui c'è il bivio economico più importante di tutta la tecnologia:\n\n- SLC (Single Level Cell): 1 bit per cella, due soli stati possibili (carica o no). Velocissima, durissima, costosissima. La trovi nei datacenter.\n- MLC (Multi Level Cell): 2 bit per cella, quattro livelli di carica.\n- TLC (Triple Level Cell): 3 bit per cella, otto livelli. È lo standard dei consumer oggi.\n- QLC (Quad Level Cell): 4 bit per cella, sedici livelli distinti nello stesso minuscolo serbatoio. Capienza enorme, prezzo basso, ma più lenta e meno resistente.\n\nCapisci il problema? Più bit infili nella stessa cella, più livelli di carica deve distinguere il controller, e più quei livelli si avvicinano tra loro. Misurare sedici livelli (QLC) invece di due (SLC) richiede più tempo e tollera meno errori. Ecco perché un SSD economico da molti terabyte è quasi sempre QLC: ti dà spazio, non prestazioni di punta sostenute.\n\nC'è poi la dimensione fisica: oggi le celle non sono più affiancate su un piano, ma impilate in verticale. È la NAND 3D (o V-NAND), con strati che vanno dai 64 a oltre 200. Impilare in altezza permette di aumentare la capacità senza rimpicciolire ulteriormente la singola cella, cosa che la renderebbe troppo fragile.\n\nLEGGERE È FACILE, SCRIVERE È IL DRAMMA\n\nQui sta una stranezza che l'approfondita non poteva spiegarti. Nella NAND puoi leggere e scrivere su unità piccole, chiamate pagine (tipicamente 4, 8 o 16 KB). Ma non puoi cancellare una singola pagina. La cancellazione avviene solo a blocchi interi, che raggruppano centinaia di pagine.\n\nTradotto: per modificare un dato, la flash non può sovrascrivere sul posto come faceva l'HDD. Deve scrivere la versione nuova altrove e marcare la vecchia come \"da buttare\". Questa asimmetria tra scrittura piccola e cancellazione grande è la radice di metà delle complicazioni che seguono.\n\nIL CONTROLLER E LA FTL: IL CERVELLO NASCOSTO\n\nTu vedi un disco ordinato con indirizzi puliti. È un'illusione gentile costruita dal controller, il piccolo processore sulla scheda dell'SSD. Il suo software si chiama FTL, Flash Translation Layer, ed è il traduttore tra gli indirizzi logici che il sistema operativo crede di usare (LBA, Logical Block Address) e la posizione fisica reale dentro i chip.\n\nLa FTL fa una cosa furba: non lega mai un indirizzo logico a una posizione fissa. Quando riscrivi lo stesso file, i dati finiscono ogni volta in celle fisiche diverse, e la mappa viene aggiornata. Questo abilita le tre funzioni che tengono in vita il tuo SSD.\n\nWEAR LEVELING: SPALMARE L'USURA\n\nOgni cella NAND sopporta un numero limitato di cicli di scrittura/cancellazione, i P/E cycles (Program/Erase). Indicativamente: SLC decine di migliaia, MLC qualche migliaio, TLC intorno al migliaio o poco più, QLC anche solo qualche centinaio. Numeri che variano molto per produttore e generazione, quindi prendili come ordini di grandezza.\n\nSe il controller scrivesse sempre sulle stesse celle (per esempio quelle del file di sistema che cambia di continuo), quelle morirebbero in fretta mentre il resto del disco resta nuovo. Il wear leveling evita questo: distribuisce le scritture in modo uniforme su tutte le celle, così l'usura è spalmata e il disco invecchia in modo omogeneo. È il motivo per cui un SSD moderno dura molti più anni di quanto i numeri grezzi sui P/E cycles lascerebbero temere.\n\nGARBAGE COLLECTION E TRIM: FARE PULIZIA\n\nRicordi che non si cancella per pagine ma per blocchi? Col tempo i blocchi diventano un mosaico di pagine valide e pagine morte. La garbage collection è il lavoro in background del controller che prende le pagine ancora valide di un blocco quasi pieno di spazzatura, le ricompatta in un blocco nuovo, e poi cancella il vecchio blocco per intero, liberandolo.\n\nQui entra in scena il TRIM. Il problema: quando cancelli un file, il sistema operativo aggiorna solo la sua tabella e dice \"questo spazio è libero\", ma non avvisa il disco che quelle pagine non servono più. L'SSD continuerebbe a credere validi dei dati ormai morti, e durante la garbage collection sprecherebbe tempo a ricopiarli. Il comando TRIM è il messaggio con cui il sistema operativo dice esplicitamente all'SSD \"queste pagine sono spazzatura, puoi recuperarle\". Senza TRIM le prestazioni in scrittura crollano nel tempo. Per fortuna è attivo di default su Windows, macOS e Linux moderni: non devi fare nulla.\n\nWRITE AMPLIFICATION: PERCHÉ UN BIT NE COSTA PIÙ DI UNO\n\nTutta questa danza ha un prezzo, e si chiama write amplification. Per scrivere 1 MB di dati tuoi, il controller potrebbe doverne spostare fisicamente molti di più, a causa del ricompattamento dei blocchi. Il rapporto tra dati scritti sulla flash e dati richiesti dall'utente è il fattore di amplificazione: più è alto, più velocemente consumi i P/E cycles. Wear leveling, TRIM e una buona garbage collection servono proprio a tenerlo basso.\n\nPERCHÉ UN SSD PIENO RALLENTA\n\nOra hai tutti i pezzi per capire un comportamento che sconcerta molti. Un SSD quasi pieno scrive più lentamente, e il motivo è doppio.\n\nPrimo: la cache SLC. Gli SSD TLC e QLC riservano una porzione di celle facendole funzionare in modalità SLC, cioè 1 bit per cella anche se ne potrebbero contenere tre o quattro. Questa zona è velocissima e assorbe le scritture in arrivo. Ma è grande quanto lo spazio libero glielo consente: su un disco pieno la cache si restringe o sparisce, e scrivi alla velocità nativa della TLC/QLC, molto più bassa.\n\nSecondo: la garbage collection ha bisogno di blocchi liberi su cui lavorare. Su un disco pieno il controller deve ricompattare e cancellare al volo, mentre tu scrivi, invece di farlo con calma in background. Per questo gli SSD hanno l'over-provisioning: una fetta di capacità (spesso intorno al 7 percento, a volte di più) nascosta e riservata al controller proprio per avere sempre respiro. La regola pratica resta valida: tieni almeno il 10-15 percento libero e l'SSD ti ringrazia.\n\nIOPS E THROUGHPUT: DUE METRICHE, DUE MONDI\n\nQuando confronti i dischi vedrai due numeri che misurano cose diverse. Il throughput (o bandwidth) è quanti dati al secondo trasferisci in un flusso continuo, misurato in MB/s o GB/s: conta quando copi un film o un file enorme. Gli IOPS (Input/Output Operations Per Second) sono quante operazioni separate e piccole il disco gestisce al secondo: contano quando apri il sistema, lanci programmi, fai girare un database, cioè migliaia di letture sparse e minuscole.\n\nÈ qui che l'HDD perde la guerra in modo definitivo. Un HDD fa circa 100-200 IOPS, limitato dal tempo fisico che la testina impiega a spostarsi. Un SSD ne fa centinaia di migliaia, un NVMe veloce supera il milione. Per il throughput sequenziale la distanza esiste ma è meno drammatica. Ecco la spiegazione tecnica del perché, nell'uso quotidiano, l'SSD sembra magia: la vita di un PC è fatta quasi tutta di accessi casuali piccoli, ed è proprio lì che gli IOPS fanno la differenza.\n\nSATA CONTRO NVMe: NON È IL CAVO, È IL PROTOCOLLO\n\nL'approfondita ti ha detto che SATA è la strada a una corsia e NVMe l'autostrada. Ora il dettaglio vero. SATA III ha un tetto fisico intorno ai 600 MB/s, ma il limite peggiore è un altro: il protocollo AHCI con cui SATA parla è nato per gli HDD. Prevede una sola coda di comandi, profonda 32 operazioni. Per un disco meccanico bastava e avanzava.\n\nNVMe (Non Volatile Memory Express) è un protocollo progettato da zero per la flash, e viaggia sul bus PCIe, le stesse corsie veloci usate dalle schede video. Invece di una coda da 32, NVMe ne gestisce fino a 65.535, ognuna profonda 65.535 comandi. È fatto apposta per il parallelismo massiccio di cui la NAND è capace. Sul piano dei numeri grezzi: una linea PCIe 3.0 dà circa 1 GB/s, e un NVMe usa tipicamente 4 linee, quindi intorno ai 3,5 GB/s; con PCIe 4.0 si raddoppia (circa 7 GB/s), con PCIe 5.0 si raddoppia ancora. Ecco da dove esce il \"fino a 7 volte più veloce\".\n\nAttenzione a un dettaglio pratico: lo slot fisico si chiama M.2, ma M.2 è solo la forma. Un SSD M.2 può parlare SATA oppure NVMe. Prima di comprare, controlla cosa supporta la tua scheda madre, perché la forma identica nasconde due mondi di prestazioni diversi.\n\n[IMG: nand-cella-livelli.png | Gli stati di carica di una cella: 2 livelli in SLC, fino a 16 in QLC stipati nello stesso serbatoio.]\n\nAdesso che sai distinguere TLC da QLC, IOPS da throughput, SATA da NVMe, apri le specifiche dell'SSD che stavi per comprare. Che tipo di NAND monta, quante linee PCIe usa, quanta cache ha? Sapresti dire perché due dischi dello stesso prezzo possono comportarsi in modo opposto da pieni?"
@@ -6645,6 +6569,13 @@ const articoliGrezzi = [
     "rubrica": "Digitale Pratico",
     "data": "2026-04-25",
     "videoUrl": "https://youtube.com/watch?v=placeholder",
+    "tags": [
+      "Task Manager",
+      "Windows",
+      "prestazioni",
+      "PC lento",
+      "processi"
+    ],
     "contenutoBreve": "PC lento? Prima di bestemmiare, prima di riavviare, prima di chiamare il tecnico… prova questo. Ti ci vogliono 10 secondi.\n\nCOME APRIRLO\nCtrl + Shift + Esc. Tre tasti insieme, ed ecco il Task Manager, lo strumento più utile e meno conosciuto di Windows. Alternativa: clic destro sulla barra in basso e seleziona Gestione Attività.\n\nCOSA GUARDARE\nLa scheda Processi ti mostra tutto quello che sta girando sul tuo PC in questo momento, e quanto sta consumando. Le colonne importanti sono quattro: CPU, Memoria, Disco, Rete.\n\nSe vedi una di queste colonne al 100 percento, hai trovato il colpevole. Clicca sulla colonna per ordinare dal più affamato al meno, e scopri quale programma sta mangiando tutte le risorse.\n\nCOSA NON FARE\nNon chiudere tutto quello che vedi. Molti processi sono di Windows stesso e servono per far funzionare il PC. Regola: se non riconosci il nome e non sei sicuro di cosa sia, non chiuderlo. Chiudi solo i programmi che riconosci e che sai di non star usando.\n\nApri il Task Manager adesso e dimmi nei commenti cosa sta usando più risorse sul tuo PC. Scommetto che qualcuno scoprirà cose interessanti.",
     "contenuto": "Sono le nove di sera. Vuoi solo guardare un video, rispondere a un messaggio, chiudere quella mail. E invece il PC arranca. La freccia del mouse si muove a scatti, le finestre ci mettono secoli ad aprirsi, la ventola soffia come un asciugacapelli. Ti viene voglia di prenderlo a schiaffi. Ferma le mani. C'è uno strumento dentro Windows che ti dice in dieci secondi cosa sta succedendo, e quasi nessuno lo usa.\n\nSi chiama Task Manager, in italiano Gestione Attività. Pensalo come il cruscotto della tua auto. Quando la macchina perde colpi, non apri il cofano a caso: guardi le spie. Il Task Manager è quel cruscotto. Ti dice quanto stai consumando e, soprattutto, chi sta consumando.\n\nCOME APRIRLO\n\nCtrl + Shift + Esc. Tre tasti premuti insieme, ed eccolo lì. Tienili a mente, perché è la scorciatoia più veloce. Se non la ricordi, c'è la via lenta:\n\n1. Fai clic destro sulla barra in basso.\n2. Scegli Gestione Attività.\n\nEntrambe portano allo stesso posto.\n\nLa prima volta che lo apri potresti vedere una finestra piccola e spoglia, con solo l'elenco dei programmi aperti. Niente panico. In basso c'è la scritta Più dettagli (o un'icona a freccia): cliccala e si apre la versione completa, quella che ci interessa.\n\nLE QUATTRO SPIE DA GUARDARE\n\nVai sulla scheda Processi. Qui c'è la lista di tutto quello che sta girando sul tuo PC in questo preciso momento. Non solo i programmi che hai aperto tu, ma anche decine di cose che lavorano dietro le quinte.\n\nAccanto a ogni nome ci sono quattro colonne, e sono le tue quattro spie:\n\n- CPU\n- Memoria\n- Disco\n- Rete\n\nLa CPU è il cervello del computer, la parte che fa i calcoli. Se è al massimo, il PC è come una persona a cui hai chiesto venti cose insieme: arranca perché ha troppo da pensare.\n\nLa Memoria (la RAM) è il piano di lavoro, il tavolo su cui il PC tiene aperte le cose che usa adesso. Se si riempie, è come una scrivania sommersa di fogli: non c'è più spazio per lavorare e tutto rallenta.\n\nIl Disco è l'archivio, dove i dati vengono scritti e letti. Quando è al 100 percento, il PC sta scrivendo o leggendo a tappeto, magari per un aggiornamento o una ricerca, e nel frattempo tutto il resto aspetta.\n\nLa Rete è quanto sta scaricando o caricando da internet. Utile per scoprire se qualcosa sta succhiando la tua connessione di nascosto.\n\nTROVARE IL COLPEVOLE\n\nEcco il trucco che cambia tutto. Clicca sull'intestazione di una colonna, per esempio CPU. La lista si riordina e mette in cima chi sta consumando di più. Un clic e hai il responsabile davanti agli occhi.\n\n[IMG: task-manager-ordina-colonna-cpu.png | Clicca sull'intestazione della colonna CPU per mettere in cima chi consuma di più.]\n\nSpesso la scoperta è banale e rassicurante. Magari è il browser con quaranta schede aperte. Magari è quel programma di fotoritocco che hai lasciato acceso ieri. Magari è un aggiornamento di Windows che sta lavorando in sottofondo: in quel caso lascialo finire, e vedrai che dopo il PC torna leggero.\n\nA volte invece trovi un nome che non dice nulla, fermo lì a divorare risorse da ore. Prima di fare qualsiasi cosa, copia quel nome e cercalo su internet. In pochi secondi scopri se è una parte normale di Windows o un programma che puoi spegnere senza problemi.\n\nCOSA NON FARE, MAI\n\nE qui arriva la regola d'oro, quella che ti salva da guai veri. Non chiudere tutto quello che vedi solo perché ti sembra superfluo.\n\nMolti di quei processi non sono tuoi: sono di Windows, e servono a tenere in piedi il sistema. È come il motorino di avviamento dell'auto: non lo tocchi mai, anche se non sai bene cosa faccia. Se chiudi il processo sbagliato, nel migliore dei casi un programma si pianta, nel peggiore lo schermo diventa blu e il PC si riavvia da solo.\n\nLa regola è semplice. Se non riconosci il nome e non sei sicuro di cosa sia, lascialo stare. Chiudi soltanto i programmi che riconosci e che sai di non stare usando: il gioco rimasto aperto, il browser che si è impallato, l'app che non risponde più. Per chiudere:\n\n1. Seleziona la riga del programma.\n2. Premi il pulsante in basso a destra, Termina attività.\n\nUN'ABITUDINE DA POCHI SECONDI\n\nLa cosa bella è che non devi essere un esperto. Il Task Manager non chiede competenze tecniche: chiede solo lo sguardo. Apri, guardi le quattro spie, trovi chi spinge il numero verso l'alto. Nove volte su dieci la spiegazione è lì, ed è molto più banale di quanto temevi.\n\nCon il tempo impari a riconoscere i nomi che ricorrono e quelli sospetti, e quella finestra che prima ti intimidiva diventa il primo gesto automatico quando qualcosa non gira. Prima di imprecare, prima di riavviare, prima di chiamare il tecnico o pensare che sia ora di cambiare computer.\n\n[IMG: task-manager-processi.png | La scheda Processi con le quattro colonne: clicca su una per ordinare e scoprire chi consuma di più.]\n\nAdesso tocca a te. Apri il Task Manager, dai un'occhiata e dimmi nei commenti cosa sta usando più risorse sul tuo PC in questo momento. Scommetto che qualcuno scoprirà un colpevole a cui non avrebbe mai pensato."
   },
@@ -6654,6 +6585,13 @@ const articoliGrezzi = [
     "data": "2026-04-28",
     "videoUrl": "https://youtube.com/watch?v=placeholder",
     "thumbnail": "assets/images/thumbnail-cose-internet.png",
+    "tags": [
+      "Wi-Fi",
+      "Internet",
+      "router",
+      "reti",
+      "connessione"
+    ],
     "contenutoBreve": "Non c'è il Wi-Fi! Sei sicuro che sia il Wi-Fi il problema? Perché Wi-Fi e Internet non sono la stessa cosa, e oggi te lo dimostro in un minuto.\n\nLA CONFUSIONE\nWi-Fi è la connessione senza fili tra il tuo dispositivo e il router, quella scatolina con le antenne che hai in casa. Internet è la rete mondiale a cui ti colleghi attraverso il tuo provider.\n\nSono due cose separate. Puoi avere Wi-Fi perfetto ma Internet assente: il router è acceso, il telefono si collega, ma la linea del provider è giù. Il Wi-Fi funziona, Internet no.\n\nL'ESEMPIO\nPensala così: il Wi-Fi è la strada che collega casa tua al cancello. Internet è l'autostrada oltre il cancello. Se la strada è a posto ma l'autostrada è bloccata, non vai da nessuna parte.\n\nAlza la mano se almeno una volta hai confuso le due cose. Nessuna vergogna, è l'errore più diffuso del mondo digitale.",
     "contenuto": "Sono le nove di sera, hai appena messo i piedi sul divano e fai partire la serie. Cerchio che gira. Buffering. Tiri fuori il telefono e controlli: in alto, accanto all'orologio, c'è il simbolo del Wi-Fi bello pieno. Tutti gli archetti accesi. Eppure niente si carica. E allora parte la frase che ci siamo detti tutti almeno una volta: \"Non c'è il Wi-Fi!\".\n\nFermati un secondo. Perché molto probabilmente il Wi-Fi c'è eccome. Il problema è un altro. E la confusione tra Wi-Fi e Internet è l'equivoco più diffuso del mondo digitale: quello che ti fa litigare al telefono con l'assistenza per mezz'ora, prima di scoprire che bastava aspettare due minuti.\n\nDUE COSE DIVERSE CHE CI SEMBRANO UNA SOLA\n\nMettiamola giù semplice. Il Wi-Fi è la connessione senza fili tra il tuo dispositivo e il router, quella scatolina con le antenne (o senza, ma le antenne ci sono lo stesso, solo nascoste) che tieni in casa. Telefono, tablet, smart TV, computer: tutti parlano con il router via onde radio, senza cavi. Quello è il Wi-Fi.\n\nInternet, invece, è la rete mondiale. Una ragnatela gigantesca di computer e cavi sparsi per il pianeta. A questa rete tu ti colleghi grazie al tuo provider, cioè la compagnia che ti vende la linea: TIM, Vodafone, Fastweb, Iliad, quello che hai scelto tu.\n\nSono due cose separate, in fila una dietro l'altra. Prima il tuo telefono parla con il router: questo è il Wi-Fi. Poi il router parla con il mondo: questo è Internet, tramite il provider. Se si rompe il secondo pezzo, il primo continua a funzionare benissimo. Ed è esattamente per questo che il simbolo del Wi-Fi resta acceso anche quando non riesci a caricare nulla.\n\nLA STRADA E L'AUTOSTRADA\n\nTi do l'immagine che ti farà ricordare la differenza per sempre.\n\nIl Wi-Fi è la stradina che collega casa tua al cancello. È tutta roba tua: la asfalti tu, la curi tu, sta dentro la tua proprietà. L'autostrada, invece, è Internet: parte dal cancello e arriva ovunque nel mondo. Quella non è tua, è gestita da altri.\n\nAdesso immagina questa scena. La tua stradina è perfetta, liscia come un biliardo. Ma all'imbocco dell'autostrada c'è un cantiere e hanno chiuso tutto. Tu puoi salire e scendere dal cancello quanto vuoi, ma fuori non ci arrivi. La strada funziona. L'autostrada no.\n\nTradotto: il router è acceso, il telefono si collega al Wi-Fi senza problemi, ma la linea del provider è giù. Wi-Fi perfetto, Internet assente. Hai gli archetti pieni e zero pagine che si aprono.\n\nCOME CAPIRE CHI È IL COLPEVOLE\n\nQui arriva la parte utile, quella che ti fa risparmiare la telefonata all'assistenza.\n\nQuando qualcosa non va, fatti una domanda sola: il problema è dentro casa, quindi Wi-Fi, o fuori casa, quindi Internet?\n\nPrimo indizio: prova con un altro dispositivo. Se il telefono non naviga ma il tablet sì, e sono entrambi sullo stesso Wi-Fi, allora la rete di casa va e il problema è solo del telefono. Se invece nessun dispositivo naviga, il sospetto si sposta sul router o sulla linea.\n\nSecondo indizio: guarda le lucine del router. Quasi tutti hanno una spia con scritto \"Internet\", \"WAN\" o un simbolo del mondo. Se quella è spenta, rossa o lampeggia arrabbiata, è la linea del provider a essere caduta. Il Wi-Fi può restare verde e tranquillo: lui sta facendo il suo lavoro, è il pezzo dopo che manca.\n\nTerzo indizio: la distanza. Se in cucina navighi e in camera da letto no, quello è un classico problema di Wi-Fi. Il segnale radio fa fatica ad attraversare muri e pareti, e più ti allontani dal router più diventa debole. Internet non lo tocca nessuno: è la stradina di casa che non arriva fino in fondo.\n\nQUANDO È DAVVERO IL WI-FI\n\nPer onestà, a volte il colpevole è proprio il Wi-Fi. E riconoscerlo è facile, una volta che hai capito la differenza.\n\nIl segnale che si indebolisce stanza dopo stanza, come dicevamo. Il router piazzato dentro un mobile chiuso, dietro la TV, in fondo a un corridoio: le onde radio sono timide, gli ostacoli le frenano. Troppi dispositivi attaccati tutti insieme che si contendono lo spazio. Oppure il vicino di casa con un router potente che disturba il tuo, come due persone che provano a parlare nella stessa stanza alzando sempre più la voce.\n\nTutti questi sono problemi di Wi-Fi veri. E si risolvono dentro casa: spostando il router in un punto più aperto e centrale, alzandolo da terra, tenendolo lontano da microonde e grossi specchi. Niente di tutto questo ha a che fare con Internet.\n\nLA REGOLA DA TENERE IN TASCA\n\nRiassumiamo, così la porti via con te.\n\nWi-Fi uguale dentro casa: il dialogo tra i tuoi dispositivi e il router. Internet uguale fuori casa: il collegamento al resto del mondo, che ti dà il provider. Puoi avere uno senza l'altro. Puoi avere Wi-Fi pieno e Internet a zero. E puoi anche avere il contrario: un cavo attaccato al computer ti dà Internet senza nessun Wi-Fi di mezzo.\n\n[IMG: wifi-vs-internet.png | Il telefono parla col router (Wi-Fi), il router parla col mondo (Internet): due tratti diversi della stessa strada.]\n\nLa prossima volta che tutto si blocca, prima di gridare \"non c'è il Wi-Fi!\", fermati e chiediti: è la stradina o è l'autostrada? Tre secondi di domanda giusta ti dicono da che parte guardare, e spesso ti fanno scoprire che la soluzione era a portata di mano.\n\nE tu, alza la mano: quante volte hai dato la colpa al Wi-Fi quando il vero problema era l'autostrada là fuori? Nessuna vergogna, ci siamo passati tutti."
   },
@@ -6662,6 +6600,14 @@ const articoliGrezzi = [
     "rubrica": "Reti & Internet",
     "data": "2026-04-30",
     "videoUrl": "https://youtube.com/watch?v=placeholder",
+    "tags": [
+      "DNS",
+      "browser",
+      "Internet",
+      "reti",
+      "sito web",
+      "server"
+    ],
     "contenutoBreve": "Ogni volta che apri un sito, succedono almeno dieci cose invisibili in meno di un secondo. Oggi te le racconto tutte, e alla fine di questo video vedrai Internet con occhi diversi.\n\nPASSO 1: IL DNS\nScrivi google.com nel browser. Il tuo computer non sa cosa sia google.com, conosce solo i numeri. Quindi chiede a un server DNS: ehi, a quale indirizzo numerico corrisponde google.com? Il DNS è come la rubrica telefonica di Internet: traduce i nomi in indirizzi IP.\n\nPASSO 2: LA CONNESSIONE\nOra il tuo PC conosce l'indirizzo. Manda una richiesta che viaggia dal tuo router, attraverso la rete del tuo provider, attraverso cavi sottomarini e nodi di smistamento, fino al server di Google. Il messaggio non viaggia intero: viene spezzato in pacchetti, come un puzzle smontato che viene rimontato all'arrivo.\n\nPASSO 3: LA RISPOSTA\nIl server di Google riceve la richiesta, prepara la pagina, e la rimanda indietro. Stesso viaggio al contrario, stessi pacchetti. Il browser li riceve, li rimonta, e ti mostra la pagina. Tutto in meno di un secondo.\n\nIP PUBBLICO VS PRIVATO\nPiccolo bonus: il tuo PC ha un indirizzo IP privato, visibile solo dentro casa tua, tipo 192.168.1.qualcosa. Ma quando esci su Internet, il router usa un IP pubblico, che è quello che i siti vedono. È come avere un numero interno dell'ufficio e un numero esterno dell'azienda.\n\nVuoi sapere il tuo IP pubblico? Cerca su Google la frase qual è il mio IP e te lo dice subito.",
     "contenuto": "Sono le otto di sera, ti metti comodo sul divano e digiti l'indirizzo del tuo sito preferito. In meno di un secondo la pagina è lì, davanti a te. Sembra magia, ma non lo è. Dietro quel battito di ciglia c'è un viaggio lunghissimo, fatto di traduzioni, di domande e di pacchetti che corrono dentro cavi adagiati sul fondo dell'oceano. Oggi te lo racconto passo dopo passo. E ti garantisco che dopo guarderai la barra degli indirizzi con un altro rispetto.\n\nPASSO 1: IL DNS, LA RUBRICA DI INTERNET\n\nScrivi google.com e premi Invio. Il problema è che il tuo computer, di nomi come google.com, non sa cosa farsene. Lui parla solo la lingua dei numeri. Per lui un sito esiste solo se ha un indirizzo numerico, quello che chiamiamo indirizzo IP, qualcosa tipo 142.250.180.78.\n\nQuindi la prima cosa che fa è chiedere aiuto. Si rivolge a un server DNS e domanda: scusa, a quale numero corrisponde google.com? Il DNS è esattamente come la rubrica del telefono. Tu cerchi Pizzeria da Mario e lei ti restituisce il numero da chiamare. Senza, dovresti imparare a memoria decine di numeri illeggibili.\n\nC'è anche un dettaglio furbo. Il tuo computer si segna le risposte che riceve e le tiene in un cassetto chiamato cache. Così la seconda volta che apri lo stesso sito non deve chiedere tutto da capo. È il motivo per cui un sito che visiti spesso si apre più in fretta.\n\nPASSO 2: LA CONNESSIONE, IL VIAGGIO DEI PACCHETTI\n\nOra il tuo PC ha il numero. Può partire. Manda una richiesta che esce da casa tua attraverso il router, entra nella rete del tuo provider, attraversa centraline e nodi di smistamento, percorre cavi in fibra ottica e, sì, anche enormi cavi adagiati sul fondo del mare, fino a raggiungere il server di Google.\n\nMa il messaggio non parte tutto intero. Viene spezzato in tanti piccoli pezzi, i pacchetti. Immagina di dover spedire un puzzle: invece di mandare la scatola intera, spedisci ogni pezzo dentro una busta numerata. Le buste possono perfino prendere strade diverse, alcune più veloci, altre più lente, e ritrovarsi tutte alla destinazione. All'arrivo qualcuno legge i numeri e rimonta il puzzle nell'ordine giusto.\n\nQuesto modo di lavorare ha un vantaggio enorme. Se una busta si perde per strada, non devi rispedire tutto. Basta richiedere quel singolo pezzo. È il segreto per cui Internet regge anche quando la rete è intasata.\n\nPASSO 3: LA RISPOSTA CHE TORNA INDIETRO\n\nIl server di Google riceve la tua richiesta, capisce cosa vuoi, prepara la pagina e te la rimanda. Stesso viaggio, ma al contrario. Stessi pacchetti, stesse buste numerate. Il tuo browser le raccoglie, le rimette in ordine, le interpreta e finalmente ti disegna la pagina sullo schermo.\n\nE tutto questo, dalla pressione del tasto Invio alla pagina pronta, succede in una frazione di secondo. Nel tempo in cui sbatti le palpebre, i tuoi dati hanno forse fatto il giro del mondo.\n\nIL LUCCHETTO ACCANTO ALL'INDIRIZZO\n\nAvrai notato un piccolo lucchetto vicino al nome del sito, e magari le lettere https. Quella s finale significa sicuro. Vuol dire che il viaggio dei tuoi pacchetti avviene dentro una specie di tunnel blindato: anche se qualcuno riuscisse a intercettare le tue buste lungo la strada, le troverebbe scritte in un codice illeggibile. È come spedire una lettera dentro una cassaforte invece che su una cartolina aperta, leggibile da chiunque. Quando inserisci una password o il numero della carta, è quel lucchetto a proteggerti.\n\nIP PUBBLICO E IP PRIVATO\n\nEccoci al bonus, che merita due parole in più. Dentro casa tua, ogni dispositivo ha il suo indirizzo IP privato: il PC, il telefono, la smart TV, tutti con un numero tipo 192.168.1.qualcosa. Sono indirizzi che valgono solo tra le tue mura, come i numeri interni di un ufficio: l'interno 12 ha senso solo dentro quell'azienda.\n\nMa quando esci su Internet, tu non ti presenti con quel numero interno. Ci pensa il router a fare da centralino. Lui ha un indirizzo IP pubblico, uno solo, ed è quello che tutti i siti vedono. È il numero esterno dell'azienda, quello che trovi sull'insegna. Il router tiene il conto di quale dispositivo ha chiesto cosa, così quando la risposta torna sa a chi consegnarla: se al tuo PC o al telefono di tua figlia.\n\nVuoi vedere il tuo IP pubblico con i tuoi occhi? Vai su Google e scrivi la frase qual è il mio IP. Te lo mostra all'istante. Quel numero è il modo in cui, in questo preciso momento, Internet ti riconosce.\n\n[IMG: viaggio-dati-pacchetti.png | Dal tuo router ai cavi sottomarini: il percorso che i pacchetti fanno in meno di un secondo.]\n\nLa prossima volta che una pagina si apre in un lampo, fermati un attimo. Pensa alle traduzioni del DNS, alle buste numerate, ai cavi sott'acqua, al lucchetto che ti protegge. Tutto questo, ogni volta, solo per te. Non ti viene voglia di chiederti quanti chilometri hanno percorso davvero i tuoi dati per arrivare fin qui?",
     "contenutoTecnico": "APRI IL COFANO\n\nHai letto l'approfondita, sai del DNS-rubrica e delle buste numerate. Adesso apriamo il cofano e guardiamo gli ingranaggi veri: i protocolli, gli scambi di pacchetti, le sigle che i tecnici usano davvero. Quella frazione di secondo non è un blocco unico, è una catena precisa di fasi. Te le smonto una a una, nell'ordine esatto in cui accadono.\n\nPASSO 1: LA RISOLUZIONE DNS, NEL DETTAGLIO\n\nNell'approfondita ti ho detto che il computer chiede a un server DNS. Ma chi chiede a chi, esattamente? Quasi mai il tuo PC parla direttamente con i server di Google. Parla con un resolver, di solito quello del tuo provider, oppure uno pubblico come 8.8.8.8 di Google o 1.1.1.1 di Cloudflare. Il resolver fa il lavoro sporco al posto tuo.\n\nSe non ha la risposta in cache, parte una catena di domande chiamata risoluzione ricorsiva. Prima il resolver chiede a un root server: chi gestisce il dominio .com? Il root risponde indicando i server TLD (Top Level Domain) del .com. Il resolver chiede a loro: chi è autoritativo per google.com? Quelli rispondono indicando i name server autoritativi di Google. Solo a quel punto il resolver chiede a loro l'indirizzo finale. Tre rimbalzi, gerarchici, dall'alto verso il basso.\n\nLa risposta che torna è un record. Quello che mappa un nome su un IPv4 si chiama record A; quello che mappa su un IPv6 (gli indirizzi nuovi, lunghi, tipo 2607:f8b0:4005:80a::200e) si chiama record AAAA. Ogni record porta con sé un TTL (Time To Live): un numero di secondi che dice quanto a lungo puoi tenerlo in cache prima di richiederlo. È il motivo tecnico per cui un sito che hai appena visitato si riapre senza il giro completo: il TTL non è ancora scaduto.\n\nUn'ultima cosa che pochi sanno: il DNS classico viaggia in chiaro, di solito sulla porta 53. Chiunque sulla tua rete potrebbe vedere quali siti stai risolvendo. Per questo esistono DoH (DNS over HTTPS) e DoT (DNS over TLS), che incapsulano le query in un canale cifrato. Diversi browser moderni li attivano in automatico, anche se dipende dall'implementazione e dalle impostazioni.\n\nPASSO 2: L'HANDSHAKE TCP, LE TRE STRETTE DI MANO\n\nOra hai l'IP. Ma prima di spedire anche un solo byte di richiesta, il tuo PC e il server devono mettersi d'accordo che il canale esiste. Questo è l'handshake TCP, e si chiama three-way handshake perché sono esattamente tre messaggi.\n\n1. Il tuo PC manda un pacchetto con il flag SYN (synchronize) e un numero di sequenza iniziale scelto a caso.\n2. Il server risponde con SYN-ACK: conferma il tuo (ACK) e propone il suo numero di sequenza.\n3. Il tuo PC chiude con un ACK finale.\n\nDa qui in poi la connessione è stabilita e ordinata. Quei numeri di sequenza non sono un dettaglio: sono ciò che permette di rimettere le buste numerate nell'ordine giusto e di accorgersi se una manca. Quando nell'approfondita dicevo che qualcuno rimonta il puzzle, quel qualcuno è TCP, e lo fa proprio grazie a questi numeri.\n\nC'è anche un costo nascosto qui: l'handshake richiede un giro completo di andata e ritorno prima ancora di chiedere la pagina. Quel tempo si chiama RTT (Round Trip Time). Se il server è dall'altra parte del mondo, anche solo l'handshake può costare decine di millisecondi. Ecco perché la distanza fisica conta, sempre.\n\nPASSO 3: L'HANDSHAKE TLS, IL TUNNEL SI COSTRUISCE\n\nIl lucchetto dell'approfondita non si materializza da solo. Subito dopo l'handshake TCP, se il sito è in https, parte un secondo handshake: quello TLS (Transport Layer Security, l'erede di quello che una volta si chiamava SSL). Serve a costruire il tunnel cifrato prima che parta qualsiasi dato sensibile.\n\nIn versione semplificata, ma corretta:\n\n1. Il tuo browser manda un ClientHello: dice quali versioni di TLS e quali algoritmi di cifratura (le cipher suite) sa usare, più un valore casuale.\n2. Il server risponde con ServerHello, sceglie l'algoritmo e invia il suo certificato.\n3. Quel certificato contiene la chiave pubblica del server ed è firmato da una CA (Certificate Authority), un'autorità di cui il tuo browser già si fida. Il browser verifica la firma: è davvero google.com o qualcuno che finge?\n4. Le due parti, con uno scambio di chiavi (oggi quasi sempre con il metodo Diffie-Hellman effimero, ECDHE), generano una chiave di sessione segreta condivisa.\n\nDa quel momento tutto viaggia cifrato con quella chiave. La parte elegante sta nella cifratura asimmetrica del certificato: la chiave pubblica permette di mettere al sicuro lo scambio, ma solo la chiave privata del server, che non lascia mai il server, regge l'altra metà. Così anche chi intercetta il ClientHello non ricava nulla di utile.\n\nQuanti giri costa? Con TLS 1.2 servivano due RTT in più. Con TLS 1.3, lo standard oggi diffuso, l'handshake è stato ridotto a un solo RTT, e con la modalità 0-RTT su connessioni già viste in passato può addirittura ripartire senza attese aggiuntive. È uno dei motivi per cui il web cifrato oggi è veloce quasi quanto quello in chiaro.\n\nPASSO 4: LA RICHIESTA HTTP\n\nSolo adesso, dentro il tunnel, parte la vera domanda. È un messaggio HTTP, e in HTTP/1.1 è leggibile come testo. La prima riga è secca:\n\nGET /search?q=reti HTTP/1.1\n\nGET è il metodo (vuoi ricevere qualcosa; per inviare dati, ad esempio un login, si usa POST). Poi seguono gli header: Host che dice quale sito vuoi (fondamentale, perché un solo IP può ospitare migliaia di siti), User-Agent che descrive il tuo browser, Cookie con i tuoi dati di sessione, Accept-Language con la tua lingua. Sono righe di metadati che accompagnano la richiesta.\n\nVale la pena sapere che HTTP si è evoluto. HTTP/2 comprime gli header e permette di chiedere più risorse sulla stessa connessione in parallelo (multiplexing), senza fare la coda. HTTP/3 fa un salto più radicale: abbandona TCP e si appoggia a QUIC, un protocollo costruito su UDP che fonde insieme l'handshake di trasporto e quello TLS, eliminando un giro di andata e ritorno. Meno attese, soprattutto su reti mobili instabili.\n\nPASSO 5: LA RISPOSTA\n\nIl server elabora e risponde. Anche qui la prima riga è densa di significato: contiene lo status code, quel numero che racconta com'è andata. 200 vuol dire tutto ok. 301 e 302 sono redirezioni. 404 è la pagina non trovata che conosci. 500 è un errore del server. La famiglia 2xx è successo, 3xx redirezione, 4xx colpa tua (richiesta sbagliata), 5xx colpa del server.\n\nSeguono gli header di risposta (Content-Type che dice se è HTML, un'immagine o un PDF; Content-Length con la dimensione; header di cache) e poi il corpo: il codice HTML vero e proprio. Tutto questo scende spezzato negli stessi pacchetti TCP di prima, riassemblati in ordine grazie ai numeri di sequenza.\n\nPASSO 6: IL RENDERING, DOVE LA PAGINA PRENDE FORMA\n\nQui succede la cosa che nell'approfondita avevo riassunto in disegna la pagina. In realtà il browser fa un lavoro da regista. Legge l'HTML e costruisce il DOM, un albero che rappresenta ogni elemento della pagina. Intanto incontra riferimenti ad altri file (il CSS per lo stile, il JavaScript per la logica, le immagini, i font) e per ciascuno fa partire una nuova richiesta: spesso decine. Ecco perché aprire una sola pagina genera tanto traffico, e non una sola domanda.\n\nIl CSS diventa un secondo albero, il CSSOM. Il browser fonde DOM e CSSOM, calcola dove va ogni elemento (la fase di layout, o reflow), poi disegna i pixel sullo schermo (paint) e li compone a livelli (composite). Il JavaScript, nel frattempo, può modificare il DOM al volo, ed è ciò che rende le pagine interattive invece che statiche.\n\nI tecnici misurano questo momento con metriche precise. Il TTFB (Time To First Byte) è quanto ci mette ad arrivare il primo byte della risposta: somma DNS, handshake TCP, handshake TLS e attesa del server. Il LCP (Largest Contentful Paint) misura quando l'elemento principale è finalmente visibile. Sono i numeri con cui si giudica se un sito è davvero veloce.\n\nLO STACK, IN UNA RIGA SOLA\n\nMettendo in fila tutto: DNS per avere l'IP, handshake TCP per aprire il canale, handshake TLS per cifrarlo, richiesta HTTP per chiedere, risposta con status code, rendering per disegnare. Diversi di questi passi costano almeno un RTT, e tutti insieme stanno nella frazione di secondo di cui parlavamo. Quando una pagina sembra lenta, ora sai dove guardare: è il DNS pigro? Il server lontano (TTFB alto)? Troppi file da scaricare nel rendering?\n\n[IMG: stack-tcp-tls-http.png | La sequenza reale: handshake TCP a tre vie, handshake TLS, poi la richiesta HTTP dentro il tunnel cifrato.]\n\nVuoi vederlo con i tuoi occhi? Bastano pochi passaggi:\n\n1. Apri il browser.\n2. Premi F12.\n3. Vai sulla scheda Network.\n4. Ricarica una pagina qualsiasi.\n\n[IMG: devtools-scheda-network.png | La scheda Network degli strumenti di sviluppo: ogni richiesta con il suo status code e i millisecondi per fase.]\n\nVedrai ogni richiesta, il suo status code, i millisecondi spesi in ciascuna fase. È il modo più diretto per smettere di credere alla magia e iniziare a leggere gli ingranaggi. Quale fase, secondo te, sta rallentando il sito che apri più spesso?"
@@ -6671,6 +6617,13 @@ const articoliGrezzi = [
     "rubrica": "Miti Digitali",
     "data": "2026-05-02",
     "videoUrl": "https://youtube.com/watch?v=placeholder",
+    "tags": [
+      "modalità incognito",
+      "privacy",
+      "browser",
+      "navigazione",
+      "miti digitali"
+    ],
     "contenutoBreve": "Pensi che la modalità in incognito sia un mantello dell'invisibilità? Ho brutte notizie per te.\n\nCOSA NON FA\nLa navigazione in incognito non ti rende anonimo. Il tuo provider Internet vede comunque tutto quello che fai. Il tuo datore di lavoro, se sei sulla rete aziendale, vede tutto. I siti che visiti vedono il tuo indirizzo IP. Google sa comunque che ci sei, se usi i loro servizi.\n\nCOSA FA DAVVERO\nL'incognito fa una cosa sola: non salva la cronologia, i cookie e i dati dei moduli sul TUO dispositivo. Tutto qui. È utile se condividi il PC e non vuoi che qualcuno veda cosa hai cercato. Ma fuori dal tuo computer, sei visibile come sempre.\n\nSe vuoi davvero navigare in modo più privato, serve una VPN. Ma questa è un'altra storia, e ne parleremo presto. Sapevi già questa differenza?",
     "contenuto": "Sei in treno, hai appena aperto una scheda in incognito per cercare un regalo a sorpresa per il tuo partner. Quella finestra scura, con l'icona dell'omino col cappello e gli occhiali, ti dà una sensazione precisa: nessuno mi vede. Ti sbagli. E vale la pena capire bene perché, perché su questo malinteso si gioca tanta della tua privacy.\n\nTe lo dico subito, senza giri: la modalità in incognito non ti rende invisibile. Ti rende invisibile a chi usa il tuo stesso computer dopo di te. Punto. Tutto il resto del mondo continua a vederti come prima.\n\nL'INCOGNITO È UNA TENDA, NON UN MANTELLO\n\nImmagina di entrare in un negozio con una tenda da doccia addosso. Chi è a casa tua, quando torni, non vedrà i tuoi acquisti perché non porti le buste dentro. Ma il commesso ti ha guardato in faccia. La videocamera all'ingresso ti ha ripreso. Il vigile fuori ha visto da che porta sei entrato.\n\nEcco, l'incognito è quella tenda. Nasconde le tracce dentro casa tua, cioè dentro il tuo dispositivo. Non nasconde nulla là fuori, dove succede la maggior parte delle cose.\n\nL'incognito fa una cosa sola: non salva cronologia, cookie e dati dei moduli sul tuo dispositivo. Ora vediamo nel dettaglio chi continua a vederti, perché è qui che il mito crolla.\n\nCHI TI VEDE LO STESSO\n\nIl tuo provider Internet. Quello a cui paghi la bolletta di casa o del telefono. Lui vede a quali siti ti colleghi, sempre, incognito o no. È come il postino che, anche se non apre le tue lettere, sa benissimo a chi le spedisci e quante ne mandi.\n\nIl tuo datore di lavoro, se sei connesso alla rete dell'ufficio. La rete aziendale è casa loro, e loro hanno le chiavi. Quella ricerca fatta in pausa pranzo sul PC del lavoro, anche in incognito, può finire nei loro registri. Tienilo a mente.\n\nI siti che visiti. Ognuno vede il tuo indirizzo IP, una specie di numero di targa della tua connessione. Vede da dove arrivi, che browser usi, a volte abbastanza per riconoscerti tra mille. L'incognito non cancella la targa.\n\nE poi c'è Google, o qualsiasi altro servizio dove fai il login. Questo è il punto che inganna di più. Se apri una scheda in incognito ma poi entri nella tua casella di posta, o nel tuo profilo social, ci hai messo la firma. Da quel momento sanno che sei tu, e l'omino col cappello non ti protegge più. È come entrare mascherato a una festa e poi gridare nome e cognome al primo che incontri.\n\nCOSA FA DAVVERO, E QUANDO SERVE\n\nAllora l'incognito è inutile? No, è utile, ma per quello che è davvero.\n\nServe quando condividi il computer. Il portatile di casa che usano in tre, il PC della biblioteca, il tablet dei figli. In incognito cerchi quello che vuoi e, quando chiudi la finestra, non resta cronologia da sbirciare né accessi memorizzati. Pensa al regalo a sorpresa di prima: chiudi la scheda e la persona interessata non troverà indizi frugando nella cronologia.\n\nServe per fare un login separato. Vuoi entrare in due account diversi dello stesso servizio nello stesso momento? La finestra in incognito parte pulita, senza i cookie della sessione normale, e ti permette di tenerli divisi.\n\nServe per vedere un sito da fresco. A volte un sito sembra rotto solo perché il browser tiene in memoria una vecchia versione. L'incognito parte da zero e ti mostra le cose come le vedrebbe un visitatore nuovo.\n\nE basta. Sono usi concreti, quotidiani, onesti. Niente a che vedere con l'anonimato.\n\nL'ERRORE CHE COSTA CARO\n\nIl problema vero non è l'incognito in sé. È l'illusione che porta con sé. Chi si crede invisibile abbassa la guardia. Cerca cose delicate sul PC dell'ufficio, gestisce questioni private sulla rete sbagliata, si fida di una protezione che non esiste.\n\nÈ come guidare convinti di avere l'airbag quando l'airbag non c'è. Finché tutto va liscio non te ne accorgi. Il guaio arriva nel momento sbagliato.\n\nQuindi usa l'incognito per quello che è: un modo pulito per non lasciare tracce sul tuo dispositivo. Comodo, semplice, immediato. Ma togliti dalla testa che ti renda un fantasma.\n\nE SE VOGLIO DAVVERO PIÙ PRIVACY\n\nQui arriva la parte interessante. Se il tuo obiettivo è nasconderti dal provider, far sparire la tua targa agli occhi dei siti, navigare da una rete pubblica senza essere un libro aperto, allora ti serve un altro strumento: una VPN.\n\nIn due parole, una VPN è come un tunnel privato. Tu entri da una parte, esci da un'altra, e chi sta fuori non vede cosa passa dentro né da dove sei partito davvero. È tutta un'altra storia rispetto alla tendina dell'incognito, e merita un articolo a sé, che ti racconteremo presto.\n\nPer oggi ti basti questo: l'omino col cappello e gli occhiali non è un agente segreto. È solo un buon custode delle tue tracce, dentro casa tua. E ora che sai dove finisce la sua protezione, quante volte ti eri fidato di lui pensando di essere al sicuro?"
   },
@@ -6679,6 +6632,14 @@ const articoliGrezzi = [
     "rubrica": "Sicurezza",
     "data": "2026-05-05",
     "videoUrl": "https://youtube.com/watch?v=placeholder",
+    "tags": [
+      "HTTP",
+      "HTTPS",
+      "SSL",
+      "sicurezza",
+      "crittografia",
+      "Wi-Fi pubblico"
+    ],
     "contenutoBreve": "Sei al bar, c'è il wifi gratis e apri al volo l'app della banca per controllare il conto. Comodo. Ma prima di digitare la password, guarda accanto all'indirizzo del sito: c'è il lucchetto? Se non c'è, fermati. Quel lucchetto significa che stai usando HTTPS, e quella S che sembra un dettaglio da informatici è esattamente la cosa che ti separa dai guai.\n\nSenza la S, in HTTP, i dati viaggiano in chiaro. È come spedire una cartolina: nome utente, password, numero della carta passano leggibili attraverso il router del bar, i cavi dell'operatore, decine di tappe intermedie, e a ogni tappa qualcuno può origliare. E quel qualcuno non è un genio del male: su una rete wifi pubblica basta un programma scaricato gratis per leggere il traffico di chi è seduto due tavolini più in là. Con HTTPS, invece, il browser e il sito si accordano in segreto su un codice che conoscono solo loro: i tuoi dati partono trasformati in una sequenza incomprensibile e tornano leggibili solo all'arrivo. La cartolina diventa una busta sigillata.\n\nDove guardi, in pratica? Subito a sinistra dell'indirizzo, in alto. Chrome, Safari, Firefox: tutti mostrano lì il lucchetto, e ti avvisano da soli con una pagina rossa quando una pagina non è protetta. Su molti browser, oggi, vedi anche scritto \"Non sicuro\" a tutte lettere accanto ai siti in HTTP.\n\nUna sfumatura che pochi ti dicono, però: il lucchetto certifica che la conversazione è protetta, non che il sito sia onesto. I certificati di base sono gratuiti, quindi pure un finto negozio costruito per fregarti può sfoggiare la sua S. Per questo, prima di pagare, leggi l'indirizzo per intero, lettera per lettera: i truffatori adorano i domini quasi identici a quelli veri, con una lettera cambiata o aggiunta. E sulle reti pubbliche, per banca e acquisti, meglio aspettare una rete fidata o usare i dati del telefono. Il sito che hai aperto adesso, mentre leggi: ce l'ha il lucchetto?",
     "contenuto": "Sei al bar, c'è il wifi gratis, e apri al volo l'home banking per dare un'occhiata al conto. Comodo, no? Fermati un attimo. Perché su quella stessa rete, seduto due tavolini più in là, potrebbe esserci qualcuno che legge tutto quello che digiti. Non è fantascienza. È la differenza tra HTTP e HTTPS. E quella S che a prima vista sembra un dettaglio da informatici, in realtà è la cosa che ti separa dai guai.\n\nTe lo dico subito, secco: se non c'è il lucchetto, non scrivere la password. Adesso però ti spiego il perché, così la prossima volta lo capisci a colpo d'occhio.\n\nCOSA SUCCEDE QUANDO APRI UN SITO\n\nOgni volta che visiti una pagina, il tuo dispositivo e il sito si scambiano messaggi. Tu chiedi \"mostrami questa pagina\", lui risponde \"eccola\". Tu mandi \"ecco la mia password\", lui risponde \"ok, sei dentro\". Questi messaggi non viaggiano per magia: passano attraverso il router di casa, la rete del bar, i cavi del tuo operatore, decine di tappe intermedie. E a ogni tappa, qualcuno potrebbe origliare.\n\nLa domanda vera quindi è una sola: quei messaggi viaggiano in chiaro o protetti? Qui entra in gioco la S.\n\nHTTP, LA CARTOLINA CHE LEGGONO TUTTI\n\nHTTP è il protocollo senza protezione. I dati viaggiano in chiaro: è una cartolina.\n\nPensa davvero a una cartolina dalle vacanze. La scrivi, la imbuchi, e prima che arrivi a destinazione passa per le mani di un sacco di persone. Il postino, gli addetti allo smistamento, chiunque la prenda in mano un secondo. Nessuno deve sforzarsi per leggerla: è scritta lì, in bella vista. Con HTTP è identico. Il tuo nome utente, la password, il numero della carta, i messaggi che invii: tutto in chiaro, leggibile da chiunque si trovi lungo il percorso.\n\nE \"chiunque\" non è un modo di dire. Su una rete wifi pubblica, intercettare il traffico di chi ti sta intorno è alla portata di una persona con un minimo di malizia e un programma scaricato gratis. Non serve essere un genio dei computer.\n\n[IMG: http-vs-https-cartolina-busta.png | A sinistra una cartolina aperta e leggibile, a destra una busta sigillata: ecco la differenza tra HTTP e HTTPS.]\n\nHTTPS, LA BUSTA CHE NESSUNO RIESCE AD APRIRE\n\nHTTPS aggiunge un ingrediente che cambia tutto: la crittografia. I tuoi dati, prima di partire, vengono chiusi in una busta sigillata. Anzi, blindata.\n\nFunziona così. Il tuo browser e il sito si mettono d'accordo, in segreto, su un codice che conoscono solo loro due. Da quel momento ogni messaggio viene trasformato in una sequenza incomprensibile prima di partire, e ricomposto solo all'arrivo. Se qualcuno lo intercetta lungo la strada, si ritrova in mano un foglio pieno di simboli senza senso. La cartolina è diventata una busta sigillata, e la chiave per aprirla ce l'avete soltanto tu e il sito.\n\nQuel lucchetto che vedi vicino all'indirizzo, nel browser, significa esattamente questo: la busta è sigillata, la comunicazione è protetta.\n\nNON SOLO SEGRETEZZA: ANCHE L'IDENTITÀ\n\nC'è un secondo vantaggio dell'HTTPS di cui si parla poco, ma conta parecchio. Oltre a nascondere i dati, garantisce che il sito sia davvero chi dice di essere.\n\nImmagina di entrare in una banca. Vuoi essere sicuro che sia la tua banca, e non una copia finta allestita per fregarti. HTTPS fa anche questo: quando ti colleghi, il sito presenta una specie di documento d'identità digitale, il certificato, rilasciato da enti di cui i browser si fidano. Se il documento non torna, il browser ti blocca con una pagina di allarme rosso. È il suo modo di dirti: attenzione, qui qualcosa non quadra.\n\nEcco perché un truffatore non può semplicemente clonare la tua banca su una connessione sicura: il certificato lo smaschererebbe.\n\nATTENZIONE A NON FIDARTI TROPPO DEL LUCCHETTO\n\nE qui arriva la sfumatura importante, quella che pochi ti dicono. Il lucchetto certifica che la comunicazione è protetta. Non certifica che il sito sia onesto.\n\nTradotto: anche un sito truffaldino può avere il lucchetto. I certificati di base oggi sono gratuiti, quindi pure un finto negozio messo su per rubarti i soldi può sfoggiare la sua bella S. Il lucchetto ti dice \"nessuno sta origliando la tua conversazione con questo sito\". Non ti dice \"questo sito è una brava persona\".\n\nQuindi il lucchetto è una condizione necessaria, ma non sufficiente. Prima di comprare o inserire dati, controlla anche che l'indirizzo sia scritto giusto, lettera per lettera. I truffatori amano i domini quasi identici a quelli veri, con una lettera cambiata o aggiunta, sperando che tu non ci faccia caso.\n\nCOSA FARE, IN CONCRETO\n\nMettiamo insieme i pezzi in tre gesti rapidi.\n\n1. Prima di scrivere qualsiasi dato personale, cerca il lucchetto accanto all'indirizzo. Niente lucchetto, niente password. Su questo non si tratta.\n\n2. Leggi l'indirizzo per intero, con calma. Il lucchetto c'è, ma il nome del sito è strano o storpiato? Chiudi e vai via.\n\n3. Sulle reti wifi pubbliche alza il livello di guardia. Per leggere le notizie nessun problema. Ma per banca, acquisti e password, meglio aspettare di essere su una rete fidata, oppure usare la connessione dati del telefono.\n\nLa buona notizia è che oggi la stragrande maggioranza dei siti seri usa HTTPS di default, e i browser ti avvisano da soli quando una pagina non è sicura. Il sistema lavora per te. A te resta un solo gesto, quello che fa la differenza: dare un'occhiata a quel lucchetto prima di battere sulla tastiera.\n\nAllora, il sito che hai aperto adesso, mentre leggi: ce l'ha il lucchetto?",
     "contenutoTecnico": "Hai capito la differenza tra cartolina e busta sigillata. Ora apriamo il cofano e guardiamo cosa succede davvero in quei millisecondi tra quando premi Invio e quando compare il lucchetto. Spoiler: la busta non si chiude da sola, viene negoziata in una conversazione precisa tra il tuo browser e il server.\n\n\nPRIMA COSA: HTTPS NON È UN PROTOCOLLO NUOVO\n\nQuesto è il punto che spesso sfugge. HTTP resta esattamente lo stesso protocollo di sempre. La S sta per uno strato sottostante che si chiama TLS (Transport Layer Security), l'evoluzione del vecchio SSL ormai dismesso. In pratica HTTPS è HTTP fatto passare dentro un tunnel TLS. Il tuo browser parla HTTP come ha sempre fatto, ma le parole non escono in chiaro sul cavo: prima entrano nel tunnel.\n\nCambia anche la porta: HTTP viaggia di default sulla 80, HTTPS sulla 443. Quando scrivi un indirizzo senza specificare nulla, il browser sceglie la porta in base allo schema (http:// o https://).\n\n\nL'HANDSHAKE TLS, PASSO PER PASSO\n\nPrima che parta anche un solo byte della tua password, browser e server si stringono la mano. Ecco la sequenza nella versione classica, TLS 1.2.\n\n1. ClientHello. Il browser apre la conversazione e dice: ciao, supporto queste versioni di TLS, conosco queste cipher suite, ecco un numero casuale che ho appena generato (il client random). La cipher suite è la ricetta crittografica: un nome come ECDHE-RSA-AES128-GCM-SHA256 che elenca, in ordine, come ci si scambia le chiavi, come si autentica il server, quale cifrario simmetrico si userà e con quale funzione di integrità.\n\n2. ServerHello. Il server risponde scegliendo UNA cipher suite dalla lista, la più robusta che entrambi supportano, manda il suo numero casuale (il server random) e soprattutto allega il suo certificato.\n\n3. Verifica del certificato e scambio delle chiavi. Il browser controlla il certificato (ci torno sotto), poi i due si accordano su un segreto condiviso usando crittografia asimmetrica. Con ECDHE, cioè Elliptic Curve Diffie-Hellman Ephemeral, non si trasmette mai la chiave vera e propria: si scambiano valori pubblici da cui ciascuno ricava in autonomia lo stesso segreto. Un origliatore che registra tutto il traffico non riesce comunque a calcolarlo.\n\n4. Finished. Entrambi confermano di aver derivato le stesse chiavi e da quel momento la conversazione diventa cifrata.\n\nTutto questo, nella 1.2, richiede due giri completi di andata e ritorno (2-RTT, Round Trip Time) prima di poter scambiare il primo dato utile. Tienilo a mente, perché tra poco la 1.3 lo taglia.\n\n[IMG: handshake-tls-sequenza.png | La stretta di mano TLS: ClientHello, ServerHello con certificato, scambio chiavi, conversazione cifrata]\n\n\nASIMMETRICA PER APRIRE, SIMMETRICA PER LAVORARE\n\nQui c'è il dettaglio che spiega perché HTTPS, alla fine, non rallenta la navigazione. La crittografia asimmetrica, quella con coppia chiave pubblica/privata, è potente ma lenta e pesante in termini di calcolo. Usarla per ogni pacchetto sarebbe uno spreco enorme.\n\nQuindi TLS la usa solo nell'handshake, per fare una cosa sola: mettere d'accordo le due parti su una chiave di sessione. Da lì in poi tutto il traffico vero, le pagine, le password, le immagini, viaggia con crittografia simmetrica, dove la stessa chiave cifra e decifra. AES (Advanced Encryption Standard), tipicamente in modalità GCM, è il cavallo di battaglia: veloce e spesso accelerato direttamente in hardware dalla CPU, con istruzioni dedicate come AES-NI. L'asimmetrica fa il lavoro delicato all'inizio; la simmetrica fa il lavoro di forza per tutto il resto. È il meglio dei due mondi.\n\nUna proprietà preziosa di ECDHE è la forward secrecy: la chiave di sessione è effimera, generata sul momento e buttata a fine sessione. Se domani qualcuno rubasse la chiave privata del server e avesse registrato il traffico di oggi, non potrebbe comunque decifrarlo. Ogni sessione ha il suo segreto usa-e-getta, scollegato dalla chiave privata del certificato.\n\n\nIL CERTIFICATO X.509 E LA CATENA DI FIDUCIA\n\nCifrare non basta. Se ti collegassi in modo cifratissimo al server di un truffatore, la crittografia non ti salverebbe affatto. Serve sapere che dall'altra parte c'è davvero chi dice di essere. Questo lo fa il certificato.\n\nIl certificato segue lo standard X.509 e contiene il nome del dominio, la chiave pubblica del server, le date di validità e una firma digitale. La firma non se la mette il server da solo: gliela appone una Certificate Authority (CA), un ente di cui il tuo sistema operativo e il tuo browser si fidano già.\n\nIl meccanismo è una catena. Il tuo dispositivo ha precaricato un elenco di certificati radice, le root CA, il cosiddetto trust store. Una root non firma direttamente i siti: firma delle CA intermedie, che a loro volta firmano i certificati dei singoli siti. Quando arrivi su un sito, il server presenta il suo certificato più gli intermedi, e il browser risale l'anello fino a una radice di cui si fida. Se la catena è completa e ogni firma torna, fiducia stabilita. Se manca un anello, o il nome non combacia, o la data è scaduta, scatta l'errore rosso che hai visto almeno una volta.\n\nUn dettaglio pratico che vale oro contro le truffe: la stragrande maggioranza dei certificati sul web oggi sono di tipo DV (Domain Validation), che attestano solo questo è davvero il dominio giusto, non questa è davvero quell'azienda. Il lucchetto garantisce il canale cifrato e l'identità del dominio, non l'onestà di chi lo gestisce. Un sito di phishing può avere il suo bravo lucchetto, ottenuto gratis in pochi minuti. La S protegge il trasporto, non ti dice se fidarti del destinatario.\n\n\nTLS 1.3: PIÙ VELOCE E CON MENO ARMI SUL TAVOLO\n\nDal 2018 lo standard di riferimento è TLS 1.3 (RFC 8446) e fa due cose importanti. Primo, accorcia l'handshake: dove la 1.2 chiedeva due giri di andata e ritorno (2-RTT), la 1.3 ci arriva in uno solo (1-RTT), e con la modalità 0-RTT su connessioni già viste in passato può addirittura mandare i primi dati subito. Su una pagina con decine di richieste, questa differenza si sente.\n\nSecondo, fa pulizia. La 1.3 ha buttato fuori tutta la crittografia vecchia e fragile: niente più RC4 o 3DES, niente RSA usato per trasportare direttamente la chiave, niente scambio senza forward secrecy. In 1.3 la forward secrecy non è più un'opzione consigliata, è obbligatoria. Meno scelte sul menu significa meno occasioni per configurare male il server o per farsi spingere su un cifrario debole con un attacco di downgrade. E anche pezzi dell'handshake che in 1.2 viaggiavano in chiaro, incluso il certificato del server, in 1.3 viaggiano già cifrati.\n\n\nHSTS: LA REGOLA CHE TOGLIE LA SCELTA SBAGLIATA\n\nC'è ancora un buco. La prima volta che digiti un indirizzo senza specificare https, il browser potrebbe tentare in chiaro sulla porta 80, e un attaccante piazzato in mezzo (man-in-the-middle) potrebbe impedire il passaggio alla versione sicura, tenendoti sul canale aperto. È il classico SSL stripping.\n\nHSTS, che sta per HTTP Strict Transport Security, chiude questa porta. Il server invia un'intestazione, Strict-Transport-Security, con un parametro max-age che dice al browser: per i prossimi tot secondi, con me parla SOLO in HTTPS, senza nemmeno provare il chiaro. Da quel momento il browser fa l'upgrade da solo, prima ancora di toccare la rete. Esiste anche una preload list, integrata direttamente dentro i browser, per i domini che vogliono questa protezione fin dalla primissima visita, senza dipendere dalla prima risposta del server.\n\n\nDA PROVARE ADESSO\n\nSe vuoi vedere dal vivo la catena di certificati, hai due strade.\n\n1. Se sei su Linux o Mac apri il terminale e lancia: openssl s_client -connect example.com:443. Vedrai scorrere la catena di certificati, la cipher suite negoziata e la versione di TLS in uso. Su Windows lo stesso comando funziona se hai OpenSSL installato, ad esempio quello che arriva con Git.\n\n2. Oppure, più comodo, nel browser clicca sul lucchetto, apri i dettagli del certificato e segui la catena: certificato del sito, CA intermedia, root. Stai guardando dal vivo la fiducia che si propaga dall'alto verso il basso.\n\nE una domanda da portarti dietro: se anche un sito di truffa può esibire il lucchetto, cosa stai verificando davvero quando lo guardi? Capire che stai controllando il canale e il nome del dominio, non l'identità di chi c'è dietro, è il primo passo per non cadere nel prossimo tranello."
@@ -6688,6 +6649,13 @@ const articoliGrezzi = [
     "rubrica": "Sicurezza",
     "data": "2026-05-07",
     "videoUrl": "https://youtube.com/watch?v=placeholder",
+    "tags": [
+      "firewall",
+      "sicurezza",
+      "reti",
+      "Windows",
+      "protezione"
+    ],
     "contenutoBreve": "Il tuo PC ha una guardia del corpo, e probabilmente non lo sai. Si chiama firewall, e oggi ti spiego come funziona e perché è fondamentale.\n\nCOS'È UN FIREWALL\nImmagina il buttafuori di un locale. Ha una lista: queste persone possono entrare, queste no. Queste possono uscire, queste no. Il firewall fa esattamente questo con i dati che entrano ed escono dal tuo PC o dalla tua rete.\n\nOgni comunicazione su Internet usa delle porte. Non porte fisiche, ma porte logiche: numeri da 1 a 65535. Ogni servizio usa la sua: il web usa la porta 80 o 443, l'email usa la 25 o la 587, e così via. Il firewall decide quali porte tenere aperte e quali chiuse.\n\nFIREWALL SOFTWARE VS HARDWARE\nEsistono due tipi. Il firewall software è quello integrato in Windows: protegge il singolo PC. Il firewall hardware è integrato nel router o è un dispositivo dedicato: protegge tutta la rete. In una casa hai di solito entrambi. In un'azienda il firewall hardware è molto più sofisticato e ha regole personalizzate per ogni tipo di traffico.\n\nCOSA FARE\nVai nelle impostazioni di Windows, cerca Firewall, e controlla che sia attivo. È la prima linea di difesa del tuo PC, e deve essere sempre accesa.",
     "contenuto": "Sei in casa, è sera. Hai chiuso la porta a chiave, controllato che le finestre fossero a posto, magari abbassato le tapparelle. Lo fai senza pensarci, è automatico. Eppure il tuo computer, che ogni giorno si affaccia su una strada molto più affollata e pericolosa di quella sotto casa tua, spesso lo lasci con la porta spalancata. La strada si chiama Internet, e la guardia che dovrebbe sorvegliarla si chiama firewall. Oggi ti spiego chi è, cosa fa e perché dovresti volergli bene.\n\nCOS'È UN FIREWALL\n\nImmagina il buttafuori di un locale. Sta sulla porta, ha una lista in mano e decide chi entra e chi resta fuori. Queste persone sì, queste no. E controlla anche chi esce. Il firewall fa esattamente questo, ma con i dati che vanno e vengono dal tuo computer o dalla tua rete di casa.\n\nOgni cosa che fai online è uno scambio di pacchetti di dati. Apri una pagina web, mandi un messaggio, guardi un video: in ogni caso il tuo computer parla con un altro computer dall'altra parte del mondo. Il firewall si mette in mezzo a questa conversazione e fa una domanda semplice per ogni pacchetto: tu puoi passare? Se la risposta è no, il pacchetto viene bloccato lì, sulla soglia.\n\nLE PORTE: NUMERI, NON LEGNO\n\nQui serve capire una parola: porta. Non è una porta di legno, è una porta logica, cioè un numero. Vanno dalla 1 alla 65535, e ognuna è come uno sportello dedicato a un certo tipo di traffico.\n\nPensa a un grande palazzo con tanti sportelli numerati. Allo sportello 80 e allo sportello 443 si fanno le pratiche del web, ed è da lì che passano le pagine dei siti che visiti. Allo sportello 25 o 587 si occupano della posta elettronica. Altri sportelli servono per altri servizi ancora.\n\nIl problema è che uno sportello aperto e non sorvegliato è un invito. Se un servizio sul tuo computer tiene aperta una porta che non dovrebbe, qualcuno da fuori può provare a bussare e a entrare. Il firewall serve proprio a questo: tiene aperte solo le porte che ti servono davvero e chiude tutte le altre. Meno sportelli aperti, meno occasioni per i malintenzionati.\n\nSOFTWARE O HARDWARE: DUE GUARDIE DIVERSE\n\nEsistono due tipi di firewall, e la cosa bella è che non devi sceglierne uno: di solito li hai entrambi.\n\nIl firewall software è un programma. In Windows è già integrato e si chiama Windows Defender Firewall. Protegge il singolo computer su cui gira. È un po' come avere una guardia personale che ti segue ovunque: se porti il portatile al bar e ti connetti al wi-fi pubblico, lei resta con te.\n\nIl firewall hardware, invece, è quello che vive dentro il router, la scatoletta che ti porta Internet in casa. Sta all'ingresso della tua rete e protegge tutto ciò che ci sta dietro: computer, telefoni, smart TV, telecamere, l'aspirapolvere intelligente. È come avere un cancello con un portiere all'entrata del palazzo: chi non ha i requisiti non arriva nemmeno alla tua porta di casa.\n\nIn azienda le cose si fanno molto più serie. I firewall hardware professionali sono dispositivi dedicati e potenti, con regole su misura per ogni tipo di traffico: questo ufficio può accedere a quei server, questo no, da fuori non si entra se non passando per un percorso protetto. Sono il motivo per cui, anche con centinaia di dipendenti, una rete ben fatta resta sotto controllo.\n\n[IMG: firewall-router-pc.png | Il firewall del router protegge l'intera rete, quello di Windows protegge il singolo computer.]\n\nIN ENTRATA E IN USCITA\n\nC'è un dettaglio che molti non considerano: la guardia controlla il traffico in due direzioni. Non solo chi vuole entrare, ma anche chi vuole uscire.\n\nPerché è importante? Immagina che un programma sospetto sia riuscito comunque a infilarsi nel tuo computer, magari nascosto in un allegato che non dovevi aprire. A quel punto vorrebbe fare una cosa: chiamare casa, cioè collegarsi a un server esterno per spedire i tuoi dati o ricevere ordini. Un firewall ben configurato può accorgersi di questo tentativo di uscita strano e bloccarlo. La guardia non si limita a far entrare le persone giuste: si assicura anche che nessuno esca con la refurtiva sotto il cappotto.\n\nCOSA NON FA (PER NON ILLUDERTI)\n\nIl firewall è fondamentale, ma non è un supereroe. Non legge il contenuto delle email per capire se è una truffa. Non ti ferma se sei tu, con le tue mani, a cliccare su un link finto e a digitare la password su un sito fasullo. È come la guardia all'ingresso: controlla chi passa dal cancello, ma se sei tu ad aprire la porta e a far entrare il ladro perché ti ha raccontato una bella storia, lì non può farci niente.\n\nPer questo il firewall va visto come la prima linea di difesa, non l'unica. Insieme a lui servono un buon antivirus, gli aggiornamenti fatti regolarmente e, soprattutto, la tua attenzione.\n\nCOSA FARE SUBITO\n\nBastano due minuti. Apri le impostazioni di Windows, scrivi Firewall nella casella di ricerca e controlla che risulti attivo. Nella stragrande maggioranza dei casi lo è già, perché Windows lo accende da solo. Il consiglio è semplice: lascialo acceso. Capita che certi programmi, durante l'installazione, chiedano di disattivarlo o creino delle eccezioni: prima di dire sì, fermati un secondo e chiediti se quel programma è davvero affidabile.\n\nE poi dai un'occhiata anche al tuo router. Spesso ha un firewall attivo per impostazione predefinita, ma vale la pena entrare nel pannello di configurazione almeno una volta per controllare e, già che ci sei, cambiare la password di accesso se è ancora quella di fabbrica.\n\nLa domanda da portarti a casa è questa: la guardia del tuo computer è in servizio in questo momento, o sei uscito di casa lasciando il cancello aperto? Controllare costa due minuti. Riparare i danni, molto di più."
   },
@@ -6696,6 +6664,13 @@ const articoliGrezzi = [
     "rubrica": "Miti Digitali",
     "data": "2026-05-09",
     "videoUrl": "https://youtube.com/watch?v=placeholder",
+    "tags": [
+      "RAM",
+      "prestazioni",
+      "CPU",
+      "hardware",
+      "miti digitali"
+    ],
     "contenutoBreve": "Metti più RAM! È il consiglio che ti danno tutti. E spesso è completamente sbagliato. Ecco perché.\n\nIL MITO\nVi ricordate la metafora della cucina? La RAM è il piano di lavoro. Ma se il problema è che il cuoco è lentissimo, cioè hai una CPU vecchia, allargare il piano di lavoro non serve a nulla. Il cuoco resta lento.\n\nOppure se il problema è che la dispensa ha la porta arrugginita, cioè hai un disco meccanico lentissimo, aggiungere RAM non cambierà niente. Il collo di bottiglia è da un'altra parte.\n\nQUANDO SERVE DAVVERO\nAggiungere RAM serve solo se la RAM è effettivamente il limite. Come si capisce? Apri il Task Manager, guarda la percentuale di memoria usata. Se è costantemente sopra il 90 percento, allora sì, ti serve più RAM. Se è al 50-60 percento, il problema è altrove.\n\nPrima di spendere soldi, diagnostica il problema. Il Task Manager è il tuo migliore amico.",
     "contenuto": "Hai aperto sei schede del browser, un documento Word e la chat di lavoro. Il computer arranca, la rotellina gira. E in ufficio qualcuno, con la sicurezza di chi ha sempre la risposta pronta, ti dice: metti più RAM. Funziona come l'aspirina della nonna, va bene per tutto. Peccato che spesso non serva a niente.\n\nMettiamo le cose in chiaro, senza giri di parole.\n\nIL MITO DELLA RAM CHE RISOLVE TUTTO\n\nTi ricordi la metafora della cucina? Riprendiamola, perché funziona bene. Il tuo computer è una cucina. La RAM è il piano di lavoro: più è grande, più cose puoi tenerci pronte all'uso senza correre avanti e indietro. La CPU, il processore, è il cuoco: è lui che taglia, mescola, cucina. Il disco, dove tieni i tuoi file, è la dispensa: ci vai a prendere gli ingredienti.\n\nOra immagina questa scena. Hai un piano di lavoro enorme, lungo tre metri. Ma il cuoco è un signore di novant'anni che si muove piano e ci mette un'ora a tagliare una cipolla. Ti serve un piano più grande? No. Il problema è il cuoco. Puoi mettere un tavolo lungo come un campo da calcio, la cena arriverà sempre tardi.\n\nEcco perché aggiungere RAM, da sola, non rende un computer più veloce. La RAM toglie un limite preciso. Se quel limite non è il tuo problema, hai buttato i soldi.\n\nDOVE SI NASCONDE IL VERO RALLENTAMENTO\n\nNei computer c'è un'idea che gli informatici chiamano collo di bottiglia. Suona tecnico, ma è semplicissimo. Pensa a un'autostrada a quattro corsie che a un certo punto si stringe in una sola. Non importa quanto siano larghe le altre corsie: la velocità di tutto il traffico è decisa da quel punto stretto. Quello è il collo di bottiglia.\n\nIn un computer i punti stretti possibili sono fondamentalmente tre, e la RAM è solo uno.\n\nIl primo è la CPU, il cuoco. Se hai un processore di otto o dieci anni fa, lui fatica e basta. Apri un programma pesante, arranca. Più RAM non lo ringiovanisce.\n\nIl secondo, ed è il più frequente sui computer non recentissimi, è il disco. Esistono due grandi famiglie. Il disco meccanico, chiamato HDD, ha dentro dei piatti che girano fisicamente, come un vecchio giradischi. È lentissimo: è la dispensa con la porta arrugginita che si apre a fatica. Poi c'è il disco a stato solido, l'SSD, che non ha parti in movimento e va dieci, venti volte più veloce. Se hai ancora un disco meccanico, passare a un SSD è la cosa che cambia di più la vita del tuo computer. Più di qualsiasi RAM. L'accensione che prima durava due minuti scende a quindici secondi. Non è marketing, è proprio un'altra macchina.\n\nIl terzo limite è, finalmente, la RAM. Ed è reale, attenzione. Ma è reale solo in certi casi.\n\nQUANDO LA RAM SERVE SUL SERIO\n\nLa RAM diventa il problema quando ne hai troppo poca per quello che fai. E lì succede una cosa furba e disperata insieme. Quando il piano di lavoro è pieno, il computer prende le cose che non ci stanno più e le posa nella dispensa, cioè sul disco. Questo si chiama file di scambio, o memoria virtuale.\n\nIl guaio è che la dispensa è lentissima rispetto al piano di lavoro. Così il computer passa il tempo a fare avanti e indietro, a spostare roba dal piano alla dispensa e viceversa. Si chiama swapping, ed è la causa di quei momenti in cui tutto si blocca, il mouse va a scatti e tu ti chiedi se sia il caso di lanciare il portatile dalla finestra. Lì, e solo lì, aggiungere RAM è la cura giusta.\n\nQuanta RAM serve davvero? Dipende da cosa fai. Per navigare, scrivere mail, guardare video e usare i social, otto gigabyte oggi sono il minimo che funziona. Sedici gigabyte sono la quantità comoda per la maggior parte delle persone, anche con tante schede aperte. Oltre, verso i trentadue, ha senso solo se monti video, modifichi foto pesanti, lavori con macchine virtuali o giochi ai titoli più esigenti. Se navighi e basta, comprare trentadue gigabyte è come comprare un camion per fare la spesa sotto casa.\n\nLA DIAGNOSI IN DUE MINUTI\n\nPrima di aprire il portafoglio, fai il medico. Su Windows premi insieme i tasti Ctrl, Shift ed Esc: si apre il Gestione attività, il Task Manager. Vai sulla scheda Prestazioni e guarda la voce Memoria.\n\nAdesso usa il computer come fai di solito. Apri i tuoi programmi, le tue schede, la tua musica. E tieni d'occhio quella percentuale.\n\nSe la memoria sta costantemente sopra il novanta per cento e il computer arranca, hai trovato il colpevole: ti serve più RAM. Se invece sei al cinquanta o sessanta per cento ma il computer è comunque lento, fermati. La RAM non è il tuo problema. Guarda la scheda Disco: se è spesso al cento per cento, il colpevole è quel disco meccanico arrugginito, e la soluzione è un SSD. Guarda la CPU: se è lei a stare sempre al massimo, il cuoco è semplicemente vecchio.\n\n[IMG: task-manager-memoria.png | La scheda Prestazioni del Task Manager: qui leggi in un attimo chi sta lavorando troppo, tra memoria, disco e processore.]\n\nIL PUNTO\n\nIl consiglio metti più RAM è sbagliato non perché la RAM sia inutile, ma perché è una risposta data senza fare la domanda. È come prendere l'antibiotico per il mal di testa. A volte ci azzecchi, spesso no.\n\nLa differenza tra chi spende bene e chi butta i soldi non è il portafoglio. È un minuto passato a guardare il Task Manager prima di comprare qualsiasi cosa.\n\nE tu, lo hai mai aperto per capire davvero cosa rallenta il tuo computer, o hai sempre dato retta a chi diceva metti più RAM?"
   }
