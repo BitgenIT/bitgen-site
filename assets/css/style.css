@@ -1159,6 +1159,46 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
   font-style: italic;
 }
 
+/* Blocchi di codice negli articoli (marcatore [CODE]...[/CODE]) */
+.article-code {
+  margin: 1.6rem 0;
+  padding: 1.1rem 1.3rem;
+  background: var(--code-bg, #1e2330);
+  color: var(--code-fg, #e6e9ef);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--green, #2e7d5b);
+  border-radius: 12px;
+  overflow-x: auto;
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.article-code code {
+  font-family: "SFMono-Regular", "Consolas", "Liberation Mono", "Menlo", monospace;
+  white-space: pre;
+  background: none;
+  padding: 0;
+  color: inherit;
+}
+
+/* Elenchi (passaggi numerati e punti elenco) nelle guide */
+.article-list {
+  margin: 1.4rem 0;
+  padding-left: 1.5rem;
+}
+
+.article-list li {
+  margin: 0.5rem 0;
+  line-height: 1.6;
+  padding-left: 0.3rem;
+}
+
+.article-list[class] ol,
+.article-list ul,
+.article-list ol {
+  margin: 0.4rem 0;
+}
+
 /* Segnaposto per immagini non ancora caricate (marcatori [IMG:] in attesa del file) */
 .article-figure.img-missing {
   background: var(--green-subtle);

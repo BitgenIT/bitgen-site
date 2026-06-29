@@ -197,6 +197,21 @@ function wireFigureFallbacks(root) {
  * - marcatore [IMG: file.png] o [IMG: file.png | Didascalia] -> <figure> con immagine
  */
 function formatContenuto(testo) {
+  // Estrae i blocchi di codice [CODE]...[/CODE] (newline preservati) e formatta
+  // il resto come prosa. Cosi gli esempi di codice non vengono appiattiti.
+  const src = String(testo || '');
+  const re = /\[CODE\]\r?\n?([\s\S]*?)\r?\n?\[\/CODE\]/gi;
+  let out = '', last = 0, m;
+  while ((m = re.exec(src)) !== null) {
+    out += formatProse(src.slice(last, m.index));
+    out += `<pre class="article-code"><code>${escapeHtml(m[1].replace(/\s+$/, ''))}</code></pre>`;
+    last = m.index + m[0].length;
+  }
+  out += formatProse(src.slice(last));
+  return out;
+}
+
+function formatProse(testo) {
   return String(testo || '')
     .split(/\n\s*\n/)
     .map(block => {
@@ -205,6 +220,8 @@ function formatContenuto(testo) {
       const lines = trimmed.split('\n').map(l => l.trim()).filter(l => l);
       const result = [];
       let currentParagraph = [];
+      let listItems = [];
+      let listOrdered = false;
 
       const flushParagraph = () => {
         if (currentParagraph.length > 0) {
@@ -212,11 +229,20 @@ function formatContenuto(testo) {
           currentParagraph = [];
         }
       };
+      const flushList = () => {
+        if (listItems.length > 0) {
+          const tag = listOrdered ? 'ol' : 'ul';
+          const li = listItems.map(it => `<li>${escapeHtml(it)}</li>`).join('');
+          result.push(`<${tag} class="article-list">${li}</${tag}>`);
+          listItems = [];
+        }
+      };
 
       lines.forEach(line => {
         const img = line.match(/^\[IMG:\s*([^\]|]+?)\s*(?:\|\s*(.+?))?\s*\]$/i);
         if (img) {
           flushParagraph();
+          flushList();
           const src = resolveImg(img[1]);
           const caption = img[2] ? img[2].trim() : '';
           const figcap = caption ? `<figcaption>${escapeHtml(caption)}</figcaption>` : '';
@@ -225,6 +251,19 @@ function formatContenuto(testo) {
           );
           return;
         }
+        // Elenco numerato ("1. " / "1) ", max 2 cifre per non pescare gli anni)
+        // oppure puntato ("- " / "• "): le righe consecutive formano una lista.
+        const om = line.match(/^(\d{1,2})[.)]\s+(.+)$/);
+        const um = line.match(/^[-•]\s+(.+)$/);
+        if (om || um) {
+          flushParagraph();
+          const ordered = !!om;
+          if (listItems.length > 0 && ordered !== listOrdered) flushList();
+          listOrdered = ordered;
+          listItems.push((om ? om[2] : um[1]).trim());
+          return;
+        }
+        flushList();
         // Sottotitolo = riga in MAIUSCOLO e "prosa" (dominata da lettere).
         // Esclude le righe di calcolo/esempio tipo "10.0 AND 255.0 = 10.0" che,
         // pur essendo senza minuscole, NON sono titoli (poche lettere, contengono "=").
@@ -244,6 +283,7 @@ function formatContenuto(testo) {
         }
       });
       flushParagraph();
+      flushList();
       return result.join('');
     })
     .join('');

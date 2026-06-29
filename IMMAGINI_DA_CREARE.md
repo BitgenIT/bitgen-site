@@ -18,9 +18,186 @@ coerenza grafica, ogni nuova immagine dovrebbe seguire queste regole:
 - **Copertine (thumbnail):** includono in grande il **titolo dell'articolo** (come un poster). Nome file consigliato: `thumbnail-<tema>.png`.
 - **Immagini interne:** niente titolo dell'articolo; si concentrano su **un solo concetto** (quello descritto nella didascalia), stesso stile grafico.
 
-**Stato: 184 copertine + 402 immagini interne da creare, su 249 articoli.**
+**Stato: 213 copertine + 443 immagini interne da creare, su 279 articoli.**
 
 ---
+
+## Cos'è un processore x86: il motore di PC e portatili
+*(Hardware & Periferiche)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-un-processore-x86-il-motore-di-p.png` (poster col titolo dell'articolo)
+- `scatola-cpu-intel-amd.png` — La scatola di un processore Intel o AMD: dentro, quasi sempre, batte l'architettura x86.
+
+## Cos'è un processore ARM: perché è nel telefono (e ora nei PC)
+*(Hardware & Periferiche)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-un-processore-arm-perche-e-nel-t.png` (poster col titolo dell'articolo)
+- `arm-licenza-schema.png` — ARM disegna il progetto, le aziende ci costruiscono sopra i loro chip su misura
+
+## x86 vs ARM: la sfida tra le due grandi architetture
+*(Hardware & Periferiche)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-x86-vs-arm-la-sfida-tra-le-due-g.png` (poster col titolo dell'articolo)
+- `x86-vs-arm-motore.png` — Due filosofie a confronto: il motore a benzina di grossa cilindrata e l'ibrido parsimonioso
+
+## Come funziona un processore: dentro la CPU e il ciclo che esegue tutto
+*(Ma cos'è?)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-funziona-un-processore-dentro-la.png` (poster col titolo dell'articolo)
+- `ciclo-fetch-decode-execute.png` — Il ciclo prendi-capisci-esegui che il processore ripete miliardi di volte al secondo
+
+## Com'è strutturato un file: dentro c'è più di quello che vedi
+*(Ma cos'è?)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-strutturato-un-file-dentro-ce-pi.png` (poster col titolo dell'articolo)
+- `header-magic-number.png` — I primi byte di un file sono una firma che ne rivela il tipo, prima ancora del nome
+
+## Variabili e tipi di dati in C++: i contenitori dei tuoi dati
+*(Sistema & Software)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-variabili-e-tipi-di-dati-in-c-i.png` (poster col titolo dell'articolo)
+
+## Input e output in C++: printf, scanf, cout e cin
+*(Sistema & Software)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-input-e-output-in-c-printf-scanf.png` (poster col titolo dell'articolo)
+
+## Le decisioni in C++: if, else e switch
+*(Sistema & Software)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-le-decisioni-in-c-if-else-e-swit.png` (poster col titolo dell'articolo)
+
+## I cicli in C++: while, do-while e for
+*(Sistema & Software)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-i-cicli-in-c-while-do-while-e-fo.png` (poster col titolo dell'articolo)
+
+## Array e matrici in C++: liste e tabelle di dati
+*(Sistema & Software)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-array-e-matrici-in-c-liste-e-tab.png` (poster col titolo dell'articolo)
+
+## I puntatori in C++: l'indirizzo invece del dato
+*(Sistema & Software)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-i-puntatori-in-c-lindirizzo-inve.png` (poster col titolo dell'articolo)
+
+## Le struct in C++: raggruppare dati diversi sotto un nome
+*(Sistema & Software)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-le-struct-in-c-raggruppare-dati.png` (poster col titolo dell'articolo)
+
+## Le funzioni in C++: dividere il programma in pezzi riutilizzabili
+*(Sistema & Software)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-le-funzioni-in-c-dividere-il-pro.png` (poster col titolo dell'articolo)
+
+## Rete privata, pubblica e dominio: i tre profili di rete di Windows
+*(Reti & Internet)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-rete-privata-pubblica-e-dominio.png` (poster col titolo dell'articolo)
+- `windows-profilo-rete.png` — La schermata di Windows dove scegli se la rete è Pubblica o Privata.
+
+## Autologin di Windows: entrare senza digitare la password
+*(Digitale Pratico)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-autologin-di-windows-entrare-sen.png` (poster col titolo dell'articolo)
+- `netplwiz-account-utente.png` — La finestra netplwiz: basta togliere la spunta in alto e confermare la password una volta sola
+- `opzioni-accesso-windows-hello.png` — Le Opzioni di accesso: l'interruttore di Windows Hello da portare su Disattivato
+
+## Il Registro di Windows e regedit: cos'è e come si tocca (con prudenza)
+*(Sistema & Software)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-il-registro-di-windows-e-regedit.png` (poster col titolo dell'articolo)
+- `regedit-finestra.png` — La finestra di regedit: a sinistra l'albero delle chiavi, a destra i valori
+- `esporta-chiave.png` — Tasto destro sulla chiave e poi Esporta: così crei il tuo backup .reg
+
+## I log di Windows e il Visualizzatore eventi: leggere il diario del PC
+*(Sistema & Software)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-i-log-di-windows-e-il-visualizza.png` (poster col titolo dell'articolo)
+- `visualizzatore-eventi-finestra.png` — La finestra del Visualizzatore eventi: a sinistra le categorie, al centro la lista degli eventi
+- `filtra-registro-errori.png` — Con Filtra registro corrente puoi mostrare solo gli errori e nascondere le centinaia di righe innocue
+
+## Manca un driver? Come scoprirlo e risolvere con Gestione dispositivi
+*(Hardware & Periferiche)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-manca-un-driver-scoprirlo-e-riso.png` (poster col titolo dell'articolo)
+- `gestione-dispositivi-finestra.png` — La finestra di Gestione dispositivi con l'elenco di tutti i componenti del PC
+
+## Le porte del PC: USB, seriale, parallela, PS/2 e le altre
+*(Hardware & Periferiche)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-le-porte-del-pc-usb-seriale-para.png` (poster col titolo dell'articolo)
+- `retro-pc-porte.png` — Il retro di un PC: a ogni forma corrisponde una porta diversa
+
+## Le uscite e gli ingressi audio: jack, ottico, RCA, HDMI e USB
+*(Hardware & Periferiche)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-le-uscite-e-gli-ingressi-audio-j.png` (poster col titolo dell'articolo)
+- `jack-colori-pc.png` — I tre jack colorati sul retro del PC: verde uscita, rosa microfono, azzurro line-in
+
+## Connettori video a confronto: HDMI, DisplayPort, VGA e DVI (e chi vince)
+*(Hardware & Periferiche)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-connettori-video-a-confronto-hdm.png` (poster col titolo dell'articolo)
+- `connettori-video-confronto.png` — I quattro connettori a confronto: VGA, DVI, HDMI e DisplayPort
+
+## I preferiti del browser: salvarli, organizzarli e ritrovarli su ogni PC
+*(Digitale Pratico)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-i-preferiti-del-browser-salvarli.png` (poster col titolo dell'articolo)
+- `stellina-salva-preferito-barra-indirizzo.png` — La stellina nella barra dell'indirizzo apre la finestrella per salvare il preferito
+- `sincronizzazione-preferiti-browser.png` — La sincronizzazione fa viaggiare i preferiti tra PC, telefono e tablet collegati allo stesso account
+
+## Il codice ASCII e l'ASCII esteso: come le lettere diventano numeri
+*(Ma cos'è?)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-il-codice-ascii-e-lascii-esteso.png` (poster col titolo dell'articolo)
+- `tabella-ascii.png` — Un pezzo della tabella ASCII: a sinistra il numero, a destra il carattere corrispondente.
+
+## Installare un nuovo font su Windows (e su Mac)
+*(Digitale Pratico)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-installare-un-nuovo-font-su-wind.png` (poster col titolo dell'articolo)
+- `windows-installa-font.png` — Il pulsante Installa che appare facendo doppio click su un file .ttf o .otf
+
+## Guida rapida a Microsoft Office: Word, Excel, PowerPoint e gli altri
+*(Sistema & Software)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-guida-rapida-a-microsoft-office.png` (poster col titolo dell'articolo)
+- `icone-office-word-excel-powerpoint.png` — Le icone colorate dei programmi di Office: ognuna un mestiere diverso.
+- `docx-rinominato-zip-struttura-cartelle.png` — Un .docx rinominato in .zip: dentro le cartelle word, _rels e il file Content_Types.xml.
+
+## Office: licenza "una volta per sempre" o Microsoft 365 in abbonamento?
+*(Sistema & Software)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-office-licenza-una-volta-per-sem.png` (poster col titolo dell'articolo)
+- `confronto-office-perpetua-365.png` — Da un lato il pagamento unico della licenza perpetua, dall'altro il canone di Microsoft 365 con cloud e dispositivi multipli
+
+## Guida rapida a LibreOffice: l'alternativa gratuita a Office
+*(Sistema & Software)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-guida-rapida-a-libreoffice-lalte.png` (poster col titolo dell'articolo)
+- `libreoffice-start-center.png` — Il Centro di avvio di LibreOffice: da qui scegli se aprire Writer, Calc o Impress.
+
+## Guida rapida ad Apache OpenOffice (e perché oggi conviene LibreOffice)
+*(Sistema & Software)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-guida-rapida-ad-apache-openoffic.png` (poster col titolo dell'articolo)
+- `openoffice-suite-programmi.png` — I sei programmi di Apache OpenOffice nella schermata di avvio
+
+## Cos'è l'XML: il linguaggio con cui i programmi si scambiano dati
+*(Ma cos'è?)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-lxml-il-linguaggio-con-cui-i-pro.png` (poster col titolo dell'articolo)
+- `xml-esempio-contatto.png` — Lo stesso contatto: a sinistra come lo leggi tu, a destra come lo vede ordinato un programma in XML
+
+## Installare Windows 11 senza account Microsoft (account locale)
+*(Digitale Pratico)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-installare-windows-11-senza-acco.png` (poster col titolo dell'articolo)
+- `prompt-bypassnro.png` — Il Prompt dei comandi aperto con Maiusc+F10 durante la configurazione di Windows
 
 ## Quale browser scegliere: Chrome, Firefox, Edge, Safari e Brave a confronto
 *(Sistema & Software)*
@@ -45,12 +222,6 @@ coerenza grafica, ogni nuova immagine dovrebbe seguire queste regole:
 
 - 🖼️ **COPERTINA mancante** — consigliato `thumbnail-vpn-dal-browser-o-da-tutto-il-pc.png` (poster col titolo dell'articolo)
 - `vpn-browser-vs-sistema.png` — A sinistra solo il browser nel tunnel, a destra tutto il PC dentro al tunnel cifrato.
-
-## Creare più account utente su Windows (e gestirli)
-*(Digitale Pratico)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-creare-piu-account-utente-su-win.png` (poster col titolo dell'articolo)
-- `aggiungi-account-windows.png` — Il pulsante "Aggiungi account" dentro Impostazioni, Account, Famiglia e altri utenti.
 
 ## Creare una macchina virtuale passo passo (VirtualBox e Hyper-V)
 *(Digitale Pratico)*
@@ -222,16 +393,28 @@ coerenza grafica, ogni nuova immagine dovrebbe seguire queste regole:
 *(Digitale Pratico)*
 
 - 🖼️ **COPERTINA mancante** — consigliato `thumbnail-la-chiavetta-non-si-apre-sullalt.png` (poster col titolo dell'articolo)
+- `windows-proprieta-file-system.png` — La riga "File system" nelle Proprietà dell'unità su Windows
+
+## Il telefono ti ascolta per venderti pubblicità: vero o falso?
+*(Miti Digitali)*
+
+- `iphone-impostazioni-microfono.png` — La schermata Privacy e sicurezza, Microfono: ogni app ha il suo interruttore.
 
 ## Più tacche di segnale uguale connessione più veloce: non proprio
 *(Miti Digitali)*
 
 - `velocità-rete-mobile.png` — Tacche piene misurano la potenza dell'antenna, non quanto velocemente navighi davvero.
 
+## Riavviare il computer non serve a niente: falso
+*(Miti Digitali)*
+
+- `avvio-rapido-windows.png` — La spunta Attiva avvio rapido da togliere nelle Opzioni risparmio energia.
+
 ## Coprire la webcam è da paranoici: vero o falso?
 *(Miti Digitali)*
 
 - 🖼️ **COPERTINA mancante** — consigliato `thumbnail-coprire-la-webcam-e-da-paranoici.png` (poster col titolo dell'articolo)
+- `windows-permessi-fotocamera.png` — Le impostazioni Fotocamera e Microfono di Windows, dove revocare i permessi alle app.
 - `copri-webcam-slider.png` — Uno slider copri-webcam: pochi euro, si apre e si chiude con un dito.
 
 ## Entrare nel BIOS/UEFI: la guida per (quasi) ogni PC
@@ -239,17 +422,20 @@ coerenza grafica, ogni nuova immagine dovrebbe seguire queste regole:
 
 - 🖼️ **COPERTINA mancante** — consigliato `thumbnail-entrare-nel-biosuefi-la-guida-pe.png` (poster col titolo dell'articolo)
 - `tabella-tasti-bios.png` — I tasti per entrare nel BIOS variano da marca a marca
+- `windows-impostazioni-firmware-uefi.png` — La schermata Opzioni avanzate con la voce Impostazioni firmware UEFI
 
 ## Creare una chiavetta USB avviabile per installare un sistema
 *(Digitale Pratico)*
 
 - 🖼️ **COPERTINA mancante** — consigliato `thumbnail-creare-una-chiavetta-usb-avviabi.png` (poster col titolo dell'articolo)
 - `file-iso-chiavetta.png` — Una ISO è un sistema operativo intero impacchettato in un solo file, pronto da scrivere sulla chiavetta.
+- `rufus-schermata-principale.png` — La schermata di Rufus: controlla la voce Dispositivo e il pulsante Seleziona prima di premere Avvia.
 
 ## Reinstallare Windows da zero senza perdere i tuoi dati
 *(Digitale Pratico)*
 
 - 🖼️ **COPERTINA mancante** — consigliato `thumbnail-reinstallare-windows-da-zero-sen.png` (poster col titolo dell'articolo)
+- `reimposta-il-pc-windows.png` — La schermata "Reimposta il PC" con la scelta tra "Mantieni i miei file" e "Rimuovi tutto".
 - `installazione-windows-personalizzata.png` — La schermata "Personalizzata" dove scegli su quale disco installare Windows da zero.
 
 ## Dual boot: avere Windows e Linux sullo stesso PC
@@ -270,6 +456,7 @@ coerenza grafica, ogni nuova immagine dovrebbe seguire queste regole:
 
 - 🖼️ **COPERTINA mancante** — consigliato `thumbnail-cifrare-il-disco-con-bitlocker-e.png` (poster col titolo dell'articolo)
 - `cassaforte-disco.png` — Cifrare il disco è come chiudere ogni file in una cassaforte: senza chiave restano numeri illeggibili.
+- `bitlocker-salva-chiave-recupero.png` — La schermata di BitLocker dove scegli dove salvare la chiave di recupero: il passaggio da non sbagliare.
 
 ## Hai dimenticato la password di Windows: come recuperare l'accesso
 *(Digitale Pratico)*
@@ -281,7 +468,13 @@ coerenza grafica, ogni nuova immagine dovrebbe seguire queste regole:
 
 - 🖼️ **COPERTINA mancante** — consigliato `thumbnail-recuperare-file-cancellati-per-s.png` (poster col titolo dell'articolo)
 - `cestino-windows-mac.png` — Cestino e cronologia: la prima cosa da controllare, su ogni sistema.
+- `recuva-risultati-scansione.png` — I risultati di Recuva con i pallini colorati: verde recuperabile, rosso difficile.
 - `carving-vs-metadati.png` — Due logiche a confronto: ricostruire dalla scheda residua o cercare le firme nei dati grezzi.
+
+## Proteggere file e cartelle con una password
+*(Digitale Pratico)*
+
+- `7zip-finestra-crittografia.png` — La finestra di 7-Zip: la password va nel riquadro Crittografia, con metodo AES-256.
 
 ## Registrare lo schermo (screen recording) su PC e telefono
 *(Digitale Pratico)*
@@ -301,6 +494,7 @@ coerenza grafica, ogni nuova immagine dovrebbe seguire queste regole:
 
 - 🖼️ **COPERTINA mancante** — consigliato `thumbnail-aggiungere-o-sostituire-ram-e-ss.png` (poster col titolo dell'articolo)
 - `gestione-attività-memoria.png` — La scheda Prestazioni di Gestione attività ti dice tipo di RAM e slot in uso
+- `slot-ram-clip-aperte.png` — Le clip laterali dello slot vanno aperte prima di inserire il modulo
 
 ## Wi-Fi 8: la rivoluzione che punta sull'affidabilità, non sulla velocità
 *(Reti & Internet)*
@@ -1109,6 +1303,7 @@ coerenza grafica, ogni nuova immagine dovrebbe seguire queste regole:
 - `anatomia-pagina-web.png` — Una pagina web "esplosa" nei suoi tre strati: HTML (struttura), CSS (aspetto) e JavaScript (comportamento)
 - `client-server-cucina.png` — Il browser è il cliente al tavolo, il server è la cucina: PHP cucina la pagina, poi te la serve già pronta in HTML
 - `ciclo-richiesta-risposta-http.png` — Il viaggio di una pagina: richiesta GET con i suoi header, risposta del server con status code e body HTML
+- `devtools-scheda-network.png` — La scheda Rete (Network) degli strumenti per sviluppatori: l'elenco delle richieste con status code, tempi e JSON di risposta
 
 ## Windows dalla A alla Z: l'anatomia del sistema che usi ogni giorno
 *(Sistema & Software)*
@@ -1140,6 +1335,7 @@ coerenza grafica, ogni nuova immagine dovrebbe seguire queste regole:
 - `tipi-account-windows.png` — Amministratore e utente standard a confronto: chi può toccare il sistema e chi solo le proprie cose
 - `finestra-uac-windows.png` — La finestra dell'UAC: lo schermo si oscura e ti chiede conferma prima di un'azione che tocca il sistema
 - `livelli-integrita-windows.png` — I livelli di integrità dei processi, da Low a System: ogni gradino può scrivere solo verso il basso, mai verso l'alto
+- `process-explorer-security.png` — La scheda Security di Process Explorer: token, gruppi, privilegi e Integrity Level di un processo
 
 ## Aggiornamenti di Windows: quando installarli e quando rimandarli
 *(Sistema & Software)*
@@ -1382,6 +1578,7 @@ coerenza grafica, ogni nuova immagine dovrebbe seguire queste regole:
 *(Digitale Pratico)*
 
 - 🖼️ **COPERTINA mancante** — consigliato `thumbnail-task-manager-il-primo-strumento.png` (poster col titolo dell'articolo)
+- `task-manager-ordina-colonna-cpu.png` — Clicca sull'intestazione della colonna CPU per mettere in cima chi consuma di più.
 - `task-manager-processi.png` — La scheda Processi con le quattro colonne: clicca su una per ordinare e scoprire chi consuma di più.
 
 ## Cos'è il Wi-Fi? (No, non è Internet)
@@ -1395,6 +1592,7 @@ coerenza grafica, ogni nuova immagine dovrebbe seguire queste regole:
 - 🖼️ **COPERTINA mancante** — consigliato `thumbnail-cosa-succede-quando-digiti-un-si.png` (poster col titolo dell'articolo)
 - `viaggio-dati-pacchetti.png` — Dal tuo router ai cavi sottomarini: il percorso che i pacchetti fanno in meno di un secondo.
 - `stack-tcp-tls-http.png` — La sequenza reale: handshake TCP a tre vie, handshake TLS, poi la richiesta HTTP dentro il tunnel cifrato.
+- `devtools-scheda-network.png` — La scheda Network degli strumenti di sviluppo: ogni richiesta con il suo status code e i millisecondi per fase.
 
 ## La modalità in incognito ti rende invisibile: falso!
 *(Miti Digitali)*
