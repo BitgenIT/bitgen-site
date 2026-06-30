@@ -18,9 +18,101 @@ coerenza grafica, ogni nuova immagine dovrebbe seguire queste regole:
 - **Copertine (thumbnail):** includono in grande il **titolo dell'articolo** (come un poster). Nome file consigliato: `thumbnail-<tema>.png`.
 - **Immagini interne:** niente titolo dell'articolo; si concentrano su **un solo concetto** (quello descritto nella didascalia), stesso stile grafico.
 
-**Stato: 187 copertine + 420 immagini interne da creare, su 288 articoli.**
+**Stato: 203 copertine + 432 immagini interne da creare, su 304 articoli.**
 
 ---
+
+## L'ottimizzazione del codice: quando ci voleva il genio per risparmiare ogni byte
+*(Sistema & Software)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-lottimizzazione-del-codice-quand.png` (poster col titolo dell'articolo)
+
+## DDR, DIMM e SO-DIMM: capire i moduli di RAM (e le generazioni DDR1-DDR5)
+*(Hardware & Periferiche)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-ddr-dimm-e-so-dimm-capire-i-modu.png` (poster col titolo dell'articolo)
+- `dimm-vs-sodimm.png` — Una DIMM da PC fisso accanto a una SO-DIMM da portatile: stessa funzione, lunghezza diversa
+
+## Dual channel, XMP ed EXPO: come sfruttare al massimo la RAM
+*(Hardware & Periferiche)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-dual-channel-xmp-ed-expo-sfrutta.png` (poster col titolo dell'articolo)
+- `bios-xmp-profilo.png` — La voce XMP (o EXPO) nel BIOS: di solito basta selezionare il Profilo 1 e salvare.
+
+## Overclock di CPU e GPU: spingere oltre il limite (e i rischi)
+*(Hardware & Periferiche)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-overclock-di-cpu-e-gpu-spingere.png` (poster col titolo dell'articolo)
+- `msi-afterburner-cursori.png` — I cursori di MSI Afterburner: core clock, memory clock e power limit, da muovere a piccoli passi.
+
+## Come scegliere l'alimentatore del PC (PSU): watt, efficienza e connettori
+*(Hardware & Periferiche)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-scegliere-lalimentatore-del-pc-p.png` (poster col titolo dell'articolo)
+- `connettore-12vhpwr.png` — Il connettore 12VHPWR delle schede video recenti: piccolo, ma porta fino a 600W.
+
+## I VRM della scheda madre: cosa sono e perché contano
+*(Hardware & Periferiche)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-i-vrm-della-scheda-madre-cosa-so.png` (poster col titolo dell'articolo)
+- `vrm-scheda-madre.png` — I dissipatori metallici del VRM disposti attorno allo zoccolo della CPU
+
+## Cos'è il socket della CPU (e perché determina cosa puoi montare)
+*(Hardware & Periferiche)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-il-socket-della-cpu-e-perche-det.png` (poster col titolo dell'articolo)
+- `socket-lga-vs-pga.png` — A sinistra un socket LGA con gli spilli sulla scheda; a destra una CPU PGA con i pin sotto
+
+## PCI Express (PCIe): gli slot x16, x4 e le generazioni 4.0 e 5.0
+*(Hardware & Periferiche)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-pci-express-pcie-gli-slot-x16-x4.png` (poster col titolo dell'articolo)
+- `slot-pcie-scheda-madre.png` — Gli slot PCIe su una scheda madre: il più lungo, x16, è per la scheda video.
+
+## Cos'è il codice sorgente: il testo che diventa programma
+*(Sistema & Software)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-il-codice-sorgente-il-testo-che.png` (poster col titolo dell'articolo)
+
+## Cos'è l'Assembly: il linguaggio più vicino alla macchina
+*(Sistema & Software)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-lassembly-il-linguaggio-piu-vici.png` (poster col titolo dell'articolo)
+
+## Emu8086: imparare l'Assembly su un processore 8086 emulato
+*(Sistema & Software)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-emu8086-imparare-lassembly-su-un.png` (poster col titolo dell'articolo)
+- `emu8086-interfaccia.png` — L'interfaccia di Emu8086: a sinistra il codice, a destra i registri che cambiano a ogni passo.
+
+## Classi IP (A, B, C) e CIDR: quanti indirizzi hai davvero in una rete
+*(Reti & Internet)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-classi-ip-a-b-c-e-cidr-quanti-in.png` (poster col titolo dell'articolo)
+
+## 4:3, 16:9, ultrawide e 32:9: i formati dello schermo
+*(Hardware & Periferiche)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-43-169-ultrawide-e-329-i-formati.png` (poster col titolo dell'articolo)
+- `formati-schermo-confronto.png` — I quattro formati a confronto: il 4:3 quasi quadrato, il 16:9 panoramico, l'ultrawide 21:9 e il super ultrawide 32:9
+
+## 8, 10 o 12 bit: la profondità di colore dello schermo
+*(Hardware & Periferiche)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-8-10-o-12-bit-la-profondita-di-c.png` (poster col titolo dell'articolo)
+- `banding-vs-liscio.png` — A sinistra un cielo sfumato con il banding a fasce (8 bit), a destra lo stesso cielo liscio e continuo (10 bit).
+
+## Floppy, CD, DVD e Blu-ray: l'era dei dischi (e perché sono spariti)
+*(Hardware & Periferiche)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-floppy-cd-dvd-e-blu-ray-lera-dei.png` (poster col titolo dell'articolo)
+- `floppy-disk-3-5-pollici.png` — Il floppy da 3,5 pollici: l'icona "Salva" in carne e ossa.
+
+## Cos'è la ROM (e perché non è la RAM)
+*(Ma cos'è?)*
+
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-la-rom-e-perche-non-e-la-ram.png` (poster col titolo dell'articolo)
+- `chip-bios-scheda-madre.png` — Il piccolo chip di ROM sulla scheda madre che custodisce il BIOS/UEFI
 
 ## Il limite di 260 caratteri nei percorsi di Windows (MAX_PATH)
 *(Sistema & Software)*
