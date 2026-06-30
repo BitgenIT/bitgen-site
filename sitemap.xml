@@ -2,27 +2,141 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://bitgen.it/</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-06-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://bitgen.it/enciclopedia.html</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-06-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://bitgen.it/contatti.html</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-06-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://bitgen.it/privacy.html</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-06-30</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/sistema-software/lottimizzazione-del-codice-quando-ci-voleva-il-genio-per-ris.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/hardware-periferiche/ddr-dimm-e-so-dimm-capire-i-moduli-di-ram-e-le-generazioni-d.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/hardware-periferiche/dual-channel-xmp-ed-expo-come-sfruttare-al-massimo-la-ram.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/hardware-periferiche/overclock-di-cpu-e-gpu-spingere-oltre-il-limite-e-i-rischi.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/hardware-periferiche/come-scegliere-lalimentatore-del-pc-psu-watt-efficienza-e-co.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/hardware-periferiche/i-vrm-della-scheda-madre-cosa-sono-e-perche-contano.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/hardware-periferiche/cose-il-socket-della-cpu-e-perche-determina-cosa-puoi-montar.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/hardware-periferiche/pci-express-pcie-gli-slot-x16-x4-e-le-generazioni-40-e-50.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/sistema-software/cose-il-codice-sorgente-il-testo-che-diventa-programma.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/sistema-software/cose-lassembly-il-linguaggio-piu-vicino-alla-macchina.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/sistema-software/emu8086-imparare-lassembly-su-un-processore-8086-emulato.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/reti-internet/classi-ip-a-b-c-e-cidr-quanti-indirizzi-hai-davvero-in-una-r.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/hardware-periferiche/43-169-ultrawide-e-329-i-formati-dello-schermo.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/hardware-periferiche/8-10-o-12-bit-la-profondita-di-colore-dello-schermo.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/hardware-periferiche/floppy-cd-dvd-e-blu-ray-lera-dei-dischi-e-perche-sono-sparit.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/ma-cose/cose-la-rom-e-perche-non-e-la-ram.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/sistema-software/il-limite-di-260-caratteri-nei-percorsi-di-windows-maxpath.html</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/sistema-software/il-diagramma-a-blocchi-flowchart-disegnare-la-logica-prima-d.html</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/reti-internet/microsoft-entra-id-lex-azure-ad-lidentita-aziendale-nel-clou.html</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://bitgen.it/enciclopedia/sicurezza/la-modalita-provvisoria-di-windows-cose-e-le-sue-tre-variant.html</loc>
@@ -295,7 +409,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://bitgen.it/enciclopedia/sistema-software/programmazione-procedurale-e-a-oggetti-due-modi-di-pensare-i.html</loc>
+    <loc>https://bitgen.it/enciclopedia/hardware-periferiche/programmazione-procedurale-e-a-oggetti-due-modi-di-pensare-i.html</loc>
     <lastmod>2026-06-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
