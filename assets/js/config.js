@@ -69,7 +69,7 @@ const BITGEN_CONFIG = {
   social: {
     youtube: "https://www.youtube.com/@01BitGen",
     instagram: "https://www.instagram.com/01bitgen",
-    tiktok: "https://tiktok.com/@bitgen",
+    tiktok: "https://www.tiktok.com/@01bitgen",
     linkedin: "", // Non ancora attivo (mostrato disabilitato)
     twitter: "", // Opzionale
   },
