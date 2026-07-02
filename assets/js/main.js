@@ -867,29 +867,64 @@ function initMobileMenu() {
 function initContactForm() {
   const form = document.getElementById('contact-form');
   if (!form) return;
-  
-  form.addEventListener('submit', (e) => {
+
+  // Endpoint del servizio moduli statici: consegna il messaggio via email
+  // all'indirizzo del sito, senza aprire il client di posta dell'utente.
+  const ENDPOINT = 'https://formsubmit.co/ajax/' + (BITGEN_CONFIG.site.email || 'info@bitgen.it');
+
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const formData = new FormData(form);
-    const name = formData.get('name') || '';
-    const email = formData.get('email') || '';
-    const subject = formData.get('subject') || 'Contatto da BItGen';
-    const message = formData.get('message') || '';
-    
-    const mailtoBody = `Nome: ${name}\nEmail: ${email}\n\nMessaggio:\n${message}`;
-    const mailtoUrl = `mailto:${BITGEN_CONFIG.site.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(mailtoBody)}`;
-    window.location.href = mailtoUrl;
-    
-    trackEvent('contact_submit', { subject });
-    
+
+    // Honeypot anti-spam: se compilato (dai bot), fingi il successo e non inviare.
+    const honey = form.querySelector('input[name="_honey"]');
+    const subject = (new FormData(form)).get('subject') || 'Contatto da BItGen';
+
     const submitBtn = form.querySelector('.form-submit');
     const originalText = submitBtn.textContent;
-    submitBtn.textContent = '✓ Apertura client email...';
-    submitBtn.style.background = 'var(--green-darker)';
-    setTimeout(() => {
+    const noteEl = form.querySelector('.form-note');
+
+    const setNote = (msg, ok) => {
+      if (!noteEl) return;
+      noteEl.textContent = msg;
+      noteEl.style.color = ok ? 'var(--green-darker)' : 'var(--danger, #c0392b)';
+    };
+
+    if (honey && honey.value) { setNote('Grazie! Messaggio inviato.', true); form.reset(); return; }
+
+    const payload = new FormData(form);
+    payload.append('_subject', 'BItGen · ' + subject);
+    payload.append('_template', 'table');
+    payload.append('_captcha', 'false');
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Invio in corso…';
+
+    try {
+      const res = await fetch(ENDPOINT, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: payload,
+      });
+      const data = await res.json().catch(() => ({}));
+      if (res.ok && (data.success === 'true' || data.success === true)) {
+        form.reset();
+        submitBtn.textContent = '✓ Messaggio inviato';
+        submitBtn.style.background = 'var(--green-darker)';
+        setNote('Grazie! Ho ricevuto il tuo messaggio, ti rispondo entro 2-3 giorni lavorativi.', true);
+        trackEvent('contact_submit', { subject });
+      } else {
+        throw new Error((data && data.message) || 'invio non riuscito');
+      }
+    } catch (err) {
       submitBtn.textContent = originalText;
-      submitBtn.style.background = '';
-    }, 3000);
+      setNote('Ops, invio non riuscito. Riprova tra poco o scrivi a ' + (BITGEN_CONFIG.site.email || 'info@bitgen.it') + '.', false);
+    } finally {
+      setTimeout(() => {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
+        submitBtn.style.background = '';
+      }, 4000);
+    }
   });
 }
 

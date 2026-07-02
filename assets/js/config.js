@@ -67,10 +67,10 @@ const BITGEN_CONFIG = {
   // SOCIAL LINKS
   // ────────────────────────────────────────
   social: {
-    youtube: "https://youtube.com/@BItGen",
-    instagram: "https://instagram.com/bitgen.channel",
+    youtube: "https://www.youtube.com/@01BitGen",
+    instagram: "https://www.instagram.com/01bitgen",
     tiktok: "https://tiktok.com/@bitgen",
-    linkedin: "https://linkedin.com/company/bitgen",
+    linkedin: "", // Non ancora attivo (mostrato disabilitato)
     twitter: "", // Opzionale
   },
   

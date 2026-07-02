@@ -1632,6 +1632,32 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
   font-family: var(--font-mono);
 }
 
+/* Nota discreta sull'uso dell'AI (obbligo di trasparenza) */
+.footer-ai-note {
+  width: 100%;
+  margin-top: 0.75rem;
+  color: rgba(255,255,255,0.35);
+  font-size: 0.75rem;
+  line-height: 1.4;
+}
+
+/* Social non ancora attivo: mostrato ma non cliccabile (es. LinkedIn) */
+.social-disabled {
+  color: rgba(255,255,255,0.35);
+  cursor: default;
+}
+
+.footer-col .social-disabled:hover {
+  color: rgba(255,255,255,0.35);
+}
+
+/* Card contatto disabilitata (LinkedIn "in arrivo") */
+.contact-method.is-disabled {
+  opacity: 0.55;
+  cursor: default;
+  pointer-events: none;
+}
+
 /* ==========================================
    RESPONSIVE
    ========================================== */

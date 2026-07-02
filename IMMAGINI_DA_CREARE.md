@@ -18,407 +18,116 @@ coerenza grafica, ogni nuova immagine dovrebbe seguire queste regole:
 - **Copertine (thumbnail):** includono in grande il **titolo dell'articolo** (come un poster). Nome file consigliato: `thumbnail-<tema>.png`.
 - **Immagini interne:** niente titolo dell'articolo; si concentrano su **un solo concetto** (quello descritto nella didascalia), stesso stile grafico.
 
-**Stato: 203 copertine + 432 immagini interne da creare, su 304 articoli.**
+**Stato: 156 copertine + 388 immagini interne da creare, su 320 articoli.**
 
 ---
 
-## L'ottimizzazione del codice: quando ci voleva il genio per risparmiare ogni byte
+## Shadow Copy (Volume Shadow Copy): le "istantanee" nascoste che ti salvano un file
 *(Sistema & Software)*
 
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-lottimizzazione-del-codice-quand.png` (poster col titolo dell'articolo)
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-shadow-copy-volume-shadow-copy-l.png` (poster col titolo dell'articolo)
 
-## DDR, DIMM e SO-DIMM: capire i moduli di RAM (e le generazioni DDR1-DDR5)
+## Il collo di bottiglia: quando un componente frena tutti gli altri
 *(Hardware & Periferiche)*
 
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-ddr-dimm-e-so-dimm-capire-i-modu.png` (poster col titolo dell'articolo)
-- `dimm-vs-sodimm.png` — Una DIMM da PC fisso accanto a una SO-DIMM da portatile: stessa funzione, lunghezza diversa
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-il-collo-di-bottiglia-quando-un.png` (poster col titolo dell'articolo)
+- `gestione-attività-prestazioni.png` — La scheda Prestazioni della Gestione attività: guarda quale componente sta inchiodato al 100 percento mentre giochi
 
-## Dual channel, XMP ed EXPO: come sfruttare al massimo la RAM
-*(Hardware & Periferiche)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-dual-channel-xmp-ed-expo-sfrutta.png` (poster col titolo dell'articolo)
-- `bios-xmp-profilo.png` — La voce XMP (o EXPO) nel BIOS: di solito basta selezionare il Profilo 1 e salvare.
-
-## Overclock di CPU e GPU: spingere oltre il limite (e i rischi)
-*(Hardware & Periferiche)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-overclock-di-cpu-e-gpu-spingere.png` (poster col titolo dell'articolo)
-- `msi-afterburner-cursori.png` — I cursori di MSI Afterburner: core clock, memory clock e power limit, da muovere a piccoli passi.
-
-## Come scegliere l'alimentatore del PC (PSU): watt, efficienza e connettori
-*(Hardware & Periferiche)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-scegliere-lalimentatore-del-pc-p.png` (poster col titolo dell'articolo)
-- `connettore-12vhpwr.png` — Il connettore 12VHPWR delle schede video recenti: piccolo, ma porta fino a 600W.
-
-## I VRM della scheda madre: cosa sono e perché contano
-*(Hardware & Periferiche)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-i-vrm-della-scheda-madre-cosa-so.png` (poster col titolo dell'articolo)
-- `vrm-scheda-madre.png` — I dissipatori metallici del VRM disposti attorno allo zoccolo della CPU
-
-## Cos'è il socket della CPU (e perché determina cosa puoi montare)
-*(Hardware & Periferiche)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-il-socket-della-cpu-e-perche-det.png` (poster col titolo dell'articolo)
-- `socket-lga-vs-pga.png` — A sinistra un socket LGA con gli spilli sulla scheda; a destra una CPU PGA con i pin sotto
-
-## PCI Express (PCIe): gli slot x16, x4 e le generazioni 4.0 e 5.0
-*(Hardware & Periferiche)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-pci-express-pcie-gli-slot-x16-x4.png` (poster col titolo dell'articolo)
-- `slot-pcie-scheda-madre.png` — Gli slot PCIe su una scheda madre: il più lungo, x16, è per la scheda video.
-
-## Cos'è il codice sorgente: il testo che diventa programma
-*(Sistema & Software)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-il-codice-sorgente-il-testo-che.png` (poster col titolo dell'articolo)
-
-## Cos'è l'Assembly: il linguaggio più vicino alla macchina
-*(Sistema & Software)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-lassembly-il-linguaggio-piu-vici.png` (poster col titolo dell'articolo)
-
-## Emu8086: imparare l'Assembly su un processore 8086 emulato
-*(Sistema & Software)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-emu8086-imparare-lassembly-su-un.png` (poster col titolo dell'articolo)
-- `emu8086-interfaccia.png` — L'interfaccia di Emu8086: a sinistra il codice, a destra i registri che cambiano a ogni passo.
-
-## Classi IP (A, B, C) e CIDR: quanti indirizzi hai davvero in una rete
+## Il teaming delle schede di rete: unire più schede in una sola
 *(Reti & Internet)*
 
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-classi-ip-a-b-c-e-cidr-quanti-in.png` (poster col titolo dell'articolo)
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-il-teaming-delle-schede-di-rete.png` (poster col titolo dell'articolo)
+- `teaming-due-porte-nas.png` — Due porte Ethernet sul retro di un NAS: unite in teaming diventano una connessione sola, più larga e più resistente ai guasti.
 
-## 4:3, 16:9, ultrawide e 32:9: i formati dello schermo
-*(Hardware & Periferiche)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-43-169-ultrawide-e-329-i-formati.png` (poster col titolo dell'articolo)
-- `formati-schermo-confronto.png` — I quattro formati a confronto: il 4:3 quasi quadrato, il 16:9 panoramico, l'ultrawide 21:9 e il super ultrawide 32:9
-
-## 8, 10 o 12 bit: la profondità di colore dello schermo
-*(Hardware & Periferiche)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-8-10-o-12-bit-la-profondita-di-c.png` (poster col titolo dell'articolo)
-- `banding-vs-liscio.png` — A sinistra un cielo sfumato con il banding a fasce (8 bit), a destra lo stesso cielo liscio e continuo (10 bit).
-
-## Floppy, CD, DVD e Blu-ray: l'era dei dischi (e perché sono spariti)
-*(Hardware & Periferiche)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-floppy-cd-dvd-e-blu-ray-lera-dei.png` (poster col titolo dell'articolo)
-- `floppy-disk-3-5-pollici.png` — Il floppy da 3,5 pollici: l'icona "Salva" in carne e ossa.
-
-## Cos'è la ROM (e perché non è la RAM)
+## Binario, ottale ed esadecimale: i sistemi di numerazione del computer
 *(Ma cos'è?)*
 
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-la-rom-e-perche-non-e-la-ram.png` (poster col titolo dell'articolo)
-- `chip-bios-scheda-madre.png` — Il piccolo chip di ROM sulla scheda madre che custodisce il BIOS/UEFI
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-binario-ottale-ed-esadecimale-i.png` (poster col titolo dell'articolo)
 
-## Il limite di 260 caratteri nei percorsi di Windows (MAX_PATH)
-*(Sistema & Software)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-il-limite-di-260-caratteri-nei-p.png` (poster col titolo dell'articolo)
-- `max-path-errore.png` — Il classico messaggio "Percorso di destinazione troppo lungo" che blocca la copia
-
-## Il diagramma a blocchi (flowchart): disegnare la logica prima di scriverla
-*(Sistema & Software)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-il-diagramma-a-blocchi-flowchart.png` (poster col titolo dell'articolo)
-- `flowchart-pari-dispari.png` — Il diagramma di "pari o dispari": il rombo crea due strade che poi si ricongiungono
-
-## Microsoft Entra ID (l'ex Azure AD): l'identità aziendale nel cloud
-*(Reti & Internet)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-microsoft-entra-id-lex-azure-ad.png` (poster col titolo dell'articolo)
-- `entra-id-sso-login.png` — Il pulsante "Accedi con l'account aziendale o dell'istituto": dietro c'è Entra ID che verifica chi sei
-
-## Installare Windows 11 senza account Microsoft (account locale)
-*(Digitale Pratico)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-installare-windows-11-senza-acco.png` (poster col titolo dell'articolo)
-- `prompt-bypassnro.png` — Il Prompt dei comandi aperto con Maiusc+F10 durante la configurazione di Windows
-
-## Quale browser scegliere: Chrome, Firefox, Edge, Safari e Brave a confronto
-*(Sistema & Software)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-quale-browser-scegliere-chrome-f.png` (poster col titolo dell'articolo)
-- `browser-a-confronto.png` — I principali browser e il motore che hanno sotto il cofano
-
-## Cos'è Chromium: il motore open source dietro mezzo web
-*(Ma cos'è?)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-chromium-il-motore-open-source-d.png` (poster col titolo dell'articolo)
-- `chromium-vs-chrome.png` — Chromium è il telaio grezzo; Chrome è Chromium più il vestito di Google
-
-## Motori di ricerca a confronto: Google, Bing, DuckDuckGo ed Ecosia
-*(Reti & Internet)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-motori-di-ricerca-a-confronto-go.png` (poster col titolo dell'articolo)
-- `motori-ricerca-confronto.png` — I principali motori di ricerca a confronto: chi ha un indice proprio, chi punta sulla privacy, chi sull'ambiente
-
-## VPN dal browser o da tutto il PC: che differenza fa
+## "Virus rilevato!": i finti pop-up allarmanti e le estensioni canaglia che li generano
 *(Sicurezza)*
 
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-vpn-dal-browser-o-da-tutto-il-pc.png` (poster col titolo dell'articolo)
-- `vpn-browser-vs-sistema.png` — A sinistra solo il browser nel tunnel, a destra tutto il PC dentro al tunnel cifrato.
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-virus-rilevato-i-finti-pop-up-al.png` (poster col titolo dell'articolo)
+- `finto-popup-virus.png` — Un tipico finto allarme: colori sgargianti, urgenza e un numero da chiamare. Nessun avviso vero è così.
 
-## Creare una macchina virtuale passo passo (VirtualBox e Hyper-V)
-*(Digitale Pratico)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-creare-una-macchina-virtuale-pas.png` (poster col titolo dell'articolo)
-- `virtualbox-nuova-vm.png` — La schermata "Nuova" di VirtualBox: nome, ISO, RAM e disco in un colpo solo
-
-## PST e OST: i file della posta di Outlook (dimensioni, archivio e come condividerli)
+## Le "Funzionalità di Windows": il pannello dove accendi e spegni i pezzi del sistema
 *(Sistema & Software)*
 
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-pst-e-ost-i-file-della-posta-di.png` (poster col titolo dell'articolo)
-- `ost-vs-pst-outlook.png` — OST è la copia locale che si risincronizza dal server; PST è l'archivio autonomo che puoi portare via.
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-le-funzionalita-di-windows-il-pa.png` (poster col titolo dell'articolo)
+- `funzionalita-windows-pannello.png` — Il pannello "Attivazione o disattivazione delle funzionalità di Windows" con la lista delle caselle.
 
-## Programmazione procedurale e a oggetti: due modi di pensare il codice
+## Il Pannello di controllo: il vecchio cuore di Windows (e perché esiste ancora)
 *(Sistema & Software)*
 
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-programmazione-procedurale-e-a-o.png` (poster col titolo dell'articolo)
-- `classe-oggetto.png` — La classe è lo stampo, gli oggetti sono gli esemplari che ne escono
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-il-pannello-di-controllo-il-vecc.png` (poster col titolo dell'articolo)
+- `apri-pannello-controllo.png` — Cercare "pannello di controllo" dal menu Start: il modo più rapido per aprirlo.
+- `visualizza-per-icone.png` — Il menu "Visualizza per" in alto a destra: passa da Categoria a Icone grandi per vedere tutto.
 
-## HTML 4 e HTML 5: cos'è cambiato nel web
+## Gli Strumenti di amministrazione di Windows: la cassetta degli attrezzi "da grandi"
 *(Sistema & Software)*
 
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-html-4-e-html-5-cambiato-nel-web.png` (poster col titolo dell'articolo)
-- `html-scheletro.png` — HTML è l'ossatura della pagina: dice dove vanno titoli, immagini e link
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-gli-strumenti-di-amministrazione.png` (poster col titolo dell'articolo)
+- `strumenti-windows-cartella.png` — La cartella Strumenti di Windows con tutte le sue icone: il retrobottega del sistema
 
-## Il bit di parità: il trucco per accorgersi di un errore nei dati
-*(Ma cos'è?)*
+## La deframmentazione: cos'è e serve ancora? (HDD sì, SSD no)
+*(Sistema & Software)*
 
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-il-bit-di-parita-il-trucco-per-a.png` (poster col titolo dell'articolo)
-- `bit-parita-esempio.png` — Otto bit di dati più il bit di parità che pareggia il conto degli "1".
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-la-deframmentazione-e-serve-anco.png` (poster col titolo dell'articolo)
+- `deframmenta-ottimizza-unita.png` — La finestra "Deframmenta e ottimizza unità" mostra il tipo di ogni disco e l'ultima ottimizzazione
 
-## Cos'è un file ISO: la copia esatta di un disco (e come si usa)
-*(Ma cos'è?)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-un-file-iso-la-copia-esatta-di-u.png` (poster col titolo dell'articolo)
-
-## I file temporanei: cosa sono e si possono cancellare?
-*(Digitale Pratico)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-i-file-temporanei-cosa-sono-e-si.png` (poster col titolo dell'articolo)
-- `impostazioni-archiviazione-file-temporanei.png` — Da Impostazioni, Sistema, Archiviazione si raggiunge la voce File temporanei
-
-## Dominio locale e Active Directory: la rete aziendale che gestisce utenti e PC
-*(Reti & Internet)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-dominio-locale-e-active-director.png` (poster col titolo dell'articolo)
-- `active-directory-schema.png` — Un solo elenco centrale: utenti, PC e stampanti fanno capo al controller di dominio.
-
-## Switch L2 e L3: cosa cambia (e quando serve uno o l'altro)
-*(Reti & Internet)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-switch-l2-e-l3-cosa-cambia-e-qua.png` (poster col titolo dell'articolo)
-- `switch-l2-l3-postino.png` — L2 consegna porta a porta nello stesso palazzo, L3 smista anche tra palazzi diversi
-
-## Telnet e SSH: comandare un computer a distanza (prima e dopo la cifratura)
-*(Reti & Internet)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-telnet-e-ssh-comandare-un-comput.png` (poster col titolo dell'articolo)
-- `telnet-vs-ssh.png` — Telnet manda i dati in chiaro, SSH li chiude in un tunnel cifrato: stesso lavoro, sicurezza opposta.
-
-## ICMP: il protocollo dietro ping e traceroute
-*(Reti & Internet)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-icmp-il-protocollo-dietro-ping-e.png` (poster col titolo dell'articolo)
-- `ping-terminale.png` — L'output del comando ping: tempi di risposta in millisecondi, riga dopo riga.
-
-## SNMP: come si tengono d'occhio i dispositivi di rete
-*(Reti & Internet)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-snmp-si-tengono-docchio-i-dispos.png` (poster col titolo dell'articolo)
-- `snmp-manager-agent.png` — Il manager interroga gli agent sui dispositivi e raccoglie tutto su un unico cruscotto
-
-## NTP: come fanno tutti i dispositivi ad avere l'ora giusta
-*(Reti & Internet)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-ntp-fanno-tutti-i-dispositivi-ad.png` (poster col titolo dell'articolo)
-- `ntp-orologi-sincronizzati.png` — Telefono, PC e router prendono tutti la stessa ora dai server di riferimento
-
-## Multicast e IGMP: un dato spedito a un gruppo (non a uno, non a tutti)
-*(Reti & Internet)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-multicast-e-igmp-un-dato-spedito.png` (poster col titolo dell'articolo)
-- `multicast-canale-tv.png` — Un solo flusso che si sdoppia solo dove serve, come il segnale di un canale TV.
-
-## STP e LLDP: come gli switch evitano i loop e si riconoscono tra loro
-*(Reti & Internet)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-stp-e-lldp-gli-switch-evitano-i.png` (poster col titolo dell'articolo)
-- `stp-anello-rete.png` — STP individua i percorsi ridondanti e ne disattiva alcuni, tenendoli di riserva
-
-## OSPF e BGP: come i router trovano la strada (dentro e tra le reti)
-*(Reti & Internet)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-ospf-e-bgp-i-router-trovano-la-s.png` (poster col titolo dell'articolo)
-- `ospf-mappa-città.png` — OSPF dentro una rete: i router condividono la stessa mappa e ricalcolano la via più breve in pochi secondi.
-
-## VPN a confronto: PPTP, L2TP/IPsec, IKEv2, SSL e WireGuard
+## SPF, DKIM e DMARC: come l'email dimostra di non essere falsa
 *(Sicurezza)*
 
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-vpn-a-confronto-pptp-l2tpipsec-i.png` (poster col titolo dell'articolo)
-- `vpn-tunnel-confronto.png` — Tutte le VPN scavano un tunnel cifrato: cambiano i materiali e gli attrezzi.
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-spf-dkim-e-dmarc-lemail-dimostra.png` (poster col titolo dell'articolo)
+- `spf-dkim-dmarc-schema.png` — I tre controlli in fila: SPF verifica il server, DKIM il sigillo, DMARC decide cosa fare.
 
-## Intelligenza Artificiale, Machine Learning, Deep Learning: chi sta dentro chi
-*(Ma cos'è?)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-intelligenza-artificiale-machine.png` (poster col titolo dell'articolo)
-- `matrioske-ia-ml-dl.png` — Tre matrioske una dentro l'altra: dalla più grande (IA) alla più piccola (deep learning).
-
-## Cos'è il Machine Learning: come un computer impara dagli esempi
-*(Ma cos'è?)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-il-machine-learning-un-computer.png` (poster col titolo dell'articolo)
-- `bambino-foto-gatti.png` — Come un bambino impara cos'è un gatto guardando tante foto, il machine learning ricava da solo lo schema dagli esempi.
-
-## Deep Learning e reti neurali: il cervello artificiale a strati
-*(Ma cos'è?)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-deep-learning-e-reti-neurali-il.png` (poster col titolo dell'articolo)
-- `rete-neurale-strati.png` — I dati entrano da sinistra, attraversano gli strati nascosti e diventano una risposta a destra
-
-## FTP, FTPS e SFTP: come si spostano i file in rete (e quale è sicuro)
+## DNSSEC: la firma che impedisce di dirottare il DNS
 *(Reti & Internet)*
 
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-ftp-ftps-e-sftp-si-spostano-i-fi.png` (poster col titolo dell'articolo)
-- `ftp-ftps-sftp-confronto.png` — FTP manda i dati in chiaro, FTPS e SFTP li cifrano con due tecnologie diverse: SSL/TLS contro SSH.
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-dnssec-la-firma-che-impedisce-di.png` (poster col titolo dell'articolo)
 
-## SSL e TLS: il lucchetto che cifra (non solo) il web
-*(Sicurezza)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-ssl-e-tls-il-lucchetto-che-cifra.png` (poster col titolo dell'articolo)
-- `tls-lucchetto-protocolli.png` — Lo stesso lucchetto TLS protegge web, posta, trasferimento file e VPN
-
-## WinPE e i 'dischi di soccorso' come Strelec: il PC che si ripara da fuori
-*(Sistema & Software)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-winpe-e-i-dischi-di-soccorso-str.png` (poster col titolo dell'articolo)
-- `strelec-winpe-desktop.png` — Il desktop di un disco di soccorso WinPE: sembra un Windows normale, ma gira tutto nella RAM.
-
-## I file nascosti di Windows: cosa sono e come mostrarli (senza fare danni)
-*(Digitale Pratico)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-i-file-nascosti-di-windows-cosa.png` (poster col titolo dell'articolo)
-- `windows-elementi-nascosti.png` — Il menu Visualizza, Mostra, Elementi nascosti in Esplora File di Windows 11.
-
-## Tutto troppo piccolo o sfocato? Risoluzione e scala dello schermo su Windows
-*(Digitale Pratico)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-tutto-troppo-piccolo-o-sfocato-r.png` (poster col titolo dell'articolo)
-- `windows-impostazioni-schermo.png` — Le voci "Risoluzione" e "Scala" nella schermata Schermo di Windows
-
-## La barra delle applicazioni di Windows: domala e fattela tua
-*(Digitale Pratico)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-la-barra-delle-applicazioni-di-w.png` (poster col titolo dell'articolo)
-- `barra-applicazioni-tasto-destro.png` — Il menu del tasto destro su un'icona: da qui si appunta o si rimuove un'app.
-
-## I protocolli di rete: il dizionario di HTTP, FTP, SMTP e tutti gli altri
+## SMB 1, 2 e 3: il protocollo con cui Windows condivide file (e perché SMBv1 è un pericolo)
 *(Reti & Internet)*
 
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-i-protocolli-di-rete-il-dizionar.png` (poster col titolo dell'articolo)
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-smb-1-2-e-3-il-protocollo-con-cu.png` (poster col titolo dell'articolo)
+- `smb1-wannacry-schermata.png` — La schermata del riscatto di WannaCry: il virus si propagava sfruttando una falla di SMB 1.
+- `funzionalita-windows-smb1.png` — La voce "Supporto per la condivisione file SMB 1.0/CIFS" nelle Funzionalità di Windows: deve restare deselezionata.
 
-## FAT32, exFAT, NTFS e gli altri: cos'è un file system (e quale scegliere)
-*(Sistema & Software)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-fat32-exfat-ntfs-e-gli-altri-un.png` (poster col titolo dell'articolo)
-- `file-system-compatibilita.png` — Quale sistema legge quale file system: la mappa che spiega perché una chiavetta a volte non si apre sull'altro dispositivo.
-
-## La chiavetta non si apre sull'altro dispositivo? È il file system
+## I widget di Windows 11: cosa sono e come gestirli (o spegnerli)
 *(Digitale Pratico)*
 
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-la-chiavetta-non-si-apre-sullalt.png` (poster col titolo dell'articolo)
-- `windows-proprieta-file-system.png` — La riga "File system" nelle Proprietà dell'unità su Windows
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-i-widget-di-windows-11-cosa-sono.png` (poster col titolo dell'articolo)
+- `widget-pannello-windows11.png` — Il pannello dei widget aperto sul lato sinistro dello schermo
+- `widget-impostazioni-barra.png` — L'interruttore Widget nelle impostazioni della barra delle applicazioni
 
-## Il telefono ti ascolta per venderti pubblicità: vero o falso?
-*(Miti Digitali)*
-
-- `iphone-impostazioni-microfono.png` — La schermata Privacy e sicurezza, Microfono: ogni app ha il suo interruttore.
-
-## Più tacche di segnale uguale connessione più veloce: non proprio
-*(Miti Digitali)*
-
-- `velocità-rete-mobile.png` — Tacche piene misurano la potenza dell'antenna, non quanto velocemente navighi davvero.
-
-## Riavviare il computer non serve a niente: falso
-*(Miti Digitali)*
-
-- `avvio-rapido-windows.png` — La spunta Attiva avvio rapido da togliere nelle Opzioni risparmio energia.
-
-## Coprire la webcam è da paranoici: vero o falso?
-*(Miti Digitali)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-coprire-la-webcam-e-da-paranoici.png` (poster col titolo dell'articolo)
-- `windows-permessi-fotocamera.png` — Le impostazioni Fotocamera e Microfono di Windows, dove revocare i permessi alle app.
-- `copri-webcam-slider.png` — Uno slider copri-webcam: pochi euro, si apre e si chiude con un dito.
-
-## Entrare nel BIOS/UEFI: la guida per (quasi) ogni PC
+## Come cambiare la scheda grafica (GPU) passo passo
 *(Digitale Pratico)*
 
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-entrare-nel-biosuefi-la-guida-pe.png` (poster col titolo dell'articolo)
-- `tabella-tasti-bios.png` — I tasti per entrare nel BIOS variano da marca a marca
-- `windows-impostazioni-firmware-uefi.png` — La schermata Opzioni avanzate con la voce Impostazioni firmware UEFI
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-cambiare-la-scheda-grafica-gpu-p.png` (poster col titolo dell'articolo)
+- `slot-pcie-x16.png` — Lo slot PCIe x16: il più lungo sulla scheda madre, qui va la scheda video
+- `levetta-ritegno-pcie.png` — La levetta di ritegno in fondo allo slot: vai a sbloccarla prima di tirare
 
-## Creare una chiavetta USB avviabile per installare un sistema
+## Come cambiare il processore (CPU): quando si può e come farlo
 *(Digitale Pratico)*
 
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-creare-una-chiavetta-usb-avviabi.png` (poster col titolo dell'articolo)
-- `file-iso-chiavetta.png` — Una ISO è un sistema operativo intero impacchettato in un solo file, pronto da scrivere sulla chiavetta.
-- `rufus-schermata-principale.png` — La schermata di Rufus: controlla la voce Dispositivo e il pulsante Seleziona prima di premere Avvia.
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-cambiare-il-processore-cpu-quand.png` (poster col titolo dell'articolo)
+- `socket-cpu-levetta.png` — Il socket della CPU con la levetta sollevata: qui il processore si infila e si toglie
+- `pasta-termica-cpu.png` — Un piccolo velo di pasta termica nuova sulla CPU prima di rimontare il dissipatore
 
-## Reinstallare Windows da zero senza perdere i tuoi dati
-*(Digitale Pratico)*
+## La serigrafia della scheda madre: cosa significano le scritte stampate
+*(Hardware & Periferiche)*
 
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-reinstallare-windows-da-zero-sen.png` (poster col titolo dell'articolo)
-- `reimposta-il-pc-windows.png` — La schermata "Reimposta il PC" con la scelta tra "Mantieni i miei file" e "Rimuovi tutto".
-- `installazione-windows-personalizzata.png` — La schermata "Personalizzata" dove scegli su quale disco installare Windows da zero.
-
-## Dual boot: avere Windows e Linux sullo stesso PC
-*(Digitale Pratico)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-dual-boot-avere-windows-e-linux.png` (poster col titolo dell'articolo)
-- `dual-boot-menu-grub.png` — Il menu GRUB all'avvio: scegli tu se entrare in Windows o in Linux.
-- `installazione-accanto-a-windows.png` — L'opzione chiave: Installa accanto a Windows lascia intatti i tuoi dati.
-
-## Aggiornare i driver (soprattutto della scheda video)
-*(Digitale Pratico)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-aggiornare-i-driver-soprattutto.png` (poster col titolo dell'articolo)
-- `dxdiag-scheda-video.png` — Lo strumento dxdiag mostra marca e modello della tua scheda grafica nella scheda Schermo.
-
-## Cifrare il disco con BitLocker e FileVault: i tuoi dati al sicuro se ti rubano il PC
-*(Digitale Pratico)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-cifrare-il-disco-con-bitlocker-e.png` (poster col titolo dell'articolo)
-- `cassaforte-disco.png` — Cifrare il disco è come chiudere ogni file in una cassaforte: senza chiave restano numeri illeggibili.
-- `bitlocker-salva-chiave-recupero.png` — La schermata di BitLocker dove scegli dove salvare la chiave di recupero: il passaggio da non sbagliare.
-
-## Hai dimenticato la password di Windows: come recuperare l'accesso
-*(Digitale Pratico)*
-
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-hai-dimenticato-la-password-di-w.png` (poster col titolo dell'articolo)
+- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-la-serigrafia-della-scheda-madre.png` (poster col titolo dell'articolo)
+- `front-panel-pin.png` — I pin del pannello frontale: la serigrafia indica PWR_SW, RESET, PWR_LED e HDD_LED, con i segni + e - per le lucine
 
 ## Recuperare file cancellati per sbaglio
 *(Digitale Pratico)*
 
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-recuperare-file-cancellati-per-s.png` (poster col titolo dell'articolo)
-- `cestino-windows-mac.png` — Cestino e cronologia: la prima cosa da controllare, su ogni sistema.
-- `recuva-risultati-scansione.png` — I risultati di Recuva con i pallini colorati: verde recuperabile, rosso difficile.
 - `carving-vs-metadati.png` — Due logiche a confronto: ricostruire dalla scheda residua o cercare le firme nei dati grezzi.
-
-## Proteggere file e cartelle con una password
-*(Digitale Pratico)*
-
-- `7zip-finestra-crittografia.png` — La finestra di 7-Zip: la password va nel riquadro Crittografia, con metodo AES-256.
 
 ## Registrare lo schermo (screen recording) su PC e telefono
 *(Digitale Pratico)*
 
-- 🖼️ **COPERTINA mancante** — consigliato `thumbnail-registrare-lo-schermo-screen-rec.png` (poster col titolo dell'articolo)
 - `windows-game-bar-cattura.png` — La barra di cattura della Xbox Game Bar su Windows 11, con il pulsante di registrazione e il microfono.
 
 ## Comandi base del terminale: ping, ipconfig e i loro amici
@@ -800,6 +509,7 @@ coerenza grafica, ogni nuova immagine dovrebbe seguire queste regole:
 - 🖼️ **COPERTINA mancante** — consigliato `thumbnail-estensioni-del-browser-i-super-p.png` (poster col titolo dell'articolo)
 - `icone-estensioni-barra-browser.png` — Le estensioni installate appaiono come piccole icone in alto a destra, accanto alla barra dell'indirizzo del browser.
 - `chrome-web-store-pulsante-aggiungi.png` — Nel negozio ufficiale, il pulsante Aggiungi installa l'estensione dopo averti mostrato i permessi che richiede.
+- `permessi-estensione-manifest.png` — I permessi che vedi nell'avviso corrispondono a voci precise nel file manifest.json, come host_permissions con valore <all_urls>.
 
 ## Store delle app: perché non puoi installare quello che vuoi (ed è un bene)
 *(Ma cos'è?)*
@@ -1006,6 +716,11 @@ coerenza grafica, ogni nuova immagine dovrebbe seguire queste regole:
 *(Digitale Pratico)*
 
 - `chiudere-la-attività.png` — Decine di schede aperte nel browser e il consumo di memoria che schizza in Gestione attività
+
+## Telefono nuovo: trasferire tutto dal vecchio senza perdere niente
+*(Digitale Pratico)*
+
+- `protocolli-trasferimento.png` — Schema dei canali usati: USB-C OTG e Wi-Fi Direct su Android, Bluetooth LE più Wi-Fi peer-to-peer su iPhone
 
 ## Ransomware: quando un virus prende in ostaggio i tuoi file e chiede il riscatto
 *(Sicurezza)*
@@ -1317,6 +1032,7 @@ coerenza grafica, ogni nuova immagine dovrebbe seguire queste regole:
 - 🖼️ **COPERTINA mancante** — consigliato `thumbnail-zip-rar-e-7zip-rimpicciolire-e-i.png` (poster col titolo dell'articolo)
 - `schema-compressione-ripetizioni.png` — Schema: un testo con parole ripetute prima e dopo la compressione, con le ripetizioni sostituite da un riferimento.
 - `menu-tasto-destro-comprimi.png` — Il menu del tasto destro su Windows con le voci per creare un archivio ZIP o 7z.
+- `confronto-deflate-lzma.png` — Confronto tra la finestra da 32 KB di DEFLATE/ZIP e il dizionario molto più grande di LZMA usato dal formato 7z.
 
 ## Macchine virtuali: un computer dentro il tuo computer
 *(Sistema & Software)*
@@ -1550,6 +1266,7 @@ coerenza grafica, ogni nuova immagine dovrebbe seguire queste regole:
 
 - 🖼️ **COPERTINA mancante** — consigliato `thumbnail-firewall-la-guardia-del-corpo-de.png` (poster col titolo dell'articolo)
 - `firewall-router-pc.png` — Il firewall del router protegge l'intera rete, quello di Windows protegge il singolo computer.
+- `stateful-firewall-conntrack.png` — La tabella di connessione di un firewall stateful: solo i pacchetti che appartengono a una sessione già stabilita passano.
 
 ## Più RAM = PC più veloce? Non sempre!
 *(Miti Digitali)*
