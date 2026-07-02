@@ -917,7 +917,14 @@ function initContactForm() {
       }
     } catch (err) {
       submitBtn.textContent = originalText;
-      setNote('Ops, invio non riuscito. Riprova tra poco o scrivi a ' + (BITGEN_CONFIG.site.email || 'info@bitgen.it') + '.', false);
+      const m = String((err && err.message) || '');
+      if (/activ/i.test(m)) {
+        // Stato transitorio: il modulo va attivato UNA volta dal proprietario
+        // (link inviato via email). Dopo, gli invii vanno a buon fine.
+        setNote('Modulo in attivazione: se sei il gestore del sito, clicca il link di attivazione ricevuto via email. Riprova tra qualche minuto.', false);
+      } else {
+        setNote('Ops, invio non riuscito. Riprova tra poco o scrivi a ' + (BITGEN_CONFIG.site.email || 'info@bitgen.it') + '.', false);
+      }
     } finally {
       setTimeout(() => {
         submitBtn.disabled = false;
