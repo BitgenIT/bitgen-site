@@ -907,11 +907,13 @@ function initContactForm() {
       });
       const data = await res.json().catch(() => ({}));
       if (res.ok && (data.success === 'true' || data.success === true)) {
-        form.reset();
-        submitBtn.textContent = '✓ Messaggio inviato';
-        submitBtn.style.background = 'var(--green-darker)';
-        setNote('Grazie! Ho ricevuto il tuo messaggio, ti rispondo entro 2-3 giorni lavorativi.', true);
         trackEvent('contact_submit', { subject });
+        form.reset();
+        submitBtn.textContent = '✓ Inviato';
+        submitBtn.style.background = 'var(--green-darker)';
+        // Porta l'utente alla pagina di ringraziamento
+        window.location.assign('grazie.html');
+        return;
       } else {
         throw new Error((data && data.message) || 'invio non riuscito');
       }
