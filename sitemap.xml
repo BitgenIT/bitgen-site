@@ -2,27 +2,177 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://bitgen.it/</loc>
-    <lastmod>2026-06-30</lastmod>
+    <lastmod>2026-07-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://bitgen.it/enciclopedia.html</loc>
-    <lastmod>2026-06-30</lastmod>
+    <lastmod>2026-07-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://bitgen.it/guide.html</loc>
+    <lastmod>2026-07-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://bitgen.it/contatti.html</loc>
-    <lastmod>2026-06-30</lastmod>
+    <lastmod>2026-07-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://bitgen.it/privacy.html</loc>
-    <lastmod>2026-06-30</lastmod>
+    <lastmod>2026-07-13</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/digitale-pratico/cercare-file-cartelle-e-programmi-su-windows-linux-e-mac.html</loc>
+    <lastmod>2026-07-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/sistema-software/formattazione-normale-veloce-e-a-basso-livello-che-differenz.html</loc>
+    <lastmod>2026-07-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/sicurezza/navigazione-normale-in-incognito-o-con-vpn-chi-vede-davvero-.html</loc>
+    <lastmod>2026-07-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/sicurezza/nmap-e-le-scansioni-di-rete-scoprire-chi-ce-e-quali-porte-so.html</loc>
+    <lastmod>2026-07-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/sicurezza/spoofing-e-wireshark-come-si-ascolta-una-rete-e-come-ci-si-d.html</loc>
+    <lastmod>2026-07-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/reti-internet/topologie-di-rete-stella-albero-anello-bus-e-maglia-quale-qu.html</loc>
+    <lastmod>2026-07-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/digitale-pratico/dove-mettere-laccess-point-la-guida-al-posizionamento-del-wi.html</loc>
+    <lastmod>2026-07-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/digitale-pratico/rete-mesh-si-o-no-quando-conviene-davvero-e-quando-e-uno-spr.html</loc>
+    <lastmod>2026-07-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/sistema-software/shadow-copy-volume-shadow-copy-le-istantanee-nascoste-che-ti.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/hardware-periferiche/il-collo-di-bottiglia-quando-un-componente-frena-tutti-gli-a.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/reti-internet/il-teaming-delle-schede-di-rete-unire-piu-schede-in-una-sola.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/ma-cose/binario-ottale-ed-esadecimale-i-sistemi-di-numerazione-del-c.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/sicurezza/virus-rilevato-i-finti-pop-up-allarmanti-e-le-estensioni-can.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/sistema-software/le-funzionalita-di-windows-il-pannello-dove-accendi-e-spegni.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/sistema-software/il-pannello-di-controllo-il-vecchio-cuore-di-windows-e-perch.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/sistema-software/gli-strumenti-di-amministrazione-di-windows-la-cassetta-degl.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/sistema-software/la-deframmentazione-cose-e-serve-ancora-hdd-si-ssd-no.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/sicurezza/spf-dkim-e-dmarc-come-lemail-dimostra-di-non-essere-falsa.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/reti-internet/dnssec-la-firma-che-impedisce-di-dirottare-il-dns.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/reti-internet/smb-1-2-e-3-il-protocollo-con-cui-windows-condivide-file-e-p.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/digitale-pratico/i-widget-di-windows-11-cosa-sono-e-come-gestirli-o-spegnerli.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/digitale-pratico/come-cambiare-la-scheda-grafica-gpu-passo-passo.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/digitale-pratico/come-cambiare-il-processore-cpu-quando-si-puo-e-come-farlo.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/hardware-periferiche/la-serigrafia-della-scheda-madre-cosa-significano-le-scritte.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://bitgen.it/enciclopedia/sistema-software/lottimizzazione-del-codice-quando-ci-voleva-il-genio-per-ris.html</loc>

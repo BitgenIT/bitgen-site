@@ -410,11 +410,14 @@ function createArticleCard(art, featured = false) {
     ? `<img class="article-thumb-img" src="${escapeHtml(resolveImg(art.thumbnail))}" alt="${escapeHtml(art.titolo)}" loading="lazy">`
     : `<div class="article-thumbnail-inner">BItGen</div>`;
 
+  const readBadge = isLetto(art.id) ? `<span class="card-read-badge">✓ Letto</span>` : '';
+
   return `
     <a href="${articoloHref(art)}" class="article-card">
       <div class="article-thumbnail" style="background: linear-gradient(135deg, ${color}dd 0%, ${color} 100%);">
         <div class="article-rubrica-badge">${icon} ${escapeHtml(art.rubrica)}</div>
         <div class="article-duration">▶ ${escapeHtml(art.durata)}</div>
+        ${readBadge}
         ${thumbInner}
       </div>
       <div class="article-content">
@@ -786,11 +789,30 @@ function renderArticolo() {
     </div>
 
     <div class="article-footer-share">
+      <button type="button" class="read-toggle" id="read-toggle" aria-pressed="false">
+        <span class="dot">✓</span> <span class="read-toggle-text">Segna come letto</span>
+      </button>
       <a href="enciclopedia.html" class="btn btn-secondary">← Torna all'enciclopedia</a>
     </div>
   `;
 
   wireFigureFallbacks(container);
+
+  // Progresso di lettura: aprire un articolo lo segna automaticamente come letto,
+  // con la possibilità di annullare tramite il pulsante.
+  setLetto(art.id, true);
+  const readToggle = document.getElementById('read-toggle');
+  if (readToggle) {
+    const syncRead = () => {
+      const on = isLetto(art.id);
+      readToggle.classList.toggle('is-read', on);
+      readToggle.setAttribute('aria-pressed', on ? 'true' : 'false');
+      const txt = readToggle.querySelector('.read-toggle-text');
+      if (txt) txt.textContent = on ? 'Segnato come letto' : 'Segna come letto';
+    };
+    syncRead();
+    readToggle.addEventListener('click', () => { toggleLetto(art.id); syncRead(); });
+  }
 
   // Cablaggio dello switch breve / approfondita / tecnico
   if (mostraToggle) {
@@ -1077,6 +1099,178 @@ function setSEOForPage(page) {
 
 
 // ============================================
+// PROGRESSO DI LETTURA (localStorage, senza account)
+// ============================================
+// Salviamo nel browser gli id degli articoli che l'utente ha già letto.
+// Serve alle guide (checklist + avanzamento) e al badge "letto" sulle card.
+const LETTI_KEY = 'bitgen_letti_v1';
+
+function getLetti() {
+  try {
+    const raw = localStorage.getItem(LETTI_KEY);
+    if (!raw) return {};
+    const obj = JSON.parse(raw);
+    return (obj && typeof obj === 'object') ? obj : {};
+  } catch (e) { return {}; }
+}
+function saveLetti(map) {
+  try { localStorage.setItem(LETTI_KEY, JSON.stringify(map)); } catch (e) { /* storage non disponibile */ }
+}
+function isLetto(id) {
+  return !!(id && getLetti()[id]);
+}
+function setLetto(id, letto) {
+  if (!id) return;
+  const map = getLetti();
+  if (letto) map[id] = Date.now();
+  else delete map[id];
+  saveLetti(map);
+}
+function toggleLetto(id) {
+  const nuovo = !isLetto(id);
+  setLetto(id, nuovo);
+  return nuovo;
+}
+
+
+// ============================================
+// GUIDE (percorsi di lettura)
+// ============================================
+function guideProgress(g) {
+  const tot = (g.articoli || []).length;
+  const letti = (g.articoli || []).filter(id => isLetto(id)).length;
+  return { tot, letti, pct: tot ? Math.round(letti / tot * 100) : 0 };
+}
+
+function renderGuideIndex() {
+  const root = document.getElementById('guide-root');
+  if (!root) return;
+  const lista = (typeof guide !== 'undefined') ? guide : [];
+  const ph = document.getElementById('guide-page-header');
+  if (ph) ph.style.display = '';
+  if (!lista.length) {
+    root.innerHTML = `<div class="no-results"><div class="no-results-icon">📘</div><h3>Nessuna guida disponibile</h3><p>Le guide arriveranno presto.</p></div>`;
+    return;
+  }
+  root.innerHTML = '<div class="guide-grid">' + lista.map(g => {
+    const p = guideProgress(g);
+    return `
+      <a class="guide-card" href="guide.html?g=${encodeURIComponent(g.id)}">
+        <div class="guide-card-top">
+          <div class="guide-card-icon">${escapeHtml(g.icona || '📘')}</div>
+          <span class="guide-level">${escapeHtml(g.livello || 'Base')}</span>
+        </div>
+        <h3>${escapeHtml(g.titolo)}</h3>
+        <p>${escapeHtml(g.descrizione || '')}</p>
+        <div class="guide-card-foot">
+          <div class="guide-count">
+            <span>${p.tot} ${p.tot === 1 ? 'articolo' : 'articoli'}</span>
+            <strong>${p.letti}/${p.tot} letti</strong>
+          </div>
+          <div class="guide-bar"><span style="width:${p.pct}%"></span></div>
+        </div>
+      </a>`;
+  }).join('') + '</div>';
+}
+
+function renderGuideDetail(gid) {
+  const root = document.getElementById('guide-root');
+  if (!root) return;
+  const lista = (typeof guide !== 'undefined') ? guide : [];
+  const g = lista.find(x => x.id === gid);
+  if (!g) { renderGuideIndex(); return; }
+
+  const ph = document.getElementById('guide-page-header');
+  if (ph) ph.style.display = 'none';
+
+  setSEO({ title: g.titolo, description: g.descrizione || `Percorso di lettura: ${g.titolo}`, type: 'website' });
+  document.title = `${g.titolo} — Guide BItGen`;
+  trackEvent('view_guide', { guide_id: g.id, guide_title: g.titolo });
+
+  const p = guideProgress(g);
+  const steps = (g.articoli || []).map((id, i) => {
+    const art = articoli.find(a => a.id === id);
+    const letto = isLetto(id);
+    if (!art) {
+      return `<div class="guide-step is-missing"><span class="guide-step-num">${i + 1}</span>
+        <div class="guide-step-link"><span class="guide-step-title">Articolo non disponibile</span>
+        <span class="guide-step-meta">${escapeHtml(id)}</span></div></div>`;
+    }
+    return `
+      <div class="guide-step${letto ? ' is-read' : ''}" data-id="${escapeHtml(id)}">
+        <button type="button" class="guide-check" role="checkbox" aria-checked="${letto ? 'true' : 'false'}" aria-label="Segna come letto o da leggere" title="Segna come letto / da leggere">✓</button>
+        <span class="guide-step-num">${i + 1}</span>
+        <a class="guide-step-link" href="${articoloHref(art)}">
+          <span class="guide-step-title">${escapeHtml(art.titolo)}</span>
+          <span class="guide-step-meta">${escapeHtml(art.rubrica)} · ${getReadingTime(art.contenuto || art.contenutoBreve)}</span>
+        </a>
+        <span class="guide-step-arrow" aria-hidden="true">→</span>
+      </div>`;
+  }).join('');
+
+  root.innerHTML = `
+    <a class="guide-back" href="guide.html">← Tutte le guide</a>
+    <div class="guide-detail-head">
+      <div class="guide-card-icon">${escapeHtml(g.icona || '📘')}</div>
+      <div>
+        <h1>${escapeHtml(g.titolo)}</h1>
+        <p>${escapeHtml(g.descrizione || '')}</p>
+      </div>
+    </div>
+    <div class="guide-progress-box">
+      <div class="guide-progress-label">
+        <span>Il tuo avanzamento</span>
+        <strong id="guide-pct">${p.letti} di ${p.tot} · ${p.pct}%</strong>
+      </div>
+      <div class="guide-bar"><span id="guide-fill" style="width:${p.pct}%"></span></div>
+      <div class="guide-actions">
+        <button type="button" id="guide-mark-all">Segna tutti come letti</button>
+        <button type="button" id="guide-reset">Azzera progresso</button>
+      </div>
+    </div>
+    <div class="guide-steps">${steps}</div>
+  `;
+
+  const updateProgress = () => {
+    const pp = guideProgress(g);
+    const fill = document.getElementById('guide-fill');
+    const pct = document.getElementById('guide-pct');
+    if (fill) fill.style.width = pp.pct + '%';
+    if (pct) pct.textContent = `${pp.letti} di ${pp.tot} · ${pp.pct}%`;
+  };
+
+  root.querySelectorAll('.guide-step[data-id]').forEach(step => {
+    const id = step.dataset.id;
+    const check = step.querySelector('.guide-check');
+    if (!check) return;
+    check.addEventListener('click', (e) => {
+      e.preventDefault();
+      const nuovo = toggleLetto(id);
+      step.classList.toggle('is-read', nuovo);
+      check.setAttribute('aria-checked', nuovo ? 'true' : 'false');
+      updateProgress();
+    });
+  });
+  const markAll = document.getElementById('guide-mark-all');
+  if (markAll) markAll.addEventListener('click', () => {
+    (g.articoli || []).forEach(id => setLetto(id, true));
+    renderGuideDetail(gid);
+  });
+  const reset = document.getElementById('guide-reset');
+  if (reset) reset.addEventListener('click', () => {
+    (g.articoli || []).forEach(id => setLetto(id, false));
+    renderGuideDetail(gid);
+  });
+}
+
+function initGuide() {
+  const gid = new URLSearchParams(window.location.search).get('g');
+  if (gid) renderGuideDetail(gid);
+  else renderGuideIndex();
+}
+
+
+// ============================================
 // INITIALIZATION
 // ============================================
 
@@ -1095,6 +1289,9 @@ document.addEventListener('DOMContentLoaded', () => {
       break;
     case 'enciclopedia':
       initEnciclopedia();
+      break;
+    case 'guide':
+      initGuide();
       break;
     case 'articolo':
       renderArticolo();

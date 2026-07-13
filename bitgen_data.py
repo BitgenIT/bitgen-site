@@ -27,6 +27,7 @@ from datetime import datetime
 from pathlib import Path
 
 ARRAY_NAME = "articoliGrezzi"
+GUIDE_ARRAY = "guideGrezze"
 MAX_BACKUP = 15  # quanti backup tenere
 
 
@@ -83,25 +84,25 @@ def estratto_articolo(art):
     return estrae_estratto(base)
 
 
-def _individua_array(testo):
-    """Trova gli indici [start, end) del literal array JSON dopo 'const articoliGrezzi ='.
+def _individua_array(testo, nome=ARRAY_NAME):
+    """Trova gli indici [start, end) del literal array JSON dopo 'const <nome> ='.
 
     Ritorna (parsed_list, start_bracket, end_after_bracket).
     Solleva ValueError se non trova un array JSON valido.
     """
-    m = re.search(r'\b' + re.escape(ARRAY_NAME) + r'\s*=\s*', testo)
+    m = re.search(r'\b' + re.escape(nome) + r'\s*=\s*', testo)
     if not m:
-        raise ValueError(f"Non trovo '{ARRAY_NAME} = ...' in data.js")
+        raise ValueError(f"Non trovo '{nome} = ...' nel file")
     start = testo.find('[', m.end())
     if start == -1:
-        raise ValueError("Non trovo l'inizio dell'array '[' in data.js")
+        raise ValueError(f"Non trovo l'inizio dell'array '[' per {nome}")
     try:
-        articoli, end = json.JSONDecoder().raw_decode(testo, start)
+        dati, end = json.JSONDecoder().raw_decode(testo, start)
     except json.JSONDecodeError as e:
-        raise ValueError(f"L'array degli articoli non è JSON valido: {e}")
-    if not isinstance(articoli, list):
-        raise ValueError("Il valore di articoliGrezzi non è una lista")
-    return articoli, start, end
+        raise ValueError(f"L'array {nome} non è JSON valido: {e}")
+    if not isinstance(dati, list):
+        raise ValueError(f"Il valore di {nome} non è una lista")
+    return dati, start, end
 
 
 def leggi_articoli(data_js_path):
@@ -157,26 +158,27 @@ def _backup(path):
     return backup
 
 
-def scrivi_articoli(data_js_path, articoli):
-    """Riscrive l'array articoli in data.js in modo atomico e validato.
+def _scrivi_array(js_path, items, nome, pulisci):
+    """Riscrive l'array <nome> nel file JS in modo atomico e validato.
 
-    Ritorna il Path del backup creato. Solleva ValueError se la validazione fallisce
-    (in tal caso il file ORIGINALE non viene toccato).
+    `pulisci` è una funzione che normalizza un singolo elemento prima della
+    scrittura. Ritorna il Path del backup creato. Solleva ValueError se la
+    validazione fallisce (in tal caso il file ORIGINALE non viene toccato).
     """
-    path = Path(data_js_path)
+    path = Path(js_path)
     testo = path.read_text(encoding='utf-8')
-    _, start, end = _individua_array(testo)
+    _, start, end = _individua_array(testo, nome)
 
-    puliti = [_pulisci_articolo(a) for a in articoli]
+    puliti = [pulisci(a) for a in items]
     nuovo_json = json.dumps(puliti, ensure_ascii=False, indent=2)
     nuovo_testo = testo[:start] + nuovo_json + testo[end:]
 
     # VALIDAZIONE pre-scrittura: ri-parsa il risultato e verifica il conteggio
-    ricontrollo, _, _ = _individua_array(nuovo_testo)
+    ricontrollo, _, _ = _individua_array(nuovo_testo, nome)
     if len(ricontrollo) != len(puliti):
         raise ValueError(
-            f"Validazione fallita: attesi {len(puliti)} articoli, "
-            f"riletti {len(ricontrollo)}. data.js NON è stato modificato.")
+            f"Validazione fallita: attesi {len(puliti)} elementi, "
+            f"riletti {len(ricontrollo)}. Il file NON è stato modificato.")
 
     backup = _backup(path)
 
@@ -185,3 +187,52 @@ def scrivi_articoli(data_js_path, articoli):
     tmp.write_text(nuovo_testo, encoding='utf-8')
     os.replace(str(tmp), str(path))
     return backup
+
+
+def scrivi_articoli(data_js_path, articoli):
+    """Riscrive l'array articoli in data.js in modo atomico e validato."""
+    return _scrivi_array(data_js_path, articoli, ARRAY_NAME, _pulisci_articolo)
+
+
+# ────────────────────────────────────────
+# GUIDE (percorsi di lettura) — assets/js/guide.js
+# ────────────────────────────────────────
+
+def _pulisci_guida(g):
+    """Normalizza una guida: ordina i campi noti, scarta i vuoti, preserva gli extra."""
+    ordine = ['titolo', 'descrizione', 'icona', 'livello', 'articoli', 'id']
+    out = {}
+    for k in ordine:
+        if k in g:
+            v = g[k]
+            if v is None:
+                continue
+            if isinstance(v, str) and v.strip() == '':
+                continue
+            if isinstance(v, list) and len(v) == 0:
+                # 'articoli' vuoto è ammesso (guida in costruzione)
+                if k == 'articoli':
+                    out[k] = []
+                continue
+            out[k] = v
+    for k, v in g.items():
+        if k not in out:
+            out[k] = v
+    return out
+
+
+def id_guida(g):
+    """Id/slug di una guida: campo 'id' se presente, altrimenti slug del titolo."""
+    return g.get('id') or slugify(g.get('titolo', ''))
+
+
+def leggi_guide(guide_js_path):
+    """Ritorna la lista di guide (dict) lette da guide.js, nell'ordine del file."""
+    testo = Path(guide_js_path).read_text(encoding='utf-8')
+    guide, _, _ = _individua_array(testo, GUIDE_ARRAY)
+    return guide
+
+
+def scrivi_guide(guide_js_path, guide):
+    """Riscrive l'array guide in guide.js in modo atomico e validato."""
+    return _scrivi_array(guide_js_path, guide, GUIDE_ARRAY, _pulisci_guida)

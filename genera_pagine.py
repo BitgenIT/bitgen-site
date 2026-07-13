@@ -39,11 +39,11 @@ ENC_DIR = "enciclopedia"
 
 # File di codice/dati su cui applicare il cache-busting (?v=hash)
 ASSET_VERSIONABILI = [
-    "assets/js/config.js", "assets/js/data.js",
+    "assets/js/config.js", "assets/js/data.js", "assets/js/guide.js",
     "assets/js/main.js", "assets/js/consent.js", "assets/css/style.css",
 ]
 ASSET_RE = re.compile(
-    r'(assets/(?:js/(?:config|data|main|consent)\.js|css/style\.css))(\?v=[0-9a-f]+)?')
+    r'(assets/(?:js/(?:config|data|guide|main|consent)\.js|css/style\.css))(\?v=[0-9a-f]+)?')
 
 try:
     sys.stdout.reconfigure(encoding="utf-8")

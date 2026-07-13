@@ -227,9 +227,30 @@ def aggiungi_articolo():
     print()
 
 
+def menu_principale():
+    while True:
+        print()
+        print(colored("=" * 60, 'green'))
+        print(colored("  BItGen - Gestione contenuti", 'bold'))
+        print(colored("=" * 60, 'green'))
+        print("  1. Aggiungi un nuovo articolo")
+        print("  2. Gestisci le guide (percorsi di lettura)")
+        print(colored("  q. Esci", 'yellow'))
+        scelta = input(colored("scelta: ", 'yellow')).strip().lower()
+        if scelta == '1':
+            aggiungi_articolo()
+        elif scelta == '2':
+            # import ritardato: il gestore guide vive in un file separato
+            import gestisci_guide
+            gestisci_guide.main()
+        elif scelta in ('q', 'quit', 'esci', ''):
+            print(colored("A presto!", 'blue'))
+            return
+
+
 if __name__ == "__main__":
     try:
-        aggiungi_articolo()
+        menu_principale()
     except KeyboardInterrupt:
         print(colored("\n\nInterrotto dall'utente.", 'yellow'))
         sys.exit(0)

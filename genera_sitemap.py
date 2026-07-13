@@ -77,6 +77,7 @@ def genera_sitemap(url_base, articoli):
     pagine = [
         ('/', '1.0', 'daily'),
         ('/enciclopedia.html', '0.9', 'daily'),
+        ('/guide.html', '0.7', 'weekly'),
         ('/contatti.html', '0.5', 'monthly'),
         ('/privacy.html', '0.2', 'yearly'),
     ]
