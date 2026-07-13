@@ -188,8 +188,8 @@ def editor_guida(guida, articoli, idx, guide, nuova=False):
             if not guida.get('titolo'):
                 print(colored("Serve almeno un titolo.", 'red'))
                 continue
-            if not guida.get('id'):
-                guida['id'] = bd.slugify(guida['titolo'])
+            # Non forziamo un campo 'id' esplicito: il sito lo calcola da solo con
+            # slugifyGuida(titolo) (coerente con le guide esistenti e con bitgen_manager).
             if nuova:
                 guide.append(guida)
             salva(guide)

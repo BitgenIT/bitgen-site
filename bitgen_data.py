@@ -215,15 +215,32 @@ def _pulisci_guida(g):
                     out[k] = []
                 continue
             out[k] = v
+    # preserva SOLO eventuali campi extra sconosciuti (non i campi noti già gestiti)
     for k, v in g.items():
-        if k not in out:
+        if k not in out and k not in ordine:
             out[k] = v
     return out
 
 
+def slugify_guida(text):
+    """Slug per le GUIDE: identico a slugifyGuida() in guide.js.
+
+    Come slugify() ma rimuove i trattini iniziali/finali PRIMA del taglio a 60,
+    così l'id coincide con quello con cui guide.js indicizza la guida (?g=<id>).
+    """
+    text = (text or "").lower()
+    text = unicodedata.normalize('NFD', text)
+    text = ''.join(c for c in text if unicodedata.category(c) != 'Mn')
+    text = re.sub(r'[^a-z0-9\s-]', '', text)
+    text = re.sub(r'\s+', '-', text.strip())
+    text = re.sub(r'-+', '-', text)
+    text = text.strip('-')
+    return text[:60]
+
+
 def id_guida(g):
     """Id/slug di una guida: campo 'id' se presente, altrimenti slug del titolo."""
-    return g.get('id') or slugify(g.get('titolo', ''))
+    return g.get('id') or slugify_guida(g.get('titolo', ''))
 
 
 def leggi_guide(guide_js_path):
