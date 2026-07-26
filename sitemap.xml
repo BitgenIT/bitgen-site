@@ -2,33 +2,63 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://bitgen.it/</loc>
-    <lastmod>2026-07-13</lastmod>
+    <lastmod>2026-07-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://bitgen.it/enciclopedia.html</loc>
-    <lastmod>2026-07-13</lastmod>
+    <lastmod>2026-07-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://bitgen.it/guide.html</loc>
-    <lastmod>2026-07-13</lastmod>
+    <lastmod>2026-07-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://bitgen.it/contatti.html</loc>
-    <lastmod>2026-07-13</lastmod>
+    <lastmod>2026-07-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://bitgen.it/privacy.html</loc>
-    <lastmod>2026-07-13</lastmod>
+    <lastmod>2026-07-26</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/digitale-pratico/rimozione-sicura-dellhardware-serve-ancora-espellere-la-chia.html</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/reti-internet/iscsi-usare-un-disco-che-sta-in-rete-come-se-fosse-dentro-il.html</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/ma-cose/modem-o-router-la-differenza-che-quasi-nessuno-ti-spiega.html</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/sicurezza/vpn-o-proxy-sembrano-uguali-ma-proteggono-in-modo-molto-dive.html</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bitgen.it/enciclopedia/ma-cose/nas-san-e-sas-tre-sigle-simili-tre-cose-diversissime.html</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://bitgen.it/enciclopedia/digitale-pratico/cercare-file-cartelle-e-programmi-su-windows-linux-e-mac.html</loc>
